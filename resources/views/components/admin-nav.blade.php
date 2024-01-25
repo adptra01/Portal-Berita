@@ -1,10 +1,21 @@
 <ul class="menu-inner py-1">
 
-    <li class="menu-item active">
-        <a href="#" class="menu-link">
+    <li class="menu-item {{ request()->is('home') ? 'active' : '' }}">
+        <a href="/home" class="menu-link">
             <i class="menu-icon tf-icons bx bx-home-circle"></i>
-            <div data-i18n="Analytics">Dashboard</div>
+            <div data-i18n="home">Home</div>
         </a>
+    </li>
+
+    <li class="menu-item {{ request()->is('categories') ? 'active' : '' }}">
+        <a href="{{ route('categories.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+            <div data-i18n="categories">Kategori</div>
+        </a>
+    </li>
+
+    <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Pages</span>
     </li>
 
 

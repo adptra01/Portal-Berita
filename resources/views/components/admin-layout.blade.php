@@ -9,7 +9,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? config('app.name', 'Laravel') }} - SIBANYU</title>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('/assets/img/favicon/favicon.ico') }}" />
 
@@ -37,7 +37,7 @@
     <script src="{{ asset('/assets/js/config.js') }}"></script>
 
     @vite([])
-
+    @livewireStyles
 </head>
 
 <body>
@@ -239,6 +239,8 @@
     <script src="{{ asset('/assets/js/main.js') }}"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js') }}"></script>
+
+    @livewireScripts
 </body>
 
 </html>
