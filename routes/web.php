@@ -24,4 +24,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::resource('/categories', CategoryController::class);
+Route::view('/categories', 'admin.articles.categories')->name('categories.index');
+Route::view('/articles', 'admin.articles.index')->name('articles.index');
+Route::view('/articles/create', 'admin.articles.create')->name('articles.create');

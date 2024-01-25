@@ -36,8 +36,10 @@
 
     <script src="{{ asset('/assets/js/config.js') }}"></script>
 
-    @vite([])
+    @stack('css')
+
     @livewireStyles
+    @vite([])
 </head>
 
 <body>
@@ -192,22 +194,36 @@
 
                 <div class="content-wrapper">
 
-
                     <div class="container-xxl flex-grow-1 container-p-y">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <span href="#">Home</span>
+                                </li>
+                                <li class="breadcrumb-item active">{{ $title ?? 'SIBANYU' }}</li>
+                            </ol>
+                        </nav>
 
+                        <div class="bs-toast toast fade show position-absolute top-0 end-0 m-3 bg-primary"
+                            role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-body">
+                                <i class="bx bxs-bell bx-tada"></i>
+                                Proses berhasil
+                            </div>
+                        </div>
+
+                        {{ $slot }}
 
 
                         <footer class="content-footer footer bg-footer-theme">
                             <div
                                 class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                                 <div class="mb-2 mb-md-0">
-                                    ©
-                                    <script>
-                                        document.write(new Date().getFullYear());
-                                    </script>
-                                    , Butuh bantuan ?
+                                    Butuh bantuan ?
                                     <a href="https://api.whatsapp.com/send/?phone=628978301766&text&type=phone_number&app_absent=0"
-                                        target="_blank" class="footer-link fw-bolder">Whatsapp</a>
+                                        target="_blank" class="footer-link fw-bolder text-primary">Whatsapp <i
+                                            class="menu-icon tf-icons bx bx-support"></i>
+                                    </a>
                                 </div>
                                 <div>
                                     <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
@@ -239,6 +255,17 @@
     <script src="{{ asset('/assets/js/main.js') }}"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js') }}"></script>
+
+    {{-- <script type="text/javascript">
+        setTimeout(function() {
+
+            // Closing the alert
+            $('.toast').alert('close');
+        }, 5000);
+    </script> --}}
+
+    @stack('scripts')
+
 
     @livewireScripts
 </body>

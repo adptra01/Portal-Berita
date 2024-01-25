@@ -11,7 +11,7 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'slug', 'category_id', 'content'
+        'title', 'slug', 'category_id', 'content', 'user_id',
     ];
 
     /**
@@ -21,6 +21,16 @@ class Article extends Model
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(category::class);
+        return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Get the user that owns the Article
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
