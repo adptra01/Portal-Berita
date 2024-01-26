@@ -26,19 +26,20 @@ class ArticleController extends Controller
     }
     public function store(ArticleRequest $request)
     {
-        // dd($request->all());
-        // 'title',
-        // 'thumbnail',
-        // 'slug',
-        // 'content',
-        // 'category_id',
-        // 'status_id',
-        // 'user_id',
 
         $validate_data = $request->validated();
+
+        // thumbnail  image
+        $request->file('thumbnail')->getClientOriginalName();
+        $validate_data['thumbnail'] = $request->file('thumbnail')->store('public/thumbnail');
+
+        //slug and author
         $validate_data['slug'] = Str::slug($request->title) . '-' . Str::random(5);
         $validate_data['user_id'] = auth()->user()->id;
 
+        // save the validation data
         Article::create($validate_data);
+
+        return redirect()->route('articles.index');
     }
 }
