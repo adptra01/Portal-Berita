@@ -24,7 +24,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::view('/categories', 'admin.articles.categories')->name('categories.index');
+Route::view('/categories', 'admin.article.categories')->name('categories.index');
 
 Route::controller(ArticleController::class)
     ->prefix('articles')
