@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +25,12 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::view('/categories', 'admin.articles.categories')->name('categories.index');
-Route::view('/articles', 'admin.articles.index')->name('articles.index');
-Route::view('/articles/create', 'admin.articles.create')->name('articles.create');
+
+Route::controller(ArticleController::class)
+    ->prefix('articles')
+    ->as('articles.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+    });
