@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Article extends Model
+class Post extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'title',
         'thumbnail',
@@ -22,7 +21,7 @@ class Article extends Model
     ];
 
     /**
-     * Get the category that owns the Article
+     * Get the category that owns the post
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -32,7 +31,7 @@ class Article extends Model
     }
 
     /**
-     * Get the user that owns the Article
+     * Get the user that owns the post
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

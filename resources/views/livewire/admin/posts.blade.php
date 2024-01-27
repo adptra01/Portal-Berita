@@ -1,23 +1,23 @@
 <?php
 
 use function Livewire\Volt\{state, computed, usesPagination, rules};
-use App\Models\Article;
+use App\Models\Post;
 
 usesPagination(theme: 'bootstrap');
 
 state(['search'])->url();
-state(['articleId']);
+state(['postId']);
 
-$articles = computed(function () {
-    return Article::where('title', 'like', '%' . $this->search . '%')
+$posts = computed(function () {
+    return Post::where('title', 'like', '%' . $this->search . '%')
         ->select('id', 'title', 'thumbnail', 'user_id')
         ->latest()
         ->paginate(10);
 });
 
-$destroy = function (Article $article) {
-    Storage::delete($article->thumbnail);
-    $article->delete();
+$destroy = function (post $post) {
+    Storage::delete($post->thumbnail);
+    $post->delete();
 };
 
 ?>
@@ -26,7 +26,7 @@ $destroy = function (Article $article) {
     <div class="card">
         <div class="card-header justify-content-between row">
             <div class="col-md">
-                <a class="btn btn-primary" href="{{ route('articles.create') }}" role="button">Buat Berita Baru</a>
+                <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Buat Berita Baru</a>
             </div>
             <div class="col-md">
                 <div class="mb-3">
@@ -52,16 +52,16 @@ $destroy = function (Article $article) {
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($this->articles as $no => $article)
+                        @foreach ($this->posts as $no => $post)
                             <tr>
                                 <td>{{ ++$no }}</td>
                                 <td>
-                                    <img src="{{ Storage::url($article->thumbnail) }}" class="rounded w-px-50 h-auto"
-                                        alt="{{ $article->title }}" />
+                                    <img src="{{ Storage::url($post->thumbnail) }}" class="rounded w-px-50 h-auto"
+                                        alt="{{ $post->title }}" />
                                 </td>
-                                <td>{{ $article->title }}</td>
+                                <td>{{ $post->title }}</td>
                                 <td>
-                                    <span class="text-nowrap">{{ $article->user->name }}</span>
+                                    <span class="text-nowrap">{{ $post->user->name }}</span>
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-around gap-2">
@@ -69,7 +69,7 @@ $destroy = function (Article $article) {
                                             Ubah
                                         </button>
                                         <button type="button" class="btn btn-danger btn-sm"
-                                            wire:click='destroy({{ $article->id }})'
+                                            wire:click='destroy({{ $post->id }})'
                                             wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus"
                                             wire:loading.attr="disabled">
                                             Hapus
@@ -83,10 +83,10 @@ $destroy = function (Article $article) {
             </div>
             <div class="my-4 row align-items-center">
                 <div class="col-md">
-                    {{ $this->articles->links() }}
+                    {{ $this->posts->links() }}
                 </div>
                 <div class="col-md text-end">
-                    <p>Menampilkan {{ $this->articles->count() }} hasil</p>
+                    <p>Menampilkan {{ $this->posts->count() }} hasil</p>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <x-admin-layout>
     <x-slot name="title">Berita</x-slot>
 
-    <livewire:admin.articles>
+    <livewire:admin.posts>
 </x-admin-layout>

@@ -14,8 +14,8 @@
         </a>
     </li>
 
-    <li class="menu-item {{ request()->is('articles') ? 'active' : '' }}">
-        <a href="{{ route('articles.index') }}" class="menu-link">
+    <li class="menu-item {{ request()->is('posts') ? 'active' : '' }}">
+        <a href="{{ route('posts.index') }}" class="menu-link">
             <i class="menu-icon tf-icons bx bx-file"></i>
             <div data-i18n="categories">Berita</div>
         </a>

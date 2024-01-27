@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
-use App\Models\Status;
 use App\Models\User;
+use App\Models\Status;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
-class ArticleFactory extends Factory
+class PostFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -27,7 +27,6 @@ class ArticleFactory extends Factory
             'category_id' => Category::all()->random()->id,
             'user_id' => User::all()->random()->id,
             'status_id' => Status::all()->random()->id,
-
         ];
     }
 }

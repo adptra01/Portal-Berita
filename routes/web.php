@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,11 +24,11 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::view('/categories', 'admin.article.categories')->name('categories.index');
+Route::view('/categories', 'admin.post.categories')->name('categories.index');
 
-Route::controller(ArticleController::class)
-    ->prefix('articles')
-    ->as('articles.')
+Route::controller(PostController::class)
+    ->prefix('posts')
+    ->as('posts.')
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
@@ -37,4 +37,4 @@ Route::controller(ArticleController::class)
         Route::put('/{id}', 'update')->name('update');
     });
 
-Route::get('article/{slug}', [HomeController::class, 'preview'])->name('article.preview');
+// Route::get('news/{slug}', [HomeController::class, 'preview'])->name('article.preview');

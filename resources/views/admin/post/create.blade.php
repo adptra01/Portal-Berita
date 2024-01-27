@@ -4,7 +4,7 @@
     @include('layouts.bs-select')
 
     <div class="card">
-        <form action="{{ route('articles.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="mb-3">

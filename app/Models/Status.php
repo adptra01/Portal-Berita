@@ -15,12 +15,12 @@ class Status extends Model
     ];
 
     /**
-     * Get all of the articles for the Category
+     * Get all of the Posts for the Category
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function articles(): HasMany
+    public function Posts(): HasMany
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Post::class);
     }
 }

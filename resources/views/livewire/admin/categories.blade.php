@@ -11,7 +11,9 @@ state(['name', 'slug', 'categoryId']);
 rules(['name' => 'required|min:3|string']);
 
 $categories = computed(function () {
-    return category::where('name', 'like', '%' . $this->search . '%')->paginate(10);
+    return category::where('name', 'like', '%' . $this->search . '%')
+        ->latest()
+        ->paginate(10);
 });
 
 $save = function (Category $category) {
