@@ -10,11 +10,13 @@ state(['articleId']);
 
 $articles = computed(function () {
     return Article::where('title', 'like', '%' . $this->search . '%')
-        ->select('id', 'title', 'category_id', 'user_id')
+        ->select('id', 'title', 'thumbnail', 'user_id')
+        ->latest()
         ->paginate(10);
 });
 
 $destroy = function (Article $article) {
+    Storage::delete($article->thumbnail);
     $article->delete();
 };
 
@@ -43,8 +45,8 @@ $destroy = function (Article $article) {
                     <thead>
                         <tr>
                             <th>No.</th>
+                            <th>Thumbnail</th>
                             <th>Judul Berita</th>
-                            <th>Kategori</th>
                             <th>Penulis</th>
                             <th class="text-center">#</th>
                         </tr>
@@ -53,11 +55,11 @@ $destroy = function (Article $article) {
                         @foreach ($this->articles as $no => $article)
                             <tr>
                                 <td>{{ ++$no }}</td>
-                                <td>{{ $article->title }}</td>
                                 <td>
-                                    <small
-                                        class="badge bg-label-secondary text-wrap lh-lg">{{ $article->category->name }}</small>
+                                    <img src="{{ Storage::url($article->thumbnail) }}" class="rounded w-px-50 h-auto"
+                                        alt="{{ $article->title }}" />
                                 </td>
+                                <td>{{ $article->title }}</td>
                                 <td>
                                     <span class="text-nowrap">{{ $article->user->name }}</span>
                                 </td>
@@ -68,7 +70,8 @@ $destroy = function (Article $article) {
                                         </button>
                                         <button type="button" class="btn btn-danger btn-sm"
                                             wire:click='destroy({{ $article->id }})'
-                                            wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus">
+                                            wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus"
+                                            wire:loading.attr="disabled">
                                             Hapus
                                         </button>
                                     </div>

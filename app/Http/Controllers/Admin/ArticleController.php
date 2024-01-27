@@ -42,4 +42,13 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index');
     }
+
+    public function edit($id)
+    {
+
+    }
+    public function update($id, Request $request)
+    {
+
+    }
 }
