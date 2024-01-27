@@ -27,7 +27,7 @@ $save = function (Category $category) {
         $validate['slug'] = Str::slug($this->name);
         $categoryUpdate->update($validate);
     }
-    $this->reset('name', 'slug');
+    $this->reset('name', 'slug', 'categoryId');
 };
 
 $edit = function (Category $category) {
@@ -38,7 +38,7 @@ $edit = function (Category $category) {
 
 $destroy = function (Category $category) {
     $category->delete();
-    $this->reset('name', 'slug');
+    $this->reset('name', 'slug', 'categoryId');
 };
 
 ?>
