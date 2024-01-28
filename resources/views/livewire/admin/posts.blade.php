@@ -59,9 +59,9 @@ $destroy = function (post $post) {
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-around gap-2">
-                                        <button type="button" class="btn btn-warning btn-sm">
+                                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning btn-sm">
                                             Ubah
-                                        </button>
+                                        </a>
                                         <button type="button" class="btn btn-danger btn-sm"
                                             wire:click='destroy({{ $post->id }})'
                                             wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus"

@@ -23,8 +23,8 @@
                         class="form-control @error('thumbnail')
                     is-invalid
                     @enderror"
-                        name="thumbnail" id="thumbnail" placeholder="Masukkan Gambar Thumbnail Berita"
-                        accept="image/*" />
+                        name="thumbnail" id="thumbnail" placeholder="Masukkan Gambar Thumbnail Berita" accept="image/*"
+                        required />
                     @error('thumbnail')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
@@ -88,7 +88,7 @@
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 text-end">
                     <button type="submit" class="btn btn-primary">
                         Submit
                     </button>

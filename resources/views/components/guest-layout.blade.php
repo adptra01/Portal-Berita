@@ -1,10 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>News HTML-5 Template </title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ $title ?? '' }} - {{ config('app.name', 'SIBANYU') }}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -25,11 +27,15 @@
     <link rel="stylesheet" href="{{ asset('/guest/css/style.css') }}">
 
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,500;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,500;1,700&display=swap');
+
         * {
             font-family: 'Poppins', sans-serif;
         }
     </style>
+    @livewireStyles
+    @vite([])
+
 </head>
 
 <body>
@@ -80,23 +86,7 @@
                                 </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="categori.html">Category</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="latest_news.html">Latest News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="#">Pages</a>
-                                                <ul class="submenu">
-                                                    <li><a href="elements.html">Element</a></li>
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-blog.html">Blog Details</a></li>
-                                                    <li><a href="details.html">Categori Details</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                                    <x-guest-nav></x-guest-nav>
                                 </div>
                             </div>
                             <div class="col-xl-2 col-lg-2 col-md-4">
@@ -124,32 +114,7 @@
 
     <main>
         <!-- Trending Area Start -->
-        <div class="trending-area fix">
-            <div class="container">
-                <div class="trending-main">
-                    <!-- Trending Tittle -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="trending-tittle">
-                                <strong>Trending now</strong>
-                                <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
-                                <div class="trending-animated">
-                                    <ul id="js-news" class="js-hidden">
-                                        <li class="news-item">Bangladesh dolor sit amet, consectetur adipisicing elit.
-                                        </li>
-                                        <li class="news-item">Spondon IT sit amet, consectetur.......</li>
-                                        <li class="news-item">Rem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                   {{ $slot }}
-                </div>
-            </div>
-        </div>
+        {{ $slot }}
         <!-- Trending Area End -->
 
     </main>
@@ -318,7 +283,7 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="{{ asset('guest/js/plugins.js') }}"></script>
     <script src="{{ asset('guest/js/main.js') }}"></script>
-
+    @livewireScripts
 </body>
 
 </html>

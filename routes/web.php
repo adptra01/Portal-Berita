@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.welcome');
 });
 
 Auth::routes();
@@ -33,8 +33,7 @@ Route::controller(PostController::class)
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/', 'store')->name('store');
-        Route::get('/{id}', 'edit')->name('edit');
+        Route::get('/{id}/edit', 'edit')->name('edit');
         Route::put('/{id}', 'update')->name('update');
     });
 
-// Route::get('news/{slug}', [HomeController::class, 'preview'])->name('article.preview');
