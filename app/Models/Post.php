@@ -20,6 +20,7 @@ class Post extends Model
         'category_id',
         'status_id',
         'user_id',
+        'viewer',
 
     ];
 

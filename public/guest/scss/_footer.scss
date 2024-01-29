@@ -37,7 +37,7 @@
                         color: $theme-color;
                         padding-left: 5px;
                     }
-                   
+
                 }
             }
         }
@@ -77,7 +77,7 @@
         & a{
            & i{
             color: #222222;
-            margin-right: 12px; 
+            margin-right: 12px;
             font-size: 19px;
             @include transition(.4s);
             &:hover{
@@ -88,18 +88,18 @@
                 -ms-transform: translateY(-3px);
                 transform: translateY(-3px);
             }
-          
+
            }
         }
-    }   
+    }
     // Instagram\
     .insta-feed{
         padding-top: 5px;
         margin: -2px;
-        
+
         display: flex;
         flex-wrap: wrap;
-    
+
         li {
             width: 29.33%;
             margin: 2px;
@@ -110,7 +110,7 @@
         }
 }
 
-//copy Right 
+//copy Right
 .footer-bottom-area {
     background: #100f0f;
     .footer-border{
@@ -135,7 +135,7 @@
                 &:hover{
                     color: #fff;
                 }
-                 
+
             }
         }
     }
@@ -166,7 +166,7 @@
 
     @media #{$md}{
         float: left;
-    } 
+    }
     @media #{$sm}{
         float: left;
     }

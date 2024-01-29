@@ -5,6 +5,7 @@ name('news.read');
 
 ?>
 <x-guest-layout>
+    <x-slot name="title">{{ $post->title }}</x-slot>
     <!-- About US Start -->
     <div class="about-area">
         <div class="container">
@@ -19,7 +20,19 @@ name('news.read');
                     <!-- Trending Tittle -->
                     <div class="about-right mb-90">
                         <div class="section-tittle">
-                            <h3>{{ $post->title }}</h3>
+                            <h2 class="fw-bold">{{ $post->title }}</h2>
+                            <p class="fw-bold">SIBANYU - {{ $post->created_at->locale('id')->diffForHumans() }}</p>
+                            <div class="row justify-content-start mb-4">
+                                <div class="col-auto p-0">
+                                    <img src="https://api.dicebear.com/7.x/lorelei/svg?seed=Johns"
+                                        class="rounded-pill border" style="width: 55px" alt="...">
+                                </div>
+                                <div class="col-auto">
+                                    <p class="m-0 fw-bold">{{ $post->user->name }}</p>
+                                    <small class="m-0 text-secondary">Penulis</small>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="about-img mb-4">
                             <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}">
@@ -29,24 +42,27 @@ name('news.read');
                                 {!! $post->content !!}
                             </article>
                         </div>
-                        <div class="social-share pt-30">
-                            <div class="section-tittle">
-                                <h3 class="mr-20">Share:</h3>
-                                <ul>
-                                    <li><a href="#"><img src="/guest/img/news/icon-ins.png" alt=""></a>
-                                    </li>
-                                    <li><a href="#"><img src="/guest/img/news/icon-fb.png" alt=""></a>
-                                    </li>
-                                    <li><a href="#"><img src="/guest/img/news/icon-tw.png" alt=""></a>
-                                    </li>
-                                    <li><a href="#"><img src="/guest/img/news/icon-yo.png" alt=""></a>
-                                    </li>
-                                </ul>
+                        <div class="container bg-black p-3 rounded">
+                            <div class="social-share">
+                                <div class="section-tittle">
+                                    <ul>
+                                        <li class="fw-bold fs-5 text-white">Berbagi : </li>
+                                        <li><a href="#"><img src="/guest/img/news/icon-ins.png"
+                                                    alt=""></a>
+                                        </li>
+                                        <li><a href="#"><img src="/guest/img/news/icon-fb.png" alt=""></a>
+                                        </li>
+                                        <li><a href="#"><img src="/guest/img/news/icon-tw.png" alt=""></a>
+                                        </li>
+                                        <li><a href="#"><img src="/guest/img/news/icon-yo.png" alt=""></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- From -->
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-lg-8">
                             <form class="form-contact contact_form mb-80" action="contact_process.php" method="post"
                                 id="contactForm" novalidate="novalidate">
@@ -85,57 +101,12 @@ name('news.read');
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-4">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle mb-40">
-                        <h3>Follow Us</h3>
-                    </div>
-                    <!-- Flow Socail -->
-                    <div class="single-follow mb-45">
-                        <div class="single-box">
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img src="/guest/img/news/icon-fb.png" alt=""></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img src="/guest/img/news/icon-tw.png" alt=""></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img src="/guest/img/news/icon-ins.png" alt=""></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img src="/guest/img/news/icon-yo.png" alt=""></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- New Poster -->
-                    <div class="news-poster d-none d-lg-block">
-                        <img src="/guest/img/news/news_card.jpg" alt="">
+                    <div class="news-poster d-block">
+                        <img src="/guest/img/news/news_card.jpg" class="mb-3" alt="">
                     </div>
                 </div>
             </div>
