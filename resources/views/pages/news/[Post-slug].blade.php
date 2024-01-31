@@ -20,15 +20,15 @@ name('news.read');
                     <!-- Trending Tittle -->
                     <div class="about-right mb-90">
                         <div class="section-tittle">
-                            <h2 class="fw-bold">{{ $post->title }}</h2>
-                            <p class="fw-bold">SIBANYU - {{ $post->created_at->locale('id')->diffForHumans() }}</p>
+                            <h2 class="font-weight-bold">{{ $post->title }}</h2>
+                            <p class="font-weight-bold">SIBANYU - {{ $post->created_at->locale('id')->diffForHumans() }}</p>
                             <div class="row justify-content-start mb-4">
                                 <div class="col-auto p-0">
                                     <img src="https://api.dicebear.com/7.x/lorelei/svg?seed=Johns"
                                         class="rounded-pill border" style="width: 55px" alt="...">
                                 </div>
                                 <div class="col-auto">
-                                    <p class="m-0 fw-bold">{{ $post->user->name }}</p>
+                                    <p class="m-0 font-weight-bold">{{ $post->user->name }}</p>
                                     <small class="m-0 text-secondary">Penulis</small>
                                 </div>
 
@@ -42,11 +42,11 @@ name('news.read');
                                 {!! $post->content !!}
                             </article>
                         </div>
-                        <div class="container bg-black p-3 rounded">
+                        <div class="container bg-dark p-3 rounded">
                             <div class="social-share">
                                 <div class="section-tittle">
                                     <ul>
-                                        <li class="fw-bold fs-5 text-white">Berbagi : </li>
+                                        <li class="font-weight-bold fs-5 text-white">Berbagi : </li>
                                         <li><a href="#"><img src="/guest/img/news/icon-ins.png"
                                                     alt=""></a>
                                         </li>
@@ -104,10 +104,11 @@ name('news.read');
                     </div> --}}
                 </div>
                 <div class="col-lg-4">
-                    <!-- New Poster -->
-                    <div class="news-poster d-block">
-                        <img src="/guest/img/news/news_card.jpg" class="mb-3" alt="">
-                    </div>
+                    <livewire:partials.related-news>
+                        <!-- New Poster -->
+                        <div class="news-poster d-block">
+                            <img src="/guest/img/news/news_card.jpg" class="mb-3" alt="">
+                        </div>
                 </div>
             </div>
         </div>

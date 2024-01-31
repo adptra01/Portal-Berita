@@ -1,0 +1,10 @@
+-Like Berita
+-Menu Pencarian
+-Menu Kategori Berita
+-Komentar Berita
+-tambah user
+-role user
+-hak akses
+-CRUD iklan
+-view iklan
+-approve komentar

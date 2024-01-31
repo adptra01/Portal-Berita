@@ -13,16 +13,18 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/guest/img/favicon.ico') }}">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{{ asset('/guest/css/owl.carousel.mi') }}n.css">
+    <link rel="stylesheet" href="{{ asset('/guest/css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('/guest/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/guest/css/ticker-style.css') }}">
     <link rel="stylesheet" href="{{ asset('/guest/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('/guest/css/slicknav.css') }}">
     <link rel="stylesheet" href="{{ asset('/guest/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/guest/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('/guest/css/fontawesome-all.mi') }}n.css">
+    <link rel="stylesheet" href="{{ asset('/guest/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/guest/css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('/guest/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('/guest/css/nice-select.css') }}">
@@ -38,9 +40,13 @@
         a {
             text-decoration: none;
         }
-        
     </style>
+
+
+    @stack('css')
+
     @livewireStyles
+
     @vite([])
 
 </head>
@@ -70,8 +76,8 @@
                             <!-- Logo -->
                             <div class="col-xl-3 col-lg-3 col-md-3">
                                 <div class="logo">
-                                    <span class="fs-1 fw-bold text-primary"> SIBANYU
-                                    </span>
+                                    <h1 class="font-weight-bold text-primary"> SIBANYU
+                                    </h1>
                                 </div>
                             </div>
                             <div class="col-xl-9 col-lg-9 col-md-9">
@@ -88,8 +94,8 @@
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <span class="fs-1 fw-bold text-primary"> SIBANYU
-                                    </span>
+                                    <h1 class="font-weight-bold text-primary"> SIBANYU
+                                    </h1>
                                 </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
@@ -101,7 +107,7 @@
                                     <i class="fas fa-search special-tag"></i>
                                     <div class="search-box">
                                         <form action="#">
-                                            <input type="text" placeholder="Search">
+                                            <input type="text" class="rounded" placeholder="Cari Berita">
 
                                         </form>
                                     </div>
@@ -136,8 +142,8 @@
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <span class="fs-1 fw-bold text-primary"> SIBANYU
-                                    </span>
+                                    <h1 class="font-weight-bold text-primary"> SIBANYU
+                                    </h1>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
@@ -192,6 +198,9 @@
     <script src="{{ asset('guest/js/vendor/jquery-1.12.4.min.js') }}"></script>
     <script src="{{ asset('guest/js/popper.min.js') }}"></script>
     <script src="{{ asset('guest/js/bootstrap.min.js') }}"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"> --}}
+    </script>
     <!-- Jquery Mobile Menu -->
     <script src="{{ asset('guest/js/jquery.slicknav.min.js') }}"></script>
 
@@ -224,6 +233,9 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="{{ asset('guest/js/plugins.js') }}"></script>
     <script src="{{ asset('guest/js/main.js') }}"></script>
+
+    @stack('scripts')
+
     @livewireScripts
 </body>
 
