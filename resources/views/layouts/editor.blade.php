@@ -11,46 +11,49 @@
         new FroalaEditor('#editor', {
             quickInsertEnabled: false,
 
-            toolbarButtons: {
-
-                'moreText': {
-
-                    'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript',
-                         'textColor', 'backgroundColor',
-                    ]
-
-                },
-
-                'moreParagraph': {
-
-                    'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify',
-                        'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent',
-                        'indent', 'quote'
-                    ]
-
-                },
-
-                'moreRich': {
-
-                    'buttons': ['insertLink', 'insertTable', 'emoticons',
-                        'fontAwesome', 'specialCharacters', 'embedly',  'insertHR'
-                    ]
-
-                },
-
-                'moreMisc': {
-
-                    'buttons': ['undo', 'redo', 'fullscreen', 'print', 'getPDF', 'spellChecker', 'selectAll',
-                        'html', 'help'
-                    ],
-
-                    'align': 'right',
-
-                    'buttonsVisible': 2
-
-                }
-
-            }
+            toolbarButtons: [
+                ['fullscreen',
+                    'undo',
+                    'redo',
+                    'getPDF',
+                    'print'
+                ],
+                [
+                    'bold',
+                    'italic',
+                    'underline',
+                    'textColor',
+                    'backgroundColor',
+                    'inlineStyle',
+                    'clearFormatting'
+                ],
+                [
+                    'alignLeft',
+                    'alignCenter',
+                    'alignRight',
+                    'alignJustify'
+                ],
+                [
+                    'formatOL',
+                    'formatUL',
+                    'indent',
+                    'outdent'
+                ],
+                [
+                    'paragraphFormat'
+                ],
+                [
+                    'fontSize'
+                ],
+                [
+                    'insertLink',
+                    'insertImage',
+                    'quote'
+                ]
+            ],
+            imageInsertButtons: ['imageBack', '|', 'imageByURL'],
+            imagePaste: false,
+            imageUpload: false,
 
         });
     </script>

@@ -1,15 +1,19 @@
 <?php
+
 use function Livewire\Volt\{state, computed, usesPagination, rules};
 use App\Models\Post;
+
 usesPagination(theme: 'bootstrap');
 state(['search'])->url();
 state(['postId']);
+
 $posts = computed(function () {
     return Post::where('title', 'like', '%' . $this->search . '%')
         ->select('id', 'title', 'thumbnail', 'user_id')
         ->latest()
         ->paginate(10);
 });
+
 $destroy = function (post $post) {
     Storage::delete($post->thumbnail);
     $post->delete();
@@ -18,15 +22,13 @@ $destroy = function (post $post) {
 
 <div>
     <div class="card">
-        <div class="card-header justify-content-between row">
+        <div class="card-header justify-content-between row gy-4">
             <div class="col-md">
                 <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Buat Berita Baru</a>
             </div>
             <div class="col-md">
-                <div class="mb-3">
-                    <input type="search" class="form-control" wire:model.live="search"
-                        placeholder="Cari Judul Berita..." />
-                </div>
+                <input type="search" class="form-control mb-3" wire:model.live="search"
+                    placeholder="Cari Judul Berita..." />
                 <span wire:loading>
                     <i class="bx bx-loader bx-spin"></i>
                     Loading...

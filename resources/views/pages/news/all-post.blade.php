@@ -49,18 +49,18 @@ $posts = computed(function () {
     @volt
         <div class="trending-area fix">
             <div class="container my-5">
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="search" class="form-label">Cari Berita</label>
                     <input type="search" class="form-control form-control-lg" wire:model.live="search"
                         aria-describedby="search" placeholder="Input pencarian berita..." />
                 </div>
                 <div class="row justify-content-between">
                     <div class="col-md">
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <label for="exampleDataList" class="form-label text-capitalize">Kategori
                                 {{ $category }}</label>
                             <input wire:model.live="category" class="form-control" list="datalistOptions"
-                                id="exampleDataList" placeholder="Type to search...">
+                                id="exampleDataList" placeholder="Pilih Kategori Berita...">
                             <datalist id="datalistOptions">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->name }}">
@@ -69,14 +69,14 @@ $posts = computed(function () {
                         </div>
                     </div>
                     <div class="col-md">
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="start_date" class="form-label">Tanggal Mulai</label>
                             <input type="date" class="form-control" wire:model.live="start_date" id="start_date"
                                 aria-describedby="helpId" />
                         </div>
                     </div>
                     <div class="col-md">
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="end_date" class="form-label">Tanggal Akhir</label>
                             <input type="date" class="form-control" wire:model.live="end_date" id="end_date"
                                 aria-describedby="helpId" />
