@@ -53,11 +53,18 @@ name('news.read');
                                     </div>
                                     <div class="navigation-top">
                                         <div class="d-sm-flex justify-content-between text-center">
-                                            <p class="like-info"><span class="align-middle"><i
-                                                        class="fa fa-heart"></i></span>
-                                                Lily and
-                                                4
-                                                people like this</p>
+                                            <p class="like-info font-weight-bold">
+                                                <span class="align-middle">
+                                                    <i class="fa fa-heart"></i>
+                                                </span>
+                                                123
+                                            </p>
+                                            <p class="like-info font-weight-bold">
+                                                <span class="align-middle">
+                                                    <i class="fa fa-eye"></i>
+                                                </span>
+                                                {{ $post->viewer }}
+                                            </p>
                                             <div class="col-sm-4 text-center my-2 my-sm-0">
                                                 <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                                             </div>
