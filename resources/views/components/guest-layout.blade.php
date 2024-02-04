@@ -136,10 +136,10 @@
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p>Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames
-                                            lectus tempor da blandit gravida sodales Suscipit mauris pede for con
-                                            sectetuer sodales adipisci for cursus fames lectus tempor da blandit gravida
-                                            sodales Suscipit mauris pede for sectetuer.</p>
+                                        <p>SIBANYU adalah Koran Digital yang memberikan berita dan informasi terbaru
+                                            seputar terkini. Situs web ini menyediakan berita lokal,
+                                            nasional, dan internasional, serta artikel-artikel terkait topik-topik
+                                            penting yang relevan dengan masyarakat.</p>
                                     </div>
                                 </div>
                             </div>
