@@ -18,7 +18,7 @@ state([
 <div>
     <div class="trending-area fix">
         <div class="trending-main border-0">
-            <h3 class="font-weight-bold mb-3">Baca Juga : </h3>
+            <h5 class="mb-3">Berita Lainnya: </h5>
             @foreach ($trending->skip(4)->take(4) as $item)
                 <div class="trand-right-single d-flex">
                     <div class="trand-right-img">

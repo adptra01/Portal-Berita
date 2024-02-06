@@ -33,8 +33,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,500;1,700&display=swap');
 
-        * {
-            font-family: 'Poppins', sans-serif;
+        *,
+        body {
+            font-family: 'Poppins', sans-serif !important;
         }
 
         a {
@@ -76,7 +77,7 @@
                             <!-- Logo -->
                             <div class="col-xl-3 col-lg-3 col-md-3">
                                 <div class="logo">
-                                    <h1 class="font-weight-bold text-primary"> SIBANYU
+                                    <h1 class="fw-bold text-primary"> SIBANYU
                                     </h1>
                                 </div>
                             </div>
@@ -94,7 +95,7 @@
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <h1 class="font-weight-bold text-primary"> SIBANYU
+                                    <h1 class="fw-bold text-primary"> SIBANYU
                                     </h1>
                                 </div>
                                 <!-- Main-menu -->
@@ -141,7 +142,7 @@
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <h1 class="font-weight-bold text-primary"> SIBANYU
+                                    <h1 class="fw-bold text-primary"> SIBANYU
                                     </h1>
                                 </div>
                                 <div class="footer-tittle">

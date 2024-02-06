@@ -122,7 +122,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="section-tittle mb-30">
-                                        <h3>Berita Teratas Mingguan</h3>
+                                        <h3>Berita Mingguan</h3>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
                                                 <div class="weekly2-caption">
                                                     <span
                                                         class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                                    <p>{{ $item->created_at->locale('id')->diffForHumans() }}</p>
+                                                    <p>{{ $item->created_at->format('d M Y') }}</p>
                                                     <h4 class="text-break">
                                                         <a
                                                             href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
