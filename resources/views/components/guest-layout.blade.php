@@ -13,10 +13,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/guest/img/favicon.ico') }}">
 
     <!-- Bootstrap CSS -->
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{{ asset('/guest/css/bootstrap.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('/guest/css/bootstrap.min.css') }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('/guest/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/guest/css/ticker-style.css') }}">
@@ -100,6 +100,16 @@
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
                                     <x-guest-nav></x-guest-nav>
+                                </div>
+                            </div>
+                            <!-- Search-news -->
+                            <div class="col-xl-2 col-lg-2 col-md-4">
+                                <div class="header-right-btn f-right d-none d-lg-block">
+                                    <a href="{{ route('news.all-post') }}">
+                                        <span class="fw-bold text-primary">
+                                            <i class="fas fa-search special-tag"></i>
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                             <!-- Mobile Menu -->
@@ -188,8 +198,8 @@
     <script src="{{ asset('guest/js/popper.min.js') }}"></script>
     <script src="{{ asset('guest/js/bootstrap.min.js') }}"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"> --}}
-    </script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script> --}}
     <!-- Jquery Mobile Menu -->
     <script src="{{ asset('guest/js/jquery.slicknav.min.js') }}"></script>
 

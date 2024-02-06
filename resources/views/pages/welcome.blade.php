@@ -15,7 +15,7 @@
             ->get(),
 
         'weeklyTopNews' => fn() => Post::with('category')
-            ->where('created_at', '>=', Carbon::now()->subWeek())
+            ->where('created_at', '>=', Carbon::now()->subWeek(2))
             ->orderByDesc('viewer')
             ->limit(6)
             ->get(),
@@ -52,7 +52,8 @@
                                     <div class="trending-top mb-30">
                                         <div class="trend-top-img">
                                             <img src="{{ Storage::url($trending->first()->thumbnail) }}"
-                                                alt="{{ $trending->first()->title }}" loading="lazy">
+                                                alt="{{ $trending->first()->title }}" loading="lazy"
+                                                class="object-fit-cover" height="450px">
                                             <div class="trend-top-cap">
                                                 <span
                                                     class="bg-primary text-white">{{ $trending->first()->category->name }}</span>
@@ -71,12 +72,13 @@
                                                     <div class="single-bottom mb-35">
                                                         <div class="trend-bottom-img mb-30">
                                                             <img src="{{ Storage::url($item->thumbnail) }}" loading="lazy"
-                                                                alt="{{ $item->title }}">
+                                                                alt="{{ $item->title }}" class="object-fit-cover"
+                                                                style="min-height: 160px;">
                                                         </div>
                                                         <div class="trend-bottom-cap">
                                                             <span
                                                                 class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                                            <h4>
+                                                            <h4 class="text-break">
                                                                 <a
                                                                     href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
                                                             </h4>
@@ -92,13 +94,14 @@
                                     @foreach ($trending->skip(4)->take(4) as $item)
                                         <div class="trand-right-single d-flex">
                                             <div class="trand-right-img">
-                                                <img src="{{ Storage::url($item->thumbnail) }}" style="width: 150px;"
-                                                    loading="lazy" alt="{{ $item->title }}">
+                                                <img src="{{ Storage::url($item->thumbnail) }}" class="object-fit-cover"
+                                                    style="min-height: 95px; width: 150px" loading="lazy"
+                                                    alt="{{ $item->title }}">
                                             </div>
                                             <div class="trand-right-cap">
                                                 <span
                                                     class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                                <h4>
+                                                <h4 class="text-break">
                                                     <a
                                                         href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
                                                 </h4>
@@ -130,12 +133,13 @@
                                             <div class="weekly-single ">
                                                 <div class="weekly-img">
                                                     <img src="{{ Storage::url($item->thumbnail) }}"
-                                                        alt="{{ $item->title }}" loading="lazy">
+                                                        alt="{{ $item->title }}" loading="lazy" class="object-fit-cover"
+                                                        style="height: 250px;">
                                                 </div>
                                                 <div class="weekly-caption">
                                                     <span
                                                         class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                                    <h4>
+                                                    <h4 class="text-break">
                                                         <a
                                                             href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
                                                     </h4>
@@ -169,13 +173,14 @@
                                             <div class="weekly2-single">
                                                 <div class="weekly2-img">
                                                     <img src="{{ Storage::url($item->thumbnail) }}"
-                                                        alt="{{ $item->title }}" loading="lazy">
+                                                        alt="{{ $item->title }}" loading="lazy" class="object-fit-cover"
+                                                        style="height: 200px;">
                                                 </div>
                                                 <div class="weekly2-caption">
                                                     <span
                                                         class="bg-primary text-white rounded">{{ $item->category->name }}</span>
                                                     <p>{{ $item->created_at->locale('id')->diffForHumans() }}</p>
-                                                    <h4>
+                                                    <h4 class="text-break">
                                                         <a
                                                             href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
                                                     </h4>
@@ -228,12 +233,14 @@
                                                                     <div class="single-what-news mb-100">
                                                                         <div class="what-img">
                                                                             <img src="{{ Storage::url($post->thumbnail) }}"
-                                                                                alt="{{ $post->title }}" loading="lazy">
+                                                                                alt="{{ $post->title }}" loading="lazy"
+                                                                                class="object-fit-cover"
+                                                                                style="height: 250px;">
                                                                         </div>
                                                                         <div class="what-cap">
                                                                             <span
                                                                                 class="bg-primary text-white rounded">{{ $post->category->name }}</span>
-                                                                            <h4>
+                                                                            <h4 class="text-break">
                                                                                 <a
                                                                                     href="{{ route('news.read', ['post' => $post->slug]) }}">{{ $post->title }}</a>
                                                                             </h4>
@@ -253,7 +260,8 @@
                             <div class="col-lg-4">
                                 <!-- New Poster -->
                                 <div class="news-poster d-block">
-                                    <img src="/guest/img/news/news_card.jpg" class="mb-3" loading="lazy" alt="">
+                                    <img src="/guest/img/news/news_card.jpg" class="mb-3" loading="lazy"
+                                        alt="">
                                 </div>
                             </div>
                         </div>

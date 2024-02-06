@@ -1,63 +1,124 @@
 <?php
 
 use function Livewire\Volt\{state, computed, usesPagination, rules};
+use function Laravel\Folio\name;
+use App\Models\Category;
 use App\Models\Post;
 
 usesPagination(theme: 'bootstrap');
-state(['search'])->url();
-state(['postId']);
+name('home');
 
-$posts = computed(function () {
-    return Post::where('title', 'like', '%' . $this->search . '%')
-        ->select('id', 'title', 'thumbnail', 'user_id')
-        ->latest()
-        ->paginate(10);
-});
+state(['search', 'category_id', 'start_date', 'end_date'])->url();
+state([
+    'categories' => fn() => Category::select('id', 'name')->get(),
+]);
 
 $destroy = function (post $post) {
     Storage::delete($post->thumbnail);
     $post->delete();
 };
+
+$posts = computed(function () {
+    $query = Post::with('category');
+
+    // Filter berdasarkan judul jika ada pencarian
+    if ($this->search) {
+        $query->where('title', 'like', '%' . $this->search . '%');
+    }
+
+    // Filter berdasarkan kategori jika ada kategori yang dipilih
+    if ($this->category_id) {
+        $category = Category::where('id', $this->category_id);
+        if ($category->exists()) {
+            $query->where('category_id', $this->category_id);
+        }
+    }
+
+    // Filter berdasarkan tanggal mulai jika ada
+    if ($this->start_date) {
+        $query->whereDate('created_at', '>=', $this->start_date);
+    }
+
+    // Filter berdasarkan tanggal akhir jika ada
+    if ($this->end_date) {
+        $query->whereDate('created_at', '<=', $this->end_date);
+    }
+
+    // Ambil data post sesuai dengan query yang telah dibuat
+    return $query->paginate(10);
+});
+
 ?>
 
 <div>
     <div class="card">
-        <div class="card-header justify-content-between row gy-4">
-            <div class="col-md">
-                <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Buat Berita Baru</a>
+        <a class="btn btn-primary card-header" href="{{ route('posts.create') }}" role="button">Buat Berita Baru</a>
+
+        <div class="card-header justify-content-between">
+            <div class="row">
+                <div class="col-md">
+                    <div class="mb-4">
+                        <label for="category_id" class="form-label">Kategori {{ $this->category_id }}</label>
+                        <select class="form-select" wire:model.live="category_id" id="category_id">
+                            <option selected value=" ">Pilih Kategori</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="mb-4">
+                        <label for="search" class="form-label">Cari Berita</label>
+                        <input type="search" class="form-control" wire:model.live="search" aria-describedby="search"
+                            placeholder="Input pencarian berita..." />
+                    </div>
+                </div>
             </div>
-            <div class="col-md">
-                <input type="search" class="form-control mb-3" wire:model.live="search"
-                    placeholder="Cari Judul Berita..." />
-                <span wire:loading>
-                    <i class="bx bx-loader bx-spin"></i>
-                    Loading...
-                </span>
+            <div class="row">
+                <div class="col-md">
+                    <div class="mb-4">
+                        <label for="start_date" class="form-label">Tanggal Mulai</label>
+                        <input type="date" class="form-control" wire:model.live="start_date" id="start_date"
+                            aria-describedby="helpId" />
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="mb-4">
+                        <label for="end_date" class="form-label">Tanggal Akhir</label>
+                        <input type="date" class="form-control" wire:model.live="end_date" id="end_date"
+                            aria-describedby="helpId" />
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive border rounded">
-                <table class="table table-hover">
+                <table class="table table-hover text-center" style="font-size: 13px">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Thumbnail</th>
+                            <th>Redaktur</th>
                             <th>Judul Berita</th>
-                            <th>Penulis</th>
-                            <th class="text-center">#</th>
+                            <th>Dilihat</th>
+                            <th>Tanggal Buat</th>
+                            <th>#</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($this->posts as $no => $post)
+                        @foreach ($this->posts as $post)
                             <tr>
-                                <td>{{ ++$no }}</td>
                                 <td>
-                                    <img src="{{ Storage::url($post->thumbnail) }}" class="rounded w-px-50 h-auto"
-                                        alt="{{ $post->title }}" />
+                                    {{ $post->user->name }}
                                 </td>
-                                <td>{{ $post->title }}</td>
                                 <td>
-                                    <span class="text-nowrap">{{ $post->user->name }}</span>
+                                    {{ $post->title }}
+                                </td>
+                                <td>
+                                    {{ $post->viewer }}
+                                </td>
+                                <td>
+                                    {{ Carbon\Carbon::parse($post->created_at)->format('d M Y') }}
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-around gap-2">

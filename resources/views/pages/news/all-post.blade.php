@@ -91,16 +91,15 @@ $posts = computed(function () {
                         <div class="col-sm-6 col-lg-4 mb-5">
                             <div class="single-bottom mb-35">
                                 <div class="trend-bottom-img mb-30">
-                                    <img src="{{ Storage::url($item->thumbnail) }}" alt="{{ $item->title }}"
-                                        loading="lazy">
+                                    <img src="{{ Storage::url($item->thumbnail) }}" alt="{{ $item->title }}" loading="lazy"
+                                        class="object-fit-cover" height="250px">
                                 </div>
                                 <div class="trend-bottom-cap">
                                     <span class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                    <h4>
+                                    <h4 class="text-break">
                                         <a href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
                                     </h4>
-                                    {{-- <p>{{ $item->created_at->locale('id')->diffForHumans() }}</p> --}}
-                                    <p>{{ $item->created_at }}</p>
+                                    <p>{{ $item->created_at->format('d M Y') }}</p>
                                 </div>
                             </div>
                         </div>

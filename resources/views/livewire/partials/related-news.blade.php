@@ -26,7 +26,7 @@ state([
                     </div>
                     <div class="trand-right-cap">
                         <span class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                        <h4>
+                        <h4 class="text-break">
                             <a href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
                         </h4>
                     </div>
