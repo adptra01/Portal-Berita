@@ -1,7 +1,13 @@
-<nav>
-    <ul id="navigation">
-        <li><a href="{{ route('news.welcome') }}">Home</a></li>
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        <li class=""><a href="{{ route('news.all-post') }}">Pencarian Berita</a></li>
-    </ul>
-</nav>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Beranda</a>
+    </li>
+
+
+</ul>
+<span class="navbar-text">
+    <a href="{{ route('news.all-post') }}">
+        <i class='bx bx-search bx-sm'></i>
+    </a>
+</span>

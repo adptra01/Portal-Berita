@@ -14,9 +14,13 @@ $comments = computed(function () {
 });
 
 $userComment = computed(function () {
-    return Comment::where('user_id', auth()->user()->id)
-        ->where('post_id', $this->post->id)
-        ->get();
+    if (auth()->check()) {
+        return Comment::where('user_id', auth()->user()->id)
+            ->where('post_id', $this->post->id)
+            ->get();
+    } else {
+        return collect();
+    }
 });
 
 $saveComment = function () {
@@ -27,13 +31,13 @@ $saveComment = function () {
 
     if (auth()->check()) {
         $validateData['user_id'] = auth()->user()->id;
+
+        $comment = Comment::create($validateData);
+
+        $this->reset('body');
     } else {
         return redirect()->route('login');
     }
-
-    $comment = Comment::create($validateData);
-
-    $this->reset('body');
 };
 ?>
 <div>
@@ -56,7 +60,7 @@ $saveComment = function () {
                                     <p class="date">{{ $comment->created_at->diffForHumans() }}</p>
                                 </div>
                             </div>
-                            <p class="comment">
+                            <p class="comment text-break">
                                 {{ $comment->body }}
                             </p>
                         </div>

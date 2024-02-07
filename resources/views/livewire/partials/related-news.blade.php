@@ -22,12 +22,13 @@ state([
             @foreach ($trending->skip(4)->take(4) as $item)
                 <div class="trand-right-single d-flex">
                     <div class="trand-right-img">
-                        <img src="{{ Storage::url($item->thumbnail) }}" style="width: 150px;">
+                        <img src="{{ Storage::url($item->thumbnail) }}" class="object-fit-cover"
+                            style="min-height: 95px; width: 150px">
                     </div>
                     <div class="trand-right-cap">
                         <span class="bg-primary text-white rounded">{{ $item->category->name }}</span>
                         <h4 class="text-break">
-                            <a href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
+                            <a href="{{ route('news.read', ['post' => $item->slug]) }}">{{ Str::limit($item->title, 70, ' ...') }}</a>
                         </h4>
                     </div>
                 </div>

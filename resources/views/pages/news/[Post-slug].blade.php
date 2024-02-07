@@ -30,8 +30,8 @@ $comments = computed(function () {
                             <div class="row">
                                 <div class="col-lg-8 posts-list">
                                     <div class="section-tittle">
-                                        <h2 class="font-weight-bold">{{ $post->title }}</h2>
-                                        <p class="font-weight-bold">SIBANYU -
+                                        <h2 class="fw-bold text-capitalize">{{ $post->title }}</h2>
+                                        <p class="fw-normal">SIBANYU -
                                             {{ $post->created_at->locale('id')->diffForHumans() }}
                                         </p>
                                         <div class="row justify-content-start mb-4">
@@ -41,7 +41,7 @@ $comments = computed(function () {
                                                     alt="{{ $post->user->name }}">
                                             </div>
                                             <div class="col-auto">
-                                                <p class="m-0 font-weight-bold">{{ $post->user->name }}</p>
+                                                <p class="m-0 fw-bold">{{ $post->user->name ?? 'Admin' }}</p>
                                                 <small class="m-0 text-secondary">Penulis</small>
                                             </div>
                                         </div>
@@ -57,17 +57,19 @@ $comments = computed(function () {
                                     </div>
                                     <div class="navigation-top">
                                         <div class="d-sm-flex justify-content-between text-center">
-                                            <p class="like-info font-weight-bold">
+
+                                            <!-- User View -->
+                                            {{-- <p class="like-info fw-bold">
                                                 <span class="align-middle">
-                                                    <i class="fa fa-heart"></i>
-                                                </span>
-                                                123
-                                            </p>
-                                            <p class="like-info font-weight-bold">
+                                                    <i class='bx bx-heart'></i> </span>
+                                                123 - Belum
+                                            </p> --}}
+
+                                            <p class="like-info fw-bold">
                                                 <span class="align-middle">
-                                                    <i class="fa fa-eye"></i>
+                                                    <i class="bx bx-happy-heart-eyes"></i>
                                                 </span>
-                                                {{ $post->viewer }}
+                                                {{ $post->viewer }} Dilihat
                                             </p>
                                             <div class="col-sm-4 text-center my-2 my-sm-0">
                                                 <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -81,7 +83,8 @@ $comments = computed(function () {
                                         </div>
                                     </div>
 
-                                    <livewire:partials.comment :post="$post" />
+                                    <!-- User Comment -->
+                                    {{-- <livewire:partials.comment :post="$post" /> --}}
 
                                 </div>
                                 <div class="col-lg-4">
