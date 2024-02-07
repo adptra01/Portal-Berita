@@ -28,6 +28,7 @@ State([
             $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');
         },
     ])
+        ->limit(5)
         ->select('id', 'name', 'slug')
         ->get(),
 ]);
@@ -250,6 +251,9 @@ State([
                                         @endforeach
                                     </div>
                                     <!-- End Nav Card -->
+                                    <a href="{{ route('news.all-post') }}" class="d-flex justify-content-center mb-3">
+                                        <span class="text-primary fw-bold fs-6 my-auto">Lihat Kategori Lainnya...</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
