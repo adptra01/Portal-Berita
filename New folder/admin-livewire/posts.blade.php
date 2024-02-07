@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Post;
 
 usesPagination(theme: 'bootstrap');
-name('home');
 
 state(['search', 'category_id', 'start_date', 'end_date'])->url();
 state([

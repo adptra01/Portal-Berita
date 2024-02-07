@@ -14,17 +14,6 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-        return view('admin.post.index');
-    }
-    public function create()
-    {
-        return view('admin.post.create', [
-            'categories' => Category::get(),
-            'statuses' => Status::get(),
-        ]);
-    }
     public function store(PostRequest $request)
     {
 
@@ -44,14 +33,7 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function edit($id)
-    {
-        return view('admin.post.edit', [
-            'post' => Post::find($id),
-            'categories' => Category::get(),
-            'statuses' => Status::get(),
-        ]);
-    }
+  
     public function update($id, PostRequest $request)
     {
         $validate_data = $request->validated();

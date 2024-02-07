@@ -24,16 +24,15 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::view('/categories', 'admin.post.categories')->name('categories.index');
+// Route::view('/categories', 'admin.post.categories')->name('categories.index');
 
 Route::controller(PostController::class)
     ->prefix('posts')
     ->as('posts.')
     ->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
+        // Route::get('/', 'index')->name('index');
+        // Route::get('/create', 'create')->name('create');
         Route::post('/', 'store')->name('store');
-        Route::get('/{id}/edit', 'edit')->name('edit');
+        // Route::get('/{id}/edit', 'edit')->name('edit');
         Route::put('/{id}', 'update')->name('update');
     });
-

@@ -13,6 +13,7 @@ $comments = computed(function () {
 ?>
 <x-guest-layout>
     @include('layouts.style-post')
+
     <x-slot name="title">{{ $post->title }}</x-slot>
     <div>
         @volt
