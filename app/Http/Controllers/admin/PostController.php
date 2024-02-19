@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
-use App\Models\Category;
 use App\Models\Post;
-use App\Models\Status;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -24,7 +21,7 @@ class PostController extends Controller
         $validate_data['thumbnail'] = $request->file('thumbnail')->store('public/thumbnail');
 
         //slug and author
-        $validate_data['slug'] = Str::slug($request->title) . '-' . Str::random(5);
+        $validate_data['slug'] = Str::slug($request->title) . '-' . Str::random(2);
         $validate_data['user_id'] = auth()->user()->id;
 
         // save the validation data
@@ -33,7 +30,7 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-  
+
     public function update($id, PostRequest $request)
     {
         $validate_data = $request->validated();
@@ -47,7 +44,7 @@ class PostController extends Controller
         }
 
         //slug and author
-        $validate_data['slug'] = Str::slug($request->title) . '-' . Str::random(5);
+        $validate_data['slug'] = Str::slug($request->title) . '-' . Str::random(2);
         $validate_data['user_id'] = auth()->user()->id;
 
         $post->update($validate_data);

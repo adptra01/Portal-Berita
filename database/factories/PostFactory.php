@@ -29,7 +29,7 @@ class PostFactory extends Factory
             'content' => $content,
             'category_id' => Category::all()->random()->id,
             'user_id' => User::all()->random()->id,
-            'status_id' => Status::all()->random()->id,
+            'status' => $this->faker->randomElement([0,1]),
         ];
     }
 }

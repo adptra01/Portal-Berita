@@ -20,7 +20,7 @@ class Post extends Model
         'keyword',
         'content',
         'category_id',
-        'status_id',
+        'status',
         'user_id',
         'viewer',
 

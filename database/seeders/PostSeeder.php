@@ -42,9 +42,9 @@ class PostSeeder extends Seeder
                     'slug' => Str::slug($postData['title']), // Assuming you have a slug field
                     'content' => '<p>' . $postData['description'] . fake()->unique()->paragraph(100) . '</p>', // Assuming 'description' as content
                     'category_id' => Category::all()->random()->id, // Set category ID if applicable
-                    'status_id' => 1, // Assuming status ID for published posts
                     'user_id' => User::all()->random()->id, // Assuming user ID for the author
-                    'viewer' => fake()->numerify()
+                    'viewer' => fake()->numerify(),
+                    'status' => 1,
                 ];
                 $postPublish = Post::create($createPost);
 

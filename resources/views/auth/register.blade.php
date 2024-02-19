@@ -14,16 +14,16 @@
                                 <span class="app-brand-logo demo">
 
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                                <span class="app-brand-text demo text-body fw-bolder">SIBANYU</span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-2">Adventure starts here 🚀</h4>
-                        <p class="mb-4">Make your app management easy and fun!</p>
+                        <h4 class="mb-2">Bergabung Dengan Komunitas Berita Kami 🚀</h4>
+                        <p class="mb-4">Dapatkan Update Terbaru dan Terpercaya</p>
 
                         <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
+                                <label for="name" class="form-label">Nama Lengkap</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
                                     id="name" value="{{ old('name') }}" name="name"
                                     placeholder="Enter your name" autofocus />
@@ -45,7 +45,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3 form-password-toggle">
-                                <label class="form-label" for="password">Password</label>
+                                <label class="form-label" for="password">Kata Sandi</label>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="mb-3 form-password-toggle">
-                                <label class="form-label" for="password_confirmation">Confirm password</label>
+                                <label class="form-label" for="password_confirmation">Ulangi Kata Sandi</label>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password_confirmation"
                                         class="form-control @error('password_confirmation') is-invalid @enderror"
@@ -81,18 +81,18 @@
                                     <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms"
                                         required />
                                     <label class="form-check-label" for="terms-conditions">
-                                        I agree to
-                                        <a href="javascript:void(0);">privacy policy & terms</a>
+                                        Saya setuju dengan
+                                        <a href="javascript:void(0);">Kebijakan Privasi & Ketentuan yang Berlaku</a>
                                     </label>
                                 </div>
                             </div>
-                            <button class="btn btn-primary d-grid w-100">Sign up</button>
+                            <button class="btn btn-primary d-grid w-100">Daftar Akun</button>
                         </form>
 
                         <p class="text-center">
-                            <span>Already have an account?</span>
+                            <span>Sudah Punya AKun?</span>
                             <a href="/login">
-                                <span>Sign in instead</span>
+                                <span>Lanjut Masuk</span>
                             </a>
                         </p>
                     </div>

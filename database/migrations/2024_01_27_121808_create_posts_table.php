@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('thumbnail');
             $table->string('keyword')->nullable();
             $table->longText('content');
+            $table->integer('viewer')->default(0);
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('status_id')->constrained()->onDelete('cascade');
-            $table->integer('viewer')->default(0);
+            $table->boolean('status');
             $table->timestamps();
         });
     }
