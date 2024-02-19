@@ -195,22 +195,23 @@
                 <div class="content-wrapper">
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <span href="#">Home</span>
-                                </li>
-                                <li class="breadcrumb-item active">{{ $title ?? 'SIBANYU' }}</li>
-                            </ol>
-                        </nav>
-
-                        <div class="bs-toast toast fade show position-absolute top-0 end-0 m-3 bg-primary"
-                            role="alert" aria-live="assertive" aria-atomic="true">
-                            <div class="toast-body">
-                                <i class="bx bxs-bell bx-tada"></i>
-                                Proses berhasil
+                        @if ($errors->any())
+                            <div class="bs-toast toast fade show position-absolute top-0 end-0 m-3 bg-danger"
+                                role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-body">
+                                    <i class="bx bxs-bell bx-tada"></i>
+                                    Proses Gagal Dilakukan 😒!
+                                </div>
                             </div>
-                        </div>
+                        @elseif (session('success'))
+                            <div class="bs-toast toast fade show position-absolute top-0 end-0 m-3 bg-primary"
+                                role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-body">
+                                    <i class="bx bxs-bell bx-tada"></i>
+                                    {{ session('success') }}
+                                </div>
+                            </div>
+                        @endif
 
                         {{ $slot }}
 
@@ -256,13 +257,13 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js') }}"></script>
 
-    {{-- <script type="text/javascript">
+    <script type="text/javascript">
         setTimeout(function() {
 
             // Closing the alert
             $('.toast').alert('close');
         }, 5000);
-    </script> --}}
+    </script>
 
     @stack('scripts')
 

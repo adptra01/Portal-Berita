@@ -27,7 +27,7 @@ class PostController extends Controller
         // save the validation data
         Post::create($validate_data);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
     }
 
 
@@ -49,6 +49,6 @@ class PostController extends Controller
 
         $post->update($validate_data);
 
-        return redirect()->route('posts.index');
+        return redirect('/admin/posts/' . $id)->with('success', 'Proses Berhasil Dilakukan 😁!');
     }
 }

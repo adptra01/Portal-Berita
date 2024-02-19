@@ -22,7 +22,9 @@ state([
                     @csrf
                     <div class="card-body">
                         <div class="mb-3">
-                            <label for="" class="form-label">Judul Berita</label>
+                            <label for="" class="form-label">Judul Berita
+                                <span class="text-danger">*</span>
+                            </label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror"
                                 value="{{ old('title') }}" name="title" id=""
                                 placeholder="Masukkan Judul Berita" />
@@ -33,7 +35,9 @@ state([
 
                         <div class="mb-3">
                             <label for="thumbnail" class="form-label">Gambar
-                                / Thumbnail</label>
+                                / Thumbnail
+                                <span class="text-danger">*</span>
+                            </label>
                             <input type="file"
                                 class="form-control @error('thumbnail')
                         is-invalid
@@ -47,7 +51,9 @@ state([
 
                         <div class="mb-3 row">
                             <div class="col-md">
-                                <label for="category_id" class="form-label">Kategori Berita</label>
+                                <label for="category_id" class="form-label">Kategori Berita
+                                    <span class="text-danger">*</span>
+                                </label>
                                 <select
                                     class="@error('category_id')
                             is-invalid
@@ -64,7 +70,10 @@ state([
                                 @enderror
                             </div>
                             <div class="col-md">
-                                <label for="status" class="form-label">Status Publish</label>
+                                <label for="status" class="form-label">Status Publish
+                                    <span class="text-danger">*</span>
+
+                                </label>
                                 <select
                                     class="@error('status')
                             is-invalid
@@ -80,7 +89,6 @@ state([
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="content" class="form-label">Isi Berita</label>
                             <div class="alert alert-primary d-flex" role="alert">
                                 <span class="badge badge-center rounded-pill bg-primary border-label-primary p-3 me-2"><i
                                         class="bx bx-command fs-6"></i></span>
@@ -94,6 +102,10 @@ state([
                                     </span>
                                 </div>
                             </div>
+                            <label for="content" class="form-label">Isi Berita
+                                <span class="text-danger">*</span>
+
+                            </label>
                             <textarea id="editor" class="form-control" name="content" id="content" rows="3">
                             {{ old('content') }}
                         </textarea>

@@ -26,7 +26,10 @@ $posts = computed(function () {
     @volt
         <div>
             <div class="card">
+                <div class="card-header">
+                    <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Tambah Berita</a>
 
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="display table nowrap" style="font-size: 13px">

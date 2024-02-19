@@ -7,6 +7,13 @@ use App\Models\Post;
 
 name('posts.edit');
 
+$destroy = function (post $post) {
+    Storage::delete($post->thumbnail);
+    $post->delete();
+
+    return redirect()->route('posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
+};
+
 state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
 
 ?>
@@ -23,77 +30,97 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                     <li class="nav-item">
                         <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
                             data-bs-target="#navs-pills-top-preview" aria-controls="navs-pills-top-preview"
-                            aria-selected="true">Tampilan</button>
+                            aria-selected="true">
+                            <i class='bx bxs-dock-top'></i>
+                            Keterangan
+                        </button>
                     </li>
                     <li class="nav-item">
                         <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                             data-bs-target="#navs-pills-top-edit" aria-controls="navs-pills-top-edit"
-                            aria-selected="false">EDIT</button>
+                            aria-selected="false">
+                            <i class='bx bx-edit' ></i>
+                            Edit Berita</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" role="tab" data-bs-toggle="tab"
+                            wire:click='destroy({{ $post->id }})'
+                            wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus"
+                            wire:loading.attr="disabled">
+                            <i class='bx bx-trash' ></i>
+                            Hapus Berita</button>
                     </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="navs-pills-top-preview" role="tabpanel">
+
                         <div class="mb-3 row">
                             <p class="col-md-2">ID</p>
                             <div class="col-md-10">
                                 <p>: {{ $post->id }}</p>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-2">Slug</p>
                             <div class="col-md-10">
                                 <p>: {{ $post->slug }}</p>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-2">Judul Berita</p>
                             <div class="col-md-10">
-                                <p>: {{ $post->title }}</p>
+                                <p>: <a href="{{ route('news.read', ['post' => $post->slug]) }}">{{ $post->title }}</a></p>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-2">Kategori Berita</p>
                             <div class="col-md-10">
-                                <p class="text-capitalize">: {{ $post->category->name }}</p>
+                                <p class="text-capitalize">: <span
+                                        class="badge bg-primary">{{ $post->category->name }}</span>
+                                </p>
                             </div>
                         </div>
-                        <div class="mb-3 row">
-                            <p class="col-md-2">Thumbnail</p>
-                            <div class="col-md-10">
-                                <p class="text-capitalize">: {{ $post->category->name }}</p>
-                            </div>
-                        </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-2">Keyword Berita</p>
                             <div class="col-md-10">
                                 <p class="text-capitalize">: {{ $post->keyword ?? '-' }}</p>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-2">Penulis</p>
                             <div class="col-md-10">
                                 <p class="text-capitalize">: {{ $post->user->name ?? '-' }}</p>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-2">Status</p>
                             <div class="col-md-10">
-                                <p class="text-capitalize">: {{ $post->status ?? '-' }}</p>
+                                <p class="text-capitalize">:
+                                    <span
+                                        class="badge bg-primary">{{ $post->status == true ? 'Terbit' : 'Tidak Terbit' }}</span>
+                                </p>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-2">Jumlah Dilihat</p>
                             <div class="col-md-10">
                                 <p class="text-capitalize">: {{ $post->viewer ?? '0' }} Kali</p>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-2">Thumbnail</p>
                             <div class="col-md-10">
-                                : <a class="fw-bold" data-bs-toggle="collapse" href="#collapseThumbnail" role="button"
-                                    aria-expanded="false" aria-controls="collapseThumbnail">
-                                    Lihat Thumbnail
-                                </a>
+                                : <a class="fw-bold text-sm" data-bs-toggle="collapse" href="#collapseThumbnail"
+                                    role="button" aria-expanded="false" aria-controls="collapseThumbnail"> Lihat
+                                    <i class='bx bxs-down-arrow bx-xs'></i></a>
                                 <div class="collapse" id="collapseThumbnail">
                                     <div class="d-flex p-3">
                                         <img src="{{ Storage::url($post->thumbnail) }}" alt="collapse-image"
@@ -102,15 +129,16 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                                 </div>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-2">Isi Berita</p>
                             <div class="col-md-10">
-                                : <a class="fw-bold" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                                    aria-expanded="false" aria-controls="collapseExample">
-                                    Lihat Isi
-                                </a>
+                                : <a class="fw-bold text-sm" data-bs-toggle="collapse" href="#collapseExample"
+                                    role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    Lihat
+                                    <i class='bx bxs-down-arrow bx-xs'></i></a>
                                 <div class="collapse" id="collapseExample">
-                                    <article class="blog_details fr-view">
+                                    <article class="blog_details fr-view mt-3">
                                         {!! $post->content !!}
                                     </article>
                                 </div>
@@ -122,7 +150,9 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="" class="form-label">Judul Berita</label>
+                                <label for="" class="form-label">Judul Berita
+                                    <span class="text-danger">*</span>
+                                </label>
                                 <input type="text" class="form-control @error('title') is-invalid @enderror"
                                     value="{{ $post->title }}" name="title" id=""
                                     placeholder="Masukkan Judul Berita" />
@@ -146,7 +176,9 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                                     </div>
                                 </div>
                                 <label for="thumbnail" class="form-label">Gambar
-                                    / Thumbnail</label>
+                                    / Thumbnail
+                                    <span class="text-danger">*</span>
+                                </label>
                                 <input type="file"
                                     class="form-control @error('thumbnail')
                             is-invalid
@@ -158,9 +190,12 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                                 @enderror
                             </div>
 
+
                             <div class="mb-3 row">
                                 <div class="col-md">
-                                    <label for="category_id" class="form-label">Kategori Berita</label>
+                                    <label for="category_id" class="form-label">Kategori Berita
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <select
                                         class="@error('category_id')
                                 is-invalid
@@ -177,7 +212,9 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                                     @enderror
                                 </div>
                                 <div class="col-md">
-                                    <label for="status" class="form-label">Status Publish</label>
+                                    <label for="status" class="form-label">Status Publish
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <select
                                         class="@error('status')
                                 is-invalid
@@ -213,7 +250,9 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                                         </span>
                                     </div>
                                 </div>
-                                <label for="content" class="form-label">Isi Berita</label>
+                                <label for="content" class="form-label">Isi Berita
+                                    <span class="text-danger">*</span>
+                                </label>
                                 <textarea id="editor" class="form-control" name="content" id="content" rows="3">
                                 {{ $post->content }}
                             </textarea>
