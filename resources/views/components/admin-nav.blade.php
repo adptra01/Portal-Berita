@@ -28,7 +28,14 @@
         </a>
     </li>
 
-    <li class="menu-item {{ request()->is('reports') ? 'active' : '' }}">
+    <li class="menu-item {{ request()->is('admin/comments') ? 'active' : '' }}">
+        <a href="{{ route('comments.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-comment"></i>
+            <div data-i18n="categories">Komentar</div>
+        </a>
+    </li>
+
+    <li class="menu-item {{ request()->is('admin/reports/*') ? 'active' : '' }}">
         <a href="javascript:void(0)" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons bx bxs-file-archive"></i>
             <div>Laporan</div>

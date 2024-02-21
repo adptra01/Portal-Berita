@@ -59,7 +59,6 @@ $users = computed(function () {
                                             <a class="btn btn-outline-primary btn-sm"
                                                 href="{{ route('users.edit', ['user' => $user]) }}"
                                                 role="button">Detail</a>
-
                                         </td>
                                     </tr>
                                 @endforeach

@@ -14,6 +14,7 @@ class Comment extends Model
         'post_id',
         'user_id',
         'body',
+        'status'
     ];
 
     /**
