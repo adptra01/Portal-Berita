@@ -6,10 +6,10 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\Post;
 
-name('posts.index');
+name('reports.posts');
 
 $posts = computed(function () {
-    return Post::with('category')->select('id', 'title', 'slug', 'category_id', 'status', 'user_id', 'viewer')->latest()->get();
+    return Post::with('category')->latest()->get();
 });
 
 ?>
@@ -21,10 +21,6 @@ $posts = computed(function () {
     @volt
         <div>
             <div class="card">
-                <div class="card-header">
-                    <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Tambah Berita</a>
-
-                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="display table nowrap" style="font-size: 13px">
@@ -34,7 +30,8 @@ $posts = computed(function () {
                                     <th>Penulis</th>
                                     <th>Judul Berita</th>
                                     <th>Kategori</th>
-                                    <th>#</th>
+                                    <th>Status</th>
+                                    <th>Dilihat</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
@@ -48,11 +45,13 @@ $posts = computed(function () {
                                             {{ $post->title }}
                                         </td>
                                         <td>
-                                            <span class="badge bg-primary">{{ $post->category->name }}</span>
+                                            <span class="text-uppercase">{{ $post->category->name }}</span>
                                         </td>
                                         <td>
-                                            <a href="{{ route('posts.edit', ['post' => $post->id]) }}"
-                                                class="btn btn-outline-primary btn-sm">Detail</a>
+                                            {{ $post->status == true ? 'Terbit' : 'Tidak Terbit' }}
+                                        </td>
+                                        <td>
+                                            {{ $post->viewer }}
                                         </td>
                                     </tr>
                                 @endforeach

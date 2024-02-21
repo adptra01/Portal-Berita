@@ -2,7 +2,7 @@
 .ticker-wrapper.has-js {
     margin: 0;
     padding: 0;
-    width: 780px;
+    width: auto;
     height: 32px;
     display: block;
     -webkit-border-radius: 15px;

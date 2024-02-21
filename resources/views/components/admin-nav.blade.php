@@ -3,21 +3,47 @@
     <li class="menu-item {{ request()->is('home') ? 'active' : '' }}">
         <a href="/home" class="menu-link">
             <i class="menu-icon tf-icons bx bx-home-circle"></i>
-            <div data-i18n="home">Home</div>
+            <div data-i18n="home">Beranda</div>
         </a>
     </li>
 
-    <li class="menu-item {{ request()->is('categories') ? 'active' : '' }}">
+    <li class="menu-item {{ request()->is(['admin/users', 'admin/users/*']) ? 'active' : '' }}">
+        <a href="{{ route('users.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-user"></i>
+            <div data-i18n="users">Akun Pengguna</div>
+        </a>
+    </li>
+
+    <li class="menu-item {{ request()->is('admin/posts/categories') ? 'active' : '' }}">
         <a href="{{ route('categories.index') }}" class="menu-link">
             <i class="menu-icon tf-icons bx bx-copy"></i>
             <div data-i18n="categories">Kategori</div>
         </a>
     </li>
 
-    <li class="menu-item {{ request()->is('posts') ? 'active' : '' }}">
+    <li class="menu-item {{ request()->is('admin/posts') ? 'active' : '' }}">
         <a href="{{ route('posts.index') }}" class="menu-link">
             <i class="menu-icon tf-icons bx bx-file"></i>
             <div data-i18n="categories">Berita</div>
         </a>
+    </li>
+
+    <li class="menu-item {{ request()->is('reports') ? 'active' : '' }}">
+        <a href="javascript:void(0)" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bxs-file-archive"></i>
+            <div>Laporan</div>
+        </a>
+        <ul class="menu-sub">
+            <li class="menu-item">
+                <a href="{{ route('reports.users') }}" class="menu-link">
+                    <div>Akun Pengguna</div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{ route('reports.posts') }}" class="menu-link">
+                    <div>Berita</div>
+                </a>
+            </li>
+        </ul>
     </li>
 </ul>

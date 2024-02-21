@@ -19,12 +19,10 @@ $comments = computed(function () {
         @volt
             <!-- About US Start -->
             <div class="about-area">
-                <div class="container">
+                <div class="container-fluid">
                     <!-- Hot Aimated News Tittle-->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <livewire:partials.trending-tittle>
-                        </div>
+                    <div class="container">
+                        <livewire:partials.trending-tittle>
                     </div>
                     <section class="blog_area single-post-area">
                         <div class="container">
@@ -37,7 +35,7 @@ $comments = computed(function () {
                                         </p>
                                         <div class="row justify-content-start mb-4">
                                             <div class="col-auto p-0 ml-3">
-                                                <img src="https://api.dicebear.com/7.x/lorelei/svg?seed=Johns"
+                                                <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $post->user->name ?? 'Penulis' }}"
                                                     class="rounded border-0" style="width: 55px"
                                                     alt="{{ $post->user->name }}">
                                             </div>
@@ -56,15 +54,15 @@ $comments = computed(function () {
                                             {!! $post->content !!}
                                         </div>
                                     </div>
-                                    <div class="navigation-top">
-                                        <div class="d-sm-flex justify-content-between text-center">
+                                    <div class="navigation-top border-0">
+                                        <div class="d-sm-flex justify-content-between text-center align-items-center">
 
                                             <!-- User View -->
-                                            {{-- <p class="like-info fw-bold">
+                                            <p class="like-info fw-bold">
                                                 <span class="align-middle">
-                                                    <i class='bx bx-heart'></i> </span>
-                                                123 - Belum
-                                            </p> --}}
+                                                    <i class='bx bx-heart '></i> </span>
+                                                123 Suka
+                                            </p>
 
                                             <p class="like-info fw-bold">
                                                 <span class="align-middle">
@@ -72,20 +70,42 @@ $comments = computed(function () {
                                                 </span>
                                                 {{ $post->viewer }} Dilihat
                                             </p>
+
+                                            <p class="like-info fw-bold">
+                                                <span class="align-middle">
+                                                    <i class='bx bx-message-rounded-dots'></i>
+                                                </span>
+                                                123 Komentar
+                                            </p>
                                             <div class="col-sm-4 text-center my-2 my-sm-0">
-                                                <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                                                <ul class="social-icons">
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class='bx bxl-facebook-square fs-5'></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class='bx bxl-twitter fs-5'></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class='bx bxl-linkedin-square fs-5'></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class='bx bxl-instagram fs-5'></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <ul class="social-icons">
-                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                            </ul>
                                         </div>
                                     </div>
 
                                     <!-- User Comment -->
-                                    {{-- <livewire:partials.comment :post="$post" /> --}}
+                                    <livewire:partials.comment :post="$post" />
 
                                 </div>
                                 <div class="col-lg-4">

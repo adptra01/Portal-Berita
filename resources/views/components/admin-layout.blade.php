@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
-    data-assets-path="{{ asset('/admin/') }}" data-template="vertical-menu-template-free">
+    data-assets-path="{{ asset('admin/') }}" data-template="vertical-menu-template-free">
 
 <head>
     <meta charset="utf-8" />
@@ -16,25 +16,27 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet" />
-
-
     <link rel="stylesheet" href="{{ asset('/admin/vendor/fonts/boxicons.css') }}" />
-
 
     <link rel="stylesheet" href="{{ asset('/admin/vendor/css/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('/admin/vendor/css/theme-default.css') }}"
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('/admin/css/demo.css') }}" />
-
-
     <link rel="stylesheet" href="{{ asset('/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
     <script src="{{ asset('/admin/vendor/js/helpers.js') }}"></script>
 
     <script src="{{ asset('/admin/js/config.js') }}"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,500;1,700&display=swap');
+
+        *,
+        body {
+            font-family: 'Poppins', sans-serif !important;
+        }
+    </style>
+
 
     @stack('css')
 
@@ -46,7 +48,6 @@
 
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
-
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
@@ -95,7 +96,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">SIBANYU</span>
                     </a>
 
                     <a href="javascript:void(0);"
@@ -122,22 +123,13 @@
 
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
-                        <div class="navbar-nav align-items-center">
-                            <div class="nav-item d-flex align-items-center">
-                                <i class="bx bx-search fs-4 lh-0"></i>
-                                <input type="text" class="form-control border-0 shadow-none"
-                                    placeholder="Search..." aria-label="Search..." />
-                            </div>
-                        </div>
-
-
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="/assets/img/avatars/1.png" alt
-                                            class="w-px-40 h-auto rounded-circle" />
+                                        <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ auth()->user()->name ?? 'user' }}"
+                                            alt class="w-px-40 h-auto rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -146,13 +138,14 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="/assets/img/avatars/1.png" alt
-                                                            class="w-px-40 h-auto rounded-circle" />
+                                                        <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ auth()->user()->name ?? 'user' }}"
+                                                            alt class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">John Doe</span>
-                                                    <small class="text-muted">Admin</small>
+                                                    <span
+                                                        class="fw-semibold d-block">{{ auth()->user()->name }}</span>
+                                                    <small class="text-muted">{{ auth()->user()->role }}</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -161,15 +154,10 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item"
+                                            href="{{ route('auth.user', ['user' => auth()->user()->email]) }}">
                                             <i class="bx bx-user me-2"></i>
-                                            <span class="align-middle">My Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bx bx-cog me-2"></i>
-                                            <span class="align-middle">Settings</span>
+                                            <span class="align-middle">Profil Saya</span>
                                         </a>
                                     </li>
 
@@ -178,7 +166,7 @@
                                             onclick="event.preventDefault();
                                                       document.getElementById('logout-form').submit();">
                                             <i class="bx bx-power-off me-2"></i>
-                                            <span class="align-middle">Log Out</span>
+                                            <span class="align-middle">Keluar</span>
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                             class="d-none">
@@ -195,20 +183,39 @@
                 <div class="content-wrapper">
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        @if ($errors->any())
-                            <div class="bs-toast toast fade show position-absolute top-0 end-0 m-3 bg-danger"
+                        @if (session('error'))
+                            <div class="bs-toast toast fade show position-absolute top-0 end-0 m-3 text-danger"
                                 role="alert" aria-live="assertive" aria-atomic="true">
                                 <div class="toast-body">
-                                    <i class="bx bxs-bell bx-tada"></i>
-                                    Proses Gagal Dilakukan 😒!
+                                    <div class="d-flex" role="alert">
+                                        <span
+                                            class="badge badge-center rounded-pill bg-danger border-label-danger p-3 me-2">
+                                            <i class='bx bx-x fs-3'></i>
+                                        </span>
+                                        <div class="d-flex flex-column ps-1">
+                                            <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Oops!</h6>
+                                            <span> {{ session('error') }} 😒!</span>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         @elseif (session('success'))
-                            <div class="bs-toast toast fade show position-absolute top-0 end-0 m-3 bg-primary"
+                            <div class="bs-toast toast fade show position-absolute top-0 end-0 m-3 text-primary"
                                 role="alert" aria-live="assertive" aria-atomic="true">
                                 <div class="toast-body">
-                                    <i class="bx bxs-bell bx-tada"></i>
-                                    {{ session('success') }}
+                                    <div class="d-flex" role="alert">
+                                        <span
+                                            class="badge badge-center rounded-pill bg-primary border-label-primary p-3 me-2">
+                                            <i class='bx bx-check fs-3'></i>
+                                        </span>
+                                        <div class="d-flex flex-column ps-1">
+                                            <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Horeee!
+                                            </h6>
+                                            <span> {{ session('success') }} 🥳!</span>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         @endif
@@ -216,7 +223,7 @@
                         {{ $slot }}
 
 
-                        <footer class="content-footer footer bg-footer-theme border rounded sticky-bottom mt-3">
+                        <footer class="content-footer footer bg-footer-theme border rounded sticky-bottom mt-3 ">
                             <div
                                 class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                                 <div class="mb-2 mb-md-0">

@@ -26,8 +26,8 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
     @volt
         <div>
             <div class="nav-align-top">
-                <ul class="nav nav-pills mb-3" role="tablist">
-                    <li class="nav-item">
+                <ul class="nav nav-pills mb-3 row" role="tablist">
+                    <li class="nav-item col-md">
                         <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
                             data-bs-target="#navs-pills-top-preview" aria-controls="navs-pills-top-preview"
                             aria-selected="true">
@@ -35,19 +35,18 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                             Keterangan
                         </button>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item col-md">
                         <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                            data-bs-target="#navs-pills-top-edit" aria-controls="navs-pills-top-edit"
-                            aria-selected="false">
-                            <i class='bx bx-edit' ></i>
+                            data-bs-target="#navs-pills-top-edit" aria-controls="navs-pills-top-edit" aria-selected="false">
+                            <i class='bx bx-edit'></i>
                             Edit Berita</button>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item col-md">
                         <button class="nav-link" role="tab" data-bs-toggle="tab"
                             wire:click='destroy({{ $post->id }})'
                             wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus"
                             wire:loading.attr="disabled">
-                            <i class='bx bx-trash' ></i>
+                            <i class='bx bx-trash'></i>
                             Hapus Berita</button>
                     </li>
                 </ul>
@@ -55,28 +54,28 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                     <div class="tab-pane fade show active" id="navs-pills-top-preview" role="tabpanel">
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">ID</p>
+                            <p class="col-md-2 fw-bold">ID</p>
                             <div class="col-md-10">
                                 <p>: {{ $post->id }}</p>
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">Slug</p>
+                            <p class="col-md-2 fw-bold">Slug</p>
                             <div class="col-md-10">
                                 <p>: {{ $post->slug }}</p>
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">Judul Berita</p>
+                            <p class="col-md-2 fw-bold">Judul Berita</p>
                             <div class="col-md-10">
                                 <p>: <a href="{{ route('news.read', ['post' => $post->slug]) }}">{{ $post->title }}</a></p>
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">Kategori Berita</p>
+                            <p class="col-md-2 fw-bold">Kategori Berita</p>
                             <div class="col-md-10">
                                 <p class="text-capitalize">: <span
                                         class="badge bg-primary">{{ $post->category->name }}</span>
@@ -85,21 +84,21 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">Keyword Berita</p>
+                            <p class="col-md-2 fw-bold">Keyword Berita</p>
                             <div class="col-md-10">
                                 <p class="text-capitalize">: {{ $post->keyword ?? '-' }}</p>
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">Penulis</p>
+                            <p class="col-md-2 fw-bold">Penulis</p>
                             <div class="col-md-10">
                                 <p class="text-capitalize">: {{ $post->user->name ?? '-' }}</p>
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">Status</p>
+                            <p class="col-md-2 fw-bold">Status</p>
                             <div class="col-md-10">
                                 <p class="text-capitalize">:
                                     <span
@@ -109,14 +108,14 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">Jumlah Dilihat</p>
+                            <p class="col-md-2 fw-bold">Jumlah Dilihat</p>
                             <div class="col-md-10">
                                 <p class="text-capitalize">: {{ $post->viewer ?? '0' }} Kali</p>
                             </div>
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">Thumbnail</p>
+                            <p class="col-md-2 fw-bold">Thumbnail</p>
                             <div class="col-md-10">
                                 : <a class="fw-bold text-sm" data-bs-toggle="collapse" href="#collapseThumbnail"
                                     role="button" aria-expanded="false" aria-controls="collapseThumbnail"> Lihat
@@ -131,7 +130,7 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2">Isi Berita</p>
+                            <p class="col-md-2 fw-bold">Isi Berita</p>
                             <div class="col-md-10">
                                 : <a class="fw-bold text-sm" data-bs-toggle="collapse" href="#collapseExample"
                                     role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -146,7 +145,8 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                         </div>
                     </div>
                     <div class="tab-pane fade" id="navs-pills-top-edit" role="tabpanel">
-                        <form action="{{ route('posts.update', $post->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('posts.update', $post->id) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">

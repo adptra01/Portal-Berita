@@ -18,7 +18,7 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-2">Bergabung Dengan Komunitas Berita Kami 🚀</h4>
+                        <h5 class="mb-2">Bergabung Dengan Komunitas Berita Kami 🚀</h5>
                         <p class="mb-4">Dapatkan Update Terbaru dan Terpercaya</p>
 
                         <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
@@ -39,6 +39,17 @@
                                     id="email" value="{{ old('email') }}" name="email"
                                     placeholder="Enter your email" />
                                 @error('email')
+                                    <small class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </small>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="telp" class="form-label">telp</label>
+                                <input type="number" class="form-control @error('telp') is-invalid @enderror"
+                                    id="telp" value="{{ old('telp') }}" name="telp"
+                                    placeholder="Enter your telp" />
+                                @error('telp')
                                     <small class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </small>
