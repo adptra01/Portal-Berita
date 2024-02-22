@@ -4,6 +4,10 @@
         <a class="nav-link active" aria-current="page" href="/">Beranda</a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{{ route('categories.index') }}">Kategori</a>
+    </li>
+
 
 </ul>
 <span class="navbar-text">

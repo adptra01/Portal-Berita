@@ -95,7 +95,8 @@ $posts = computed(function () {
                                         class="object-fit-cover" height="250px">
                                 </div>
                                 <div class="trend-bottom-cap">
-                                    <span class="bg-primary text-white rounded">{{ $item->category->name }}</span>
+                                    <span
+                                        class="bg-primary text-white rounded text-uppercase">{{ $item->category->name }}</span>
                                     <h4 class="text-break">
                                         <a href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
                                     </h4>

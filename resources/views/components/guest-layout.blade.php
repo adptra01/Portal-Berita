@@ -10,7 +10,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/guest/img/favicon.ico') }}">
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('/admin/img/favicon/favicon.ico') }}" />
 
     <!-- CDN CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -146,10 +147,11 @@
     <!-- All JS Custom Plugins Link Here here -->
     <script src="{{ asset('guest/js/vendor/modernizr-3.5.0.min.js') }}"></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src="{{ asset('guest/js/vendor/jquery-1.12.4.min.js') }}"></script>
-    <script src="{{ asset('guest/js/popper.min.js') }}"></script>
 
+    <script src="{{ asset('guest/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    {{-- <script src="{{ asset('guest/js/popper.min.js') }}"></script> --}}
     {{-- <script src="{{ asset('guest/js/bootstrap.min.js') }}"></script> --}}
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
