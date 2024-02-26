@@ -83,6 +83,9 @@ $posts = computed(function () {
                         </div>
                     </div>
                 </div>
+                <p class="text-center">
+                    <i wire:loading class='bx bx-loader bx-spin bx-sm'></i>
+                </p>
             </div>
 
             <div class="container trending-main">

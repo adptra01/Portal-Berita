@@ -43,6 +43,28 @@
         a {
             text-decoration: none;
         }
+
+        .dropdown-menu a {
+            text-decoration: none;
+        }
+
+        .dropdown-menu a .d-flex {
+            transition: all 0.5s;
+        }
+
+        @media only screen and (min-width: 992px) {
+            .dropdown-menu {
+                width: 55vw;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: flex;
+            }
+
+            .dropdown-menu.show {
+                display: flex;
+            }
+        }
     </style>
 
 
@@ -75,7 +97,8 @@
             <div class="main-header">
                 <nav class="navbar navbar-expand-lg bg-body fixed-top">
                     <div class="container">
-                        <a class="navbar-brand fw-bold text-primary fs-2" href="/">SIBANYU</a>
+                        <a class="navbar-brand fw-bold text-primary fs-2 text-lowercase"
+                            href="/"><em>SIBANYU</em></a>
                         <button class="navbar-toggler border-0 text-primary" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -110,9 +133,9 @@
             <div class="container p-4">
                 <div class="row">
                     <div class="col-lg-6 col-md-12 mb-4">
-                        <h5 class="mb-3 text-white fw-bold">SIBANYU</h5>
+                        <h5 class="mb-3 text-white fw-bold text-lowercase"><em>sibanyu</em></h5>
                         <p class="text-white">
-                            SIBANYU adalah Koran Digital yang memberikan berita dan informasi terbaru
+                            <em>sibanyu</em> adalah Koran Digital yang memberikan berita dan informasi terbaru
                             seputar terkini. Situs web ini menyediakan berita lokal,
                             nasional, dan internasional, serta artikel-artikel terkait topik-topik
                             penting yang relevan dengan masyarakat.

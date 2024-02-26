@@ -24,32 +24,47 @@ $categoryPost = computed(function () {
 ?>
 
 <div>
-    <section class="py-5">
-        <div class="container trending-main border-0">
+    <section>
+        <div class="trending-main border-0">
             <div class="row gy-4 mb-4 trending-bottom">
-                @foreach ($this->categoryPost as $item)
-                    <div class="col-sm-6 col-lg-4 mb-5">
-                        <div class="single-bottom mb-35">
-                            <div class="trend-bottom-img mb-30">
-                                <img src="{{ Storage::url($item->thumbnail) }}" alt="{{ $item->title }}" loading="lazy"
-                                    class="object-fit-cover" height="250px">
-                            </div>
-                            <div class="trend-bottom-cap">
-                                <span
-                                    class="bg-primary text-white rounded text-uppercase">{{ $item->category->name }}</span>
-                                <h4 class="text-break">
-                                    <a href="{{ route('news.read', ['post' => $item->slug]) }}">{{ $item->title }}</a>
-                                </h4>
-                                <p>{{ $item->created_at->format('d M Y') }}</p>
-                            </div>
+                @foreach ($this->categoryPost as $post)
+                    <article class="blog_item rounded">
+                        <div class="blog_item_img">
+                            <img class="card-img rounded-0" src="{{ Storage::url($post->thumbnail) }}"
+                                alt="{{ $post->title }}">
+                            <a href="#" class="blog_item_date">
+                                <h3>{{ $post->created_at->format('d') }}</h3>
+                                <p>{{ $post->created_at->format('M') }}</p>
+                            </a>
                         </div>
-                    </div>
+
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="{{ route('news.read', ['post' => $post->slug]) }}">
+                                <h2>{{ $post->title }}</h2>
+                            </a>
+                            <p>{!! Str::limit($post->content, 250, '...') !!}</p>
+                            <ul class="blog-info-link">
+                                <li>
+                                    <a class="text-capitalize">
+                                        <i class="bx bx-category"></i>
+                                        {{ $post->category->name }}</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="bx bx-happy-heart-eyes"></i> {{ $post->viewer }}
+                                        Dilihat</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
                 @endforeach
             </div>
         </div>
-        <div class="d-grid col-md-2 mx-auto">
-            <button class="btn btn-primary btn-lg" wire:click="increment" wire:loading.attr="disabled">Read
-                more</button>
+        <div class="container text-center">
+            <button class="btn btn-primary btn-sm" wire:click="increment" wire:loading.attr="disabled">
+                <i wire:loading class='bx bx-loader bx-spin'></i>
+                Lebih banyak
+            </button>
         </div>
     </section>
 </div>

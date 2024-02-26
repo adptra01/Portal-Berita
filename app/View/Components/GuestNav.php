@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Category;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -21,6 +22,7 @@ class GuestNav extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.guest-nav');
+        $categories = Category::get();
+        return view('components.guest-nav', compact('categories'));
     }
 }

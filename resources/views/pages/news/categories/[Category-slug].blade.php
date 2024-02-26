@@ -15,6 +15,7 @@ State([
         ->limit(5)
         ->get(),
     'category',
+    'categories' => fn() => Category::with('posts')->get(),
 ]);
 
 ?>
@@ -26,18 +27,12 @@ State([
             <div class="trending-area fix">
                 <section class="pt-5">
                     <div class="container ">
-                        <div class="row justify-content-center text-center mb-4 mb-md-5">
-                            <div class="col-xl-9 col-xxl-8">
-                                <span class="text-muted">Kategori</span>
-                                <h2 class="display-5 fw-bold text-capitalize">{{ $category->name }}</h2>
-                                <p class="lead">Dapatkan informasi terkini dan terpanas dari portal berita kami di sini.
-                                </p>
-                            </div>
-                        </div>
+                        <h4 class="widget_title mb-2 fw-bold text-capitalize">Trending {{ $category->name }} </h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card border-0">
-                                    <a href=""><img alt="" class="img-fluid rounded"
+                                    <a href="">
+                                        <img alt="" class="img-fluid rounded"
                                             src="{{ Storage::url($topFivePosts->first()->thumbnail) }}"></a>
                                     <div class="card-body px-0">
                                         <h3 class="fw-semibold my-2">
@@ -72,10 +67,53 @@ State([
                                 </div>
                             </div>
                         </div>
+                        <div class="row mt-5">
+                            <h4 class="widget_title mb-2 fw-bold text-capitalize">Berita {{ $category->name }}</h4>
+
+                            <div class="col-lg-8 mb-5 mb-lg-0">
+                                <div class="blog_left_sidebar">
+
+                                    @livewire('partials.loadMore', ['category' => $category])
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="blog_right_sidebar">
+
+                                    <aside class="single_sidebar_widget post_category_widget bg-body pt-0">
+                                        <h4 class="widget_title mb-2 fw-bold">Kategori Berita</h4>
+
+                                        <ul class="list cat-list border-0">
+                                            @foreach ($categories as $category)
+                                                <li>
+                                                    <a href="{{ route('categories.slug', ['category' => $category->slug]) }}"
+                                                        class="d-flex justify-content-between">
+                                                        <p class="text-capitalize">{{ $category->name }} </p>
+                                                        <p>( {{ $category->posts->count() }} )</p>
+                                                    </a>
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
+                                    </aside>
+
+                                    <aside class="single_sidebar_widget popular_post_widget rounded bg-body">
+                                        <!-- Related News -->
+                                        <livewire:partials.related-news>
+                                            <!-- New Poster -->
+                                            <div class="news-poster d-block text-center">
+                                                <img src="/guest/img/news/news_card.jpg" class="mb-3" alt="">
+                                            </div>
+
+                                    </aside>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
-                @livewire('partials.loadMore', ['category' => $category])
+
             </div>
         </div>
     @endvolt

@@ -71,7 +71,7 @@ $saveComment = function () {
     </div>
     <div class="comment">
         @if ($this->userComment->isEmpty())
-            <h4>Berikan Komentar</h4>
+            <h4></h4>
             <form class="form-contact comment_form" wire:submit.prevent="saveComment" id="commentForm">
                 <div class="row">
                     <div class="col-12">

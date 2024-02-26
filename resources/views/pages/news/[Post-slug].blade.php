@@ -47,7 +47,7 @@ $comments = computed(function () {
                                     </div>
                                     <div class="single-post">
                                         <div class="feature-img">
-                                            <img class="img-fluid" src="{{ Storage::url($post->thumbnail) }}"
+                                            <img class="img-fluid w-100" src="{{ Storage::url($post->thumbnail) }}"
                                                 alt="{{ $post->title }}" loading="lazy">
                                         </div>
                                         <div class="blog_details fr-view">
