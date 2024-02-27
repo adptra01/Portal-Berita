@@ -5,7 +5,14 @@ use function Laravel\Folio\name;
 use App\Models\Post;
 use App\Models\Category;
 
-State(['category', 'count' => 1]);
+State([
+    'category',
+    'count' => 1,
+    'totalPostCount' => fn() => Post::with('category')
+        ->where('category_id', $this->category->id)
+        ->where('status', true)
+        ->count(),
+]);
 
 $increment = fn() => $this->count++;
 
@@ -16,6 +23,7 @@ $limitPages = computed(function () {
 $categoryPost = computed(function () {
     return Post::with('category')
         ->where('category_id', $this->category->id)
+        ->where('status', true)
         ->limit($this->limitPages)
         ->latest()
         ->get();
@@ -61,9 +69,10 @@ $categoryPost = computed(function () {
             </div>
         </div>
         <div class="container text-center">
-            <button class="btn btn-primary btn-sm" wire:click="increment" wire:loading.attr="disabled">
+            <button class="{{ $this->categoryPost->count() >= $totalPostCount ? 'd-none' : 'btn btn-primary' }}"
+                wire:click="increment" wire:loading.attr="disabled">
                 <i wire:loading class='bx bx-loader bx-spin'></i>
-                Lebih banyak
+                Tampilkan Lagi
             </button>
         </div>
     </section>

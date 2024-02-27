@@ -10,6 +10,7 @@ name('categories.slug');
 State([
     'topFivePosts' => fn() => Post::with('category')
         ->where('category_id', $this->category->id)
+        ->where('status', true)
         ->orderBy('viewer')
         ->select('title', 'slug', 'category_id', 'created_at', 'thumbnail', 'content')
         ->limit(5)

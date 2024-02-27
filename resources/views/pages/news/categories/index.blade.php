@@ -11,7 +11,7 @@ name('categories.index');
 state([
     'count' => 1,
     'categories' => fn() => Category::with('posts')->get(),
-    'trendingPosts' => fn() => Post::orderByDesc('viewer')->limit(5)->select('title', 'id', 'category_id', 'thumbnail', 'slug')->get(),
+    'trendingPosts' => fn() => Post::orderByDesc('viewer')->where('status', true)->limit(5)->select('title', 'id', 'category_id', 'thumbnail', 'slug')->get(),
 ]);
 
 $increment = fn() => $this->count++;
@@ -23,6 +23,7 @@ $limitPages = computed(function () {
 $posts = computed(function () {
     return Post::with('category')
         ->where('created_at', '>=', Carbon::now()->subWeek(4))
+        ->where('status', true)
         ->limit($this->limitPages)
         ->select('slug', 'title', 'thumbnail', 'content', 'viewer', 'category_id', 'created_at')
         ->latest()

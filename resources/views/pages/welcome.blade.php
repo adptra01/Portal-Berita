@@ -9,20 +9,10 @@ use App\Models\Category;
 name('news.welcome');
 
 State([
-    'trending' => fn() => Post::with('category')
-        ->orderByDesc('viewer')
-        ->select('slug', 'title', 'thumbnail', 'category_id')
-        ->get(),
+    'trending' => fn() => Post::with('category')->orderByDesc('viewer')->where('status', true)->select('slug', 'title', 'thumbnail', 'category_id')->get(),
 
-    'weeklyTopNews' => fn() => Post::with('category')
-        ->where('created_at', '>=', Carbon::now()->subWeek(2))
-        ->orderByDesc('viewer')
-        ->limit(6)
-        ->get(),
-    'latestNews' => fn() => Post::with('category')
-        ->latest()
-        ->limit(6)
-        ->get(),
+    'weeklyTopNews' => fn() => Post::with('category')->where('created_at', '>=', Carbon::now()->subWeek(2))->where('status', true)->orderByDesc('viewer')->limit(6)->get(),
+    'latestNews' => fn() => Post::with('category')->where('status', true)->latest()->limit(6)->get(),
     'categories' => fn() => Category::with([
         'posts' => function ($query) {
             $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');

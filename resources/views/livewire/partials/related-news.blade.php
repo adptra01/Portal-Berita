@@ -7,7 +7,7 @@ use App\Models\Post;
 use App\Models\Category;
 
 state([
-    'trending' => fn() => Post::with('category')->inRandomOrder()->select('slug', 'title', 'thumbnail', 'category_id')->get(),
+    'trending' => fn() => Post::with('category')->where('status', true)->inRandomOrder()->select('slug', 'title', 'thumbnail', 'category_id')->get(),
 ]);
 
 ?>

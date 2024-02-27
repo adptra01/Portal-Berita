@@ -13,7 +13,7 @@ state([
 ]);
 
 $posts = computed(function () {
-    $query = Post::with('category');
+    $query = Post::with('category')->where('status', true);
 
     // Filter berdasarkan judul jika ada pencarian
     if ($this->search) {

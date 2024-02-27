@@ -4,7 +4,7 @@ use function Livewire\Volt\{state};
 use App\Models\Post;
 
 state([
-    'trending_tittle' => fn() => Post::orderByDesc('viewer')->limit(5)->select('title')->get(),
+    'trending_tittle' => fn() => Post::orderByDesc('viewer')->where('status', true)->limit(5)->select('title')->get(),
 ]);
 
 ?>
