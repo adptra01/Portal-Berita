@@ -58,13 +58,24 @@ $unPublishComment = function (comment $comment) {
 
     @volt
         <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Berita</a>
+                    </li>
+                    <li class="breadcrumb-item active">Komentar</li>
+                </ol>
+            </nav>
             <div class="card">
                 <div class="card-header">
                     <input type="search" class="form-control" wire:model.live="search" aria-describedby="search"
                         placeholder="Input pencarian..." />
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive border rounded">
+                    <div class="table-responsive rounded">
                         <table class="table table-hover text-center">
                             <thead>
                                 <tr>

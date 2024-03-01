@@ -16,7 +16,6 @@ State([
     <x-slot name="title">Tentang Kami</x-slot>
     @volt
         <div>
-
             <div class="container py-md-5">
                 <div class="text-base text-center">
                     <h2 class="fw-bold">Tentang Kami</h2>

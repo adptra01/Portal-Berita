@@ -112,10 +112,7 @@ $comments = computed(function () {
                                     <div class="blog_right_sidebar">
                                         <livewire:partials.related-news>
                                             <!-- New Poster -->
-                                            <div class="news-poster d-block">
-                                                <img src="/guest/img/news/news_card.jpg" class="mb-3" alt="">
-                                            </div>
-
+                                            @livewire('partials.side-adverts')
                                     </div>
                                 </div>
                             </div>

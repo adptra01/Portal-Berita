@@ -10,7 +10,9 @@ rules([
 ]);
 
 $comments = computed(function () {
-    return Comment::where('post_id', $this->post->id)->get();
+    return Comment::where('post_id', $this->post->id)
+        ->where('status', true)
+        ->get();
 });
 
 $userComment = computed(function () {

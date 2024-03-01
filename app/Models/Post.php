@@ -23,7 +23,6 @@ class Post extends Model
         'status',
         'user_id',
         'viewer',
-
     ];
 
     /**

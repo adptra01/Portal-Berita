@@ -1,7 +1,6 @@
 <?php
 
 use function Livewire\Volt\{state, computed, usesPagination};
-use function Laravel\Folio\name;
 use App\Models\Post;
 use App\Models\Category;
 

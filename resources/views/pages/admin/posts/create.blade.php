@@ -17,6 +17,17 @@ state([
     @include('layouts.bs-select')
     @volt
         <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Berita</a>
+                    </li>
+                    <li class="breadcrumb-item active">Buat Berita</li>
+                </ol>
+            </nav>
             <div class="card">
                 <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
                     @csrf

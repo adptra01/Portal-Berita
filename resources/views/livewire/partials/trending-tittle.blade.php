@@ -4,7 +4,7 @@ use function Livewire\Volt\{state};
 use App\Models\Post;
 
 state([
-    'trending_tittle' => fn() => Post::orderByDesc('viewer')->where('status', true)->limit(5)->select('title')->get(),
+    'trending_titles' => fn() => Post::orderByDesc('viewer')->limit(5)->select('title')->get(),
 ]);
 
 ?>
@@ -15,7 +15,7 @@ state([
         <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
         <div class="trending-animated">
             <ul id="js-news" class="js-hidden">
-                @foreach ($trending_tittle as $item)
+                @foreach ($trending_titles as $item)
                     <li class="news-item d-inline-block text-truncate" style="max-width: 150px;">
                         {{ Str::limit($item->title, 29, '...') }}</li>
                 @endforeach

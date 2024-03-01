@@ -13,6 +13,17 @@ name('users.create');
 
     @volt
         <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Akun Pengguna</a>
+                    </li>
+                    <li class="breadcrumb-item active">Buat Akun</li>
+                </ol>
+            </nav>
             <div class="card">
                 <div class="card-header">
                     <div class="alert alert-primary d-flex" role="alert">
@@ -20,7 +31,8 @@ name('users.create');
                                 class="bx bx-command fs-6"></i></span>
                         <div class="d-flex flex-column ps-1">
                             <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Informasi</h6>
-                            <span><strong>Password akun</strong> akan dibuat menggunakan <strong>nama</strong> yang Anda masukkan. Pastikan
+                            <span><strong>Password akun</strong> akan dibuat menggunakan <strong>nama</strong> yang Anda
+                                masukkan. Pastikan
                                 <strong>nama</strong> yang Anda
                                 inputkan sesuai dengan kebutuhan dan mudah diingat untuk mengakses akun Anda
                                 nantinya.</span>
@@ -34,8 +46,9 @@ name('users.create');
                             <div class="col-md">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nama Akun</label>
-                                    <input type="text" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror"
-                                        name="name" id="name" aria-describedby="helpId" placeholder="Tuliskan nama pengguna" />
+                                    <input type="text" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror" name="name"
+                                        id="name" aria-describedby="helpId" placeholder="Tuliskan nama pengguna" />
                                     @error('name')
                                         <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror
@@ -45,8 +58,9 @@ name('users.create');
                             <div class="col-md">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">email</label>
-                                    <input type="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" id="email" aria-describedby="helpId" placeholder="Tuliskan email pengguna" />
+                                    <input type="email" value="{{ old('email') }}"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        id="email" aria-describedby="helpId" placeholder="Tuliskan email pengguna" />
                                     @error('email')
                                         <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror
@@ -58,8 +72,9 @@ name('users.create');
                             <div class="col-md">
                                 <div class="mb-3">
                                     <label for="telp" class="form-label">telp</label>
-                                    <input type="number" value="{{ old('telp') }}" class="form-control @error('telp') is-invalid @enderror"
-                                        name="telp" id="telp" aria-describedby="helpId" placeholder="Tuliskan telp pengguna" />
+                                    <input type="number" value="{{ old('telp') }}"
+                                        class="form-control @error('telp') is-invalid @enderror" name="telp"
+                                        id="telp" aria-describedby="helpId" placeholder="Tuliskan telp pengguna" />
                                     @error('telp')
                                         <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror

@@ -5,7 +5,7 @@ use function Laravel\Folio\name;
 use App\Models\Category;
 
 usesPagination(theme: 'bootstrap');
-name('categories.index');
+name('posts.categories');
 
 state(['search'])->url();
 state(['name', 'slug', 'categoryId']);
@@ -56,8 +56,16 @@ $resetAll = function () {
     <x-slot name="title">Kategori Berita</x-slot>
     @volt
         <div>
-            <div class="card">
-                <div class="card-header justify-content-between ">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item active">Kategori Berita</li>
+                </ol>
+            </nav>
+            <div class="card mb-3">
+                <div class="card-body">
                     <div class="row">
                         <label for="html5-text-input" class="col-md-2 col-form-label">Form Kategori</label>
                         <div class="col-md-10">
@@ -78,14 +86,14 @@ $resetAll = function () {
                             </form>
                         </div>
                     </div>
-
-
                 </div>
+            </div>
+            <div class="card">
                 <div class="card-header">
                     <input type="search" class="form-control" wire:model.live="search" placeholder="Cari Kategori" />
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive border rounded">
+                    <div class="table-responsive rounded">
                         <table class="table table-hover text-center">
                             <thead>
                                 <tr>

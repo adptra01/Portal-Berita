@@ -20,6 +20,14 @@ $posts = computed(function () {
 
     @volt
         <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item active">Berita</li>
+                </ol>
+            </nav>
             <div class="card">
                 <div class="card-header">
                     <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Tambah Berita</a>
@@ -27,7 +35,7 @@ $posts = computed(function () {
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="display table nowrap" style="font-size: 13px">
+                        <table class="display table nowrap" style="font-size: 13px; width: 100%">
                             <thead>
                                 <tr>
                                     <th>No</th>

@@ -21,6 +21,17 @@ $destroy = function (user $user) {
 
     @volt
         <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Akun Pengguna</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{ $user->name }}</li>
+                </ol>
+            </nav>
             <div class="nav-align-top">
                 <ul class="nav nav-pills mb-3 row" role="tablist">
                     <li class="nav-item col-md">
@@ -54,7 +65,9 @@ $destroy = function (user $user) {
                                     class="bx bx-command fs-6"></i></span>
                             <div class="d-flex flex-column ps-1">
                                 <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Informasi</h6>
-                                <span>Saat Pembuatan akun, nama pengguna digunakan untuk password akun. Jika Anda lupa kata sandi akun, solusinya adalah melakukan pengeditan pada akun untuk memperbarui informasi keamanan yang diperlukan.
+                                <span>Saat Pembuatan akun, nama pengguna digunakan untuk password akun. Jika Anda lupa kata
+                                    sandi akun, solusinya adalah melakukan pengeditan pada akun untuk memperbarui informasi
+                                    keamanan yang diperlukan.
 
                                 </span>
                             </div>

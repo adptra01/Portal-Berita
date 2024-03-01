@@ -1,7 +1,6 @@
 <?php
 
 use function Livewire\Volt\{state};
-use function Laravel\Folio\name;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Category;

@@ -15,7 +15,7 @@
     </li>
 
     <li class="menu-item {{ request()->is('admin/posts/categories') ? 'active' : '' }}">
-        <a href="{{ route('categories.index') }}" class="menu-link">
+        <a href="{{ route('posts.categories') }}" class="menu-link">
             <i class="menu-icon tf-icons bx bx-copy"></i>
             <div data-i18n="categories">Kategori</div>
         </a>
@@ -32,6 +32,13 @@
         <a href="{{ route('comments.index') }}" class="menu-link">
             <i class="menu-icon tf-icons bx bx-comment"></i>
             <div data-i18n="categories">Komentar</div>
+        </a>
+    </li>
+
+    <li class="menu-item {{ request()->is(['admin/adverts', 'admin/adverts/*']) ? 'active' : '' }}">
+        <a href="{{ route('adverts.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-award"></i>
+            <div data-i18n="categories">Iklan</div>
         </a>
     </li>
 

@@ -115,21 +115,14 @@
     </header>
 
     <!-- Banner / Iklan -->
-    <div class="container mt-5">
-        <img src="{{ asset('/guest/img/hero/header_card.jpg') }}" class="w-100" alt="">
-    </div>
+    @livewire('partials.top-adverts')
+
 
     <main>
         <!-- Trending Area Start -->
         {{ $slot }}
         <!-- Trending Area End -->
-
     </main>
-
-    <!-- Banner / Iklan -->
-    <div class="container mt-5">
-        <img src="{{ asset('/guest/img/hero/header_card.jpg') }}" class="w-100" alt="">
-    </div>
 
     <!-- Remove the container if you want to extend the Footer to full width. -->
     <div class="container-fluid mt-5">

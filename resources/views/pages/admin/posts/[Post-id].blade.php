@@ -25,6 +25,17 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
 
     @volt
         <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Berita</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{ $post->title }}</li>
+                </ol>
+            </nav>
             <div class="nav-align-top">
                 <ul class="nav nav-pills mb-3 row" role="tablist">
                     <li class="nav-item col-md">

@@ -26,6 +26,9 @@ State([
 ?>
 <x-guest-layout>
     <x-slot name="title">Berita Terkini Hari Ini, Kabar Akurat Terpercaya</x-slot>
+
+    @livewire('partials.popup-adverts')
+
     @volt
         <div>
             <div class="trending-area fix">
@@ -248,11 +251,11 @@ State([
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <!-- New Poster -->
-                            <div class="news-poster d-block">
-                                <img src="/guest/img/news/news_card.jpg" class="mb-3 w-100 object-fit-cover"
-                                    loading="lazy" alt="">
+                            <div class="blog_right_sidebar">
+                                <!-- New Poster -->
+                                @livewire('partials.side-adverts')
                             </div>
+
                         </div>
                     </div>
                 </div>

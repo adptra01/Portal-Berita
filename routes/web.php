@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdvertController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
@@ -37,6 +38,14 @@ Route::middleware(['auth', 'role:Admin'])->group(function () {
     Route::controller(UserController::class)
         ->prefix('users')
         ->as('users.')
+        ->group(function () {
+            Route::post('/', 'store')->name('store');
+            Route::put('/{id}', 'update')->name('update');
+        });
+
+    Route::controller(AdvertController::class)
+        ->prefix('adverts')
+        ->as('adverts.')
         ->group(function () {
             Route::post('/', 'store')->name('store');
             Route::put('/{id}', 'update')->name('update');
