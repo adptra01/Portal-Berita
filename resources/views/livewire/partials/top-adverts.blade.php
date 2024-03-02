@@ -11,9 +11,9 @@ state([
 ?>
 
 <div>
-    <div class="container mt-5">
+    @section('top-adverts')
         @foreach ($topAdverts as $item)
-            <img src="{{ Storage::url($item->image) }}" class="mb-3 w-100 object-fit-cover" alt="{{ $item->alt }}">
+            <img src="{{ Storage::url($item->image) }}" class="mb-3 w-100 object-fit-cover" alt="{{ $item->alt }}" loading="lazy">
         @endforeach
-    </div>
+    @endsection
 </div>

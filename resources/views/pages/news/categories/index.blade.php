@@ -34,6 +34,8 @@ $posts = computed(function () {
 
 <x-guest-layout>
     <x-slot name="title">Kategori Berita</x-slot>
+    @livewire('partials.top-adverts')
+
     @volt
         <div>
             <div class="container">
@@ -54,7 +56,8 @@ $posts = computed(function () {
                         @foreach ($trendingPosts as $index => $item)
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ Storage::url($item->thumbnail) }}"
-                                    class="d-block w-100 object-fit-cover rounded" height="600" alt="{{ $item->title }}">
+                                    class="d-block w-100 object-fit-cover rounded" height="600" alt="{{ $item->title }}"
+                                    loading="lazy">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h3>
                                         <span
@@ -94,7 +97,7 @@ $posts = computed(function () {
                                     <article class="blog_item rounded">
                                         <div class="blog_item_img">
                                             <img class="card-img rounded-0" src="{{ Storage::url($post->thumbnail) }}"
-                                                alt="{{ $post->title }}">
+                                                alt="{{ $post->title }}" loading="lazy">
                                             <a href="#" class="blog_item_date">
                                                 <h3>{{ $post->created_at->format('d') }}</h3>
                                                 <p>{{ $post->created_at->format('M') }}</p>
@@ -156,9 +159,7 @@ $posts = computed(function () {
                                     <!-- Related News -->
                                     <livewire:partials.related-news>
                                         <!-- New Poster -->
-                                        <div class="news-poster d-block text-center">
-                                            <img src="/guest/img/news/news_card.jpg" class="mb-3" alt="">
-                                        </div>
+                                        @livewire('partials.side-adverts')
 
                                 </aside>
 

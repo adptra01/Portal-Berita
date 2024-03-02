@@ -21,7 +21,8 @@ state([
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="{{ Storage::url($popAdverts->image) }}" class="img-fluid rounded-top" alt="" />
+                    <img src="{{ Storage::url($popAdverts->image) }}" class="img-fluid rounded-top" alt=""
+                        loading="eager" />
 
                 </div>
             </div>
@@ -38,6 +39,4 @@ state([
             }, 1000); // Delay 1 detik sebelum menampilkan modal
         });
     </script>
-
-
 </div>

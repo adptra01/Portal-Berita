@@ -13,7 +13,6 @@ name('news.contact');
 
     @volt
         <div>
-
             <section class="py-5">
                 <div class="container">
                     <div class="row">

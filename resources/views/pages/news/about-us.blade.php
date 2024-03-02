@@ -14,9 +14,10 @@ State([
 
 <x-guest-layout>
     <x-slot name="title">Tentang Kami</x-slot>
+
     @volt
         <div>
-            <div class="container py-md-5">
+            <div class="container py-5">
                 <div class="text-base text-center">
                     <h2 class="fw-bold">Tentang Kami</h2>
                     <p><em>sibanyu</em> adalah Koran Digital yang menjadi sumber utama berita dan informasi
@@ -53,7 +54,7 @@ State([
                                     <div class="card-body p-3">
                                         <div class="mb-4 mx-lg-3 mx-xxl-5">
                                             <img class="img-fluid rounded-circle w-50"
-                                                src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $team->name }}">
+                                                src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $team->name }}" loading="eager">
                                         </div>
                                         <h5 class="fw-bold">{{ $team->name }}</h5>
                                         <div class="text-muted">

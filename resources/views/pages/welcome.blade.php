@@ -28,6 +28,7 @@ State([
     <x-slot name="title">Berita Terkini Hari Ini, Kabar Akurat Terpercaya</x-slot>
 
     @livewire('partials.popup-adverts')
+    @livewire('partials.top-adverts')
 
     @volt
         <div>

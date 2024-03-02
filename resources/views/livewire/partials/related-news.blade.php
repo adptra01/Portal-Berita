@@ -19,7 +19,7 @@ state([
                 <div class="trand-right-single d-flex">
                     <div class="trand-right-img">
                         <img src="{{ Storage::url($item->thumbnail) }}" class="object-fit-cover"
-                            style="min-height: 95px; width: 150px">
+                            style="min-height: 95px; width: 150px" loading="lazy">
                     </div>
                     <div class="trand-right-cap">
                         <span class="bg-primary text-white rounded">{{ $item->category->name }}</span>

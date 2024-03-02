@@ -12,16 +12,14 @@
         <div class="dropdown-menu px-3 pt-3 rounded-3 border-0 shadow">
             <div class="row">
                 <div class="col-md-6 py-2">
-                    <a href="{{ route('categories.index') }}" class="text-black text-capitalize">
-                        <i class='bx bxs-circle bx-xs'></i>
+                    <a href="{{ route('categories.index') }}" class="text-primary text-capitalize">
                         Semua
                     </a>
                 </div>
                 @foreach ($categories as $category)
                     <div class="col-md-6 py-2">
                         <a href="{{ route('categories.slug', ['category' => $category->slug]) }}"
-                            class="text-black text-capitalize">
-                            <i class='bx bxs-circle bx-xs'></i>
+                            class="text-primary text-capitalize">
                             {{ $category->name }}
                         </a>
                     </div>

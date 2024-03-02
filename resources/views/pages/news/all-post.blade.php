@@ -46,6 +46,8 @@ $posts = computed(function () {
 
 <x-guest-layout>
     <x-slot name="title">Daftar Semua Berita</x-slot>
+    @livewire('partials.top-adverts')
+
     @volt
         <div class="trending-area fix">
             <div class="container my-5">

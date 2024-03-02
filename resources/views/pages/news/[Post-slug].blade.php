@@ -12,11 +12,14 @@ $comments = computed(function () {
 });
 ?>
 <x-guest-layout>
-    @include('layouts.style-post')
-
     <x-slot name="title">{{ $post->title }}</x-slot>
-    <div>
-        @volt
+
+    @include('layouts.style-post')
+    @livewire('partials.top-adverts')
+    @livewire('partials.popup-adverts')
+
+    @volt
+        <div>
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">
@@ -37,7 +40,7 @@ $comments = computed(function () {
                                             <div class="col-auto p-0 ml-3">
                                                 <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $post->user->name ?? 'Penulis' }}"
                                                     class="rounded border-0" style="width: 55px"
-                                                    alt="{{ $post->user->name }}">
+                                                    alt="{{ $post->user->name }}" loading="eager">
                                             </div>
                                             <div class="col-auto">
                                                 <p class="m-0 fw-bold">{{ $post->user->name ?? 'Admin' }}</p>
@@ -120,7 +123,7 @@ $comments = computed(function () {
                     </section>
                 </div>
             </div>
-        @endvolt
-    </div>
+        </div>
+    @endvolt
     <!-- About US End -->
 </x-guest-layout>
