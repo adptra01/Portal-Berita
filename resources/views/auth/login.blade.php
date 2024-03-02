@@ -14,7 +14,8 @@
                                 <span class="app-brand-logo demo">
 
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">SIBANYU</span>
+                                <span
+                                    class="app-brand-text demo text-body fw-bold text-primary "><em>SIBANYU</em></span>
                             </a>
                         </div>
                         <!-- /Logo -->

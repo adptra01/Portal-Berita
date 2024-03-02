@@ -50,7 +50,7 @@ $posts = computed(function () {
 
     @volt
         <div class="trending-area fix">
-            <div class="container my-5">
+            <div class="container py-3">
                 <div class="mb-4">
                     <label for="search" class="form-label">Cari Berita</label>
                     <input type="search" class="form-control form-control-lg" wire:model.live="search"
@@ -112,6 +112,9 @@ $posts = computed(function () {
                     @endforeach
                 </div>
             </div>
+
+            @livewire('partials.bottom-adverts')
+
         </div>
     @endvolt
 

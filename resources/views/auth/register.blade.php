@@ -14,7 +14,7 @@
                                 <span class="app-brand-logo demo">
 
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">SIBANYU</span>
+                                <span class="app-brand-text demo text-body fw-bolder"><em>SIBANYU</em></span>
                             </a>
                         </div>
                         <!-- /Logo -->
@@ -100,7 +100,7 @@
                             <button class="btn btn-primary d-grid w-100">Daftar Akun</button>
                         </form>
 
-                        <p class="text-center">
+                        <p class="text-center mt-3">
                             <span>Sudah Punya AKun?</span>
                             <a href="/login">
                                 <span>Lanjut Masuk</span>

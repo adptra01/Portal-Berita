@@ -139,16 +139,23 @@
                 <div class="col-6 col-lg-2">
                     <ul class="list-unstyled">
                         <li class="nav-item">
-                            <a class="text-dark text-decoration-none" href="">Home</a>
+                            <a class="text-dark text-decoration-none" href="/">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-dark text-decoration-none" href="">About</a>
+                            <a class="text-dark text-decoration-none" href="{{ route('news.all-post') }}">Kategori</a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-dark text-decoration-none" href="">Shop</a>
+                            <a wire:navigate class="text-dark text-decoration-none"
+                                href="{{ route('news.advert') }}">Info Iklan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-dark text-decoration-none" href="">Contact</a>
+                            <a wire:navigate class="text-dark text-decoration-none"
+                                href="{{ route('news.about-us') }}">Tentang
+                                Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a wire:navigate class="text-dark text-decoration-none"
+                                href="{{ route('news.contact') }}">Kontak</a>
                         </li>
                     </ul>
                 </div>
