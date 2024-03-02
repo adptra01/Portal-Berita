@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware(['auth', 'role:Admin'])->group(function () {
+Route::middleware(['auth', 'role:Admin,Penulis'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::controller(PostController::class)

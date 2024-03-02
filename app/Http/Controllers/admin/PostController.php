@@ -27,7 +27,13 @@ class PostController extends Controller
         // save the validation data
         Post::create($validate_data);
 
-        return redirect()->route('posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
+        if (auth()->user()->role == 'Admin') {
+            # code...
+            return redirect()->route('posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
+        } else {
+            return redirect()->route('writer-posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
+            # code...
+        }
     }
 
 
@@ -49,6 +55,12 @@ class PostController extends Controller
 
         $post->update($validate_data);
 
-        return redirect('/admin/posts/' . $id)->with('success', 'Proses Berhasil Dilakukan 😁!');
+        if (auth()->user()->role == 'Admin') {
+            # code...
+            return redirect()->route('posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
+        } else {
+            return redirect()->route('writer-posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
+            # code...
+        }
     }
 }
