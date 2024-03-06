@@ -62,11 +62,11 @@ $comments = computed(function () {
                                         <div class="d-sm-flex justify-content-between text-center align-items-center">
 
                                             <!-- User View -->
-                                            <p class="like-info fw-bold">
+                                            {{-- <p class="like-info fw-bold">
                                                 <span class="align-middle">
                                                     <i class='bx bx-heart '></i> </span>
                                                 123 Suka
-                                            </p>
+                                            </p> --}}
 
                                             <p class="like-info fw-bold">
                                                 <span class="align-middle">
@@ -75,13 +75,13 @@ $comments = computed(function () {
                                                 {{ $post->viewer }} Dilihat
                                             </p>
 
-                                            <p class="like-info fw-bold">
+                                            {{-- <p class="like-info fw-bold">
                                                 <span class="align-middle">
                                                     <i class='bx bx-message-rounded-dots'></i>
                                                 </span>
                                                 {{ $this->comments->count() }} Komentar
-                                            </p>
-                                            <div class="col-sm-4 text-center my-2 my-sm-0">
+                                            </p> --}}
+                                            {{-- <div class="col-sm-4 text-center my-2 my-sm-0">
                                                 <ul class="social-icons">
                                                     <li>
                                                         <a href="#">
@@ -104,7 +104,7 @@ $comments = computed(function () {
                                                         </a>
                                                     </li>
                                                 </ul>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
 

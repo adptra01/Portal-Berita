@@ -43,7 +43,7 @@ $saveComment = function () {
 };
 ?>
 <div>
-    <div class="comments-area">
+    <div class="comments-area p-0 border-0">
         <h4>{{ $this->comments->count() }} Komentar</h4>
         @foreach ($this->comments as $comment)
             <div class="comment-list">
@@ -78,8 +78,8 @@ $saveComment = function () {
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <textarea class="form-control @error('body') border-danger @enderror w-100 rounded" wire:model.lazy="body"
-                                id="body" cols="30" rows="10" placeholder="Tulis Komentar..."></textarea>
+                            <textarea class="form-control @error('body') border-danger @else border-dark @enderror w-100 rounded"
+                                wire:model.lazy="body" id="body" cols="30" rows="10" placeholder="Tulis Komentar..."></textarea>
                             @error('body')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
@@ -87,7 +87,7 @@ $saveComment = function () {
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="genric-btn primary-border rounded">Submit</button>
                 </div>
             </form>
         @endif
