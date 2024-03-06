@@ -17,7 +17,7 @@ class AdvertSeeder extends Seeder
     public function run(): void
     {
         // Fetch data from the API
-        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/hiburan/')->take(7);
+        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/hiburan/');
 
         // Check if the request was successful
         if ($response->successful()) {

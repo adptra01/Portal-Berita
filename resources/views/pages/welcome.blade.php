@@ -219,7 +219,7 @@ State([
 
                                                 <div class="whats-news-caption">
                                                     <div class="row">
-                                                        @foreach ($category->posts->take(4) as $item)
+                                                        @foreach ($category->posts->take(8) as $item)
                                                             <div class="col-lg-6 col-md-6 mb-3">
                                                                 <div class="single-what-news mb-100">
                                                                     <div class="what-img">
@@ -245,8 +245,10 @@ State([
                                         @endforeach
                                     </div>
                                     <!-- End Nav Card -->
-                                    <a href="{{ route('news.all-post') }}" class="d-flex justify-content-center mb-3">
-                                        <span class="text-primary fw-bold fs-6 my-auto">Lihat Kategori Lainnya...</span>
+                                    <a href="{{ route('news.all-post') }}" class="mb-3">
+                                        <span class="d-flex justify-content-center text-primary fw-bold fs-6 my-auto">Lihat
+                                            Kategori
+                                            Lainnya...</span>
                                     </a>
                                 </div>
                             </div>

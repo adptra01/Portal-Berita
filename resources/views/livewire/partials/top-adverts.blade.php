@@ -5,7 +5,7 @@ use Carbon\Carbon;
 use App\Models\Advert;
 
 state([
-    'topAdverts' => fn() => Advert::whereStatus(true)->wherePosition('top')->get(),
+    'topAdverts' => fn() => Advert::whereStatus(true)->wherePosition('top')->latest()->get(),
 ]);
 
 ?>

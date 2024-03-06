@@ -125,6 +125,10 @@
         <!-- Trending Area End -->
     </main>
 
+    <div class="container mt-5">
+        @yield('down-adverts')
+    </div>
+
     <footer class="py-4">
         <div class="container border-top border-5">
             <div class="row pt-4 mb-4 mb-lg-5">
