@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
@@ -22,8 +21,8 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         // Fetch data from the API
-        // $response = Http::get('https://api-berita-indonesia.vercel.app/antara/lifestyle/'); // category : politik, hukum, ekonomi, bola, olahraga, humaniora, lifestyle, hiburan, dunia, tekno, otomotif
-        $response = Http::get('https://api-berita-indonesia.vercel.app/kumparan/terbaru');
+        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/olahraga/'); // category : politik, hukum, ekonomi, bola, olahraga, humaniora, lifestyle, hiburan, dunia, tekno, otomotif
+        // $response = Http::get('https://api-berita-indonesia.vercel.app/kumparan/terbaru');
 
 
         // Check if the request was successful
@@ -42,7 +41,7 @@ class PostSeeder extends Seeder
                     'title' => $postData['title'],
                     'thumbnail' => 'thumbnail/' . $imageName,
                     'slug' => Str::slug($postData['title']) . Str::random(2), // Assuming you have a slug field
-                    'content' => '<p>' . $postData['description'] . fake()->unique()->paragraph(100) . '</p>', // Assuming 'description' as content
+                    'content' => '<p>' . $postData['description'] . Str::wordWrap(fake()->unique()->paragraph(100), characters: rand(300, 1000), break: "<br />\n") . '</p>', // Assuming 'description' as content
                     'category_id' => Category::all()->random()->id, // Set category ID if applicable
                     'user_id' => User::all()->random()->id, // Assuming user ID for the author
                     'viewer' => fake()->numerify(),

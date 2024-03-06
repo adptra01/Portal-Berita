@@ -22,7 +22,7 @@ state([
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="{{ Storage::url($popAdverts->image) }}" class="img-fluid rounded-top" alt=""
+                        <img src="{{ Storage::url($popAdverts->image) }}" class="img-fluid rounded w-100" alt=""
                             loading="eager" />
                     </div>
                 </div>
