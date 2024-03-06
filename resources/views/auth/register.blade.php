@@ -44,7 +44,7 @@
                                     </small>
                                 @enderror
                             </div>
-                           
+
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password">Kata Sandi</label>
                                 <div class="input-group input-group-merge">
@@ -88,7 +88,14 @@
                                 </div>
                             </div>
                             <button class="btn btn-primary d-grid w-100">Daftar Akun</button>
+
                         </form>
+
+                        <div class="divider">
+                            <div class="divider-text">Atau</div>
+                        </div>
+
+                        <a href="{{ route('redirect') }}" class="btn btn-danger d-grid w-100">Login With Google</a>
 
                         <p class="text-center mt-3">
                             <span>Sudah Punya AKun?</span>

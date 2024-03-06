@@ -67,6 +67,13 @@
                             </div>
                         </form>
 
+                        <div class="divider">
+                            <div class="divider-text">Atau</div>
+                        </div>
+
+                        <a href="{{ route('redirect') }}" class="btn btn-danger d-grid w-100 mb-3">Login With Google</a>
+
+
                         <p class="text-center">
                             <span>Belum Punya Akun?</span>
                             <a href="/register">

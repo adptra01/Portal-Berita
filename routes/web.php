@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdvertController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SocialiteController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.welcome');
 });
+
+// Untuk redirect ke Google
+Route::get('login/google/redirect', [SocialiteController::class, 'redirect'])
+    ->middleware(['guest'])
+    ->name('redirect');
+
+// Untuk callback dari Google
+Route::get('login/google/callback', [SocialiteController::class, 'callback'])
+    ->middleware(['guest'])
+    ->name('callback');
+
 
 Auth::routes();
 
