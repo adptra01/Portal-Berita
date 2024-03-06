@@ -95,13 +95,6 @@ $destroy = function (user $user) {
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2 fw-bold">Telp</p>
-                            <div class="col-md-10">
-                                <p>: {{ $user->telp }}</p>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
                             <p class="col-md-2 fw-bold">Role</p>
                             <div class="col-md-10">
                                 <p>: <span class="badge bg-primary">{{ $user->role }}</span>
@@ -154,12 +147,12 @@ $destroy = function (user $user) {
                             <div class="row">
                                 <div class="col-md">
                                     <div class="mb-3">
-                                        <label for="telp" class="form-label">telp</label>
-                                        <input type="number" value="{{ $user->telp }}"
-                                            class="form-control @error('telp') is-invalid @enderror" name="telp"
-                                            id="telp" aria-describedby="helpId"
-                                            placeholder="Tuliskan telp pengguna" />
-                                        @error('telp')
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password"
+                                            class="form-control @error('password') is-invalid @enderror" name="password"
+                                            id="password" aria-describedby="helpId"
+                                            placeholder="Kosongkan atau ganti password" />
+                                        @error('password')
                                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -182,18 +175,6 @@ $destroy = function (user $user) {
                                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                        name="password" id="password" aria-describedby="helpId"
-                                        placeholder="Kosongkan atau ganti password" />
-                                    @error('password')
-                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
                             </div>
 

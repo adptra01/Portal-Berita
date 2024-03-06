@@ -69,32 +69,18 @@ name('users.create');
                         </div>
 
                         <div class="row">
-                            <div class="col-md">
-                                <div class="mb-3">
-                                    <label for="telp" class="form-label">telp</label>
-                                    <input type="number" value="{{ old('telp') }}"
-                                        class="form-control @error('telp') is-invalid @enderror" name="telp"
-                                        id="telp" aria-describedby="helpId" placeholder="Tuliskan telp pengguna" />
-                                    @error('telp')
-                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-md">
-                                <div class="mb-3">
-                                    <label for="role" class="form-label">Role</label>
-                                    <select class="form-select @error('role') is-invalid @enderror" name="role"
-                                        id="role">
-                                        <option selected disabled>Select one</option>
-                                        <option value="Pengunjung">Pengunjung</option>
-                                        <option value="Penulis">Penulis</option>
-                                        <option value="Admin">Admin</option>
-                                    </select>
-                                    @error('role')
-                                        <small id="helpId" class="form-text text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
+                            <div class="mb-3">
+                                <label for="role" class="form-label">Role</label>
+                                <select class="form-select @error('role') is-invalid @enderror" name="role"
+                                    id="role">
+                                    <option selected disabled>Select one</option>
+                                    <option value="Pengunjung">Pengunjung</option>
+                                    <option value="Penulis">Penulis</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                                @error('role')
+                                    <small id="helpId" class="form-text text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
 

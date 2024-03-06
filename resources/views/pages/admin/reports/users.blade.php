@@ -29,7 +29,6 @@ $users = computed(function () {
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Email</th>
-                                    <th>Telp</th>
                                     <th>Role</th>
                                 </tr>
                             </thead>
@@ -42,9 +41,6 @@ $users = computed(function () {
                                         </td>
                                         <td>
                                             {{ $user->email }}
-                                        </td>
-                                        <td>
-                                            {{ $user->telp }}
                                         </td>
                                         <td>
                                             <span class="text-uppercase">{{ $user->role }}</span>

@@ -24,7 +24,6 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required|min:5|max:225',
             'email' => 'required|max:225|email|unique:users,email,' . $this->id,
-            'telp' => 'required|numeric|digits_between:11,12',
             'role' => 'required|in:Pengunjung,Admin,Penulis',
         ];
     }

@@ -7,7 +7,7 @@ use App\Models\User;
 
 name('auth.user');
 
-state(['user', 'name' => fn() => auth()->user()->name ?? '', 'email' => fn() => auth()->user()->email ?? '', 'telp' => fn() => auth()->user()->telp ?? '', 'role' => fn() => auth()->user()->role ?? '', 'password']);
+state(['user', 'name' => fn() => auth()->user()->name ?? '', 'email' => fn() => auth()->user()->email ?? '', 'role' => fn() => auth()->user()->role ?? '', 'password']);
 
 $updateProfileInformation = function (user $user) {
     $user = Auth::user();
@@ -16,7 +16,6 @@ $updateProfileInformation = function (user $user) {
     $validated = $this->validate([
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
-        'telp' => 'required|numeric|digits_between:11,12',
         'role' => 'required|in:Pengunjung,Admin,Penulis',
     ]);
 
@@ -91,13 +90,6 @@ $updateProfileInformation = function (user $user) {
                         </div>
 
                         <div class="mb-3 row">
-                            <p class="col-md-2 fw-bold">Telp</p>
-                            <div class="col-md-10">
-                                <p>: {{ auth()->user()->telp }}</p>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
                             <p class="col-md-2 fw-bold">Role</p>
                             <div class="col-md-10">
                                 <p>: <span class="badge bg-primary">{{ auth()->user()->role }}</span>
@@ -146,11 +138,11 @@ $updateProfileInformation = function (user $user) {
                             <div class="row">
                                 <div class="col-md">
                                     <div class="mb-3">
-                                        <label for="telp" class="form-label">telp</label>
-                                        <input type="number" class="form-control @error('telp') is-invalid @enderror"
-                                            wire:model="telp" id="telp" aria-describedby="helpId"
-                                            placeholder="Tuliskan telp pengguna" />
-                                        @error('telp')
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                            wire:model="password" id="password" aria-describedby="helpId"
+                                            placeholder="Kosongkan atau ganti password" />
+                                        @error('password')
                                             <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -174,20 +166,7 @@ $updateProfileInformation = function (user $user) {
                                             @enderror
                                         </div>
                                 @endif
-
                             </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                wire:model="password" id="password" aria-describedby="helpId"
-                                placeholder="Kosongkan atau ganti password" />
-                            @error('password')
-                                <small id="helpId" class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
                     </div>
 
                     <div class="text-end">

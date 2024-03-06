@@ -44,17 +44,7 @@
                                     </small>
                                 @enderror
                             </div>
-                            <div class="mb-3">
-                                <label for="telp" class="form-label">telp</label>
-                                <input type="number" class="form-control @error('telp') is-invalid @enderror"
-                                    id="telp" value="{{ old('telp') }}" name="telp"
-                                    placeholder="Enter your telp" />
-                                @error('telp')
-                                    <small class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </small>
-                                @enderror
-                            </div>
+                           
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password">Kata Sandi</label>
                                 <div class="input-group input-group-merge">

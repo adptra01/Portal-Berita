@@ -43,7 +43,6 @@ $users = computed(function () {
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Berita Terbuat</th>
-                                    <th>Telp</th>
                                     <th>Role</th>
                                     <th>#</th>
                                 </tr>
@@ -58,9 +57,7 @@ $users = computed(function () {
                                         <td>
                                             {{ $user->role == 'Pengunjung' ? '-' : $user->posts->count() . ' Berita' }}
                                         </td>
-                                        <td>
-                                            {{ $user->telp }}
-                                        </td>
+                                       
                                         <td>
                                             <span class="badge bg-primary"> {{ $user->role }}</span>
 

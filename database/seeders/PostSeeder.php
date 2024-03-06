@@ -22,8 +22,8 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         // Fetch data from the API
-        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/humaniora/'); // category : terbaru, politik, hukum, ekonomi, bola, olahraga, humaniora, lifestyle, hiburan, dunia, tekno, otomotif
-        // $response = Http::get('https://api-berita-indonesia.vercel.app/kumparan/terbaru');
+        // $response = Http::get('https://api-berita-indonesia.vercel.app/antara/lifestyle/'); // category : politik, hukum, ekonomi, bola, olahraga, humaniora, lifestyle, hiburan, dunia, tekno, otomotif
+        $response = Http::get('https://api-berita-indonesia.vercel.app/kumparan/terbaru');
 
 
         // Check if the request was successful
