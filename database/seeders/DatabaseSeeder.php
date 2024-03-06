@@ -14,14 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(10)->create();
 
-        $this->call([
-            CategorySeeder::class,
-            PostSeeder::class,
-            AdvertSeeder::class,
-        ]);
-
-        // \App\Models\Post::factory(30)->create();
-
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'email' => 'admin@testing.com',
@@ -33,5 +25,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'penulis@testing.com',
             'role' => 'Penulis',
         ]);
+        
+        $this->call([
+            CategorySeeder::class,
+            PostSeeder::class,
+            AdvertSeeder::class,
+        ]);
+
+        // \App\Models\Post::factory(30)->create();
+
     }
 }

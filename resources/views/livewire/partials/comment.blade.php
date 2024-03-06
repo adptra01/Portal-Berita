@@ -51,7 +51,7 @@ $saveComment = function () {
                     <div class="user justify-content-between d-flex">
                         <div class="thumb">
                             <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $comment->user->name }}"
-                                alt="">
+                                alt="{{ $comment->user->name }}">
                         </div>
                         <div class="desc">
                             <div class="d-flex justify-content-between">

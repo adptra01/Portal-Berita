@@ -10,6 +10,7 @@ state(['post', 'add_viewer' => fn() => $this->post->increment('viewer')]);
 $comments = computed(function () {
     return Comment::where('post_id', $this->post->id)->get();
 });
+
 ?>
 <x-guest-layout>
     <x-slot name="title">{{ $post->title }}</x-slot>
@@ -78,7 +79,7 @@ $comments = computed(function () {
                                                 <span class="align-middle">
                                                     <i class='bx bx-message-rounded-dots'></i>
                                                 </span>
-                                                123 Komentar
+                                                {{ $this->comments->count() }} Komentar
                                             </p>
                                             <div class="col-sm-4 text-center my-2 my-sm-0">
                                                 <ul class="social-icons">

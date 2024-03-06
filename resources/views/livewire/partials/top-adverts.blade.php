@@ -14,8 +14,10 @@ state([
     @if ($topAdverts)
         @section('top-adverts')
             @foreach ($topAdverts as $item)
-                <img src="{{ Storage::url($item->image) }}" class="mb-3 w-100 object-fit-cover" alt="{{ $item->alt }}"
-                    loading="lazy">
+                <a href="{{ $item->link }}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ Storage::url($item->image) }}" class="mb-3 w-100 object-fit-cover" alt="{{ $item->alt }}"
+                        loading="lazy">
+                </a>
             @endforeach
         @endsection
     @endif
