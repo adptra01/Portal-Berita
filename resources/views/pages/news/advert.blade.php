@@ -121,7 +121,9 @@ name('news.advert');
                         </div>
                     </div>
                     <div class="text-center">
-                        <a class="btn btn-primary my-3" href="#">Hubungi</a>
+                        <a class="genric-btn primary rounded" href="#">
+                            Hubungi
+                        </a>
                     </div>
                 </div>
             </section>

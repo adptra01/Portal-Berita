@@ -54,7 +54,8 @@ State([
                                     <div class="card-body p-3">
                                         <div class="mb-4 mx-lg-3 mx-xxl-5">
                                             <img class="img-fluid rounded-circle w-50"
-                                                src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $team->name }}" loading="eager">
+                                                src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $team->name }}"
+                                                loading="eager">
                                         </div>
                                         <h5 class="fw-bold">{{ $team->name }}</h5>
                                         <div class="text-muted">
@@ -68,23 +69,6 @@ State([
                     </div>
                 </div>
             </section>
-
-            <div class="container bg-secondary-subtle py-5 mt-5">
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-8">
-                        <h2 class="fw-bold">Berlangganan Hari Ini</h2>
-                        <p class="lead">Langganan Sekarang dan Dapatkan Akses terbaru ke konten eksklusif, update terkini,
-                            dan informasi terbaru yang relevan dengan kebutuhan Anda!
-                        </p>
-                        <div class="mx-auto col-md-8 col-xl-7 col-xxl-6 mt-3">
-                            <div class="input-group mb-3">
-                                <input class="form-control bg-light" placeholder="Email address" type="text"> <button
-                                    class="btn btn-primary" type="button">Subscribe</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
     @endvolt

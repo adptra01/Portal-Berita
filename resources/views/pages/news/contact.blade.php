@@ -35,7 +35,7 @@ name('news.contact');
                                     </div>
                                     <div class="col-md-4">
                                         <div class="d-grid">
-                                            <button class="btn btn-primary" type="submit">submit</button>
+                                            <button class="genric-btn primary rounded" type="submit">submit</button>
                                         </div>
                                     </div>
                                 </div>

@@ -78,7 +78,7 @@ $saveComment = function () {
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <textarea class="form-control @error('body') border-danger @else border-dark @enderror w-100 rounded"
+                            <textarea class="form-control @error('body') border-danger @else border-primary @enderror w-100 rounded"
                                 wire:model.lazy="body" id="body" cols="30" rows="10" placeholder="Tulis Komentar..."></textarea>
                             @error('body')
                                 <small class="text-danger">{{ $message }}</small>

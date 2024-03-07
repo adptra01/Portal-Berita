@@ -5,7 +5,9 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SocialiteController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
+use App\Mail\ContactUs;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.welcome');
+    // Mail::to('sibanyu68@gmail.com')
+    //     ->send(new ContactUs());
 });
 
 // Untuk redirect ke Google
