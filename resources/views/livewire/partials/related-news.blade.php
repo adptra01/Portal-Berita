@@ -6,7 +6,7 @@ use App\Models\Post;
 use App\Models\Category;
 
 state([
-    'trending' => fn() => Post::with('category')->where('status', true)->inRandomOrder()->select('slug', 'title', 'thumbnail', 'category_id')->get(),
+    'trending' => fn() => Post::with('category')->where('status', true)->inRandomOrder()->select('slug', 'title', 'thumbnail', 'category_id')->take(3)->get(),
 ]);
 
 ?>
@@ -15,7 +15,7 @@ state([
     <div class="trending-area fix">
         <div class="trending-main border-0">
             <h5 class="mb-4 fw-bold">Berita Lainnya </h5>
-            @foreach ($trending->skip(4)->take(4) as $item)
+            @foreach ($trending as $item)
                 <div class="trand-right-single d-flex">
                     <div class="trand-right-img">
                         <img src="{{ Storage::url($item->thumbnail) }}" class="object-fit-cover"

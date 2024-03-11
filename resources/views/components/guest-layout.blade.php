@@ -95,7 +95,7 @@
         <!-- Header Start -->
         <div class="header-area">
             <div class="main-header">
-                <nav class="navbar navbar-expand-lg bg-body fixed-top">
+                <nav class="navbar navbar-expand-lg bg-white fixed-top">
                     <div class="container">
                         <a class="navbar-brand fw-bold text-primary fs-2 text-lowercase"
                             href="/"><em>SIBANYU</em></a>
@@ -125,7 +125,7 @@
         <!-- Trending Area End -->
     </main>
 
-    <div class="container mt-5">
+    <div class="container">
         @yield('down-adverts')
     </div>
 

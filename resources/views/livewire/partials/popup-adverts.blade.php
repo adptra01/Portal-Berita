@@ -18,8 +18,8 @@ state([
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content border-0" style="background: none">
                     <div class="modal-header p-0 m-0 border-0">
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <button type="button" class="btn-close btn-close-dark p-3 rounded-circle bg-white"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <a href="{{ $popAdverts->link }}" target="_blank" rel="noopener noreferrer">

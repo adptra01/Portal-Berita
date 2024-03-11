@@ -113,10 +113,10 @@ $comments = computed(function () {
 
                                 </div>
                                 <div class="col-lg-4">
-                                    <div class="blog_right_sidebar">
+                                    <div class="blog_right_sidebar sticky-top" style="padding-top: 6rem;">
                                         <livewire:partials.related-news>
                                             <!-- New Poster -->
-                                            @livewire('partials.side-adverts')
+                                            @livewire('partials.side-adverts', ['countAdverts' => 6])
                                     </div>
                                 </div>
                             </div>
