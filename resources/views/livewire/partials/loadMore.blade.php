@@ -7,8 +7,7 @@ use App\Models\Category;
 State([
     'category',
     'count' => 1,
-    'totalPostCount' => fn() => Post::with('category')
-        ->where('category_id', $this->category->id)
+    'totalPostCount' => fn() => Post::where('category_id', $this->category->id)
         ->where('status', true)
         ->count(),
 ]);
@@ -23,6 +22,7 @@ $categoryPost = computed(function () {
     return Post::with('category')
         ->where('category_id', $this->category->id)
         ->where('status', true)
+        ->select('slug', 'title', 'thumbnail', 'content', 'viewer', 'category_id', 'created_at')
         ->limit($this->limitPages)
         ->latest()
         ->get();
@@ -68,11 +68,12 @@ $categoryPost = computed(function () {
             </div>
         </div>
         <div class="container text-center">
-            <button class="{{ $this->categoryPost->count() >= $totalPostCount ? 'd-none' : 'btn btn-primary' }}"
+            <button
+                class="{{ $this->categoryPost->count() >= $totalPostCount ? 'd-none' : 'genric-btn primary rounded' }}"
                 wire:click="increment" wire:loading.attr="disabled">
-                <i wire:loading class='bx bx-loader bx-spin'></i>
                 Tampilkan Lagi
             </button>
+            <i wire:loading class='bx bx-loader bx-spin'></i>
         </div>
     </section>
 </div>

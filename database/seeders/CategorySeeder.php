@@ -15,10 +15,6 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'terbaru',
-                'slug' => 'terbaru',
-            ],
-            [
                 'name' => 'politik',
                 'slug' => 'politik',
             ],

@@ -17,6 +17,7 @@ State([
         ->get(),
     'category',
     'categories' => fn() => Category::with('posts')->get(),
+
 ]);
 
 ?>
@@ -33,7 +34,8 @@ State([
 
             <div class="trending-area fix">
                 <div class="container ">
-                    <h4 class="widget_title mb-2 fw-bold text-capitalize">Trending {{ $category->name }} </h4>
+                    <h4 class="widget_title mb-2 fw-bold text-capitalize">Trending {{ $category->name }}
+                    </h4>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card border-0">
@@ -106,7 +108,9 @@ State([
                                     <!-- Related News -->
                                     <livewire:partials.related-news>
                                         <!-- New Poster -->
-                                        @livewire('partials.side-adverts')
+                                        @livewire('partials.side-adverts', [
+                                            'countAdverts' => Post::count(),
+                                        ])
                                 </aside>
 
                             </div>

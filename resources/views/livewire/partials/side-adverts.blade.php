@@ -1,19 +1,21 @@
 <?php
 
-use function Livewire\Volt\{state};
+use function Livewire\Volt\{state, computed};
 use Carbon\Carbon;
 use App\Models\Advert;
 
-state([
-    'sideAdverts' => fn() => Advert::whereStatus(true)->wherePosition('side')->latest()->get(),
-]);
+state(['countAdverts', 'takeAdverts' => fn() => $this->countAdverts ?? 5]);
+
+$sideAdverts = computed(function () {
+    return Advert::whereStatus(true)->wherePosition('side')->orderBy('updated_at')->get();
+});
 
 ?>
 
 <div>
-    @if ($sideAdverts)
+    @if ($this->sideAdverts)
         <div class="d-block">
-            @foreach ($sideAdverts->take(5) as $item)
+            @foreach ($this->sideAdverts->take($this->takeAdverts) as $item)
                 <a href="{{ $item->link }}" target="_blank" rel="noopener noreferrer">
                     <img src="{{ Storage::url($item->image) }}" class="mb-3 w-100 object-fit-cover"
                         alt="{{ $item->alt }}" loading="lazy">
@@ -21,11 +23,11 @@ state([
             @endforeach
         </div>
 
-        @if ($sideAdverts->count() > 5)
+        @if ($this->sideAdverts->count() > $this->takeAdverts)
             <div class="container">
                 @section('down-adverts')
                     <div class="d-block">
-                        @foreach ($sideAdverts->skip(5) as $item)
+                        @foreach ($this->sideAdverts->skip($this->takeAdverts) as $item)
                             <a href="{{ $item->link }}" target="_blank" rel="noopener noreferrer">
                                 <img src="{{ Storage::url($item->image) }}" class="mb-3 w-100 object-fit-cover"
                                     alt="{{ $item->alt }}" loading="lazy">

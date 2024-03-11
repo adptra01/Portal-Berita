@@ -12,9 +12,13 @@ state([
     'count' => 1,
     'categories' => fn() => Category::with('posts')->get(),
     'trendingPosts' => fn() => Post::orderByDesc('viewer')->where('status', true)->limit(5)->select('title', 'id', 'category_id', 'thumbnail', 'slug')->get(),
+    'totalPostCount' => fn() => Post::where('status', true)->count(),
 ]);
 
-$increment = fn() => $this->count++;
+$increment = function () {
+    $this->count++;
+    $this->dispatch('side-adverts-updated');
+};
 
 $limitPages = computed(function () {
     return $this->count * 6;
@@ -24,8 +28,8 @@ $posts = computed(function () {
     return Post::with('category')
         ->where('created_at', '>=', Carbon::now()->subWeek(4))
         ->where('status', true)
-        ->limit($this->limitPages)
         ->select('slug', 'title', 'thumbnail', 'content', 'viewer', 'category_id', 'created_at')
+        ->limit($this->limitPages)
         ->latest()
         ->get();
 });
@@ -89,7 +93,7 @@ $posts = computed(function () {
             <section class="blog_area section-padding pt-5">
                 <div class="container">
                     <div class="row">
-                        <h4 class="widget_title mb-2 fw-bold text-capitalize">Semua Berita </h4>
+                        <h4 class="widget_title mb-2 fw-bold text-capitalize">Berita Utama Mingguan </h4>
                         <div class="col-lg-8 mb-5 mb-lg-0">
                             <div class="blog_left_sidebar">
 
@@ -126,11 +130,12 @@ $posts = computed(function () {
                                     </article>
                                 @endforeach
                                 <div class="container text-center">
-                                    <button class="btn btn-primary btn-sm" wire:click="increment"
-                                        wire:loading.attr="disabled">
-                                        <i wire:loading class='bx bx-loader bx-spin'></i>
-                                        Lebih banyak
+                                    <button
+                                        class="{{ $this->posts->count() >= $totalPostCount ? 'd-none' : 'genric-btn primary rounded' }}"
+                                        wire:click="increment" wire:loading.attr="disabled">
+                                        Tampilkan Lagi
                                     </button>
+                                    <i wire:loading class='bx bx-loader bx-spin'></i>
                                 </div>
 
                             </div>
@@ -159,7 +164,7 @@ $posts = computed(function () {
                                     <!-- Related News -->
                                     <livewire:partials.related-news>
                                         <!-- New Poster -->
-                                        @livewire('partials.side-adverts')
+                                        @livewire('partials.side-adverts', ['countAdverts' => Post::count()])
 
                                 </aside>
 

@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-6 py-2">
                     <a href="{{ route('categories.index') }}" class="text-dark text-capitalize">
-                        Semua
+                        Berita Utama
                     </a>
                 </div>
                 @foreach ($categories as $category)
