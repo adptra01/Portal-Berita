@@ -64,7 +64,7 @@ class PostSeeder extends Seeder
                     'canonical_url' => Str::slug($postData['title']) . Str::random(2),
                 ];
 
-                $postPublish->seo()->update($seoData);
+                $postPublish->seo()->create($seoData);
                 $this->command->info('Tambah Berita: ' . $postPublish->title);
             }
 

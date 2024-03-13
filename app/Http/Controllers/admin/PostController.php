@@ -14,26 +14,38 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
 
-        $validate_data = $request->validated();
+        // Validate the incoming request
+        $validatedData = $request->validated();
 
-        // thumbnail  image
-        $request->file('thumbnail')->getClientOriginalName();
-        $validate_data['thumbnail'] = $request->file('thumbnail')->store('public/thumbnail');
+        // Upload thumbnail image
+        $thumbnailPath = $request->file('thumbnail')->store('public/thumbnail');
+        $validatedData['thumbnail'] = $thumbnailPath;
 
-        //slug and author
-        $validate_data['slug'] = Str::slug($request->title) . '-' . Str::random(2);
-        $validate_data['user_id'] = auth()->user()->id;
+        // Generate slug
+        $validatedData['slug'] = Str::slug($request->title);
 
-        // save the validation data
-        Post::create($validate_data);
+        // Set user ID
+        $validatedData['user_id'] = auth()->id();
 
-        if (auth()->user()->role == 'Admin') {
-            # code...
-            return redirect()->route('posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
-        } else {
-            return redirect()->route('writer-posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
-            # code...
-        }
+        // Create the post
+        $post = Post::create($validatedData);
+
+        // Create SEO data for the post
+        $seoData = [
+            'title' => $request->title,
+            'description' => Str::limit(strip_tags($post->content), 120, '...'),
+            'author' => $post->user_id,
+            'robots' => 'index, follow',
+            'canonical_url' => $post->slug,
+        ];
+
+        // Associate SEO data with the post
+        $post->seo()->create($seoData);
+
+        // Redirect based on user role
+        $redirectRoute = auth()->user()->role == 'Admin' ? 'posts.index' : 'writer-posts.index';
+
+        return redirect()->route($redirectRoute)->with('success', 'Proses Berhasil Dilakukan 😁!');
     }
 
 
@@ -50,17 +62,26 @@ class PostController extends Controller
         }
 
         //slug and author
-        $validate_data['slug'] = Str::slug($request->title) . '-' . Str::random(2);
+        $validate_data['slug'] = Str::slug($request->title);
         $validate_data['user_id'] = auth()->user()->id;
 
         $post->update($validate_data);
 
-        if (auth()->user()->role == 'Admin') {
-            # code...
-            return redirect()->route('posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
-        } else {
-            return redirect()->route('writer-posts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
-            # code...
-        }
+        $seoData = [
+            'title' => $request->title,
+            'description' => Str::limit(strip_tags($post->content), 120, '...'),
+            'author' => $post->user_id,
+            'robots' => 'index, follow',
+            'canonical_url' => $post->slug,
+        ];
+
+        // Associate SEO data with the post
+        $post->seo()->update($seoData);
+
+        // Redirect based on user role
+
+        $redirectRoute = auth()->user()->role == 'Admin' ? 'posts.index' : 'writer-posts.index';
+
+        return redirect()->route($redirectRoute)->with('success', 'Proses Berhasil Dilakukan 😁!');
     }
 }
