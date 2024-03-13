@@ -22,24 +22,7 @@ name('news.contact');
                             <p class="mb-5">Kami sangat menghargai umpan balik dari Anda. Jika Anda memiliki pertanyaan,
                                 saran, atau permintaan khusus, jangan ragu untuk menghubungi kami. Kami selalu siap
                                 mendengarkan Anda</p>
-                            <form>
-                                <div class="justify-content-center">
-                                    <div class="mb-3">
-                                        <input class="form-control bg-light" placeholder="First name" type="text">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input class="form-control bg-light" placeholder="Last name" type="text">
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea class="form-control bg-light" placeholder="Your message" rows="4"></textarea>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="d-grid">
-                                            <button class="genric-btn primary rounded" type="submit">submit</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                            @livewire('pages.contact-us')
                         </div>
                         <div class="col-md">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" stroke-width="1"
