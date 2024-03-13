@@ -25,10 +25,10 @@ State([
 
 ?>
 <x-guest-layout>
-    <x-slot name="title">Berita Terkini Hari Ini, Kabar Akurat Terpercaya</x-slot>
 
-    @livewire('partials.popup-adverts')
-    @livewire('partials.top-adverts')
+        @livewire('partials.popup-adverts')
+        @livewire('partials.top-adverts')
+    <x-slot name="title">Welcome</x-slot>
 
     @volt
         <div>

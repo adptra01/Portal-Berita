@@ -29,16 +29,16 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{ route('news.about-us') }}" wire:navigate>Tentang
+        <a class="nav-link active" aria-current="page" href="{{ route('news.about-us') }}">Tentang
             Kami</a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{ route('news.advert') }}" wire:navigate>Info Iklan</a>
+        <a class="nav-link active" aria-current="page" href="{{ route('news.advert') }}">Info Iklan</a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{ route('news.contact') }}" wire:navigate>Kontak</a>
+        <a class="nav-link active" aria-current="page" href="{{ route('news.contact') }}">Kontak</a>
     </li>
 </ul>
 

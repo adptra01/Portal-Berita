@@ -5,13 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ $title ?? '' }} - {{ config('app.name', 'SIBANYU') }}</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-
     <link rel="icon" type="image/x-icon" href="{{ asset('/admin/img/favicon/favicon.ico') }}" />
+
+    <!-- SEO -->
+    {!! seo($page ?? null) !!}
 
     <!-- CDN CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -150,16 +149,15 @@
                                 href="{{ route('news.all-post') }}">Kategori</a>
                         </li>
                         <li class="nav-item">
-                            <a wire:navigate class="text-dark text-decoration-none fs-6"
-                                href="{{ route('news.advert') }}">Info Iklan</a>
+                            <a class="text-dark text-decoration-none fs-6" href="{{ route('news.advert') }}">Info
+                                Iklan</a>
                         </li>
                         <li class="nav-item">
-                            <a wire:navigate class="text-dark text-decoration-none fs-6"
-                                href="{{ route('news.about-us') }}">Tentang
+                            <a class="text-dark text-decoration-none fs-6" href="{{ route('news.about-us') }}">Tentang
                                 Kami</a>
                         </li>
                         <li class="nav-item">
-                            <a wire:navigate class="text-dark text-decoration-none fs-6"
+                            <a class="text-dark text-decoration-none fs-6"
                                 href="{{ route('news.contact') }}">Kontak</a>
                         </li>
                     </ul>

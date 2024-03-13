@@ -40,20 +40,31 @@ class PostSeeder extends Seeder
                 $createPost = [
                     'title' => $postData['title'],
                     'thumbnail' => 'thumbnail/' . $imageName,
-                    'slug' => Str::slug($postData['title']) . Str::random(2), // Assuming you have a slug field
-                    'content' => '<p>' . $postData['description'] . Str::wordWrap(fake()->unique()->paragraph(100), characters: rand(300, 1000), break: "<br />\n") . '</p>', // Assuming 'description' as content
-                    'category_id' => Category::all()->random()->id, // Set category ID if applicable
-                    'user_id' => User::all()->random()->id, // Assuming user ID for the author
+                    'slug' => Str::slug($postData['title']) . Str::random(2),
+                    'content' => '<p>' . $postData['description'] . Str::wordWrap(fake()->unique()->paragraph(100), characters: rand(300, 1000), break: "<br />\n") . '</p>',
+                    'category_id' => Category::all()->random()->id,
+                    'user_id' => User::all()->random()->id,
                     'viewer' => fake()->numerify(),
                     'status' => 1,
                 ];
                 $postPublish = Post::create($createPost);
 
-                // Save image to storage
+
                 $imageUrl = $postData['thumbnail'];
                 $imageData = file_get_contents($imageUrl);
                 Storage::put('public/thumbnail/' . $imageName, $imageData);
 
+                $seoData = [
+                    'model_type' => Post::class,
+                    'model_id' => $postPublish->id,
+                    'title' => $postData['title'],
+                    'description' => $postData['description'],
+                    'author' => User::all()->random()->name,
+                    'robots' => 'index, follow',
+                    'canonical_url' => Str::slug($postData['title']) . Str::random(2),
+                ];
+
+                $postPublish->seo()->update($seoData);
                 $this->command->info('Tambah Berita: ' . $postPublish->title);
             }
 
