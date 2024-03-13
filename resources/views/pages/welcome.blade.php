@@ -25,10 +25,10 @@ State([
 
 ?>
 <x-guest-layout>
+    <x-slot name="title">Beranda</x-slot>
 
-        @livewire('partials.popup-adverts')
-        @livewire('partials.top-adverts')
-    <x-slot name="title">Welcome</x-slot>
+    @livewire('partials.popup-adverts')
+    @livewire('partials.top-adverts')
 
     @volt
         <div>
@@ -254,7 +254,7 @@ State([
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="blog_right_sidebar">
+                            <div class="blog_right_sidebar sticky-top" style="padding-top: 5.5rem;">
                                 <!-- New Poster -->
                                 @livewire('partials.side-adverts')
                             </div>

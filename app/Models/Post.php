@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use RalphJSmit\Laravel\SEO\Models\SEO;
-use RalphJSmit\Laravel\SEO\SchemaCollection;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use RalphJSmit\Laravel\SEO\Support\SEOData;
 
@@ -40,7 +39,6 @@ class Post extends Model
             published_time: $this->created_at,
             modified_time: $this->updated_at,
             tags: $this->keyword,
-
         );
     }
 
