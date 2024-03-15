@@ -28,20 +28,6 @@ class Post extends Model
         'viewer',
     ];
 
-    public function getDynamicSEOData(): SEOData
-    {
-        return new SEOData(
-            title: $this->title,
-            description: $this->content,
-            author: $this->user->name,
-            image: $this->thumbnail,
-            url: $this->slug,
-            published_time: $this->created_at,
-            modified_time: $this->updated_at,
-            tags: $this->keyword,
-        );
-    }
-
     // Dalam model Post
     public function seo()
     {

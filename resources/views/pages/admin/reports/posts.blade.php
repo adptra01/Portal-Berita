@@ -15,15 +15,26 @@ $posts = computed(function () {
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">Berita</x-slot>
-    @include('layouts.table')
+    <x-slot name="title">Laporan Berita</x-slot>
+    @include('layouts.report')
 
     @volt
         <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Laporan</a>
+                    </li>
+                    <li class="breadcrumb-item active">Berita</li>
+                </ol>
+            </nav>
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="display table nowrap" style="font-size: 13px">
+                        <table class="display table wrap" style="width: 100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -34,7 +45,7 @@ $posts = computed(function () {
                                     <th>Dilihat</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-border-bottom-0">
+                            <tbody>
                                 @foreach ($this->posts as $no => $post)
                                     <tr>
                                         <td>{{ ++$no }}.</td>

@@ -9,7 +9,7 @@ use App\Models\Post;
 name('posts.index');
 
 $posts = computed(function () {
-    return Post::with('category')->select('id', 'title', 'slug', 'category_id', 'status', 'user_id', 'viewer')->latest()->get();
+    return Post::with('category')->select('id', 'title', 'category_id', 'status', 'user_id', 'viewer')->latest()->get();
 });
 
 ?>
@@ -31,21 +31,22 @@ $posts = computed(function () {
             <div class="card">
                 <div class="card-header">
                     <a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Tambah Berita</a>
-
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="display table nowrap" style="font-size: 13px; width: 100%">
+                        <table class="display table wrap" style="width: 100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Penulis</th>
                                     <th>Judul Berita</th>
                                     <th>Kategori</th>
+                                    <th>DIlihat</th>
+                                    <th>Status</th>
                                     <th>#</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-border-bottom-0">
+                            <tbody>
                                 @foreach ($this->posts as $no => $post)
                                     <tr>
                                         <td>{{ ++$no }}.</td>
@@ -56,7 +57,14 @@ $posts = computed(function () {
                                             {{ $post->title }}
                                         </td>
                                         <td>
-                                            <span class="badge bg-primary">{{ $post->category->name }}</span>
+                                            <span class="badge bg-label-primary">{{ $post->category->name }}</span>
+                                        </td>
+                                        <td>
+                                            {{ $post->viewer }}
+                                        </td>
+                                        <td>
+                                            <span
+                                                class="badge bg-label-primary">{{ $post->status == true ? 'Terbit' : 'Tidak Terbit' }}</span>
                                         </td>
                                         <td>
                                             <a href="{{ route('posts.edit', ['post' => $post->id]) }}"

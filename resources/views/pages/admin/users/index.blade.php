@@ -37,7 +37,7 @@ $users = computed(function () {
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="display table nowrap" style="font-size: 13px; width: 100%">
+                        <table class="display table wrap" style="width: 100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -57,9 +57,9 @@ $users = computed(function () {
                                         <td>
                                             {{ $user->role == 'Pengunjung' ? '-' : $user->posts->count() . ' Berita' }}
                                         </td>
-                                       
+
                                         <td>
-                                            <span class="badge bg-primary"> {{ $user->role }}</span>
+                                            <span class="badge bg-label-primary"> {{ $user->role }}</span>
 
                                         </td>
                                         <td>

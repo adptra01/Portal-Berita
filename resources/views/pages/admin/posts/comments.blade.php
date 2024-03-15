@@ -51,6 +51,10 @@ $unPublishComment = function (comment $comment) {
     ]);
 };
 
+$destroy = function (comment $comment) {
+    $comment->delete();
+};
+
 ?>
 
 <x-admin-layout>
@@ -66,7 +70,8 @@ $unPublishComment = function (comment $comment) {
                     <li class="breadcrumb-item">
                         <a href="#">Berita</a>
                     </li>
-                    <li class="breadcrumb-item active">Komentar</li>
+                    <li class="breadcrumb-item active">Komentar
+                    </li>
                 </ol>
             </nav>
             <div class="card">
@@ -83,6 +88,7 @@ $unPublishComment = function (comment $comment) {
                                     <th>Nama</th>
                                     <th>Komentar</th>
                                     <th>Status</th>
+                                    <th>Pilihan</th>
                                     <th>#</th>
                                 </tr>
                             </thead>
@@ -94,28 +100,43 @@ $unPublishComment = function (comment $comment) {
                                             {{ $comment->user->name }}
                                         </td>
                                         <td>
-                                            {{ $comment->body }}
+                                            {{ Str::limit($comment->body, 50, '...') }}
                                         </td>
                                         <td>
                                             {{ $comment->status == true ? 'Aktif' : 'Tidak Aktif' }}
+                                            <i wire:loading class="bx bx-loader bx-spin text-primary"></i>
+
                                         </td>
                                         <td>
-                                            <div class="row">
-                                                <button type="button" class="my-2 btn btn-primary btn-sm"
-                                                    wire:click='publishComment({{ $comment->id }})'>Aktif</button>
+                                            <button type="button" class="my-2 btn btn-primary btn-sm"
+                                                wire:click='publishComment({{ $comment->id }})'>Aktif</button>
 
-                                                <button type="button" class="my-2 btn btn-danger btn-sm"
-                                                    wire:click='unPublishComment({{ $comment->id }})'>Tidak Aktif</button>
+                                            <button type="button" class="my-2 btn btn-danger btn-sm"
+                                                wire:click='unPublishComment({{ $comment->id }})'>Tidak Aktif</button>
 
+                                            @include('pages.admin.posts.show-comment')
 
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                    data-bs-toggle="dropdown"><i
+                                                        class="bx bx-dots-vertical-rounded"></i></button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" data-bs-toggle="modal"
+                                                        data-bs-target="#modal{{ $comment->id }}"><i
+                                                            class="bx bx-file me-2"></i>Lihat</a>
+                                                    <a class="dropdown-item" wire:click='destroy({{ $comment->id }})'
+                                                        wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus"
+                                                        wire:loading.attr="disabled"><i
+                                                            class="bx bx-trash me-2"></i>Hapus</a>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-
-
                     </div>
                     <div class="my-4 row align-items-center">
                         <div class="col-md">
@@ -127,6 +148,7 @@ $unPublishComment = function (comment $comment) {
                     </div>
                 </div>
             </div>
+            modal
         </div>
     @endvolt
 </x-admin-layout>

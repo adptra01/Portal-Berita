@@ -96,7 +96,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">SIBANYU</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2"><em>SIBANYU</em></span>
                     </a>
 
                     <a href="javascript:void(0);"
@@ -183,7 +183,7 @@
                 <div class="content-wrapper">
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        @if (session('error'))
+                        @if (session('errors'))
                             <div class="bs-toast toast fade show position-absolute top-0 end-0 m-3 text-danger"
                                 role="alert" aria-live="assertive" aria-atomic="true">
                                 <div class="toast-body">
@@ -194,7 +194,9 @@
                                         </span>
                                         <div class="d-flex flex-column ps-1">
                                             <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Oops!</h6>
-                                            <span> {{ session('error') }} 😒!</span>
+                                            @foreach ($errors->all() as $error)
+                                                <span>{{ $error }}</span>
+                                            @endforeach
                                         </div>
                                     </div>
 
