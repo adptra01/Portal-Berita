@@ -21,10 +21,10 @@ state(['countPost' => fn() => Post::count(), 'writerCountPost' => fn() => Post::
                 <div class="d-flex align-items-end row">
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <h5 class="card-title text-primary">Congratulations {{ auth()->user()->name }}! 🎉</h5>
+                            <h5 class="card-title text-primary">Hallo {{ auth()->user()->name }}! 🎉</h5>
                             <p class="mb-4">
                                 Anda memiliki
-                                {{ auth()->user()->role == 'admin' ? $countPost : $writerCountPost }}
+                                {{ auth()->user()->role == 'Admin' ? $countPost : $writerCountPost }}
                                 Berita
                                 hari ini. Periksa daftar Berita di menu berita untuk lihat lengkap.
                             </p>
