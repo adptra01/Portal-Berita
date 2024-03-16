@@ -64,26 +64,50 @@ class HomeController extends Controller
         $top10Post = Post::orderBy('viewer', 'desc')
             ->limit(10)->get();
 
-        $labels = [];
-        $dataset = [];
+        $labelstop10Post = [];
+        $datasettop10Post = [];
 
         foreach ($top10Post as $post) {
-            $labels[] = $post->title;
-            $dataset[] = $post->viewer;
+            $labelstop10Post[] = $post->title;
+            $datasettop10Post[] = $post->viewer;
         }
 
         $chartTopViewerPost = (new LarapexChart)->setType('bar')
             ->setTitle('Top 10 Post Dilihat (Total)')
-            ->setLabels($labels)
+            ->setLabels($labelstop10Post)
             ->setDataset([
                 [
                     'name' => 'Viewer',
-                    'data' => $dataset
+                    'data' => $datasettop10Post
                 ]
             ]);
         // end top10Post
 
+        $roles = ['Penulis', 'Admin', 'Pengunjung'];
 
-        return view('pages.home', compact('countPost', 'writerCountPost', 'chartPost', 'chartTopViewerPost', 'countPostsWriter', 'countAdvertsByPosition'));
+        $userCountByRole = User::whereIn('role', $roles)
+            ->select('role', DB::raw('count(*) as total_user'))
+            ->groupBy('role')
+            ->get();
+
+        $labels = [];
+        $dataset = [];
+
+        foreach ($userCountByRole as $data) {
+            $labels[] = $data->role;
+            $dataset[] = $data->total_user;
+        }
+
+        $chartTotalUser = (new LarapexChart)->setType('bar')
+            ->setTitle('Total User Berdasarkan Role')
+            ->setLabels($labels)
+            ->setDataset([
+                [
+                    'name' => 'Total User',
+                    'data' => $dataset
+                ]
+            ]);
+
+        return view('pages.home', compact('countPost', 'writerCountPost', 'chartPost', 'chartTopViewerPost', 'countPostsWriter', 'countAdvertsByPosition', 'chartTotalUser'));
     }
 }

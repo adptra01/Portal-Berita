@@ -28,26 +28,19 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        {!! $chartPost->container() !!}
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
 
-                        <script src="{{ $chartPost->cdn() }}"></script>
+                <div class="col-md">
+                    {!! $chartPost->container() !!}
 
-                        {{ $chartPost->script() }}
-                    </div>
-                    <div class="row">
+                    <script src="{{ $chartPost->cdn() }}"></script>
 
-                    </div>
+                    {{ $chartPost->script() }}
                 </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="card mb-3">
-                <div class="card-body">
+
+                <div class="col-md">
                     {!! $chartTopViewerPost->container() !!}
 
                     {{ $chartTopViewerPost->script() }}
@@ -57,24 +50,22 @@
     </div>
 
     <div class="row">
-        <div class="col-md"> style="height: 20%"
+        <div class="col-md">
 
-            <div class="card mb-3">
+            <div class="card mb-3 h-100">
                 <div class="card-body">
-                    <p class="fw-bold">Total Berita Penulis</p>
-                    <div class="table-responsive border rounded">
-                        <table class="table table-striped table-sm text-center">
+                    <p class="fw-bold text-dark">Total Berita Penulis</p>
+                    <div class="table-responsive">
+                        <table class="table table-hover border-top text-center">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
                                     <th>Penulis</th>
                                     <th>Total Berita</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($countPostsWriter as $no => $item)
+                                @foreach ($countPostsWriter as $item)
                                     <tr>
-                                        <td>{{ ++$no }}.</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->posts->count() }}</td>
                                     </tr>
@@ -86,12 +77,12 @@
             </div>
         </div>
 
-        <div class="col-md" style="height: 20%">
-            <div class="card mb-3">
+        <div class="col-md">
+            <div class="card mb-3 h-100">
                 <div class="card-body">
-                    <p class="fw-bold">Total Iklan</p>
-                    <div class="table-responsive border rounded">
-                        <table class="table table-striped table-sm text-center">
+                    <p class="fw-bold text-dark">Total Iklan</p>
+                    <div class="table-responsive">
+                        <table class="table table-hover border-top text-center">
                             <thead>
                                 <tr>
                                     <th>Posisi</th>
@@ -113,29 +104,12 @@
             </div>
         </div>
 
-        <div class="col-md" style="height: 20%">
-            <div class="card mb-3">
+        <div class="col-md">
+            <div class="card mb-3 h-100">
                 <div class="card-body">
-                    <p class="fw-bold">Total Iklan</p>
-                    <div class="table-responsive border rounded">
-                        <table class="table table-striped table-sm text-center">
-                            <thead>
-                                <tr>
-                                    <th>Posisi</th>
-                                    <th>Jumlah Iklan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($countAdvertsByPosition as $position => $count)
-                                    <tr>
-                                        <td>{{ $position }}</td>
-                                        <td>{{ $count }}</td>
-                                    </tr>
-                                @endforeach
+                    {!! $chartTotalUser->container() !!}
 
-                            </tbody>
-                        </table>
-                    </div>
+                    {{ $chartTotalUser->script() }}
                 </div>
             </div>
         </div>
