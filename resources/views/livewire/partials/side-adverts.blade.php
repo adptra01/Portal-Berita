@@ -7,7 +7,7 @@ use App\Models\Advert;
 state(['countAdverts', 'takeAdverts' => fn() => $this->countAdverts ?? 5]);
 
 $sideAdverts = computed(function () {
-    return Advert::whereStatus(true)->wherePosition('side')->orderBy('updated_at')->get();
+    return Advert::wherePosition('side')->where('end_date', '>=', today())->orderBy('updated_at')->get();
 });
 
 ?>

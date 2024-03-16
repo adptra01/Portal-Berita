@@ -80,7 +80,7 @@ state(['advert']);
                             <div class="col-md-9">
                                 <p class="text-capitalize">:
                                     <span
-                                        class="badge bg-label-{{ $advert->status == 1 ? 'primary' : 'danger' }}">{{ $advert->status == 1 ? 'Aktif' : 'Non Aktif' }}</span>
+                                        class="badge bg-{{ $advert->end_date <= now() ? 'danger' : 'primary' }}">{{ $advert->end_date <= now() ? 'Non Aktif' : 'Aktif' }}</span>
                                 </p>
                             </div>
                         </div>
@@ -167,10 +167,8 @@ state(['advert']);
                                     dilakukan pada gambar iklan tersebut.
                                 </li>
                                 <li>
-                                    Hanya iklan yang memiliki tanggal berakhir yang belum melewati hari ini dan
-                                    memiliki status aktif yang akan ditampilkan. Pengguna dapat menonaktifkan iklan
-                                    dengan memilih opsi nonaktif atau mengubah tanggal berakhir iklan sesuai
-                                    kebutuhan.
+                                    Hanya iklan yang memiliki tanggal berakhir yang belum melewati hari ini yang akan
+                                    ditampilkan.
                                 </li>
                             </ul>
                         </div>

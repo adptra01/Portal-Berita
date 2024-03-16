@@ -5,7 +5,7 @@ use Carbon\Carbon;
 use App\Models\Advert;
 
 state([
-    'popAdverts' => fn() => Advert::whereStatus(true)->wherePosition('popup')->where('end_date', '>=', today())->first(),
+    'popAdverts' => fn() => Advert::wherePosition('popup')->where('end_date', '>=', today())->first(),
 ]);
 
 ?>

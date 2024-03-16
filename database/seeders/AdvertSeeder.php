@@ -32,7 +32,6 @@ class AdvertSeeder extends Seeder
 
                 $createAdvert = [
                     'name' => $postData['title'],
-                    'status' => 1,
                     'link' => $postData['link'],
                     'position' => $this->getRandomPosition(),
                     'start_date' => Carbon::parse($postData['pubDate'])->toDateString(),

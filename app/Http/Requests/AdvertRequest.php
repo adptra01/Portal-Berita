@@ -23,7 +23,6 @@ class AdvertRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'status' => 'required|boolean',
             'link' => 'required|max:255',
             'position' => 'required|in:top,side,popup',
             'start_date' => 'required|date',

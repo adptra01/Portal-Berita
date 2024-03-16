@@ -8,7 +8,7 @@ name('adverts.index');
 state([]);
 
 $adverts = computed(function () {
-    return Advert::latest()->select('id', 'name', 'position', 'start_date', 'end_date', 'status')->get();
+    return Advert::latest()->select('id', 'name', 'position', 'start_date', 'end_date')->get();
 });
 
 ?>
@@ -74,10 +74,8 @@ $adverts = computed(function () {
                                             {{ Carbon\Carbon::parse($advert->end_date)->format('d M Y') }} </p>
                                         </td>
                                         <td>
-                                            <span class="badge bg-label-{{ $advert->status == 1 ? 'primary' : 'danger' }}">
-                                                {{ $advert->status == 1 ? 'Aktif' : 'Non Aktif' }}
-                                            </span>
-
+                                            <span
+                                                class="badge bg-{{ $advert->end_date <= now() ? 'danger' : 'primary' }}">{{ $advert->end_date <= now() ? 'Non Aktif' : 'Aktif' }}</span>
                                         </td>
                                         <td>
                                             <a href="{{ route('adverts.edit', ['advert' => $advert->id]) }}"

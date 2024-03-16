@@ -5,7 +5,7 @@ use Carbon\Carbon;
 use App\Models\Advert;
 
 state([
-    'topAdverts' => fn() => Advert::whereStatus(true)->wherePosition('top')->orderBy('updated_at')->get(),
+    'topAdverts' => fn() => Advert::wherePosition('top')->where('end_date', '>=', today())->orderBy('updated_at')->get(),
 ]);
 
 ?>

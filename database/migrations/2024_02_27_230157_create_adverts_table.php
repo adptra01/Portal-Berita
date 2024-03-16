@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('adverts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('status');
             $table->string('link')->nullable();
             $table->enum('position', ['top', 'side', 'popup']);
             $table->date('start_date');

@@ -11,7 +11,6 @@ class Advert extends Model
 
     protected $fillable = [
         'name',
-        'status',
         'link',
         'position',
         'start_date',

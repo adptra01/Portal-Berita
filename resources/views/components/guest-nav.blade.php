@@ -49,24 +49,12 @@
 </span>
 
 @auth
-    <div class="dropdown px-lg-3 pt-2 pt-lg-0">
-        <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ auth()->user()->name }}"
-            class="border rounded-circle dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="true"
-            aria-expanded="false" href="#" alt="{{ auth()->user()->name }}" width="40">
-
-        <ul class="dropdown-menu border-0 " style="--bs-dropdown-min-width: auto;">
-            <li>
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">Logout</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </li>
-        </ul>
-    </div>
-@else
-    <form class="d-block px-lg-3">
-        <a class="genric-btn primary-border rounded small" href="/login">Login</a>
+    <form class="d-block px-lg-3" action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit" class="genric-btn danger-border rounded small">Logout</button>
     </form>
+@else
+    <div class="d-block px-lg-3">
+        <a class="genric-btn primary-border rounded small" href="/login">Login</a>
+    </div>
 @endauth

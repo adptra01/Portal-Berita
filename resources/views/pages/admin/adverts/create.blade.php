@@ -103,23 +103,7 @@ name('adverts.create');
                         </div>
 
                         <div class="row">
-                            <div class="col-md">
-                                <div class="mb-3">
-                                    <label for="status" class="form-label">Status Iklan <strong
-                                            class="text-danger">*</strong></label>
-                                    <select class="form-select @error('status') is-invalid @enderror" name="status"
-                                        id="status">
-                                        <option selected disabled>Select one</option>
-                                        <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Aktif
-                                        </option>
-                                        <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Non Aktif
-                                        </option>
-                                    </select>
-                                </div>
-                                @error('status')
-                                    <small id="status" class="form-text text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
+                            
                             <div class="col-md">
                                 <div class="mb-3">
                                     <label for="position" class="form-label">position Iklan <strong
