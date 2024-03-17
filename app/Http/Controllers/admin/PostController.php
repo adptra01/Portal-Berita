@@ -43,7 +43,7 @@ class PostController extends Controller
         $post->seo()->create($seoData);
 
         // Redirect based on user role
-        $redirectRoute = auth()->user()->role == '/admin/posts/' ? 'posts.edit' : '/writer/posts/';
+        $redirectRoute = auth()->user()->role == 'Admin' ? '/admin/posts/' : '/writer/posts/';
 
         return redirect($redirectRoute . $post->id)->with('success', 'Proses Berhasil Dilakukan 😁!');
     }
@@ -80,7 +80,7 @@ class PostController extends Controller
 
         // Redirect based on user role
 
-        $redirectRoute = auth()->user()->role == '/admin/posts/' ? 'posts.edit' : '/writer/posts/';
+        $redirectRoute = auth()->user()->role == 'Penulis' ? '/writer/posts/' : '/writer/posts/';
 
         return redirect($redirectRoute . $post->id)->with('success', 'Proses Berhasil Dilakukan 😁!');
     }

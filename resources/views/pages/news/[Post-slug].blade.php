@@ -54,7 +54,7 @@ $comments = computed(function () {
                                             <img class="img-fluid w-100" src="{{ Storage::url($post->thumbnail) }}"
                                                 alt="{{ $post->title }}" loading="lazy">
                                         </div>
-                                        <div class="blog_details fr-view">
+                                        <div class="ck-content">
                                             {!! $post->content !!}
                                         </div>
                                     </div>

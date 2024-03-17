@@ -64,12 +64,12 @@ $saveComment = function () {
                         </div>
                         <div class="desc">
                             <div class="row mb-3">
-                                <h5 class="col-md">
+                                <p class="fw-bold text-dark mb-0">
                                     {{ $comment->user->name }}
-                                </h5>
-                                <small class="col-md text-md-end">{{ $comment->created_at->diffForHumans() }}</small>
+                                </p>
+                                <h6 class="text-muted">{{ $comment->created_at->diffForHumans() }}</h6>
                             </div>
-                            <p class="comment text-break">
+                            <p class="text-break">
                                 {{ $comment->body }}
                             </p>
                             <div class="row">
