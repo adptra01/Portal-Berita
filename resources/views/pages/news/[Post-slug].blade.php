@@ -17,7 +17,7 @@ $comments = computed(function () {
 
     @include('layouts.style-post')
     @livewire('partials.top-adverts')
-    @livewire('partials.popup-adverts')
+    {{-- @livewire('partials.popup-adverts') --}}
 
     @volt
         <div>

@@ -9,7 +9,7 @@
 -view iklan ✅
 -approve komentar ✅
 -Tentang kami bisa edit
--Tambah grafik (pengunjung, dilihat)
+-Tambah grafik (pengunjung, dilihat) ✅
 -Email hosting
 -Sub kategori cth: daerah2
--Iklan berdasarkan tanggal
+-Iklan berdasarkan tanggal ✅

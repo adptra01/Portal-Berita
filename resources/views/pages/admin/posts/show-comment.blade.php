@@ -8,7 +8,7 @@
 <div class="modal fade" id="modal{{ $comment->id }}" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-        <div class="modal-content">
+        <div class="modal-content text-start">
             <div class="modal-header">
                 <h5 class="modal-title fw-bold text-primary" id="modalTitleId">
                     {{ $comment->post->title }}

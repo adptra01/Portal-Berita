@@ -4,7 +4,7 @@ use function Livewire\Volt\{state, computed, rules};
 use App\Models\Comment;
 use App\Models\User;
 
-state(['post', 'user_id', 'post_id', 'body']);
+state(['post', 'user_id', 'post_id', 'body', 'commentId']);
 rules([
     'body' => 'required|min:5|string',
 ]);
@@ -15,15 +15,19 @@ $comments = computed(function () {
         ->get();
 });
 
-$userComment = computed(function () {
-    if (auth()->check()) {
-        return Comment::where('user_id', auth()->user()->id)
-            ->where('post_id', $this->post->id)
-            ->get();
-    } else {
-        return collect();
-    }
-});
+$deleteComment = function (comment $comment) {
+    $comment->delete();
+    $this->reset('user_id', 'post_id', 'body', 'commentId');
+};
+
+$editComment = function (comment $comment) {
+    $comment = Comment::find($comment->id);
+
+    $this->commentId = $comment->id;
+    $this->user_id = $comment->user_id;
+    $this->post_id = $comment->post_id;
+    $this->body = $comment->body;
+};
 
 $saveComment = function () {
     $post = $this->post;
@@ -32,11 +36,16 @@ $saveComment = function () {
     $validateData['post_id'] = $post->id;
 
     if (auth()->check()) {
-        $validateData['user_id'] = auth()->user()->id;
+        if ($this->commentId == null) {
+            $validateData['user_id'] = auth()->user()->id;
+            $comment = Comment::create($validateData);
 
-        $comment = Comment::create($validateData);
+            $this->reset('user_id', 'post_id', 'body', 'commentId');
+        } else {
+            $comment = Comment::find($this->commentId)->update($validateData);
 
-        $this->reset('body');
+            $this->reset('user_id', 'post_id', 'body', 'commentId');
+        }
     } else {
         return redirect()->route('login');
     }
@@ -46,7 +55,7 @@ $saveComment = function () {
     <div class="comments-area p-0 border-0">
         <h4>{{ $this->comments->count() }} Komentar</h4>
         @foreach ($this->comments as $comment)
-            <div class="comment-list">
+            <div class="comment-list mb-3 p-0">
                 <div class="single-comment justify-content-between d-flex">
                     <div class="user justify-content-between d-flex">
                         <div class="thumb">
@@ -54,42 +63,57 @@ $saveComment = function () {
                                 alt="{{ $comment->user->name }}">
                         </div>
                         <div class="desc">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <h5>
-                                        <a>{{ $comment->user->name }}</a>
-                                    </h5>
-                                    <p class="date">{{ $comment->created_at->diffForHumans() }}</p>
-                                </div>
+                            <div class="row mb-3">
+                                <h5 class="col-md">
+                                    {{ $comment->user->name }}
+                                </h5>
+                                <small class="col-md text-md-end">{{ $comment->created_at->diffForHumans() }}</small>
                             </div>
                             <p class="comment text-break">
                                 {{ $comment->body }}
                             </p>
+                            <div class="row">
+                                @if (auth()->check() && $comment->user->id == auth()->user()->id)
+                                    <div class="gap-5">
+                                        <button wire:click='editComment({{ $comment->id }})'
+                                            class="text-muted fw-semibold border-0 bg-body">
+                                            <i class="bx bx-edit-alt me-1"></i>
+                                            Edit
+                                        </button>
+                                        <span class="mx-3">|</span>
+                                        <button wire:click='deleteComment({{ $comment->id }})'
+                                            class="text-muted fw-semibold border-0 bg-body">
+                                            <i class="bx bx-trash me-1"></i>
+                                            Hapus
+                                        </button>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
-    <div class="comment">
-        @if ($this->userComment->isEmpty())
-            <h4></h4>
-            <form class="form-contact comment_form" wire:submit.prevent="saveComment" id="commentForm">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-group">
-                            <textarea class="form-control @error('body') border-danger @else border-primary @enderror w-100 rounded"
-                                wire:model.lazy="body" id="body" cols="30" rows="10" placeholder="Tulis Komentar..."></textarea>
-                            @error('body')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
+    <div class="comment mt-5 pt-5">
+        <form class="form-contact comment_form" wire:submit.prevent="saveComment" id="commentForm">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <textarea class="form-control @error('body') border-danger @enderror w-100 rounded" wire:model="body" id="body"
+                            cols="30" rows="10" placeholder="Tulis Komentar...">
+                        </textarea>
+                        @error('body')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="genric-btn primary-border rounded">Submit</button>
-                </div>
-            </form>
-        @endif
+            </div>
+            <div class="form-group">
+                <button type="submit" class="genric-btn primary rounded">Submit</button>
+
+                <p wire:loading>loading</p>
+            </div>
+        </form>
     </div>
 </div>

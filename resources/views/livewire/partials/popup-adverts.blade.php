@@ -15,7 +15,7 @@ state([
     @if ($popAdverts)
         <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content border-0" style="background: none">
                     <div class="modal-header p-0 m-0 border-0">
                         <button type="button" class="btn-close btn-close-dark p-3 rounded-circle bg-white"
