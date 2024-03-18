@@ -81,30 +81,35 @@ $comments = computed(function () {
                                                 </span>
                                                 {{ $this->comments->count() }} Komentar
                                             </p> --}}
-                                            {{-- <div class="col-sm-4 text-center my-2 my-sm-0">
+                                            <div class="col-sm-4 text-center my-2 my-sm-0">
                                                 <ul class="social-icons">
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('news.read', ['post' => $post->slug]) }}"
+                                                            target="_blank">
                                                             <i class='bx bxl-facebook-square fs-5'></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="https://twitter.com/intent/tweet?text=my%20share%20text&url={{ route('news.read', ['post' => $post->slug]) }}"
+                                                            target="_blank">
                                                             <i class='bx bxl-twitter fs-5'></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ route('news.read', ['post' => $post->slug]) }}&title=my%20share%20text&summary=dit%20is%20de%20linkedin%20summary"
+                                                            target="_blank">
                                                             <i class='bx bxl-linkedin-square fs-5'></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#">
-                                                            <i class='bx bxl-instagram fs-5'></i>
+                                                        <a href="https://wa.me/?text={{ route('news.read', ['post' => $post->slug]) }}"
+                                                            target="_blank">
+                                                            <i class='bx bxl-whatsapp fs-5'></i>
                                                         </a>
                                                     </li>
                                                 </ul>
-                                            </div> --}}
+                                            </div>
+
                                         </div>
                                     </div>
 

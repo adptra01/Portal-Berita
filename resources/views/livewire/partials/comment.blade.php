@@ -112,7 +112,7 @@ $saveComment = function () {
             <div class="form-group">
                 <button type="submit" class="genric-btn primary rounded">Submit</button>
 
-                <p wire:loading>loading</p>
+                <i wire:loading class='bx bx-loader bx-spin'></i>
             </div>
         </form>
     </div>
