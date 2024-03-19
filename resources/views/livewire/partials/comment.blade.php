@@ -75,13 +75,15 @@ $saveComment = function () {
                             <div class="row">
                                 @if (auth()->check() && $comment->user->id == auth()->user()->id)
                                     <div class="gap-5">
-                                        <button wire:click='editComment({{ $comment->id }})'
+                                        <button wire:loading.attr='disabled'
+                                            wire:click='editComment({{ $comment->id }})'
                                             class="text-muted fw-semibold border-0 bg-body">
                                             <i class="bx bx-edit-alt me-1"></i>
                                             Edit
                                         </button>
                                         <span class="mx-3">|</span>
-                                        <button wire:click='deleteComment({{ $comment->id }})'
+                                        <button wire:loading.attr='disabled'
+                                            wire:click='deleteComment({{ $comment->id }})'
                                             class="text-muted fw-semibold border-0 bg-body">
                                             <i class="bx bx-trash me-1"></i>
                                             Hapus
@@ -110,7 +112,7 @@ $saveComment = function () {
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="genric-btn primary rounded">Submit</button>
+                <button type="submit" wire:loading.attr='disabled' class="genric-btn primary rounded">Submit</button>
 
                 <i wire:loading class='bx bx-loader bx-spin'></i>
             </div>
