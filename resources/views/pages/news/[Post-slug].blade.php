@@ -1,14 +1,29 @@
 <?php
 use function Laravel\Folio\name;
-use function Livewire\Volt\{state, computed};
+use function Livewire\Volt\{state, computed, mount};
 use App\Models\Comment;
+use App\Models\Post;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 name('news.read');
 
-state(['post', 'add_viewer' => fn() => $this->post->increment('viewer')]);
+state(['post', 'add_viewer' => fn() => $this->post->increment('viewer'), 'seopost']);
 
 $comments = computed(function () {
     return Comment::where('post_id', $this->post->id)->get();
+});
+
+mount(function () {
+    $post = Post::find($this->post->id)->getDynamicSEOData();
+
+    // $this->seopost = new SEOData(
+    //     title: $post->title,
+    //     description: $post->description,
+    //     author: $post->author,
+    //     // Tambahkan field lain yang Anda perlukan
+    // );
+
+    $this->seopost = serialize($post);
 });
 
 ?>
@@ -17,10 +32,11 @@ $comments = computed(function () {
 
     @include('layouts.style-post')
     @livewire('partials.top-adverts')
-    {{-- @livewire('partials.popup-adverts') --}}
+    @livewire('partials.popup-adverts')
 
     @volt
         <div>
+            {{-- @dd($seopost) --}}
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">
