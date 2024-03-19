@@ -15,14 +15,6 @@ $comments = computed(function () {
 
 mount(function () {
     $post = Post::find($this->post->id)->getDynamicSEOData();
-
-    // $this->seopost = new SEOData(
-    //     title: $post->title,
-    //     description: $post->description,
-    //     author: $post->author,
-    //     // Tambahkan field lain yang Anda perlukan
-    // );
-
     $this->seopost = serialize($post);
 });
 
