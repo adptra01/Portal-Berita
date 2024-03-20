@@ -3,19 +3,23 @@ use function Laravel\Folio\name;
 use function Livewire\Volt\{state, computed, mount};
 use App\Models\Comment;
 use App\Models\Post;
-use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 name('news.read');
 
-state(['post', 'add_viewer' => fn() => $this->post->increment('viewer'), 'seopost']);
-
-$comments = computed(function () {
-    return Comment::where('post_id', $this->post->id)->get();
-});
+state(['post', 'add_viewer' => fn() => $this->post->increment('viewer')]);
 
 mount(function () {
-    $post = Post::find($this->post->id)->getDynamicSEOData();
-    $this->seopost = serialize($post);
+    $cacheKey = 'post_' . $this->post->id;
+    $this->post = Cache::remember($cacheKey, now()->addMinutes(5), function () {
+        return Post::find($this->post->id);
+    });
+});
+
+$comments = computed(function () {
+    $cacheKey = 'comments_' . $this->post->id;
+    return Cache::remember($cacheKey, now()->addMinutes(5), function () {
+        return Comment::where('post_id', $this->post->id)->get();
+    });
 });
 
 ?>
@@ -23,12 +27,11 @@ mount(function () {
     <x-slot name="title">{{ $post->title }}</x-slot>
 
     @include('layouts.style-post')
-    @livewire('partials.top-adverts')
-    @livewire('partials.popup-adverts')
+    @livewire('adverts.top')
+    @livewire('adverts.popup')
 
     @volt
         <div>
-            {{-- @dd($seopost) --}}
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">
@@ -49,7 +52,7 @@ mount(function () {
                                             <div class="col-auto p-0 ml-3">
                                                 <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $post->user->name ?? 'Penulis' }}"
                                                     class="rounded border-0" style="width: 55px"
-                                                    alt="{{ $post->user->name }}" loading="eager">
+                                                    alt="{{ $post->user->name }}" loading="lazy">
                                             </div>
                                             <div class="col-auto">
                                                 <p class="m-0 fw-bold">{{ $post->user->name ?? 'Admin' }}</p>
@@ -129,7 +132,7 @@ mount(function () {
                                     <div class="blog_right_sidebar sticky-top" style="padding-top: 6rem;">
                                         <livewire:partials.related-news>
                                             <!-- New Poster -->
-                                            @livewire('partials.side-adverts', ['countAdverts' => 6])
+                                            @livewire('adverts.side', ['countAdverts' => 6])
                                     </div>
                                 </div>
                             </div>

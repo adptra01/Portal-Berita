@@ -17,14 +17,13 @@ State([
         ->get(),
     'category',
     'categories' => fn() => Category::with('posts')->get(),
-
 ]);
 
 ?>
 
 <x-guest-layout>
     <x-slot name="title">Kategori Berita</x-slot>
-    @livewire('partials.top-adverts')
+    @livewire('adverts.top')
 
     @volt
         <div>
@@ -40,7 +39,7 @@ State([
                         <div class="col-md-6">
                             <div class="card border-0">
                                 <a href="">
-                                    <img alt="" class="img-fluid rounded"
+                                    <img alt="{{ $topFivePosts->first()->title }}" class="img-fluid rounded"
                                         src="{{ Storage::url($topFivePosts->first()->thumbnail) }}" loading="lazy"></a>
                                 <div class="card-body px-0">
                                     <h3 class="fw-semibold my-2">
@@ -108,7 +107,7 @@ State([
                                     <!-- Related News -->
                                     <livewire:partials.related-news>
                                         <!-- New Poster -->
-                                        @livewire('partials.side-adverts', [
+                                        @livewire('adverts.side', [
                                             'countAdverts' => Post::count(),
                                         ])
                                 </aside>

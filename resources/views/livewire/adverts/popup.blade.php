@@ -1,12 +1,18 @@
 <?php
 
-use function Livewire\Volt\{state};
+use function Livewire\Volt\{state, mount};
 use Carbon\Carbon;
 use App\Models\Advert;
+use Illuminate\Support\Facades\Cache;
 
-state([
-    'popAdverts' => fn() => Advert::wherePosition('popup')->where('end_date', '>=', today())->first(),
-]);
+state(['popAdverts']);
+
+mount(function () {
+    $cacheKey = 'popAdverts_' . Str::random(20);
+    $this->popAdverts = Cache::remember($cacheKey, now()->addMinutes(30), function () {
+        return Advert::wherePosition('popup')->where('end_date', '>=', today())->first();
+    });
+});
 
 ?>
 
@@ -24,7 +30,7 @@ state([
                     <div class="modal-body">
                         <a href="{{ $popAdverts->link }}" target="_blank" rel="noopener noreferrer">
                             <img src="{{ Storage::url($popAdverts->image) }}" class="img-fluid rounded w-100"
-                                alt="" loading="eager" />
+                                alt="{{ $popAdverts->name }}" loading="eager" />
                         </a>
                     </div>
                 </div>

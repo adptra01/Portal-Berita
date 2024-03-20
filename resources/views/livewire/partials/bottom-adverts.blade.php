@@ -5,7 +5,7 @@ use Carbon\Carbon;
 use App\Models\Advert;
 
 state([
-    'sideAdverts' => fn() => Advert::whereStatus(true)->wherePosition('side')->get(),
+    'sideAdverts' => fn() => Advert::where('end_date', '>=', today())->wherePosition('side')->get(),
 ]);
 
 ?>

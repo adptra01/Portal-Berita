@@ -38,7 +38,7 @@ $posts = computed(function () {
 
 <x-guest-layout>
     <x-slot name="title">Kategori Berita</x-slot>
-    @livewire('partials.top-adverts')
+    @livewire('adverts.top')
 
     @volt
         <div>
@@ -164,7 +164,7 @@ $posts = computed(function () {
                                     <!-- Related News -->
                                     <livewire:partials.related-news>
                                         <!-- New Poster -->
-                                        @livewire('partials.side-adverts', ['countAdverts' => Post::count()])
+                                        @livewire('adverts.side', ['countAdverts' => Post::count()])
 
                                 </aside>
 
