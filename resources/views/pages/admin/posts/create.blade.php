@@ -60,6 +60,17 @@ state([
                             @enderror
                         </div>
 
+                        <div class="mb-3">
+                            <label for="keyword" class="form-label">Keyword
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input id="input-tags" name="keyword[]" autocomplete="off" placeholder="Kata kunci berita?">
+
+                            @error('keyword')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+
                         <div class="mb-3 row">
                             <div class="col-md">
                                 <label for="category_id" class="form-label">Kategori Berita

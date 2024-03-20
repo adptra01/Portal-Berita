@@ -9,7 +9,6 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {!! seo($SEOData ?? null) !!}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('/admin/img/favicon/favicon.ico') }}" />
 
@@ -29,9 +28,9 @@
     <link rel="stylesheet" href="{{ asset('/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('/admin/vendor/css/pages/page-auth.css') }}" />
-    <script src="{{ asset('/admin/vendor/js/helpers.js') }}"></script>
+    <script src="{{ asset('/admin/vendor/js/helpers.js') }}" defer></script>></script>
 
-    <script src="{{ asset('/admin/js/config.js') }}"></script>
+    <script src="{{ asset('/admin/js/config.js') }}" defer></script>
 
     @vite([])
 
@@ -65,6 +64,17 @@
             <div
                 class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4 bg-white zindex-1">
                 <div class="w-px-400 mx-auto">
+                    @if (session('error'))
+                        <div class="alert alert-danger d-flex" role="alert">
+                            <span class="badge badge-center rounded-pill bg-danger border-label-danger p-3 me-2"><i
+                                    class="bx bx-detail fs-6"></i></span>
+                            <div class="d-flex flex-column ps-1">
+                                <h6 class="alert-heading d-flex align-items-center mb-1">Alert!!</h6>
+                                <span>{{ session('error') }}</span>
+                            </div>
+                        </div>
+                    @endif
+
                     <!-- Logo -->
                     <div class="app-brand mb-3">
                         <a href="/" class="app-brand-link gap-2">
@@ -132,18 +142,18 @@
         <!-- /Login -->
     </div>
 
-    <script src="{{ asset('/admin/vendor/libs/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('/admin/vendor/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('/admin/vendor/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('/admin/vendor/libs/jquery/jquery.js') }}" defer></script>
+    <script src="{{ asset('/admin/vendor/libs/popper/popper.js') }}" defer></script>
+    <script src="{{ asset('/admin/vendor/js/bootstrap.js') }}" defer></script>
+    <script src="{{ asset('/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}" defer></script>
 
-    <script src="{{ asset('/admin/vendor/js/menu.js') }}"></script>
-
-
-    <script src="{{ asset('/admin/js/main.js') }}"></script>
+    <script src="{{ asset('/admin/vendor/js/menu.js') }}" defer></script>
 
 
-    <script async defer src="https://buttons.github.io/buttons.js') }}"></script>
+    <script src="{{ asset('/admin/js/main.js') }}" defer></script>
+
+
+    <script async defer src="https://buttons.github.io/buttons.js') }}" defer></script>
 </body>
 
 </html>

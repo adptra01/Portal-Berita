@@ -119,7 +119,7 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                                     <i class='bx bxs-down-arrow bx-xs'></i></a>
                                 <div class="collapse" id="collapseThumbnail">
                                     <div class="d-flex p-3">
-                                        <img src="{{ Storage::url($post->thumbnail) }}" alt="collapse-image"
+                                        <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $advert->title }}"
                                             class="me-4 mb-sm-0 mb-2 w-100">
                                     </div>
                                 </div>
@@ -142,8 +142,7 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                         </div>
                     </div>
                     <div class="tab-pane fade" id="navs-pills-top-edit" role="tabpanel">
-                        <form action="{{ route('posts.update', $post->id) }}" method="post"
-                            enctype="multipart/form-data">
+                        <form action="{{ route('posts.update', $post->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">

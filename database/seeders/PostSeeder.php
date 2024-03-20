@@ -9,7 +9,6 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
 
 class PostSeeder extends Seeder
@@ -21,7 +20,7 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         // Fetch data from the API
-        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/dunia/'); // category : politik, hukum, ekonomi, bola, olahraga, humaniora, lifestyle, hiburan, dunia, tekno, otomotif
+        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/otomotif/'); // category : politik, hukum, ekonomi, bola, olahraga, humaniora, lifestyle, hiburan, dunia, tekno, otomotif
         // $response = Http::get('https://api-berita-indonesia.vercel.app/kumparan/terbaru');
 
 
@@ -54,17 +53,6 @@ class PostSeeder extends Seeder
                 $imageData = file_get_contents($imageUrl);
                 Storage::put('public/thumbnail/' . $imageName, $imageData);
 
-                $seoData = [
-                    'model_type' => Post::class,
-                    'model_id' => $postPublish->id,
-                    'title' => $postData['title'],
-                    'description' => $postData['description'],
-                    'author' => User::all()->random()->name,
-                    'robots' => 'index, follow',
-                    'canonical_url' => Str::slug($postData['title']) . Str::random(2),
-                ];
-
-                $postPublish->seo()->create($seoData);
                 $this->command->info('Tambah Berita: ' . $postPublish->title);
             }
 

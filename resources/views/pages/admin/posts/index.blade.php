@@ -64,7 +64,7 @@ $posts = computed(function () {
                                         </td>
                                         <td>
                                             <span
-                                                class="badge bg-label-primary">{{ $post->status == true ? 'Terbit' : 'Tidak Terbit' }}</span>
+                                                class="badge bg-label-{{ $post->status == true ? 'primary' : 'danger' }}">{{ $post->status == true ? 'Terbit' : 'Tidak Terbit' }}</span>
                                         </td>
                                         <td>
                                             <a href="{{ route('posts.edit', ['post' => $post->id]) }}"

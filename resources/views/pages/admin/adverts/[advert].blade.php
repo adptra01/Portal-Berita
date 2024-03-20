@@ -140,7 +140,7 @@ state(['advert']);
                                     <i class='bx bxs-down-arrow bx-xs'></i></a>
                                 <div class="collapse" id="collapseThumbnail">
                                     <div class="d-flex p-3">
-                                        <img src="{{ Storage::url($advert->image) }}" alt="collapse-image"
+                                        <img src="{{ Storage::url($advert->image) }}" alt="{{ $advert->name }}"
                                             class="me-4 mb-sm-0 mb-2 w-100">
                                     </div>
                                 </div>

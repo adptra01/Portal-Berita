@@ -57,7 +57,8 @@ $submit = function () {
             <div class="col-md-4">
                 <div class="d-flex justify-content-start align-items-center">
                     <button class="genric-btn primary rounded" type="submit">SUBMIT</button>
-                    <div class="ml-5" wire:loading>Loading...</div>
+                    <div class="ml-5" wire:loading> <i class='bx bx-loader bx-spin bx-sm'></i>
+                    </div>
                 </div>
             </div>
         </div>

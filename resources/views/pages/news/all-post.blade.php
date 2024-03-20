@@ -113,7 +113,7 @@ $posts = computed(function () {
                 </div>
             </div>
 
-            @livewire('partials.bottom-adverts')
+            @livewire('adverts.bottom')
 
         </div>
     @endvolt

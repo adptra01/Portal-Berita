@@ -50,7 +50,8 @@ class SocialiteController extends Controller
 
             return redirect('/');
         } catch (\Throwable $th) {
-            dd($th->getMessage());
+            // Redirect ke halaman login dengan pesan error
+            return redirect('/login')->with('error', 'Terjadi kesalahan, silakan coba lagi.');
         }
     }
 

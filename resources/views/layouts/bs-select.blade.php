@@ -9,4 +9,10 @@
             new TomSelect(el, settings);
         });
     </script>
+    <script>
+        document.querySelectorAll('select').forEach((el) => {
+            let settings = {};
+            new TomSelect(el, settings);
+        });
+    </script>
 @endpush

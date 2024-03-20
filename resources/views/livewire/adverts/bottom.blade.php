@@ -1,12 +1,19 @@
 <?php
 
-use function Livewire\Volt\{state};
+use function Livewire\Volt\{state, mount};
 use Carbon\Carbon;
 use App\Models\Advert;
 
 state([
-    'sideAdverts' => fn() => Advert::where('end_date', '>=', today())->wherePosition('side')->get(),
+    'sideAdverts'
 ]);
+
+mount(function () {
+    $cacheKey = 'sideAdverts_' . Str::random(20);
+    $this->sideAdverts = Cache::remember($cacheKey, now()->addMinutes(30), function () {
+        return Advert::wherePosition('side')->where('end_date', '>=', today())->latest()->get();
+    });
+});
 
 ?>
 
