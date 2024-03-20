@@ -59,7 +59,7 @@ $users = computed(function () {
                                         </td>
 
                                         <td>
-                                            <span class="badge bg-label-primary"> {{ $user->role }}</span>
+                                            <span class="badge bg-secondary"> {{ $user->role }}</span>
 
                                         </td>
                                         <td>

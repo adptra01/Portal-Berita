@@ -103,16 +103,27 @@ $destroy = function (comment $comment) {
                                             {{ Str::limit($comment->body, 50, '...') }}
                                         </td>
                                         <td>
-                                            {{ $comment->status == true ? 'Aktif' : 'Tidak Aktif' }}
+                                            <span class="badge bg-{{ $comment->status == true ? 'success' : 'warning' }}">
+                                                {{ $comment->status == true ? 'Aktif' : 'Tidak Aktif' }}
+                                            </span>
+
                                             <i wire:loading class="bx bx-loader bx-spin text-primary"></i>
 
                                         </td>
                                         <td>
-                                            <button type="button" class="my-2 btn btn-primary btn-sm"
-                                                wire:click='publishComment({{ $comment->id }})'>Aktif</button>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic checkbox toggle button group">
 
-                                            <button type="button" class="my-2 btn btn-danger btn-sm"
-                                                wire:click='unPublishComment({{ $comment->id }})'>Tidak Aktif</button>
+                                                <button type="button" class="my-2 btn btn-primary btn-sm"
+                                                    wire:click='publishComment({{ $comment->id }})'>
+                                                    <i class="bx bx-check"></i>
+                                                </button>
+
+                                                <button type="button" class="my-2 btn btn-danger btn-sm"
+                                                    wire:click='unPublishComment({{ $comment->id }})'>
+                                                    <i class="bx bx-x"></i>
+                                                </button>
+                                            </div>
 
                                             @include('pages.admin.posts.show-comment')
 
@@ -148,7 +159,6 @@ $destroy = function (comment $comment) {
                     </div>
                 </div>
             </div>
-            modal
         </div>
     @endvolt
 </x-admin-layout>

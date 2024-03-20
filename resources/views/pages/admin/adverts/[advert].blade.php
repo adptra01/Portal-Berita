@@ -61,6 +61,12 @@ state(['advert']);
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="navs-pills-top-preview" role="tabpanel">
 
+                        <div class="mb-3">
+                            <p class="col-md-3 fw-bold">Gambar Iklan</p>
+                            <img src="{{ Storage::url($advert->image) }}" alt="{{ $advert->name }}"
+                                class="w-100 border border-5 border-secondary rounded">
+                        </div>
+
                         <div class="mb-3 row">
                             <p class="col-md-3 fw-bold">ID</p>
                             <div class="col-md-9">
@@ -132,20 +138,6 @@ state(['advert']);
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
-                            <p class="col-md-3 fw-bold">Gambar Iklan</p>
-                            <div class="col-md-9">
-                                : <a class="fw-bold text-sm" data-bs-toggle="collapse" href="#collapseThumbnail"
-                                    role="button" aria-expanded="false" aria-controls="collapseThumbnail"> Lihat
-                                    <i class='bx bxs-down-arrow bx-xs'></i></a>
-                                <div class="collapse" id="collapseThumbnail">
-                                    <div class="d-flex p-3">
-                                        <img src="{{ Storage::url($advert->image) }}" alt="{{ $advert->name }}"
-                                            class="me-4 mb-sm-0 mb-2 w-100">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                     <div class="tab-pane fade" id="navs-pills-top-edit" role="tabpanel">

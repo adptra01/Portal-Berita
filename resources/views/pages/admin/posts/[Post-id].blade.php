@@ -63,77 +63,85 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="navs-pills-top-preview" role="tabpanel">
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="mb-3 row">
-                                    <p class="col-md-2 fw-bold">ID</p>
-                                    <div class="col-md-10">
-                                        <p>: {{ $post->id }}</p>
-                                    </div>
-                                </div>
 
-                                <div class="mb-3 row">
-                                    <p class="col-md-2 fw-bold">Slug</p>
-                                    <div class="col-md-10">
-                                        <p>: {{ $post->slug }}</p>
-                                    </div>
-                                </div>
+                        <div class="mb-3">
+                            <p class="col-md-3 fw-bold">Gambar / thumbnail</p>
+                            <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}"
+                                class="w-100 border border-5 border-secondary rounded">
+                        </div>
 
-                                <div class="mb-3 row">
-                                    <p class="col-md-2 fw-bold">Judul Berita</p>
-                                    <div class="col-md-10">
-                                        <p>: <a
-                                                href="{{ route('news.read', ['post' => $post->slug]) }}">{{ $post->title }}</a>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <p class="col-md-2 fw-bold">Kategori</p>
-                                    <div class="col-md-10">
-                                        <p class="text-capitalize">: <span
-                                                class="badge bg-label-primary">{{ $post->category->name }}</span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <p class="col-md-2 fw-bold">Keyword</p>
-                                    <div class="col-md-10">
-                                        <p class="text-capitalize text-break">: {{ $post->keyword ?? '-' }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <p class="col-md-2 fw-bold">Penulis</p>
-                                    <div class="col-md-10">
-                                        <p class="text-capitalize">: {{ $post->user->name ?? '-' }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <p class="col-md-2 fw-bold">Status</p>
-                                    <div class="col-md-10">
-                                        <p class="text-capitalize">:
-                                            <span
-                                                class="badge bg-label-{{ $post->status == true ? 'primary' : 'danger' }}">{{ $post->status == true ? 'Terbit' : 'Tidak Terbit' }}</span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                    <p class="col-md-2 fw-bold"> Dilihat</p>
-                                    <div class="col-md-10">
-                                        <p class="text-capitalize">: {{ $post->viewer ?? '0' }} Kali</p>
-                                    </div>
-                                </div>
-
+                        <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">ID</p>
+                            <div class="col-md-10">
+                                <p>: {{ $post->id }}</p>
                             </div>
-                            <div class="col-md">
-                                <div class="mb-3 text-md-end">
-                                    <p class="fw-bold">Thumbnail / Gambar</p>
-                                    <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}"
-                                        class="w-50">
+                        </div>
+
+                        <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">Slug</p>
+                            <div class="col-md-10">
+                                <p>: {{ $post->slug }}</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">Judul Berita</p>
+                            <div class="col-md-10">
+                                <p>: <a href="{{ route('news.read', ['post' => $post->slug]) }}">{{ $post->title }}</a></p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">Kategori Berita</p>
+                            <div class="col-md-10">
+                                <p class="text-capitalize">: <span
+                                        class="badge bg-primary">{{ $post->category->name }}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">Keyword Berita</p>
+                            <div class="col-md-10">
+                                <p class="text-capitalize">: {{ $post->keyword ?? '-' }}</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">Penulis</p>
+                            <div class="col-md-10">
+                                <p class="text-capitalize">: {{ $post->user->name ?? '-' }}</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">Status</p>
+                            <div class="col-md-10">
+                                <p class="text-capitalize">:
+                                    <span
+                                        class="badge bg-{{ $post->status == true ? 'primary' : 'danger' }}">{{ $post->status == true ? 'Terbit' : 'Tidak Terbit' }}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">Jumlah Dilihat</p>
+                            <div class="col-md-10">
+                                <p class="text-capitalize">: {{ $post->viewer ?? '0' }} Kali</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">Thumbnail</p>
+                            <div class="col-md-10">
+                                : <a class="fw-bold text-sm" data-bs-toggle="collapse" href="#collapseThumbnail"
+                                    role="button" aria-expanded="false" aria-controls="collapseThumbnail"> Lihat
+                                    <i class='bx bxs-down-arrow bx-xs'></i></a>
+                                <div class="collapse" id="collapseThumbnail">
+                                    <div class="d-flex p-3">
+                                        <img src="{{ Storage::url($post->thumbnail) }}" alt="collapse-image"
+                                            class="me-4 mb-sm-0 mb-2 w-100">
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -75,7 +75,7 @@ $adverts = computed(function () {
                                         </td>
                                         <td>
                                             <span
-                                                class="badge bg-{{ $advert->end_date <= now() ? 'danger' : 'primary' }}">{{ $advert->end_date <= now() ? 'Non Aktif' : 'Aktif' }}</span>
+                                                class="badge bg-{{ $advert->end_date >= now() ? 'primary' : 'danger' }}">{{ $advert->end_date >= now() ? 'Aktif' : 'Non Aktif' }}</span>
                                         </td>
                                         <td>
                                             <a href="{{ route('adverts.edit', ['advert' => $advert->id]) }}"
