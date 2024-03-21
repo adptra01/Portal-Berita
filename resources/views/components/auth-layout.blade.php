@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ asset('/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('/admin/vendor/css/pages/page-auth.css') }}" />
-    <script src="{{ asset('/admin/vendor/js/helpers.js') }}" defer></script>></script>
+    <script src="{{ asset('/admin/vendor/js/helpers.js') }}" defer></script></script>
 
     <script src="{{ asset('/admin/js/config.js') }}" defer></script>
 

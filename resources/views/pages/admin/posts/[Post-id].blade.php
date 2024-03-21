@@ -87,7 +87,7 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                         <div class="mb-3 row">
                             <p class="col-md-2 fw-bold">Judul Berita</p>
                             <div class="col-md-10">
-                                <p>: <a href="{{ route('news.read', ['post' => $post->slug]) }}">{{ $post->title }}</a></p>
+                                <p>: <a href="{{ route('preview.read', ['post' => $post->slug]) }}">{{ $post->title }}</a></p>
                             </div>
                         </div>
 
@@ -130,23 +130,6 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                                 <p class="text-capitalize">: {{ $post->viewer ?? '0' }} Kali</p>
                             </div>
                         </div>
-
-                        <div class="mb-3 row">
-                            <p class="col-md-2 fw-bold">Thumbnail</p>
-                            <div class="col-md-10">
-                                : <a class="fw-bold text-sm" data-bs-toggle="collapse" href="#collapseThumbnail"
-                                    role="button" aria-expanded="false" aria-controls="collapseThumbnail"> Lihat
-                                    <i class='bx bxs-down-arrow bx-xs'></i></a>
-                                <div class="collapse" id="collapseThumbnail">
-                                    <div class="d-flex p-3">
-                                        <img src="{{ Storage::url($post->thumbnail) }}" alt="collapse-image"
-                                            class="me-4 mb-sm-0 mb-2 w-100">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
                     <div class="tab-pane fade" id="navs-pills-top-edit" role="tabpanel">
                         @include('pages.admin.posts.edit')

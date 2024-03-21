@@ -9,7 +9,6 @@ name('adverts.edit');
 $destroy = function (advert $advert) {
     Storage::delete($advert->image);
     $advert->delete();
-
     return redirect()->route('adverts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
 };
 
@@ -78,16 +77,6 @@ state(['advert']);
                             <p class="col-md-3 fw-bold">Nama Iklan</p>
                             <div class="col-md-9">
                                 <p>: {{ $advert->name }}</p>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <p class="col-md-3 fw-bold">Status Iklan</p>
-                            <div class="col-md-9">
-                                <p class="text-capitalize">:
-                                    <span
-                                        class="badge bg-{{ $advert->end_date <= now() ? 'danger' : 'primary' }}">{{ $advert->end_date <= now() ? 'Non Aktif' : 'Aktif' }}</span>
-                                </p>
                             </div>
                         </div>
 

@@ -4,24 +4,15 @@ use function Livewire\Volt\{state, computed, mount};
 use App\Models\Comment;
 use App\Models\Post;
 
-name('news.read');
+name('preview.read');
 
-state(['post']);
+state(['post', 'add_viewer' => fn() => $this->post->increment('viewer')]);
 
 mount(function () {
-    // Ambil data post dari database
-    $post = Post::find($this->post->id);
-
-    // Periksa apakah status post aktif
-    if ($post && $post->status == 1) {
-        // Tambahkan 1 pada jumlah viewer setiap kali halaman dimuat
-        $post->increment('viewer');
-        // Update state post dengan data terbaru
-        $this->post = $post;
-    } else {
-        // Jika status post tidak aktif, kembalikan pengguna ke halaman sebelumnya
-        return redirect('/');
-    }
+    $cacheKey = 'post_' . $this->post->id;
+    $this->post = Cache::remember($cacheKey, now()->addMinutes(5), function () {
+        return Post::find($this->post->id);
+    });
 });
 
 ?>
@@ -29,14 +20,24 @@ mount(function () {
     <x-slot name="title">{{ $post->title }}</x-slot>
 
     @include('layouts.style-post')
-    @livewire('adverts.top')
-    @livewire('adverts.popup')
 
     @volt
         <div>
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-body align-content-center text-center bg-secondary rounded"
+                            style="height: 200px; width: 100%">
+                            <h3 class="fw-bold text-white">Contoh Iklan</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body align-content-center text-center bg-secondary rounded"
+                            style="height: 200px; width: 100%">
+                            <h3 class="fw-bold text-white">Contoh Iklan</h3>
+                        </div>
+                    </div>
                     <!-- Hot Aimated News Tittle-->
                     <div class="container">
                         <livewire:partials.trending-tittle>
@@ -45,6 +46,25 @@ mount(function () {
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-8 posts-list">
+                                    <a href="{{ route('posts.edit', ['post' => $post->id]) }}">
+                                        <p class="fs-4">
+                                            <i class="bx bx-left-arrow-alt"></i>
+                                            Kembali
+                                        </p>
+                                    </a>
+
+                                    <div class="alert alert-primary d-flex" role="alert">
+                                        <span
+                                            class="badge badge-center rounded-pill bg-primary border-label-primary p-3 me-2"><i
+                                                class="bx bx-command fs-6"></i></span>
+                                        <div class="d-flex flex-column ps-1">
+                                            <h6 class="alert-heading d-flex align-items-center mb-1 fw-bold">Informasi</h6>
+                                            <span>
+                                                Berita saat ini berstatus
+                                                <strong> {{ $post->status == 1 ? 'Terbit' : 'Tidak Terbit' }}</strong>
+                                            </span>
+                                        </div>
+                                    </div>
                                     <div class="section-tittle">
                                         <h2 class="fw-bold text-capitalize">{{ $post->title }}</h2>
                                         <p class="fw-normal">SIBANYU -
@@ -134,7 +154,24 @@ mount(function () {
                                     <div class="blog_right_sidebar sticky-top" style="padding-top: 5.5rem; z-index: -1;">
                                         <livewire:partials.related-news>
                                             <!-- New Poster -->
-                                            @livewire('adverts.side', ['countAdverts' => 6])
+                                            <div class="card">
+                                                <div class="card-body align-content-center text-center bg-secondary rounded"
+                                                    style="height: 200px; width: 100%">
+                                                    <h3 class="fw-bold text-white">Contoh Iklan</h3>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-body align-content-center text-center bg-secondary rounded"
+                                                    style="height: 200px; width: 100%">
+                                                    <h3 class="fw-bold text-white">Contoh Iklan</h3>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-body align-content-center text-center bg-secondary rounded"
+                                                    style="height: 200px; width: 100%">
+                                                    <h3 class="fw-bold text-white">Contoh Iklan</h3>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

@@ -25,11 +25,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'penulis@testing.com',
             'role' => 'Penulis',
         ]);
-        
+
         $this->call([
             CategorySeeder::class,
             PostSeeder::class,
             AdvertSeeder::class,
+            SettingSeeder::class,
         ]);
 
         // \App\Models\Post::factory(30)->create();

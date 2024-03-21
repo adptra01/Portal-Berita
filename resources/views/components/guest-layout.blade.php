@@ -2,14 +2,13 @@
 <html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
+    <meta charSet="UTF-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="icon" type="image/x-icon" href="{{ asset('/admin/img/favicon/favicon.ico') }}" />
 
     <!-- SEO -->
+    <x-meta-tag></x-meta-tag>
 
     <!-- CDN CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -65,6 +64,7 @@
 </head>
 
 <body>
+    @livewire('partials.brand')
 
     <header>
         <!-- Header Start -->
@@ -72,8 +72,9 @@
             <div class="main-header">
                 <nav class="navbar navbar-expand-lg bg-white fixed-top">
                     <div class="container">
-                        <a class="navbar-brand fw-bold text-primary fs-2 text-lowercase"
-                            href="/"><em>SIBANYU</em></a>
+                        <a class="navbar-brand" href="/">
+                            @yield('header')
+                        </a>
                         <button class="navbar-toggler border-0 text-primary" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -108,11 +109,7 @@
         <div class="container border-top border-5">
             <div class="row pt-4 mb-4 mb-lg-5">
                 <div class="col-12 col-lg-3 pe-lg-0 mb-4 mb-lg-0">
-                    <h3 class="fw-bold text-primary text-lowercase"> <em>SIBANYU</em> </h3>
-                    <p class="small text-muted mb-3">
-                        <em>sibanyu</em> adalah Koran Digital yang memberikan berita dan informasi terbaru
-                        seputar terkini.
-                    </p>
+                    @yield('footer')
                 </div>
                 <div class="col-12 col-lg-2"></div>
                 <div class="col-6 col-lg-2">
@@ -158,11 +155,9 @@
             </div>
             <div class="border-top d-lg-none"></div>
             <div class="d-block d-lg-flex justify-content-between py-3 py-lg-2">
-                <div class="small mb-2 mb-lg-0 text-muted">
-                    © {{ now()->format('Y') }} <a class="text-primary fw-bold" href="https://github.com/adptra01"
-                        target="_blank" rel="noopener noreferrer">Adi
-                        Putra</a> All rights
-                    reserved.
+                <div class="small mb-2 mb-lg-0 text-primary fw-bold">
+                    © {{ now()->format('Y') }} <a class="text-muted fw-normal" href="https://github.com/adptra01"
+                        target="_blank" rel="noopener noreferrer">adptra01</a>
                 </div>
                 <div class="small">
                     <a class="d-block d-lg-inline text-muted ms-lg-2 mb-2 mb-lg-0" href="">Privacy Policy</a>

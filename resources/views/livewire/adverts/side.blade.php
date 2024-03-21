@@ -3,15 +3,15 @@
 use function Livewire\Volt\{state, mount};
 use Carbon\Carbon;
 use App\Models\Advert;
-use Illuminate\Support\Facades\Cache;
 
 state(['countAdverts', 'takeAdverts' => fn() => $this->countAdverts ?? 5, 'sideAdverts']);
 
 mount(function () {
-    $cacheKey = 'sideAdverts_' . Str::random(20);
-    $this->sideAdverts = Cache::remember($cacheKey, now()->addMinutes(30), function () {
-        return Advert::wherePosition('side')->where('end_date', '>=', today())->latest()->get();
-    });
+    $this->sideAdverts = Advert::wherePosition('side')
+        ->where('end_date', '>=', today())
+        ->select('link', 'image', 'alt')
+        ->orderBy('updated_at')
+        ->get($this->takeAdverts);
 });
 ?>
 

@@ -41,7 +41,6 @@ $adverts = computed(function () {
                                     <th>Posisi/Letak</th>
                                     <th>Tanggal Mulai</th>
                                     <th>Tanggal Berakhir</th>
-                                    <th>Status</th>
                                     <th>#</th>
                                 </tr>
                             </thead>
@@ -72,10 +71,6 @@ $adverts = computed(function () {
                                         </td>
                                         <td>
                                             {{ Carbon\Carbon::parse($advert->end_date)->format('d M Y') }} </p>
-                                        </td>
-                                        <td>
-                                            <span
-                                                class="badge bg-{{ $advert->end_date >= now() ? 'primary' : 'danger' }}">{{ $advert->end_date >= now() ? 'Aktif' : 'Non Aktif' }}</span>
                                         </td>
                                         <td>
                                             <a href="{{ route('adverts.edit', ['advert' => $advert->id]) }}"

@@ -10,9 +10,10 @@
         });
     </script>
     <script>
-        document.querySelectorAll('select').forEach((el) => {
-            let settings = {};
-            new TomSelect(el, settings);
+        new TomSelect("#input-tags", {
+            persist: false,
+            createOnBlur: true,
+            create: true
         });
     </script>
 @endpush

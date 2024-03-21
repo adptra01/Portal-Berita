@@ -9,9 +9,7 @@ state(['trending']);
 
 mount(function () {
     $cacheKey = 'trending_' . Str::random(20);
-    $this->trending = Cache::remember($cacheKey, now()->addMinutes(30), function () {
-        return Post::with('category')->where('status', true)->inRandomOrder()->select('slug', 'title', 'thumbnail', 'category_id')->take(3)->get();
-    });
+    $this->trending = Post::with('category')->where('status', true)->inRandomOrder()->select('slug', 'title', 'thumbnail', 'category_id')->take(5)->get();
 });
 
 ?>

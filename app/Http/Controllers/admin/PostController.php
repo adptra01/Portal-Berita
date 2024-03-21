@@ -20,7 +20,7 @@ class PostController extends Controller
 
         $validatedData['thumbnail'] = $thumbnailPath;
 
-        $validatedData['slug'] = Str::slug($request->title);
+        $validatedData['slug'] = Str::slug($request->title) . '-' . Str::random(2);
 
         $validatedData['user_id'] = auth()->id();
 
@@ -55,12 +55,12 @@ class PostController extends Controller
             $validatedData['thumbnail'] = $request->file('thumbnail')->store('public/thumbnail');
         }
 
-        $validatedData['slug'] = Str::slug($request->title);
+        $validatedData['slug'] = Str::slug($request->title) . '-' . Str::random(2);
 
         $validatedData['user_id'] = auth()->user()->id;
 
         if (is_array($request->keyword) && count($request->keyword) > 0) {
-            $validatedData['keyword'] = implode(',' . '&nbsp', $request->keyword);
+            $validatedData['keyword'] = implode(', ', $request->keyword);
         } else {
             $validatedData['keyword'] = '';
         }

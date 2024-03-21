@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\Cache;
 state(['popAdverts']);
 
 mount(function () {
-    $cacheKey = 'popAdverts_' . Str::random(20);
-    $this->popAdverts = Cache::remember($cacheKey, now()->addMinutes(30), function () {
-        return Advert::wherePosition('popup')->where('end_date', '>=', today())->first();
-    });
+    $this->popAdverts = Advert::wherePosition('popup')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->first();
 });
 
 ?>

@@ -8,9 +8,7 @@ use App\Models\Category;
 name('news.all-post');
 
 state(['search', 'category', 'start_date', 'end_date'])->url();
-state([
-    'categories' => fn() => Category::select('id', 'name')->get(),
-]);
+state(['categories' => fn() => Category::select('id', 'name')->get()]);
 
 $posts = computed(function () {
     $query = Post::with('category')->where('status', true);

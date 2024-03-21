@@ -35,7 +35,7 @@ class AdvertSeeder extends Seeder
                     'link' => $postData['link'],
                     'position' => $this->getRandomPosition(),
                     'start_date' => Carbon::parse($postData['pubDate'])->toDateString(),
-                    'end_date' => Carbon::parse($postData['pubDate'])->toDateString(),
+                    'end_date' => Carbon::now()->toDateString(),
                     'alt' => $postData['description'],
                     'image' => 'image/' . $imageName,
                 ];

@@ -20,7 +20,7 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         // Fetch data from the API
-        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/otomotif/'); // category : politik, hukum, ekonomi, bola, olahraga, humaniora, lifestyle, hiburan, dunia, tekno, otomotif
+        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/dunia/'); // category : politik, hukum, ekonomi, bola, olahraga, humaniora, lifestyle, hiburan, dunia, tekno, otomotif
         // $response = Http::get('https://api-berita-indonesia.vercel.app/kumparan/terbaru');
 
 
@@ -39,7 +39,7 @@ class PostSeeder extends Seeder
                 $createPost = [
                     'title' => $postData['title'],
                     'thumbnail' => 'thumbnail/' . $imageName,
-                    'slug' => Str::slug($postData['title']) . Str::random(2),
+                    'slug' => Str::slug($postData['title']) . '-' . Str::random(2),
                     'content' => '<p>' . $postData['description'] . Str::wordWrap(fake()->unique()->paragraph(100), characters: rand(300, 1000), break: "<br />\n") . '</p>',
                     'category_id' => Category::all()->random()->id,
                     'user_id' => User::all()->random()->id,

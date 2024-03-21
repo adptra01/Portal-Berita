@@ -254,9 +254,9 @@ State([
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="blog_right_sidebar sticky-top" style="padding-top: 5.5rem;">
+                            <div class="blog_right_sidebar sticky-top" style="padding-top: 5.5rem; z-index: -1;">
                                 <!-- New Poster -->
-                                @livewire('adverts.side', ['countAdverts' => 10])
+                                @livewire('adverts.side', ['countAdverts' => 4])
                             </div>
 
                         </div>

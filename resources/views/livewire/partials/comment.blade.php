@@ -12,6 +12,7 @@ rules([
 $comments = computed(function () {
     return Comment::where('post_id', $this->post->id)
         ->where('status', true)
+        ->select('user_id', 'post_id', 'body', 'id', 'created_at')
         ->get();
 });
 
@@ -67,7 +68,7 @@ $saveComment = function () {
                                 <p class="fw-bold text-dark mb-0">
                                     {{ $comment->user->name }}
                                 </p>
-                                <h6 class="text-muted">{{ $comment->created_at->diffForHumans() }}</h6>
+                                <small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>
                             </div>
                             <p class="text-break">
                                 {{ $comment->body }}
