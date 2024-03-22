@@ -22,11 +22,11 @@ $save = function (Category $category) {
     $validate = $this->validate();
 
     if ($this->categoryId == null) {
-        $validate['slug'] = Str::slug($this->name) . '-' . Str::random(3);
+        $validate['slug'] = Str::slug($this->name);
         $category->create($validate);
     } else {
         $categoryUpdate = Category::find($this->categoryId);
-        $validate['slug'] = Str::slug($this->name) . '-' . Str::random(3);
+        $validate['slug'] = Str::slug($this->name);
         $categoryUpdate->update($validate);
     }
     $this->reset('name', 'slug', 'categoryId');

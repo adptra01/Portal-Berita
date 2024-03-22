@@ -49,9 +49,16 @@
             </a>
         </li>
 
+        <li class="menu-item {{ request()->is(['admin/settings', 'admin/settings/*']) ? 'active' : '' }}">
+            <a href="{{ route('settings.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div data-i18n="categories">Pengaturan</div>
+            </a>
+        </li>
+
         <li class="menu-item {{ request()->is('admin/reports/*') ? 'active' : '' }}">
             <a href="javascript:void(0)" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-file-archive"></i>
+                <i class="menu-icon tf-icons bx bxs-file-export"></i>
                 <div>Laporan</div>
             </a>
             <ul class="menu-sub">

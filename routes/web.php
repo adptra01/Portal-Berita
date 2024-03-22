@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdvertController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SocialiteController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
@@ -62,4 +63,6 @@ Route::middleware(['auth', 'role:Admin,Penulis'])->group(function () {
             Route::post('/', 'store')->name('store');
             Route::put('/{id}', 'update')->name('update');
         });
+
+    Route::put('/admin/settings/', [SettingController::class, 'update'])->name('settings.update');
 });

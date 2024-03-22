@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Models\Post;
 use App\Models\Advert;
+use App\Models\Setting;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
@@ -30,6 +31,7 @@ class CleanupOrphanImages implements ShouldQueue
     {
         $this->cleanupOrphanAdvertImages();
         $this->cleanupOrphanPostThumbnails();
+        $this->cleanupOrphanSettingImage();
     }
     /**
      * Clean up orphan images for Adverts.
@@ -76,4 +78,23 @@ class CleanupOrphanImages implements ShouldQueue
             }
         }
     }
+
+    private function cleanupOrphanSettingImage()
+    {
+        // Ambil semua gambar yang tersimpan
+        $images = Storage::files('public/setting');
+
+        // Lakukan iterasi pada setiap gambar
+        foreach ($images as $image) {
+            // Ambil nama file gambar
+            $imageName = basename($image);
+
+            // Cek apakah gambar terkait dengan entri Setting
+            if (!Setting::where('logo', 'LIKE', '%' . $imageName . '%')->orWhere('icon', 'LIKE', '%' . $imageName . '%')->exists()) {
+                // Jika tidak ada entri Setting yang terkait, hapus gambar
+                Storage::delete($image);
+            }
+        }
+    }
+
 }
