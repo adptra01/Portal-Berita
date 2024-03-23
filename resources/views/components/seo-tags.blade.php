@@ -8,7 +8,8 @@
         'language' => 'id',
         'revisitAfter' => '7 days',
         'author' => $settings->title ?? '',
-        'keywords' => '',
+        'keywords' =>
+            'berita terkini, informasi terbaru, highlight, topik hangat, pencerahan, diskusi, fakta menarik, inspiratif, pemikiran baru, kejutan, pembaruan',
 
         'ogUrl' => url()->current(),
         'ogTitle' => $settings->title ?? '',

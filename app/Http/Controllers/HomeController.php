@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Advert;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Visitor;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -108,6 +110,34 @@ class HomeController extends Controller
                 ]
             ]);
 
-        return view('pages.home', compact('countPost', 'writerCountPost', 'chartPost', 'chartTopViewerPost', 'countPostsWriter', 'countAdvertsByPosition', 'chartTotalUser'));
+        // Menghitung jumlah pengunjung hari ini
+        $visitorCountToday = Visitor::whereDate('created_at', Carbon::today())->count();
+
+        // Menghitung jumlah pengunjung bulan ini
+        $visitorCountThisMonth = Visitor::whereYear('created_at', Carbon::now()->year)
+            ->whereMonth('created_at', Carbon::now()->month)
+            ->count();
+
+        // Menghitung jumlah pengunjung tahun ini
+        $visitorCountThisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
+
+        // Menghitung jumlah pengunjung keseluruhan
+        $visitorCountAll = Visitor::count();
+
+
+        return view('pages.home',
+        compact(
+            'countPost',
+            'writerCountPost',
+            'chartPost',
+            'chartTopViewerPost',
+            'countPostsWriter',
+            'countAdvertsByPosition',
+            'chartTotalUser',
+            'visitorCountToday',
+            'visitorCountThisMonth',
+            'visitorCountThisYear',
+            'visitorCountAll'
+        ));
     }
 }

@@ -1,16 +1,18 @@
 <?php
 use function Laravel\Folio\name;
 use function Livewire\Volt\{state, computed, mount};
+use Illuminate\Support\Str;
 use App\Models\Comment;
 use App\Models\Post;
 
 name('news.read');
 
-state(['post']);
+state(['post', 'description']);
 
 mount(function () {
     // Ambil data post dari database
     $post = Post::find($this->post->id);
+    $this->description = Str::limit($post->content, 100, '...');
 
     // Periksa apakah status post aktif
     if ($post && $post->status == 1) {
@@ -26,14 +28,14 @@ mount(function () {
 
 ?>
 <x-guest-layout>
-    <x-slot name="title">{{ $post->title }}</x-slot>
-
     @include('layouts.style-post')
     @livewire('adverts.top')
     @livewire('adverts.popup')
 
     @volt
         <div>
+            <x-seo-tags :title="$post->title" :description="$description" :keywords="$post->keyword" />
+
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">

@@ -28,6 +28,91 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+
+        {{-- Pengunjung Hari Ini --}}
+        <div class="col-md mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="bx bx-calendar-alt bx-border fs-1"></i>
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                                <small class="text-muted d-block mb-1">Pengunjung</small>
+                                <h6 class="mb-0">Hari Ini</h6>
+                            </div>
+                            <h1 class="mb-0">{{ $visitorCountToday }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Pengunjung Bulan Ini --}}
+        <div class="col-md mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="bx bxs-calendar-alt bx-border fs-1"></i>
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                                <small class="text-muted d-block mb-1">Pengunjung</small>
+                                <h6 class="mb-0">Bulan Ini</h6>
+                            </div>
+                            <h1 class="mb-0">{{ $visitorCountThisMonth }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Pengunjung Tahun Ini --}}
+        <div class="col-md mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="bx bx-calendar-alt bx-border fs-1"></i>
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                                <small class="text-muted d-block mb-1">Pengunjung</small>
+                                <h6 class="mb-0">Tahun Ini</h6>
+                            </div>
+                            <h1 class="mb-0">{{ $visitorCountThisYear }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Total Pengunjung --}}
+        <div class="col-md mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="bx bxs-calendar-alt bx-border fs-1"></i>
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                                <small class="text-muted d-block mb-1">Pengunjung</small>
+                                <h6 class="mb-0">Keseluruhan</h6>
+                            </div>
+                            <h1 class="mb-0">{{ $visitorCountAll }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div class="card mb-3">
         <div class="card-body">
             <div class="row">
