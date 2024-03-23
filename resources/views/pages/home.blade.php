@@ -1,5 +1,6 @@
 <x-admin-layout>
-    <x-slot name="title">Dashboard</x-slot>
+    <x-seo-tags :title="'Beranda - Admin Panel'" />
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active">Beranda</li>

@@ -19,60 +19,68 @@ $posts = computed(function () {
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">Berita</x-slot>
+    <x-seo-tags :title="'Konten Berita - Admin Panel'" />
     @include('layouts.table')
 
     @volt
-        <div>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="#">Beranda</a>
-                    </li>
-                    <li class="breadcrumb-item active">Berita</li>
-                </ol>
-            </nav>
-            <div class="card">
-                <div class="card-header">
-                    <a class="btn btn-primary" href="{{ route('writer-posts.create') }}" role="button">Tambah Berita</a>
-
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="display table wrap" style="width: 100%">
-                            <thead>
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Beranda</a>
+                </li>
+                <li class="breadcrumb-item active">Berita</li>
+            </ol>
+        </nav>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-primary" href="{{ route('writer-posts.create') }}" role="button">Tambah Berita</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="display table wrap" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Penulis</th>
+                                <th>Judul Berita</th>
+                                <th>Kategori</th>
+                                <th>DIlihat</th>
+                                <th>Status</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($this->posts as $no => $post)
                                 <tr>
-                                    <th>No</th>
-                                    <th>Penulis</th>
-                                    <th>Judul Berita</th>
-                                    <th>Kategori</th>
-                                    <th>#</th>
+                                    <td>{{ ++$no }}.</td>
+                                    <td>
+                                        {{ $post->user->name }}
+                                    </td>
+                                    <td>
+                                        {{ $post->title }}
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-secondary">{{ $post->category->name }}</span>
+                                    </td>
+                                    <td>
+                                        {{ $post->viewer }}
+                                    </td>
+                                    <td>
+                                        <span
+                                            class="badge bg-{{ $post->status == true ? 'primary' : 'danger' }}">{{ $post->status == true ? 'Terbit' : 'Tidak Terbit' }}</span>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('posts.edit', ['post' => $post->id]) }}"
+                                            class="btn btn-outline-primary btn-sm">Detail</a>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody class="table-border-bottom-0">
-                                @foreach ($this->posts as $no => $post)
-                                    <tr>
-                                        <td>{{ ++$no }}.</td>
-                                        <td>
-                                            {{ $post->user->name }}
-                                        </td>
-                                        <td>
-                                            {{ $post->title }}
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-primary">{{ $post->category->name }}</span>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('writer-posts.edit', ['post' => $post->id]) }}"
-                                                class="btn btn-outline-primary btn-sm">Detail</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
     @endvolt
 </x-admin-layout>

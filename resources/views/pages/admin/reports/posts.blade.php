@@ -15,7 +15,7 @@ $posts = computed(function () {
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">Laporan Berita</x-slot>
+    <x-seo-tags :title="'Laporan Konten Berita - Admin Panel'" />
     @include('layouts.report')
 
     @volt

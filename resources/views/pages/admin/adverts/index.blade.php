@@ -13,7 +13,7 @@ $adverts = computed(function () {
 
 ?>
 <x-admin-layout>
-    <x-slot name="title">Advers Menus</x-slot>
+    <x-seo-tags :title="'Iklan - Admin Panel'" />
     @include('layouts.table')
 
     @volt
@@ -23,7 +23,7 @@ $adverts = computed(function () {
                     <li class="breadcrumb-item">
                         <a href="#">Beranda</a>
                     </li>
-                    <li class="breadcrumb-item active">Buat Iklan</li>
+                    <li class="breadcrumb-item active">Iklan</li>
                 </ol>
             </nav>
             <div class="card">

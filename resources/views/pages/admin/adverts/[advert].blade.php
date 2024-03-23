@@ -17,10 +17,10 @@ state(['advert']);
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">{{ $advert->name }}</x-slot>
 
     @volt
         <div>
+            <x-seo-tags :title="$advert->name" />
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">

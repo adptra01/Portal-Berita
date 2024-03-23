@@ -15,7 +15,7 @@ $users = computed(function () {
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">Laporan Akun Pengguna</x-slot>
+    <x-seo-tags :title="'Laporan Akun Pengguna - Admin Panel'" />
     @include('layouts.report')
 
     @volt

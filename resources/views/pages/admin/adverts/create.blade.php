@@ -6,7 +6,7 @@ name('adverts.create');
 
 ?>
 <x-admin-layout>
-    <x-slot name="title">Create Advers</x-slot>
+    <x-seo-tags :title="'Buat Iklan Baru - Admin Panel'" />
     @volt
         <div>
             <nav aria-label="breadcrumb">
@@ -103,7 +103,7 @@ name('adverts.create');
                         </div>
 
                         <div class="row">
-                            
+
                             <div class="col-md">
                                 <div class="mb-3">
                                     <label for="position" class="form-label">position Iklan <strong

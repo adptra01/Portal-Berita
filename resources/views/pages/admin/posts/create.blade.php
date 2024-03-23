@@ -12,7 +12,7 @@ state([
 
 ?>
 <x-admin-layout>
-    <x-slot name="title">Berita Baru</x-slot>
+    <x-seo-tags :title="'Buat Berita Baru - Admin Panel'" />
     @include('layouts.editor')
     @include('layouts.bs-select')
     @volt

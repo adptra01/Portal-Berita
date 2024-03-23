@@ -14,7 +14,7 @@ state([
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">Pengaturan Website</x-slot>
+    <x-seo-tags :title="'Pengaturan Website - Admin Panel'" />
     @include('layouts.editor')
     @include('layouts.report')
 

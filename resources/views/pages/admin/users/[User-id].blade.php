@@ -17,10 +17,11 @@ $destroy = function (user $user) {
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">{{ $user->name }}</x-slot>
 
     @volt
         <div>
+            <x-seo-tags :title="$user->name" />
+
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">

@@ -9,7 +9,7 @@ name('users.create');
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">Buat Akun Pengguna</x-slot>
+    <x-seo-tags :title="'Buat Akun Pengguna Baru - Admin Panel'" />
 
     @volt
         <div>

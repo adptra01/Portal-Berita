@@ -58,7 +58,7 @@ $destroy = function (comment $comment) {
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">Akun Pengguna</x-slot>
+    <x-seo-tags :title="'Komentar Berita - Admin Panel'" />
 
     @volt
         <div>

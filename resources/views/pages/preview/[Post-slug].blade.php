@@ -17,12 +17,12 @@ mount(function () {
 
 ?>
 <x-guest-layout>
-    <x-slot name="title">{{ $post->title }}</x-slot>
 
     @include('layouts.style-post')
 
     @volt
         <div>
+            <x-seo-tags :title="$post->title" />
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">
@@ -146,8 +146,7 @@ mount(function () {
                                         </div>
                                     </div>
 
-                                    <!-- User Comment -->
-                                    <livewire:partials.comment :post="$post" />
+                                   
 
                                 </div>
                                 <div class="col-lg-4">

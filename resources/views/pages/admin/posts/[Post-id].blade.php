@@ -19,12 +19,13 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">{{ $post->title }}</x-slot>
     @include('layouts.editor')
     @include('layouts.bs-select')
 
     @volt
         <div>
+            <x-seo-tags :title="$post->title" />
+
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">

@@ -31,7 +31,7 @@ $updateProfileInformation = function (user $user) {
 ?>
 
 <x-admin-layout>
-    <x-slot name="title">{{ auth()->user()->name }}</x-slot>
+    <x-seo-tags :title="auth()->user()->name" />
 
     @volt
         <div>

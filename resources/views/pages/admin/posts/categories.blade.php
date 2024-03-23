@@ -53,7 +53,7 @@ $resetAll = function () {
 
 
 <x-admin-layout>
-    <x-slot name="title">Kategori Berita</x-slot>
+    <x-seo-tags :title="'Kategori Berita - Admin Panel'" />
     @volt
         <div>
             <nav aria-label="breadcrumb">
