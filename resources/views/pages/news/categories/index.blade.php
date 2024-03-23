@@ -1,6 +1,6 @@
 <?php
 
-use function Livewire\Volt\{state, computed};
+use function Livewire\Volt\{state, computed, mount};
 use function Laravel\Folio\name;
 use App\Models\Post;
 use App\Models\Category;
@@ -13,7 +13,18 @@ state([
     'categories' => fn() => Category::with('posts')->get(),
     'trendingPosts' => fn() => Post::orderByDesc('viewer')->where('status', true)->limit(5)->select('title', 'id', 'category_id', 'thumbnail', 'slug')->get(),
     'totalPostCount' => fn() => Post::where('status', true)->count(),
+    'categoriesName',
 ]);
+
+mount(function () {
+    $keywords = ['berita utama', 'terkini', 'Sibanyu', 'informasi', 'kategori'];
+    
+    foreach ($this->categories as $category) {
+        $keywords[] = $category->name;
+    }
+
+    $this->categoriesName = implode(', ', $keywords);
+});
 
 $increment = function () {
     $this->count++;
@@ -37,11 +48,13 @@ $posts = computed(function () {
 ?>
 
 <x-guest-layout>
-    <x-slot name="title">Kategori Berita</x-slot>
+
     @livewire('adverts.top')
 
     @volt
         <div>
+            <x-seo-tags :title="'Berita Utama - Portal Berita Terkini Sibanyu'" :description="'Temukan berita utama terbaru dari berbagai kategori di Portal Berita Terkini Sibanyu.'" :keywords="$categoriesName" />
+
             <div class="container">
                 <livewire:partials.trending-tittle>
             </div>

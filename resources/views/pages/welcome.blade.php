@@ -25,8 +25,7 @@ State([
 
 ?>
 <x-guest-layout>
-    <x-slot name="title">Beranda</x-slot>
-
+    <x-seo-tags :title="'Portal Berita Terkini Sibanyu'" :description="'Memberikan informasi terbaru seputar berita terkini dari berbagai kategori.'" :keywords="'berita, terkini, Sibanyu, informasi, kategori'" />
     @livewire('adverts.popup')
     @livewire('adverts.top')
 
@@ -199,8 +198,8 @@ State([
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link text-capitalize {{ $loop->first ? 'active' : '' }}"
                                                 id="pills-{{ $category->slug }}-tab" data-bs-toggle="pill"
-                                                data-bs-target="#pills-{{ $category->slug }}" type="button"
-                                                role="tab" aria-controls="pills-{{ $category->slug }}"
+                                                data-bs-target="#pills-{{ $category->slug }}" type="button" role="tab"
+                                                aria-controls="pills-{{ $category->slug }}"
                                                 aria-selected="true">{{ $category->name }}</button>
                                         </li>
                                     @endforeach

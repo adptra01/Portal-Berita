@@ -4,57 +4,74 @@ use function Livewire\Volt\{state, mount};
 use App\Models\Setting;
 use Illuminate\Support\Facades\Cookie;
 
-state(['logo', 'title', 'description']);
+state(['setting' => fn() => Setting::first()]);
 
-mount(function () {
-    // Get data from database
-    $setting = Setting::first();
-
-    // Set data from database to variables
-    $this->logo = $setting->logo;
-    $this->title = $setting->title;
-    $this->description = $setting->description;
-
-    // Check if cookie exists
-    $logoCookie = Cookie::get('logo');
-    $titleCookie = Cookie::get('title');
-    $descriptionCookie = Cookie::get('description');
-
-    // Check if cookie values match the database values
-    if ($logoCookie !== $this->logo || $titleCookie !== $this->title || $descriptionCookie !== $this->description) {
-        // Update cookies if values are changed
-        Cookie::queue('logo', $this->logo, 1440); // Cookie expires in 1 day (1440 minutes)
-        Cookie::queue('title', $this->title, 1440); // Cookie expires in 1 day (1440 minutes)
-        Cookie::queue('description', $this->description, 1440); // Cookie expires in 1 day (1440 minutes)
-    }
-    // Check if cookies have expired and delete them if necessary
-    if (Cookie::has('logo') && !Cookie::get('logo')) {
-        Cookie::queue(Cookie::forget('logo'));
-    }
-    if (Cookie::has('title') && !Cookie::get('title')) {
-        Cookie::queue(Cookie::forget('title'));
-    }
-    if (Cookie::has('description') && !Cookie::get('description')) {
-        Cookie::queue(Cookie::forget('description'));
-    }
-});
+mount(function () {});
 
 ?>
 
 <div>
     @section('header')
-        @if ($logo)
-            <img src="{{ Storage::url($logo) }}" alt="Logo" width="30" height="24"
+        @if ($setting->logo)
+            <img src="{{ Storage::url($setting->logo) }}" alt="Logo" width="100" height="100%"
                 class="d-inline-block align-text-top">
         @else
-            <span class="fw-bold text-primary fs-2">{{ $title ?? '' }}</span>
+            <span class="fw-bold text-primary fs-2">{{ $setting->title ?? '' }}</span>
         @endif
     @endsection
 
     @section('footer')
-        <h3 class="fw-bold text-primary fs-2"> {{ $title ?? '' }}</h3>
-        <p class="small text-muted mb-3">
-            {{ $description ?? '' }}
-        </p>
+        <div class="container">
+            <div class="row justify-content-between pt-4 pb-3 pb-lg-5">
+                <div class="col-12 col-lg-7">
+                    <a href="">
+                        <img alt="Free Frontend Logo" class="img-fluid mb-3" height="auto"
+                            src="{{ Storage::url($setting->logo) }}" width="200">
+                    </a>
+                    <p class="mb-3">{{ $setting->description ?? '' }}</p>
+
+                </div>
+                <div class="col-12 col-lg-2 small text-lg-end mb-4 md-lg-0 pt-1">
+                    <p class="mb-1">
+                        <a class="text-dark text-decoration-none" href="/">Home</a>
+                    </p>
+                    <p class="mb-1">
+                        <a class="text-dark text-decoration-none" href="{{ route('news.all-post') }}">Kategori</a>
+                    </p>
+                    <p class="mb-1">
+                        <a class="text-dark text-decoration-none" href="{{ route('news.about-us') }}">Tentang</a>
+                    </p>
+                    <p class="mb-0">
+                        <a class="text-dark text-decoration-none" href="{{ route('news.contact') }}">Kontak</a>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-3 pt-1 small text-lg-end">
+                    <p class="mb-1">Sibanyu</p>
+                    <p class="mb-1">Banyu Asin, Indonesia</p>
+                    <p class="mb-1">Tel: {{ $setting->contact ?? '' }}</p>
+                    <p class="mb-0">
+                        <a class="text-dark text-decoration-none" href="https://wa.me/{{ $setting->whatsapp ?? '#' }}">Wa:
+                            <span class="text-primary">
+                                {{ $setting->whatsapp ?? '' }}
+                            </span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="border-top d-lg-none"></div>
+            <div class="d-lg-flex justify-content-between py-3">
+                <div class="small">
+                    <span class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-5">
+                        © 2024
+                        <a href="https://github.com/adptra01" target="_blank" rel="noopener noreferrer">adptra01</a></span>
+                    <a class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-5" href="#">Privacy Policy</a>
+                    <a class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-5" href="#">Terms of Service</a>
+                </div>
+                <div class="small">
+                    <span class="text-muted"><a class="text-muted" href="">Proudly built with
+                            Bootstrap</a></span>
+                </div>
+            </div>
+        </div>
     @endsection
 </div>

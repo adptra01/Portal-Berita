@@ -2,11 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Models\Setting;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class MetaTag extends Component
+class SeoTags extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +22,10 @@ class MetaTag extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.meta-tag');
+        $settings = Setting::select('title', 'icon', 'logo', 'description')->first();
+        return view(
+            'components.seo-tags',
+            compact('settings')
+        );
     }
 }

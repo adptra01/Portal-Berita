@@ -13,8 +13,7 @@ State([
 ?>
 
 <x-guest-layout>
-    <x-slot name="title">Tentang Kami</x-slot>
-
+    <x-seo-tags :title="'Tentang Kami - Portal Berita Terkini Sibanyu'" :description="'Portal Berita Terkini Sibanyu - Memberikan informasi terbaru seputar berita terkini dari berbagai kategori.'" :keywords="'tentang kami, Sibanyu, berita, terkini, informasi'" />
     @volt
         <div>
             <div class="container py-5">
@@ -55,7 +54,7 @@ State([
                                         <div class="mb-4 mx-lg-3 mx-xxl-5">
                                             <img class="img-fluid rounded-circle w-50"
                                                 src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $team->name }}"
-                                                loading="eager">
+                                                alt="{{ $team->name }}" loading="eager">
                                         </div>
                                         <h5 class="fw-bold">{{ $team->name }}</h5>
                                         <div class="text-muted">

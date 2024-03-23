@@ -1,6 +1,6 @@
 <?php
 
-use function Livewire\Volt\{state, computed, usesPagination};
+use function Livewire\Volt\{state, mount};
 use function Laravel\Folio\name;
 use App\Models\Post;
 use App\Models\Category;
@@ -15,18 +15,45 @@ State([
         ->select('title', 'slug', 'category_id', 'created_at', 'thumbnail', 'content')
         ->limit(5)
         ->get(),
-    'category',
     'categories' => fn() => Category::with('posts')->get(),
+    'category',
+    'keywordsString ',
 ]);
+
+mount(function () {
+    $keywords = [
+        'berita terkini',
+        'informasi terbaru',
+        'highlight',
+        'topik hangat',
+        'pencerahan',
+        'diskusi',
+        'fakta menarik',
+        'inspiratif',
+        'pemikiran baru',
+        'kejutan',
+        'pembaruan',
+        $this->category->name, // Menambahkan nama kategori sebagai keyword tambahan
+    ];
+
+    foreach ($this->categories as $category) {
+        $keywords[] = $category->name;
+    }
+
+    $this->keywordsString = implode(', ', $keywords);
+});
 
 ?>
 
 <x-guest-layout>
-    <x-slot name="title">Kategori Berita</x-slot>
     @livewire('adverts.top')
 
     @volt
         <div>
+            <x-seo-tags :title="'Kategori - ' . $category->name . ' - Portal Berita Terkini Sibanyu'" :description="'Temukan berita terkini yang paling relevan dan menarik dari kategori ' .
+                $category->name .
+                ' di Portal Berita Terkini Sibanyu.'" :keywords="$keywordsString" />
+
             <div class="container">
                 <livewire:partials.trending-tittle>
             </div>
