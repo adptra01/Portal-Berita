@@ -64,5 +64,6 @@ Route::middleware(['auth', 'role:Admin,Penulis'])->group(function () {
             Route::put('/{id}', 'update')->name('update');
         });
 
-    Route::put('/admin/settings/', [SettingController::class, 'update'])->name('settings.update');
+    Route::put('/admin/settings/profile', [SettingController::class, 'update'])->name('settings.updateProfile');
+    Route::put('/admin/settings/about-us', [SettingController::class, 'updateAboutUs'])->name('settings.updateAboutUs');
 });

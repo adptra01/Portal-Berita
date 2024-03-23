@@ -43,10 +43,18 @@ class SettingController extends Controller
         } else {
             $validateData['icon'] = $setting->icon; // Keep existing icon if no upload
         }
-
-
         $setting->update($validateData);
 
-        return back();
+        return back()->with('success', 'Profil Website Telah Diperbaharui! Informasi terbaru Anda siap dilihat oleh pengunjung.');
+    }
+
+    public function updateAboutUs(Request $request)
+    {
+        $validateData = $request->validate([
+            'about' => 'required|min:3|string',
+        ]);
+
+        Setting::first()->update($validateData);
+        return back()->with('success', 'Tentang Kami telah diperbaharui! Profil website Anda kini mengandung informasi terbaru.');
     }
 }

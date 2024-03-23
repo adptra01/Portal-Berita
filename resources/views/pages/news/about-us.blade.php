@@ -3,39 +3,29 @@
 use function Livewire\Volt\{state, computed};
 use function Laravel\Folio\name;
 use App\Models\User;
+use App\Models\Setting;
 
 name('news.about-us');
 
 State([
     'teams' => fn() => User::where('role', 'Penulis')->get(),
+    'aboutUs' => fn() => Setting::select('about')->first()->about,
 ]);
 
 ?>
 
 <x-guest-layout>
     <x-seo-tags :title="'Tentang Kami - Portal Berita Terkini Sibanyu'" :description="'Portal Berita Terkini Sibanyu - Memberikan informasi terbaru seputar berita terkini dari berbagai kategori.'" :keywords="'tentang kami, Sibanyu, berita, terkini, informasi'" />
+
+    @include('layouts.style-post')
     @volt
         <div>
             <div class="container py-5">
                 <div class="text-base text-center">
                     <h2 class="fw-bold">Tentang Kami</h2>
-                    <p><em>sibanyu</em> adalah Koran Digital yang menjadi sumber utama berita dan informasi
-                        terkini. Dengan fokus pada berita lokal, nasional, dan internasional, kami menyajikan
-                        informasi terbaru tentang berbagai topik yang relevan dengan masyarakat. Tim redaksi kami
-                        bekerja keras untuk memberikan liputan yang komprehensif dan terpercaya, serta
-                        artikel-artikel berkualitas yang mengulas isu-isu penting dalam masyarakat.
-                    </p>
-                    <p>
-                        Kami berkomitmen untuk menjadi mitra informasi terpercaya bagi pembaca setia kami. Dengan
-                        mengusung semangat pemberitaan yang objektif dan akurat, <em>ibanyu</em> bertekad untuk tetap
-                        menjadi sumber berita yang dapat diandalkan dalam menyajikan informasi terkini dan
-                        bermanfaat bagi pembaca dari berbagai kalangan.
-                    </p>
-                    <p>
-                        Terima kasih telah mempercayai <em>sibanyu</em> sebagai sumber informasi Anda. Kami senantiasa
-                        berusaha memberikan layanan terbaik dan menjadi jembatan komunikasi yang menghubungkan
-                        pembaca dengan dunia sekitarnya.
-                    </p>
+                    <div class="ck-content">
+                        {!! $aboutUs !!}
+                    </div>
                 </div>
             </div>
 

@@ -4,9 +4,24 @@ use function Livewire\Volt\{state, mount};
 use App\Models\Setting;
 use Illuminate\Support\Facades\Cookie;
 
-state(['setting' => fn() => Setting::first()]);
+state(['setting' => fn() => Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first()]);
 
-mount(function () {});
+mount(function () {
+    // Mengambil data setting
+    $setting = $this->setting;
+
+    // Menyimpan data setting ke dalam cookie
+    Cookie::queue(
+        'setting',
+        json_encode([
+            'title' => $setting->title ?? '',
+            'description' => $setting->description ?? '',
+            'logo' => $setting->logo ?? '',
+            'contact' => $setting->contact ?? '',
+            'whatsapp' => $setting->whatsapp ?? '',
+        ]),
+    );
+});
 
 ?>
 
