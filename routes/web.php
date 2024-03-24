@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SocialiteController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,22 @@ Route::get('login/google/redirect', [SocialiteController::class, 'redirect'])
 Route::get('login/google/callback', [SocialiteController::class, 'callback'])
     ->middleware(['guest'])
     ->name('callback');
+
+Route::get('/optimize-clear', function () {
+    Artisan::call('optimize:clear');
+    Artisan::call('optimize');
+    return back()->with('success', 'Optimize berhasil dilakukan');
+})->name('optimize');
+
+Route::get('/run-schedule', function () {
+    Artisan::call('schedule:run');
+    return back()->with('success', 'Pekerjaan berhasil dilakukan');
+})->name('schedule');
+
+Route::get('/storage-link', function () {
+    Artisan::call('storage:link');
+    return back()->with('success', 'Penyimpanan Gambar berhasil dibuat');
+})->name('storage');
 
 
 Auth::routes();

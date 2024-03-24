@@ -123,7 +123,7 @@
                         <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
                                 <small class="text-muted d-block mb-1">Pengunjung</small>
-                                <h6 class="mb-0">Keseluruhan</h6>
+                                <h6 class="mb-0">semua</h6>
                             </div>
                             <h1 class="mb-0">{{ $visitorCountAll }}</h1>
                         </div>

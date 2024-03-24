@@ -40,6 +40,11 @@ state([
                             data-bs-target="#navs-pills-top-about-us" aria-controls="navs-pills-top-about-us"
                             aria-selected="false">Tentang Kami</button>
                     </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#navs-pills-top-config" aria-controls="navs-pills-top-config"
+                            aria-selected="false">Konfigurasi</button>
+                    </li>
                 </ul>
                 <div class="tab-content">
 
@@ -48,6 +53,20 @@ state([
                     </div>
                     <div class="tab-pane fade" id="navs-pills-top-about-us" role="tabpanel">
                         @include('pages.admin.settings.about-us')
+                    </div>
+                    <div class="tab-pane fade" id="navs-pills-top-config" role="tabpanel">
+                        <div class="row text-center">
+                            <div class="col-md">
+                                <a name="schedule" id="schedule" class="btn btn-primary" href="{{ route('schedule') }}"
+                                    role="button">Bersihkan Gambar</a>
+
+                            </div>
+                            <div class="col-md">
+                                <a name="optimize" id="optimize" class="btn btn-primary" href="{{ route('optimize') }}"
+                                    role="button">Refresh Website</a>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
