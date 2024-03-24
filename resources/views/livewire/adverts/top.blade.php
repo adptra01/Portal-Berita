@@ -1,15 +1,13 @@
 <?php
 
-use function Livewire\Volt\{state, mount};
+use function Livewire\Volt\{state};
 use Carbon\Carbon;
 use App\Models\Advert;
-use Illuminate\Support\Facades\Cache;
 
-state(['topAdverts']);
+state([
+    'topAdverts' => fn() => Advert::wherePosition('top')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->get(),
+]);
 
-mount(function () {
-    $this->topAdverts = Advert::wherePosition('top')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->get();
-});
 ?>
 
 <div>

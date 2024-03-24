@@ -42,7 +42,7 @@ class PostSeeder extends Seeder
                     'slug' => Str::slug($postData['title']) . '-' . Str::random(2),
                     'content' => '<p>' . $postData['description'] . Str::wordWrap(fake()->unique()->paragraph(100), characters: rand(300, 1000), break: "<br />\n") . '</p>',
                     'category_id' => Category::all()->random()->id,
-                    'user_id' => User::all()->random()->id,
+                    'user_id' => User::where('role', 'Penulis')->inRandomOrder()->first()->id,
                     'viewer' => fake()->numerify(),
                     'status' => 1,
                 ];
@@ -53,7 +53,7 @@ class PostSeeder extends Seeder
                 $imageData = file_get_contents($imageUrl);
                 Storage::put('public/thumbnail/' . $imageName, $imageData);
 
-                $this->command->info('Tambah Berita: ' . $postPublish->title);
+                $this->command->info('Tambah Contoh Berita: ' . $postPublish->title);
             }
 
             $this->command->info('Posts seeded successfully!');

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -31,49 +32,56 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $countPost =  Post::count(); // total post keseluruhan
+        $countPost = Cache::remember('post_count', 60, function () {
+            return Post::count();
+        });
 
-        $writerCountPost = Post::where('user_id', auth()->user()->id)->count(); // total post ari penulis login
+        $writerCountPost = Post::where('user_id', auth()->user()->id)->count();
 
-        $countPostsWriter = User::with('posts')->where('role', 'Penulis')->get(); // total post per-penulis
+        $countPostsWriter = Cache::remember('count_posts_writer', 60, function () {
+            return User::with('posts')->where('role', 'Penulis')->get();
+        });
 
-        $adverts = Advert::all();
-        $advertsByPosition = $adverts->groupBy('position');
-        $countAdvertsByPosition = [];
-        foreach ($advertsByPosition as $position => $adverts) {
-            $countAdvertsByPosition[$position] = $adverts->count();
-        }
-
-
-        // start chartPost
-        $postCountPerCategory = Post::select('category_id', DB::raw('count(*) as post_count'))
-            ->groupBy('category_id')
-            ->get();
         $labels = [];
         $dataset = [];
 
-        foreach ($postCountPerCategory as $data) {
-            $labels[] = $data->category->name; // Ganti 'category->name' sesuai relationship model Anda
-            $dataset[] = $data->post_count;
+        foreach ($countPostsWriter as $data) {
+            $labels[] = $data->name;
+            $dataset[] = $data->posts->count();
         }
 
-        $chartPost = (new LarapexChart)->setTitle('Jumlah Post Per Kategori')
-            ->setDataset($dataset)
-            ->setLabels($labels);
-        // end chartPost
+        $chartPostsWriter = (new LarapexChart)->areaChart()
+            ->setTitle('Jumlah Post Per Penulis')
+            ->setSubtitle('Grafik area menampilkan jumlah post yang diposting oleh setiap penulis.')
+            ->addData('Jumlah Post', $dataset)
+            ->setXAxis($labels);
 
-        // start top10Post
+        $postCountPerCategory = Cache::remember('post_count_per_category', 60, function () {
+            return Post::select('category_id', DB::raw('count(*) as post_count'))
+                ->groupBy('category_id')
+                ->get();
+        });
+
+        $labelsPost = [];
+        $datasetPost = [];
+        foreach ($postCountPerCategory as $data) {
+            $labelsPost[] = $data->category->name;
+            $datasetPost[] = $data->post_count;
+        }
+        $chartPost = (new LarapexChart)->setTitle('Jumlah Post Per Kategori')
+            ->setDataset($datasetPost)
+            ->setLabels($labelsPost);
+
+
+
         $top10Post = Post::orderBy('viewer', 'desc')
             ->limit(10)->get();
-
         $labelstop10Post = [];
         $datasettop10Post = [];
-
         foreach ($top10Post as $post) {
             $labelstop10Post[] = $post->title;
             $datasettop10Post[] = $post->viewer;
         }
-
         $chartTopViewerPost = (new LarapexChart)->setType('bar')
             ->setTitle('Top 10 Post Dilihat (Total)')
             ->setLabels($labelstop10Post)
@@ -83,23 +91,22 @@ class HomeController extends Controller
                     'data' => $datasettop10Post
                 ]
             ]);
-        // end top10Post
 
-        $roles = ['Penulis', 'Admin', 'Pengunjung'];
 
-        $userCountByRole = User::whereIn('role', $roles)
-            ->select('role', DB::raw('count(*) as total_user'))
-            ->groupBy('role')
-            ->get();
+
+        $userCountByRole = Cache::remember('user_count_by_role', 60, function () {
+            return User::select('role', DB::raw('count(*) as total_user'))
+                ->whereIn('role', ['Penulis', 'Admin', 'Pengunjung'])
+                ->groupBy('role')
+                ->get();
+        });
 
         $labels = [];
         $dataset = [];
-
         foreach ($userCountByRole as $data) {
             $labels[] = $data->role;
             $dataset[] = $data->total_user;
         }
-
         $chartTotalUser = (new LarapexChart)->setType('bar')
             ->setTitle('Total User Berdasarkan Role')
             ->setLabels($labels)
@@ -110,34 +117,53 @@ class HomeController extends Controller
                 ]
             ]);
 
-        // Menghitung jumlah pengunjung hari ini
+
         $visitorCountToday = Visitor::whereDate('created_at', Carbon::today())->count();
 
-        // Menghitung jumlah pengunjung bulan ini
+        $visitorCountThisWeek = Visitor::where('created_at', '>=', Carbon::now()->startOfWeek())
+            ->where('created_at', '<=', Carbon::now()->endOfWeek())
+            ->count();
+
         $visitorCountThisMonth = Visitor::whereYear('created_at', Carbon::now()->year)
             ->whereMonth('created_at', Carbon::now()->month)
             ->count();
 
-        // Menghitung jumlah pengunjung tahun ini
         $visitorCountThisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
 
-        // Menghitung jumlah pengunjung keseluruhan
         $visitorCountAll = Visitor::count();
 
+        $advertsCount = Advert::select('position', DB::raw('count(*) as position_count'))
+            ->groupBy('position')
+            ->get();
 
-        return view('pages.home',
-        compact(
-            'countPost',
-            'writerCountPost',
-            'chartPost',
-            'chartTopViewerPost',
-            'countPostsWriter',
-            'countAdvertsByPosition',
-            'chartTotalUser',
-            'visitorCountToday',
-            'visitorCountThisMonth',
-            'visitorCountThisYear',
-            'visitorCountAll'
-        ));
+        $labelsAdvert = [];
+        $datasetAdvert = [];
+
+        foreach ($advertsCount as $data) {
+            $labelsAdvert[] = $data->position;
+            $datasetAdvert[] = $data->position_count;
+        }
+        $chartAdvertsByPosition = (new LarapexChart)->setTitle('Jumlah Iklan Per Kategori')
+            ->setDataset($datasetAdvert)
+            ->setLabels($labelsAdvert);
+
+
+        return view(
+            'pages.home',
+            compact(
+                'countPost',
+                'writerCountPost',
+                'chartPost',
+                'chartTopViewerPost',
+                'chartPostsWriter',
+                'chartTotalUser',
+                'visitorCountToday',
+                'visitorCountThisMonth',
+                'visitorCountThisYear',
+                'visitorCountAll',
+                'chartAdvertsByPosition',
+                'visitorCountThisWeek',
+            )
+        );
     }
 }

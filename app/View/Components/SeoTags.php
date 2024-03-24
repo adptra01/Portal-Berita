@@ -5,6 +5,7 @@ namespace App\View\Components;
 use App\Models\Setting;
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
 
 class SeoTags extends Component
@@ -22,7 +23,12 @@ class SeoTags extends Component
      */
     public function render(): View|Closure|string
     {
-        $settings = Setting::select('title', 'icon', 'logo', 'description')->first();
+        $cacheKey = 'seo_tags';  // Define a cache key
+
+        $settings = Cache::remember($cacheKey, 60, function () {
+            return Setting::select('title', 'icon', 'logo', 'description')->first();
+        });
+
         return view(
             'components.seo-tags',
             compact('settings')

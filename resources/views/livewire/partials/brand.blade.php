@@ -2,25 +2,16 @@
 
 use function Livewire\Volt\{state, mount};
 use App\Models\Setting;
-use Illuminate\Support\Facades\Cookie;
 
-state(['setting' => fn() => Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first()]);
+state(['setting']);
 
 mount(function () {
-    // Mengambil data setting
-    $setting = $this->setting;
+    $cacheKey = 'setting_data';
 
-    // Menyimpan data setting ke dalam cookie
-    Cookie::queue(
-        'setting',
-        json_encode([
-            'title' => $setting->title ?? '',
-            'description' => $setting->description ?? '',
-            'logo' => $setting->logo ?? '',
-            'contact' => $setting->contact ?? '',
-            'whatsapp' => $setting->whatsapp ?? '',
-        ]),
-    );
+    $this->setting = Cache::remember($cacheKey, 60 * 60, function () {
+        // Cache for 1 hour
+        return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
+    });
 });
 
 ?>
@@ -39,10 +30,14 @@ mount(function () {
         <div class="container">
             <div class="row justify-content-between pt-4 pb-3 pb-lg-5">
                 <div class="col-12 col-lg-7">
-                    <a href="">
-                        <img alt="Free Frontend Logo" class="img-fluid mb-3" height="auto"
-                            src="{{ Storage::url($setting->logo) }}" width="200">
-                    </a>
+                    @if ($setting->logo)
+                        <a href="/">
+                            <img alt="Free Frontend Logo" class="img-fluid mb-3" height="auto"
+                                src="{{ Storage::url($setting->logo) }}" width="200">
+                        </a>
+                    @else
+                        <p class="fw-bold text-primary fs-2">{{ $setting->title ?? '' }}</p>
+                    @endif
                     <p class="mb-3">{{ $setting->description ?? '' }}</p>
 
                 </div>

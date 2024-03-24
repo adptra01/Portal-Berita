@@ -18,7 +18,7 @@ state([
 
 mount(function () {
     $keywords = ['berita utama', 'terkini', 'Sibanyu', 'informasi', 'kategori'];
-    
+
     foreach ($this->categories as $category) {
         $keywords[] = $category->name;
     }
@@ -92,12 +92,12 @@ $posts = computed(function () {
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#trendingPosts"
                         data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon border rounded-5" aria-hidden="true"></span>
+                        <span class="carousel-control-prev-icon rounded-5" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#trendingPosts"
                         data-bs-slide="next">
-                        <span class="carousel-control-next-icon border rounded-5" aria-hidden="true"></span>
+                        <span class="carousel-control-next-icon rounded-5" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
@@ -126,7 +126,9 @@ $posts = computed(function () {
                                                 href="{{ route('news.read', ['post' => $post->slug]) }}">
                                                 <h2>{{ $post->title }}</h2>
                                             </a>
+
                                             <p>{!! Str::limit($post->content, 250, '...') !!}</p>
+                                            
                                             <ul class="blog-info-link">
                                                 <li>
                                                     <a class="text-capitalize">

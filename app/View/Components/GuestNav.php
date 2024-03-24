@@ -5,6 +5,7 @@ namespace App\View\Components;
 use App\Models\Category;
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
 
 class GuestNav extends Component
@@ -22,7 +23,13 @@ class GuestNav extends Component
      */
     public function render(): View|Closure|string
     {
-        $categories = Category::get();
+        $cacheKey = 'guest_nav_categories';
+
+        $categories = Cache::remember($cacheKey, 60, function () {
+            // Cache for 1 hour
+            return Category::get();
+        });
+
         return view('components.guest-nav', compact('categories'));
     }
 }

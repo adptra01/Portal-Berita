@@ -1,27 +1,53 @@
 <?php
-
-use function Livewire\Volt\{state};
-use function Laravel\Folio\name;
+use function Livewire\Volt\{state, computed};
+use Laravel\Folio\name;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Category;
 
-name('news.welcome');
+// name('news.welcome');
 
-State([
+state([
+    'trendingCacheKey' => 'trending_posts',
+    'weeklyTopNewsCacheKey' => 'weekly_top_news',
+    'latestNewsCacheKey' => 'latest_news',
+    'categoriesCacheKey' => 'homepage_categories',
     'trending' => fn() => Post::with('category')->orderByDesc('viewer')->where('status', true)->select('slug', 'title', 'thumbnail', 'category_id')->get(),
-
-    'weeklyTopNews' => fn() => Post::with('category')->where('created_at', '>=', Carbon::now()->subWeek(2))->where('status', true)->orderByDesc('viewer')->limit(6)->get(),
-    'latestNews' => fn() => Post::with('category')->where('status', true)->latest()->limit(6)->get(),
-    'categories' => fn() => Category::with([
-        'posts' => function ($query) {
-            $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');
-        },
-    ])
-        ->limit(5)
-        ->select('id', 'name', 'slug')
-        ->get(),
 ]);
+
+$weeklyTopNews = computed(function () {
+    $cacheKey = $this->weeklyTopNewsCacheKey;
+
+    return Cache::remember($cacheKey, 60 * 60 * 24, function () {
+        // Cache for 1 day
+        return Post::with('category')->where('created_at', '>=', Carbon::now()->subWeek(2))->where('status', true)->orderByDesc('viewer')->limit(6)->get();
+    });
+});
+
+$latestNews = computed(function () {
+    $cacheKey = $this->latestNewsCacheKey;
+
+    return Cache::remember($cacheKey, 60 * 30, function () {
+        // Cache for 30 minutes
+        return Post::with('category')->where('status', true)->latest()->limit(6)->get();
+    });
+});
+
+$categories = computed(function () {
+    $cacheKey = $this->categoriesCacheKey;
+
+    return Cache::remember($cacheKey, 60 * 60, function () {
+        // Cache for 1 hour
+        return Category::with([
+            'posts' => function ($query) {
+                $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');
+            },
+        ])
+            ->limit(5)
+            ->select('id', 'name', 'slug')
+            ->get();
+    });
+});
 
 ?>
 <x-guest-layout>
@@ -45,15 +71,15 @@ State([
                                 <!-- Trending Top -->
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="{{ Storage::url($trending->first()->thumbnail) }}"
-                                            alt="{{ $trending->first()->title }}" loading="lazy" class="object-fit-cover"
-                                            height="450px">
+                                        <img src="{{ Storage::url($this->trending->first()->thumbnail) }}"
+                                            alt="{{ $this->trending->first()->title }}" loading="lazy"
+                                            class="object-fit-cover" height="450px">
                                         <div class="trend-top-cap">
                                             <span
-                                                class="bg-primary text-white">{{ $trending->first()->category->name }}</span>
+                                                class="bg-primary text-white">{{ $this->trending->first()->category->name }}</span>
                                             <h2>
                                                 <a
-                                                    href="{{ route('news.read', ['post' => $trending->first()->slug]) }}">{{ $trending->first()->title }}</a>
+                                                    href="{{ route('news.read', ['post' => $this->trending->first()->slug]) }}">{{ $this->trending->first()->title }}</a>
                                             </h2>
                                         </div>
                                     </div>
@@ -61,7 +87,7 @@ State([
                                 <!-- Trending Bottom -->
                                 <div class="trending-bottom">
                                     <div class="row">
-                                        @foreach ($trending->skip(1)->take(3) as $item)
+                                        @foreach ($this->trending->skip(1)->take(3) as $item)
                                             <div class="col-lg-4">
                                                 <div class="single-bottom mb-35">
                                                     <div class="trend-bottom-img mb-30">
@@ -85,7 +111,7 @@ State([
                             </div>
                             <!-- Riht content -->
                             <div class="col-lg-4">
-                                @foreach ($trending->skip(4)->take(4) as $item)
+                                @foreach ($this->trending->skip(4)->take(4) as $item)
                                     <div class="trand-right-single d-flex">
                                         <div class="trand-right-img">
                                             <img src="{{ Storage::url($item->thumbnail) }}" class="object-fit-cover"
@@ -122,7 +148,7 @@ State([
                         <div class="row">
                             <div class="col-12">
                                 <div class="weekly-news-active dot-style d-flex dot-style">
-                                    @foreach ($weeklyTopNews as $no => $item)
+                                    @foreach ($this->weeklyTopNews as $no => $item)
                                         <div class="weekly-single">
                                             <div class="weekly-img">
                                                 <img src="{{ Storage::url($item->thumbnail) }}" alt="{{ $item->title }}"
@@ -161,7 +187,7 @@ State([
                         <div class="row">
                             <div class="col-12">
                                 <div class="weekly2-news-active dot-style d-flex dot-style">
-                                    @foreach ($latestNews as $item)
+                                    @foreach ($this->latestNews as $item)
                                         <div class="weekly2-single">
                                             <div class="weekly2-img">
                                                 <img src="{{ Storage::url($item->thumbnail) }}" alt="{{ $item->title }}"
@@ -194,7 +220,7 @@ State([
                             <div class="row d-flex justify-content-between">
                                 <ul class="nav nav-pills mb-3 justify-content-center bg-body-tertiary py-3 px-2 rounded"
                                     id="pills-tab" role="tablist">
-                                    @foreach ($categories as $category)
+                                    @foreach ($this->categories as $category)
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link text-capitalize {{ $loop->first ? 'active' : '' }}"
                                                 id="pills-{{ $category->slug }}-tab" data-bs-toggle="pill"
@@ -211,7 +237,7 @@ State([
                                     <!-- Nav Card -->
                                     <div class="tab-content" id="pills-tabContent">
 
-                                        @foreach ($categories as $category)
+                                        @foreach ($this->categories as $category)
                                             <div class="tab-pane fade show {{ $loop->first ? 'show active' : '' }}"
                                                 id="pills-{{ $category->slug }}" role="tabpanel"
                                                 aria-labelledby="pills-{{ $category->slug }}-tab" tabindex="0">

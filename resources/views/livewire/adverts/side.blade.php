@@ -1,18 +1,20 @@
 <?php
 
-use function Livewire\Volt\{state, mount};
+use function Livewire\Volt\{state};
 use Carbon\Carbon;
 use App\Models\Advert;
 
-state(['countAdverts', 'takeAdverts' => fn() => $this->countAdverts ?? 5, 'sideAdverts']);
-
-mount(function () {
-    $this->sideAdverts = Advert::wherePosition('side')
+state([
+    'countAdverts',
+    'takeAdverts' => fn() => $this->countAdverts ?? 5,
+    'sideAdverts' => fn() => Advert::wherePosition('side')
         ->where('end_date', '>=', today())
         ->select('link', 'image', 'alt')
         ->orderBy('updated_at')
-        ->get($this->takeAdverts);
-});
+        ->take($this->takeAdverts)
+        ->get(),
+]);
+
 ?>
 
 <div>

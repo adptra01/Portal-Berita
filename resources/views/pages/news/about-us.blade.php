@@ -1,16 +1,30 @@
 <?php
 
-use function Livewire\Volt\{state, computed};
+use function Livewire\Volt\{state, mount};
 use function Laravel\Folio\name;
 use App\Models\User;
 use App\Models\Setting;
 
 name('news.about-us');
 
-State([
-    'teams' => fn() => User::where('role', 'Penulis')->get(),
-    'aboutUs' => fn() => Setting::select('about')->first()->about,
+state([
+    'aboutUsCacheKey' => 'about_us_content', // Unique cache key for About Us content
+    'teamsCacheKey' => 'about_us_teams_' . request()->route()->getName(), // Unique key based on route
+    'aboutUs' => null,
+    'teams' => [],
 ]);
+
+mount(function () {
+    $this->aboutUs = Cache::remember($this->aboutUsCacheKey, 60 * 60, function () {
+        // Cache for 1 hour
+        return Setting::select('about')->first()->about;
+    });
+
+    $this->teams = Cache::remember($this->teamsCacheKey, 60 * 60, function () {
+        // Cache for 1 hour
+        return User::where('role', 'Penulis')->get();
+    });
+});
 
 ?>
 

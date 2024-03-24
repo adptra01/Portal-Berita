@@ -46,7 +46,7 @@ class AdvertSeeder extends Seeder
                 $imageData = file_get_contents($imageUrl);
                 Storage::put('public/image/' . $imageName, $imageData);
 
-                $this->command->info('Added Advert: ' . $advert->name);
+                $this->command->info('Tambah Contoh Iklan: ' . $advert->name);
             }
 
             $this->command->info('Adverts seeded successfully!');
