@@ -18,7 +18,7 @@ state([
 $weeklyTopNews = computed(function () {
     $cacheKey = $this->weeklyTopNewsCacheKey;
 
-    return Cache::remember($cacheKey, 60 * 60 * 24, function () {
+    return Cache::remember($cacheKey, 60, function () {
         // Cache for 1 day
         return Post::with('category')->where('created_at', '>=', Carbon::now()->subWeek(2))->where('status', true)->orderByDesc('viewer')->limit(6)->get();
     });
@@ -27,7 +27,7 @@ $weeklyTopNews = computed(function () {
 $latestNews = computed(function () {
     $cacheKey = $this->latestNewsCacheKey;
 
-    return Cache::remember($cacheKey, 60 * 30, function () {
+    return Cache::remember($cacheKey, 60, function () {
         // Cache for 30 minutes
         return Post::with('category')->where('status', true)->latest()->limit(6)->get();
     });
@@ -36,7 +36,7 @@ $latestNews = computed(function () {
 $categories = computed(function () {
     $cacheKey = $this->categoriesCacheKey;
 
-    return Cache::remember($cacheKey, 60 * 60, function () {
+    return Cache::remember($cacheKey, 60, function () {
         // Cache for 1 hour
         return Category::with([
             'posts' => function ($query) {

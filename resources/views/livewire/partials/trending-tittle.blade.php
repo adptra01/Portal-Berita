@@ -6,7 +6,7 @@ use App\Models\Post;
 $trendingTitles = computed(function () {
     $cacheKey = 'trending_post_titles';
 
-    return Cache::remember($cacheKey, 60 * 5, function () {
+    return Cache::remember($cacheKey, 60, function () {
         // Cache for 5 minutes
         return Post::orderByDesc('viewer')->where('status', true)->limit(5)->select('title')->get();
     });

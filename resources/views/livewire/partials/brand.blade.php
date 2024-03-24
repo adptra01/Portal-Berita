@@ -3,17 +3,7 @@
 use function Livewire\Volt\{state, mount};
 use App\Models\Setting;
 
-state(['setting']);
-
-mount(function () {
-    $cacheKey = 'setting_data';
-
-    $this->setting = Cache::remember($cacheKey, 60 * 60, function () {
-        // Cache for 1 hour
-        return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
-    });
-});
-
+state(['setting'=>  fn() => Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first()]);
 ?>
 
 <div>

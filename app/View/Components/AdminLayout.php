@@ -25,7 +25,7 @@ class AdminLayout extends Component
     {
         $cacheKey = 'admin_nav_brand';
 
-        $brand = Cache::remember($cacheKey, 60 * 60, function () {
+        $brand = Cache::remember($cacheKey, 60, function () {
             // Cache for 1 hour
             return Setting::select('logo', 'icon', 'title')->first();
         });
