@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->job(new CleanupOrphanImages)->everyMinute();
+        $schedule->command('sitemap:generate')->daily();
 
     }
 

@@ -6,8 +6,6 @@ use App\Models\Advert;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Visitor;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;

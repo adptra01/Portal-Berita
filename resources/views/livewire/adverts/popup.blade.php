@@ -1,10 +1,16 @@
 <?php
 
-use function Livewire\Volt\{state};
+use function Livewire\Volt\{state, mount};
 use Carbon\Carbon;
 use App\Models\Advert;
+use Illuminate\Support\Facades\Cache;
 
-state(['popAdverts' => fn() => Advert::wherePosition('popup')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->first()]);
+state(['popAdverts']);
+
+mount(function () {
+    $this->popAdverts = Advert::wherePosition('popup')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->first();
+});
+
 ?>
 
 <div>

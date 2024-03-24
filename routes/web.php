@@ -25,19 +25,17 @@ Route::get('/', function () {
     return view('pages.welcome');
 });
 
-// Untuk redirect ke Google
 Route::get('login/google/redirect', [SocialiteController::class, 'redirect'])
     ->middleware(['guest'])
     ->name('redirect');
 
-// Untuk callback dari Google
 Route::get('login/google/callback', [SocialiteController::class, 'callback'])
     ->middleware(['guest'])
     ->name('callback');
 
 Route::get('/optimize-clear', function () {
     Artisan::call('optimize:clear');
-    Artisan::call('optimize');
+    // Artisan::call('optimize');
     return back()->with('success', 'Optimize berhasil dilakukan');
 })->name('optimize');
 
