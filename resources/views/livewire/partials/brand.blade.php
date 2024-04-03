@@ -3,12 +3,12 @@
 use function Livewire\Volt\{state, mount};
 use App\Models\Setting;
 
-state(['setting'=>  fn() => Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first()]);
+state(['setting' => fn() => Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first()]);
 ?>
 
 <div>
     @section('header')
-        @if ($setting->logo)
+        @if ($setting && $setting->logo)
             <img src="{{ Storage::url($setting->logo) }}" alt="Logo" width="100" height="100%"
                 class="d-inline-block align-text-top">
         @else
@@ -20,7 +20,7 @@ state(['setting'=>  fn() => Setting::select('title', 'description', 'logo', 'con
         <div class="container">
             <div class="row justify-content-between pt-4 pb-3 pb-lg-5">
                 <div class="col-12 col-lg-7">
-                    @if ($setting->logo)
+                    @if ($setting && $setting->logo)
                         <a href="/">
                             <img alt="Free Frontend Logo" class="img-fluid mb-3" height="auto"
                                 src="{{ Storage::url($setting->logo) }}" width="200">
@@ -32,21 +32,12 @@ state(['setting'=>  fn() => Setting::select('title', 'description', 'logo', 'con
 
                 </div>
                 <div class="col-12 col-lg-2 small text-lg-end mb-4 md-lg-0 pt-1">
-                    <p class="mb-1">
-                        <a class="text-dark text-decoration-none" href="/">Home</a>
-                    </p>
-                    <p class="mb-1">
-                        <a class="text-dark text-decoration-none" href="{{ route('news.all-post') }}">Kategori</a>
-                    </p>
-                    <p class="mb-1">
-                        <a class="text-dark text-decoration-none" href="{{ route('news.about-us') }}">Tentang</a>
-                    </p>
-                    <p class="mb-0">
-                        <a class="text-dark text-decoration-none" href="{{ route('news.contact') }}">Kontak</a>
-                    </p>
+                    <p class="mb-1 fw-bold">Developer</p>
+                    <p class="mb-1">Imam Rofi'i</p>
+                    <p class="mb-1">Adi Putra</p>
                 </div>
                 <div class="col-12 col-lg-3 pt-1 small text-lg-end">
-                    <p class="mb-1">Sibanyu</p>
+                    <p class="mb-1 fw-bold">Sibanyu</p>
                     <p class="mb-1">Banyu Asin, Indonesia</p>
                     <p class="mb-1">Tel: {{ $setting->contact ?? '' }}</p>
                     <p class="mb-0">

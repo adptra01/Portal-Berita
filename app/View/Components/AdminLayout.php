@@ -23,12 +23,7 @@ class AdminLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        $cacheKey = 'admin_nav_brand';
-
-        $brand = Cache::remember($cacheKey, 60, function () {
-            // Cache for 1 hour
-            return Setting::select('logo', 'icon', 'title')->first();
-        });
+        $brand = Setting::select('logo', 'icon', 'title')->first();
 
         return view('components.admin-layout', compact('brand'));
     }

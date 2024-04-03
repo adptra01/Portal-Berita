@@ -8,7 +8,7 @@ use App\Models\Category;
 state(['relatedNews']);
 
 mount(function () {
-    $cacheKey = 'relatedNews_' . Str::random(20);
+    
     $this->relatedNews = Post::with('category')->where('status', true)->inRandomOrder()->select('slug', 'title', 'thumbnail', 'category_id')->take(5)->get();
 });
 

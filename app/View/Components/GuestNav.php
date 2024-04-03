@@ -23,12 +23,8 @@ class GuestNav extends Component
      */
     public function render(): View|Closure|string
     {
-        $cacheKey = 'guest_nav_categories';
 
-        $categories = Cache::remember($cacheKey, 60, function () {
-            // Cache for 1 hour
-            return Category::get();
-        });
+        $categories = Category::get();
 
         return view('components.guest-nav', compact('categories'));
     }

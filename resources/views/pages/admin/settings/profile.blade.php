@@ -2,20 +2,22 @@
     <!-- Account -->
     <div class="section">
         <div class="d-flex justify-content-between gap-4">
-            <figure>
-                <img src="{{ Storage::url($setting->logo) }}" alt="user-avatar"
-                    class="d-block rounded border {{ !$setting->logo ? 'placeholder' : '' }}" height="200" width="auto"
-                    style="object-fit: cover" id="uploadedLogo">
-                <figcaption class="text-center">Logo Website</figcaption>
-            </figure>
+            @if ($setting)
+                <figure>
+                    <img src="{{ Storage::url($setting->logo) }}" alt="user-avatar"
+                        class="d-block rounded border {{ !$setting->logo ? 'placeholder' : '' }}" height="200"
+                        width="auto" style="object-fit: cover" id="uploadedLogo">
+                    <figcaption class="text-center">Logo Website</figcaption>
+                </figure>
 
-            <span wire:loading>loading</span>
-            <figure>
-                <img src="{{ Storage::url($setting->icon) }}" alt="user-avatar"
-                    class="d-block rounded border {{ !$setting->icon ? 'placeholder' : '' }}" height="200"
-                    width="200" style="object-fit: cover" id="uploadedIcon">
-                <figcaption class="text-center">Icon Website</figcaption>
-            </figure>
+                <span wire:loading>loading</span>
+                <figure>
+                    <img src="{{ Storage::url($setting->icon) }}" alt="user-avatar"
+                        class="d-block rounded border {{ !$setting->icon ? 'placeholder' : '' }}" height="200"
+                        width="200" style="object-fit: cover" id="uploadedIcon">
+                    <figcaption class="text-center">Icon Website</figcaption>
+                </figure>
+            @endif
         </div>
     </div>
     <div class="section">
@@ -27,7 +29,7 @@
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Nama / Judul Website</label>
-                    <input type="text" class="form-control" name="title" value="{{ $setting->title }}"
+                    <input type="text" class="form-control" name="title" value="{{ $setting->title ?? null }}"
                         id="title" aria-describedby="title" placeholder="Enter your title website" />
                     @error('title')
                         <small id="title" class="form-text text-danger">{{ $message }}</small>
@@ -52,7 +54,7 @@
 
                 <div class="mb-3 col-md-6">
                     <label for="contact" class="form-label">contact</label>
-                    <input type="number" class="form-control" name="contact" value="{{ $setting->contact }}"
+                    <input type="number" class="form-control" name="contact" value="{{ $setting->contact ?? null }}"
                         id="contact" aria-describedby="contact" placeholder="Enter your contact website" />
                     @error('contact')
                         <small id="contact" class="form-text text-danger">{{ $message }}</small>
@@ -61,7 +63,7 @@
 
                 <div class="mb-3 col-md-6">
                     <label for="whatsapp" class="form-label">whatsapp</label>
-                    <input type="number" class="form-control" name="whatsapp" value="{{ $setting->whatsapp }}"
+                    <input type="number" class="form-control" name="whatsapp" value="{{ $setting->whatsapp ?? null }}"
                         id="whatsapp" aria-describedby="whatsapp" placeholder="Enter your whatsapp website" />
                     @error('whatsapp')
                         <small id="whatsapp" class="form-text text-danger">{{ $message }}</small>
@@ -70,7 +72,7 @@
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Deskripsi Website</label>
-                    <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ $setting->description }}
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ $setting->description ?? null }}
                     </textarea>
                     @error('description')
                         <small id="description" class="form-text text-danger">{{ $message }}</small>

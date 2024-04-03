@@ -9,10 +9,7 @@ name('preview.read');
 state(['post', 'add_viewer' => fn() => $this->post->increment('viewer')]);
 
 mount(function () {
-    $cacheKey = 'post_' . $this->post->id;
-    $this->post = Cache::remember($cacheKey, now()->addMinutes(5), function () {
-        return Post::find($this->post->id);
-    });
+    $this->post = Post::find($this->post->id);
 });
 
 ?>
@@ -146,7 +143,7 @@ mount(function () {
                                         </div>
                                     </div>
 
-                                   
+
 
                                 </div>
                                 <div class="col-lg-4">

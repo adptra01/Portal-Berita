@@ -8,7 +8,7 @@ use App\Models\Setting;
 name('news.about-us');
 
 state([
-    'aboutUs' => fn () => Setting::select('about')->first()->about,
+    'aboutUs' => fn() => Setting::select('about')->first()->about ?? null,
     'teams' => fn () => User::where('role', 'Penulis')->get(),
 ]);
 

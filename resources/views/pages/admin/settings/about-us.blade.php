@@ -26,7 +26,7 @@
             <span class="text-danger">*</span>
         </label>
         <textarea id="editor" class="form-control" name="about" id="about" rows="3">
-        {{ $setting->about }}
+        {{ $setting->about ?? null }}
     </textarea>
         @error('about')
             <small class="text-danger">{{ $message }}</small>

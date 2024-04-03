@@ -1,52 +1,30 @@
 <?php
 use function Livewire\Volt\{state, computed};
-use Laravel\Folio\name;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Category;
 
-// name('news.welcome');
-
 state([
-    'trendingCacheKey' => 'trending_posts',
-    'weeklyTopNewsCacheKey' => 'weekly_top_news',
-    'latestNewsCacheKey' => 'latest_news',
-    'categoriesCacheKey' => 'homepage_categories',
     'trending' => fn() => Post::with('category')->orderByDesc('viewer')->where('status', true)->select('slug', 'title', 'thumbnail', 'category_id')->get(),
 ]);
 
 $weeklyTopNews = computed(function () {
-    $cacheKey = $this->weeklyTopNewsCacheKey;
-
-    return Cache::remember($cacheKey, 60, function () {
-        // Cache for 1 day
-        return Post::with('category')->where('created_at', '>=', Carbon::now()->subWeek(2))->where('status', true)->orderByDesc('viewer')->limit(6)->get();
-    });
+    return Post::with('category')->where('created_at', '>=', Carbon::now()->subWeek(2))->where('status', true)->orderByDesc('viewer')->limit(6)->get();
 });
 
 $latestNews = computed(function () {
-    $cacheKey = $this->latestNewsCacheKey;
-
-    return Cache::remember($cacheKey, 60, function () {
-        // Cache for 30 minutes
-        return Post::with('category')->where('status', true)->latest()->limit(6)->get();
-    });
+    return Post::with('category')->where('status', true)->latest()->limit(6)->get();
 });
 
 $categories = computed(function () {
-    $cacheKey = $this->categoriesCacheKey;
-
-    return Cache::remember($cacheKey, 60, function () {
-        // Cache for 1 hour
-        return Category::with([
-            'posts' => function ($query) {
-                $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');
-            },
-        ])
-            ->limit(5)
-            ->select('id', 'name', 'slug')
-            ->get();
-    });
+    return Category::with([
+        'posts' => function ($query) {
+            $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');
+        },
+    ])
+        ->limit(5)
+        ->select('id', 'name', 'slug')
+        ->get();
 });
 
 ?>
@@ -69,21 +47,24 @@ $categories = computed(function () {
                         <div class="row">
                             <div class="col-lg-8">
                                 <!-- Trending Top -->
-                                <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
-                                        <img src="{{ Storage::url($this->trending->first()->thumbnail) }}"
-                                            alt="{{ $this->trending->first()->title }}" loading="lazy"
-                                            class="object-fit-cover" height="450px">
-                                        <div class="trend-top-cap">
-                                            <span
-                                                class="bg-primary text-white">{{ $this->trending->first()->category->name }}</span>
-                                            <h2>
-                                                <a
-                                                    href="{{ route('news.read', ['post' => $this->trending->first()->slug]) }}">{{ $this->trending->first()->title }}</a>
-                                            </h2>
+                                @if ($this->trending->isNotEmpty())
+                                    <div class="trending-top mb-30">
+                                        <div class="trend-top-img">
+                                            <img src="{{ Storage::url($this->trending->first()->thumbnail) }}"
+                                                alt="{{ $this->trending->first()->title }}" loading="lazy"
+                                                class="object-fit-cover" height="450px">
+                                            <div class="trend-top-cap">
+                                                <span
+                                                    class="bg-primary text-white">{{ $this->trending->first()->category->name }}</span>
+                                                <h2>
+                                                    <a
+                                                        href="{{ route('news.read', ['post' => $this->trending->first()->slug]) }}">{{ $this->trending->first()->title }}</a>
+                                                </h2>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
+
                                 <!-- Trending Bottom -->
                                 <div class="trending-bottom">
                                     <div class="row">

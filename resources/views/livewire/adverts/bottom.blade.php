@@ -3,7 +3,6 @@
 use function Livewire\Volt\{state, mount};
 use Carbon\Carbon;
 use App\Models\Advert;
-use Illuminate\Support\Facades\Cache;
 
 state(['bottomAdverts']);
 

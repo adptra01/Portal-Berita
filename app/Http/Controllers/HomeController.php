@@ -9,7 +9,6 @@ use App\Models\Visitor;
 use Illuminate\Support\Facades\DB;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -30,15 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $countPost = Cache::remember('post_count', 60, function () {
-            return Post::count();
-        });
+        $countPost = Post::count();
 
         $writerCountPost = Post::where('user_id', auth()->user()->id)->count();
 
-        $countPostsWriter = Cache::remember('count_posts_writer', 60, function () {
-            return User::with('posts')->where('role', 'Penulis')->get();
-        });
+        $countPostsWriter = User::with('posts')->where('role', 'Penulis')->get();
 
         $labels = [];
         $dataset = [];
@@ -54,11 +49,9 @@ class HomeController extends Controller
             ->addData('Jumlah Post', $dataset)
             ->setXAxis($labels);
 
-        $postCountPerCategory = Cache::remember('post_count_per_category', 60, function () {
-            return Post::select('category_id', DB::raw('count(*) as post_count'))
-                ->groupBy('category_id')
-                ->get();
-        });
+        $postCountPerCategory = Post::select('category_id', DB::raw('count(*) as post_count'))
+        ->groupBy('category_id')
+        ->get();
 
         $labelsPost = [];
         $datasetPost = [];
@@ -92,12 +85,10 @@ class HomeController extends Controller
 
 
 
-        $userCountByRole = Cache::remember('user_count_by_role', 60, function () {
-            return User::select('role', DB::raw('count(*) as total_user'))
-                ->whereIn('role', ['Penulis', 'Admin', 'Pengunjung'])
-                ->groupBy('role')
-                ->get();
-        });
+        $userCountByRole = User::select('role', DB::raw('count(*) as total_user'))
+        ->whereIn('role', ['Penulis', 'Admin', 'Pengunjung'])
+        ->groupBy('role')
+        ->get();
 
         $labels = [];
         $dataset = [];

@@ -2,9 +2,13 @@
 
 use function Livewire\Volt\{state, computed};
 use function Laravel\Folio\name;
-use App\Models\User;
+use App\Models\Setting;
 
 name('news.advert');
+
+state([
+    'whatsapp' => fn() => Setting::select('whatsapp')->first()->whatsapp ?? null,
+]);
 
 ?>
 
@@ -121,7 +125,7 @@ name('news.advert');
                         </div>
                     </div>
                     <div class="text-center">
-                        <a class="genric-btn primary rounded" href="#">
+                        <a class="genric-btn primary rounded" href="https://wa.me/{{ $whatsapp }}">
                             Hubungi
                         </a>
                     </div>
