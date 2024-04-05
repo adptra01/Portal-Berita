@@ -38,10 +38,10 @@ state(['setting' => fn() => Setting::select('title', 'description', 'logo', 'con
                 </div>
                 <div class="col-12 col-lg-3 pt-1 small text-lg-end">
                     <p class="mb-1 fw-bold">Sibanyu</p>
-                    <p class="mb-1">Banyu Asin, Indonesia</p>
-                    <p class="mb-1">Tel: {{ $setting->contact ?? '' }}</p>
+                    <p class="mb-1">Banyasin, Indonesia</p>
+                    <p class="mb-1">{{ $setting->contact ?? '' }}</p>
                     <p class="mb-0">
-                        <a class="text-dark text-decoration-none" href="https://wa.me/{{ $setting->whatsapp ?? '#' }}">Wa:
+                        <a class="text-dark text-decoration-none" href="https://wa.me/{{ $setting->whatsapp ?? '#' }}">
                             <span class="text-primary">
                                 {{ $setting->whatsapp ?? '' }}
                             </span>
@@ -53,14 +53,14 @@ state(['setting' => fn() => Setting::select('title', 'description', 'logo', 'con
             <div class="d-lg-flex justify-content-between py-3">
                 <div class="small">
                     <span class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-5">
-                        © 2024
-                        <a href="https://github.com/adptra01" target="_blank" rel="noopener noreferrer">adptra01</a></span>
-                    <a class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-5" href="#">Privacy Policy</a>
-                    <a class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-5" href="#">Terms of Service</a>
+                        Copyright ©
+                        <a href="https://github.com/adptra01" target="_blank" rel="noopener noreferrer"
+                            class="text-primary">adptra01</a>
+                    </span>
+                    <span class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-5">Teams Developer A.K.A.R</span>
                 </div>
                 <div class="small">
-                    <span class="text-muted"><a class="text-muted" href="">Proudly built with
-                            Bootstrap</a></span>
+                    <span class="text-primary fw-bold"><a class="text-muted" href="/">Sibanyu</a></span>
                 </div>
             </div>
         </div>

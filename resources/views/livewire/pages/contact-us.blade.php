@@ -27,7 +27,7 @@ $submit = function () {
                     class="form-control @error('name')
                 border-danger
                 @enderror"
-                    wire:model="name" id="name" aria-describedby="helpId" placeholder="Input your name" />
+                    wire:model="name" id="name" aria-describedby="helpId" placeholder="Masukkan nama lengkap" />
                 @error('name')
                     <small id="helpId" class="form-text text-danger fw-bold">{{ $message }}</small>
                 @enderror
@@ -38,7 +38,7 @@ $submit = function () {
                     class="form-control @error('email')
                 border-danger
                 @enderror"
-                    wire:model="email" id="email" aria-describedby="helpId" placeholder="Input your email" />
+                    wire:model="email" id="email" aria-describedby="helpId" placeholder="Masukkan email" />
                 @error('email')
                     <small id="helpId" class="form-text text-danger fw-bold">{{ $message }}</small>
                 @enderror
@@ -48,7 +48,7 @@ $submit = function () {
                 <textarea class="form-control @error('message')
                 border-danger
                 @enderror"
-                    wire:model="message" id="message" rows="5" placeholder="Input your message"></textarea>
+                    wire:model="message" id="message" rows="5" placeholder="Tuliskan pesan"></textarea>
                 @error('message')
                     <small id="helpId" class="form-text text-danger fw-bold">{{ $message }}</small>
                 @enderror

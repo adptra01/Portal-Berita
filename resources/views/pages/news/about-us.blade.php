@@ -33,7 +33,7 @@ state([
                 <div class="container">
                     <div class="row justify-content-center text-center mb-2 mb-lg-4">
                         <div class="col-12 col-lg-8 col-xxl-7 text-center mx-auto">
-                            <h2 class="fw-bold">Temui Tim</h2>
+                            <h2 class="fw-bold">Bersama Tim</h2>
                         </div>
                     </div>
                     <div class="row justify-content-center">

@@ -1,704 +1,613 @@
 <!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="https://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
-    xmlns:o="urn:schemas-microsoft-com:office:office">
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="id"
+    style="padding:0;Margin:0">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!--[if !mso]><!-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!--<![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="format-detection" content="date=no" />
-    <meta name="format-detection" content="address=no" />
-    <meta name="format-detection" content="email=no" />
-    <meta name="x-apple-disable-message-reformatting" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Fira+Sans:ital,wght@0,100;1,100;0,200;1,200;0,300;1,300;0,400;1,400;0,500;1,500;0,600;1,600;0,700;1,700;0,800;1,800;0,900;1,900"
-        rel="stylesheet" />
-    <title>Untitled</title>
-    <!-- Made with Postcards by Designmodo https://designmodo.com/postcards -->
-    <!--[if !mso]><!-- -->
-    <style>
-        @media all {
-
-            /* cyrillic-ext */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 300;
-                font-display: swap;
-                src: local('Fira Sans Light'), local('FiraSans-Light'), url(https://fonts.gstatic.com/s/firasans/v10/va9B4kDNxMZdWfMOD5VnPKreSxf6Xl7Gl3LX.woff2) format('woff2');
-                unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-            }
-
-            /* cyrillic */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 300;
-                font-display: swap;
-                src: local('Fira Sans Light'), local('FiraSans-Light'), url(https://fonts.gstatic.com/s/firasans/v10/va9B4kDNxMZdWfMOD5VnPKreQhf6Xl7Gl3LX.woff2) format('woff2');
-                unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-            }
-
-            /* latin-ext */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 300;
-                font-display: swap;
-                src: local('Fira Sans Light'), local('FiraSans-Light'), url(https://fonts.gstatic.com/s/firasans/v10/va9B4kDNxMZdWfMOD5VnPKreSBf6Xl7Gl3LX.woff2) format('woff2');
-                unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-            }
-
-            /* latin */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 300;
-                font-display: swap;
-                src: local('Fira Sans Light'), local('FiraSans-Light'), url(https://fonts.gstatic.com/s/firasans/v10/va9B4kDNxMZdWfMOD5VnPKreRhf6Xl7Glw.woff2) format('woff2');
-                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-            }
-
-            /* cyrillic-ext */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 400;
-                src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v10/va9E4kDNxMZdWfMOD5VvmojLazX3dGTP.woff2) format('woff2');
-                unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-            }
-
-            /* cyrillic */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 400;
-                src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v10/va9E4kDNxMZdWfMOD5Vvk4jLazX3dGTP.woff2) format('woff2');
-                unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-            }
-
-            /* latin-ext */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 400;
-                src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v10/va9E4kDNxMZdWfMOD5VvmYjLazX3dGTP.woff2) format('woff2');
-                unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-            }
-
-            /* latin */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 400;
-                src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v10/va9E4kDNxMZdWfMOD5Vvl4jLazX3dA.woff2) format('woff2');
-                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-            }
-
-            /* cyrillic-ext */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 800;
-                font-display: swap;
-                src: local('Fira Sans ExtraBold'), local('FiraSans-ExtraBold'), url(https://fonts.gstatic.com/s/firasans/v10/va9B4kDNxMZdWfMOD5VnMK7eSxf6Xl7Gl3LX.woff2) format('woff2');
-                unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-            }
-
-            /* cyrillic */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 800;
-                font-display: swap;
-                src: local('Fira Sans ExtraBold'), local('FiraSans-ExtraBold'), url(https://fonts.gstatic.com/s/firasans/v10/va9B4kDNxMZdWfMOD5VnMK7eQhf6Xl7Gl3LX.woff2) format('woff2');
-                unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-            }
-
-            /* latin-ext */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 800;
-                font-display: swap;
-                src: local('Fira Sans ExtraBold'), local('FiraSans-ExtraBold'), url(https://fonts.gstatic.com/s/firasans/v10/va9B4kDNxMZdWfMOD5VnMK7eSBf6Xl7Gl3LX.woff2) format('woff2');
-                unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-            }
-
-            /* latin */
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 800;
-                font-display: swap;
-                src: local('Fira Sans ExtraBold'), local('FiraSans-ExtraBold'), url(https://fonts.gstatic.com/s/firasans/v10/va9B4kDNxMZdWfMOD5VnMK7eRhf6Xl7Glw.woff2) format('woff2');
-                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-            }
-        }
-    </style>
-    <!--<![endif]-->
-    <style>
-        html,
-        body {
-            margin: 0 !important;
-            padding: 0 !important;
-            min-height: 100% !important;
-            width: 100% !important;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        * {
-            -ms-text-size-adjust: 100%;
-        }
-
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <title>New email template 2024-04-05</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet"> <!--<![endif]-->
+    <style type="text/css">
         #outlook a {
             padding: 0;
         }
 
-        .ReadMsgBody,
         .ExternalClass {
             width: 100%;
         }
 
         .ExternalClass,
         .ExternalClass p,
-        .ExternalClass td,
-        .ExternalClass div,
         .ExternalClass span,
-        .ExternalClass font {
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
             line-height: 100%;
         }
 
-        div[style*="margin: 14px 0"],
-        div[style*="margin: 16px 0"] {
-            margin: 0 !important;
-        }
-
-        table,
-        td,
-        th {
-            mso-table-lspace: 0 !important;
-            mso-table-rspace: 0 !important;
-            border-collapse: collapse;
-        }
-
-        body,
-        td,
-        th,
-        p,
-        div,
-        li,
-        a,
-        span {
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-            mso-line-height-rule: exactly;
-        }
-
-        img {
-            border: 0;
-            outline: none;
-            line-height: 100%;
-            text-decoration: none;
-            -ms-interpolation-mode: bicubic;
+        .es-button {
+            mso-style-priority: 100 !important;
+            text-decoration: none !important;
         }
 
         a[x-apple-data-detectors] {
             color: inherit !important;
             text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
         }
 
-        .pc-gmail-fix {
+        .es-desk-hidden {
             display: none;
-            display: none !important;
+            float: left;
+            overflow: hidden;
+            width: 0;
+            max-height: 0;
+            line-height: 0;
+            mso-hide: all;
         }
 
-        @media (min-width: 621px) {
-            .pc-lg-hide {
-                display: none;
+        @media only screen and (max-width:600px) {
+
+            p,
+            ul li,
+            ol li,
+            a {
+                line-height: 150% !important
             }
 
-            .pc-lg-bg-img-hide {
-                background-image: none !important;
-            }
-        }
-    </style>
-    <style>
-        @media (max-width: 620px) {
-            .pc-project-body {
-                min-width: 0px !important;
+            h1,
+            h2,
+            h3,
+            h1 a,
+            h2 a,
+            h3 a {
+                line-height: 120%
             }
 
-            .pc-project-container {
-                width: 100% !important;
-            }
-
-            .pc-sm-hide {
-                display: none !important;
-            }
-
-            .pc-sm-bg-img-hide {
-                background-image: none !important;
-            }
-
-            table.pc-w620-spacing-0-0-40-0 {
-                margin: 0px 0px 40px 0px !important;
-            }
-
-            td.pc-w620-spacing-0-0-40-0,
-            th.pc-w620-spacing-0-0-40-0 {
-                margin: 0 !important;
-                padding: 0px 0px 40px 0px !important;
-            }
-
-            .pc-w620-fontSize-30 {
+            h1 {
                 font-size: 30px !important;
+                text-align: left
             }
 
-            .pc-w620-lineHeight-40 {
-                line-height: 40px !important;
+            h2 {
+                font-size: 26px !important;
+                text-align: left
             }
 
-            .pc-w620-fontSize-16 {
+            h3 {
+                font-size: 20px !important;
+                text-align: left
+            }
+
+            h1 a {
+                text-align: left
+            }
+
+            .es-header-body h1 a,
+            .es-content-body h1 a,
+            .es-footer-body h1 a {
+                font-size: 30px !important
+            }
+
+            h2 a {
+                text-align: left
+            }
+
+            .es-header-body h2 a,
+            .es-content-body h2 a,
+            .es-footer-body h2 a {
+                font-size: 26px !important
+            }
+
+            h3 a {
+                text-align: left
+            }
+
+            .es-header-body h3 a,
+            .es-content-body h3 a,
+            .es-footer-body h3 a {
+                font-size: 20px !important
+            }
+
+            h4 {
+                font-size: 20px !important;
+                text-align: left;
+                line-height: 120%
+            }
+
+            h4 a {
+                font-size: 20px !important;
+                text-align: left
+            }
+
+            .es-menu td a {
+                font-size: 14px !important
+            }
+
+            .es-header-body p,
+            .es-header-body ul li,
+            .es-header-body ol li,
+            .es-header-body a {
+                font-size: 16px !important
+            }
+
+            .es-content-body p,
+            .es-content-body ul li,
+            .es-content-body ol li,
+            .es-content-body a {
+                font-size: 16px !important
+            }
+
+            .es-footer-body p,
+            .es-footer-body ul li,
+            .es-footer-body ol li,
+            .es-footer-body a {
+                font-size: 16px !important
+            }
+
+            .es-infoblock p,
+            .es-infoblock ul li,
+            .es-infoblock ol li,
+            .es-infoblock a {
+                font-size: 14px !important
+            }
+
+            *[class="gmail-fix"] {
+                display: none !important
+            }
+
+            .es-m-txt-c,
+            .es-m-txt-c h1,
+            .es-m-txt-c h2,
+            .es-m-txt-c h3 {
+                text-align: center !important
+            }
+
+            .es-m-txt-r,
+            .es-m-txt-r h1,
+            .es-m-txt-r h2,
+            .es-m-txt-r h3 {
+                text-align: right !important
+            }
+
+            .es-m-txt-l,
+            .es-m-txt-l h1,
+            .es-m-txt-l h2,
+            .es-m-txt-l h3 {
+                text-align: left !important
+            }
+
+            .es-m-txt-r img,
+            .es-m-txt-c img,
+            .es-m-txt-l img {
+                display: inline !important
+            }
+
+            .es-button-border {
+                display: inline-block !important
+            }
+
+            .es-btn-fw {
+                border-width: 10px 0px !important;
+                text-align: center !important
+            }
+
+            .es-adaptive table,
+            .es-btn-fw,
+            .es-btn-fw-brdr,
+            .es-left,
+            .es-right {
+                width: 100% !important
+            }
+
+            .es-content table,
+            .es-header table,
+            .es-footer table,
+            .es-content,
+            .es-footer,
+            .es-header {
+                width: 100% !important;
+                max-width: 600px !important
+            }
+
+            .es-adapt-td {
+                display: block !important;
+                width: 100% !important
+            }
+
+            .adapt-img {
+                width: 100% !important;
+                height: auto !important
+            }
+
+            .es-m-p0 {
+                padding: 0 !important
+            }
+
+            .es-m-p0r {
+                padding-right: 0 !important
+            }
+
+            .es-m-p0l {
+                padding-left: 0 !important
+            }
+
+            .es-m-p0t {
+                padding-top: 0 !important
+            }
+
+            .es-m-p0b {
+                padding-bottom: 0 !important
+            }
+
+            .es-m-p20b {
+                padding-bottom: 20px !important
+            }
+
+            .es-mobile-hidden,
+            .es-hidden {
+                display: none !important
+            }
+
+            tr.es-desk-hidden,
+            td.es-desk-hidden,
+            table.es-desk-hidden {
+                width: auto !important;
+                overflow: visible !important;
+                float: none !important;
+                max-height: inherit !important;
+                line-height: inherit !important
+            }
+
+            tr.es-desk-hidden {
+                display: table-row !important
+            }
+
+            table.es-desk-hidden {
+                display: table !important
+            }
+
+            td.es-desk-menu-hidden {
+                display: table-cell !important
+            }
+
+            .es-menu td {
+                width: 1% !important
+            }
+
+            table.es-table-not-adapt,
+            .esd-block-html table {
+                width: auto !important
+            }
+
+            table.es-social {
+                display: inline-block !important
+            }
+
+            table.es-social td {
+                display: inline-block !important
+            }
+
+            a.es-button,
+            button.es-button {
                 font-size: 16px !important;
+                display: inline-block !important
             }
 
-            .pc-w620-lineHeight-26 {
-                line-height: 26px !important;
+            .es-m-p5 {
+                padding: 5px !important
             }
 
-            .pc-w620-padding-35-35-35-35 {
-                padding: 35px 35px 35px 35px !important;
+            .es-m-p5t {
+                padding-top: 5px !important
             }
 
-            .pc-w620-gridCollapsed-1>tbody,
-            .pc-w620-gridCollapsed-1>tbody>tr,
-            .pc-w620-gridCollapsed-1>tr {
-                display: inline-block !important;
+            .es-m-p5b {
+                padding-bottom: 5px !important
             }
 
-            .pc-w620-gridCollapsed-1.pc-width-fill>tbody,
-            .pc-w620-gridCollapsed-1.pc-width-fill>tbody>tr,
-            .pc-w620-gridCollapsed-1.pc-width-fill>tr {
-                width: 100% !important;
+            .es-m-p5r {
+                padding-right: 5px !important
             }
 
-            .pc-w620-gridCollapsed-1.pc-w620-width-fill>tbody,
-            .pc-w620-gridCollapsed-1.pc-w620-width-fill>tbody>tr,
-            .pc-w620-gridCollapsed-1.pc-w620-width-fill>tr {
-                width: 100% !important;
+            .es-m-p5l {
+                padding-left: 5px !important
             }
 
-            .pc-w620-gridCollapsed-1>tbody>tr>td,
-            .pc-w620-gridCollapsed-1>tr>td {
-                display: block !important;
+            .es-m-p10 {
+                padding: 10px !important
+            }
+
+            .es-m-p10t {
+                padding-top: 10px !important
+            }
+
+            .es-m-p10b {
+                padding-bottom: 10px !important
+            }
+
+            .es-m-p10r {
+                padding-right: 10px !important
+            }
+
+            .es-m-p10l {
+                padding-left: 10px !important
+            }
+
+            .es-m-p15 {
+                padding: 15px !important
+            }
+
+            .es-m-p15t {
+                padding-top: 15px !important
+            }
+
+            .es-m-p15b {
+                padding-bottom: 15px !important
+            }
+
+            .es-m-p15r {
+                padding-right: 15px !important
+            }
+
+            .es-m-p15l {
+                padding-left: 15px !important
+            }
+
+            .es-m-p20 {
+                padding: 20px !important
+            }
+
+            .es-m-p20t {
+                padding-top: 20px !important
+            }
+
+            .es-m-p20r {
+                padding-right: 20px !important
+            }
+
+            .es-m-p20l {
+                padding-left: 20px !important
+            }
+
+            .es-m-p25 {
+                padding: 25px !important
+            }
+
+            .es-m-p25t {
+                padding-top: 25px !important
+            }
+
+            .es-m-p25b {
+                padding-bottom: 25px !important
+            }
+
+            .es-m-p25r {
+                padding-right: 25px !important
+            }
+
+            .es-m-p25l {
+                padding-left: 25px !important
+            }
+
+            .es-m-p30 {
+                padding: 30px !important
+            }
+
+            .es-m-p30t {
+                padding-top: 30px !important
+            }
+
+            .es-m-p30b {
+                padding-bottom: 30px !important
+            }
+
+            .es-m-p30r {
+                padding-right: 30px !important
+            }
+
+            .es-m-p30l {
+                padding-left: 30px !important
+            }
+
+            .es-m-p35 {
+                padding: 35px !important
+            }
+
+            .es-m-p35t {
+                padding-top: 35px !important
+            }
+
+            .es-m-p35b {
+                padding-bottom: 35px !important
+            }
+
+            .es-m-p35r {
+                padding-right: 35px !important
+            }
+
+            .es-m-p35l {
+                padding-left: 35px !important
+            }
+
+            .es-m-p40 {
+                padding: 40px !important
+            }
+
+            .es-m-p40t {
+                padding-top: 40px !important
+            }
+
+            .es-m-p40b {
+                padding-bottom: 40px !important
+            }
+
+            .es-m-p40r {
+                padding-right: 40px !important
+            }
+
+            .es-m-p40l {
+                padding-left: 40px !important
+            }
+
+            table.w-auto,
+            td.w-auto {
+                width: auto !important
+            }
+
+            .es-desk-hidden {
+                display: table-row !important;
                 width: auto !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-            }
-
-            .pc-w620-gridCollapsed-1.pc-width-fill>tbody>tr>td,
-            .pc-w620-gridCollapsed-1.pc-width-fill>tr>td {
-                width: 100% !important;
-            }
-
-            .pc-w620-gridCollapsed-1.pc-w620-width-fill>tbody>tr>td,
-            .pc-w620-gridCollapsed-1.pc-w620-width-fill>tr>td {
-                width: 100% !important;
-            }
-
-            .pc-w620-gridCollapsed-1>tbody>.pc-grid-tr-first>.pc-grid-td-first,
-            pc-w620-gridCollapsed-1>.pc-grid-tr-first>.pc-grid-td-first {
-                padding-top: 0 !important;
-            }
-
-            .pc-w620-gridCollapsed-1>tbody>.pc-grid-tr-last>.pc-grid-td-last,
-            pc-w620-gridCollapsed-1>.pc-grid-tr-last>.pc-grid-td-last {
-                padding-bottom: 0 !important;
-            }
-
-            .pc-w620-gridCollapsed-0>tbody>.pc-grid-tr-first>td,
-            .pc-w620-gridCollapsed-0>.pc-grid-tr-first>td {
-                padding-top: 0 !important;
-            }
-
-            .pc-w620-gridCollapsed-0>tbody>.pc-grid-tr-last>td,
-            .pc-w620-gridCollapsed-0>.pc-grid-tr-last>td {
-                padding-bottom: 0 !important;
-            }
-
-            .pc-w620-gridCollapsed-0>tbody>tr>.pc-grid-td-first,
-            .pc-w620-gridCollapsed-0>tr>.pc-grid-td-first {
-                padding-left: 0 !important;
-            }
-
-            .pc-w620-gridCollapsed-0>tbody>tr>.pc-grid-td-last,
-            .pc-w620-gridCollapsed-0>tr>.pc-grid-td-last {
-                padding-right: 0 !important;
-            }
-
-            .pc-w620-tableCollapsed-1>tbody,
-            .pc-w620-tableCollapsed-1>tbody>tr,
-            .pc-w620-tableCollapsed-1>tr {
-                display: block !important;
-            }
-
-            .pc-w620-tableCollapsed-1.pc-width-fill>tbody,
-            .pc-w620-tableCollapsed-1.pc-width-fill>tbody>tr,
-            .pc-w620-tableCollapsed-1.pc-width-fill>tr {
-                width: 100% !important;
-            }
-
-            .pc-w620-tableCollapsed-1.pc-w620-width-fill>tbody,
-            .pc-w620-tableCollapsed-1.pc-w620-width-fill>tbody>tr,
-            .pc-w620-tableCollapsed-1.pc-w620-width-fill>tr {
-                width: 100% !important;
-            }
-
-            .pc-w620-tableCollapsed-1>tbody>tr>td,
-            .pc-w620-tableCollapsed-1>tr>td {
-                display: block !important;
-                width: auto !important;
-            }
-
-            .pc-w620-tableCollapsed-1.pc-width-fill>tbody>tr>td,
-            .pc-w620-tableCollapsed-1.pc-width-fill>tr>td {
-                width: 100% !important;
-            }
-
-            .pc-w620-tableCollapsed-1.pc-w620-width-fill>tbody>tr>td,
-            .pc-w620-tableCollapsed-1.pc-w620-width-fill>tr>td {
-                width: 100% !important;
+                overflow: visible !important;
+                max-height: inherit !important
             }
         }
 
-        @media (max-width: 520px) {
-            .pc-w520-padding-30-30-30-30 {
-                padding: 30px 30px 30px 30px !important;
+        @media screen and (max-width:384px) {
+            .mail-message-content {
+                width: 414px !important
             }
         }
     </style>
-    <!--[if !mso]><!-->
-    <style>
-        @media all {
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 100;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5Vn9LjHYTQ.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5Vn9LjHYTI.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: italic;
-                font-weight: 100;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9A4kDNxMZdWfMOD5VvkrCqUT7fdw.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9A4kDNxMZdWfMOD5VvkrCqUT7fcQ.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 200;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnWKneSBf8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnWKneSBf6.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: italic;
-                font-weight: 200;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrAGQCf2VF8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrAGQCf2VFk.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 300;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnPKreSBf8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnPKreSBf6.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: italic;
-                font-weight: 300;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrBiQyf2VF8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrBiQyf2VFk.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 400;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5VvmYjN.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9E4kDNxMZdWfMOD5VvmYjL.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: italic;
-                font-weight: 400;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5VvkrjHYTQ.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9C4kDNxMZdWfMOD5VvkrjHYTI.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 500;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveSBf8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnZKveSBf6.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: italic;
-                font-weight: 500;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrA6Qif2VF8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrA6Qif2VFk.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 600;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnSKzeSBf8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnSKzeSBf6.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: italic;
-                font-weight: 600;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrAWRSf2VF8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrAWRSf2VFk.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 700;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eSBf8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnLK3eSBf6.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 800;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnMK7eSBf8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnMK7eSBf6.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: italic;
-                font-weight: 800;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrBuRyf2VF8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrBuRyf2VFk.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: italic;
-                font-weight: 700;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrByRCf2VF8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrByRCf2VFk.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: normal;
-                font-weight: 900;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnFK_eSBf8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9B4kDNxMZdWfMOD5VnFK_eSBf6.woff2') format('woff2');
-            }
-
-            @font-face {
-                font-family: 'Fira Sans';
-                font-style: italic;
-                font-weight: 900;
-                src: url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrBKRif2VF8.woff') format('woff'), url('https://fonts.gstatic.com/s/firasans/v17/va9f4kDNxMZdWfMOD5VvkrBKRif2VFk.woff2') format('woff2');
-            }
-        }
-    </style>
-    <!--<![endif]-->
-    <!--[if mso]>
-    <style type="text/css">
-        .pc-font-alt {
-            font-family: Arial, Helvetica, sans-serif !important;
-        }
-    </style>
-    <![endif]-->
-    <!--[if gte mso 9]>
-    <xml>
-        <o:OfficeDocumentSettings>
-            <o:AllowPNG/>
-            <o:PixelsPerInch>96</o:PixelsPerInch>
-        </o:OfficeDocumentSettings>
-    </xml>
-    <![endif]-->
 </head>
 
-<body class="pc-font-alt"
-    style="width: 100% !important;min-height: 100% !important;margin: 0 !important;padding: 0 !important;line-height: 1.5;color: #2D3A41;mso-line-height-rule: exactly;-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;font-variant-ligatures: normal;text-rendering: optimizeLegibility;-moz-osx-font-smoothing: grayscale;background-color: #f4f4f4;"
-    bgcolor="#f4f4f4">
-    <table class="pc-project-body" style="table-layout: fixed;min-width: 600px;background-color:#f4f4f4;"
-        bgcolor="#f4f4f4" width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
-        <tr>
-            <td align="center" valign="top">
-                <table class="pc-project-container" style="width: 600px; max-width: 600px;" width="600"
-                    align="center" border="0" cellpadding="0" cellspacing="0" role="presentation">
-                    <tr>
-                        <td style="padding: 20px 0px 20px 0px;" align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%"
-                                style="width: 100%;">
-                                <tr>
-                                    <td valign="top">
-                                        <!-- BEGIN MODULE: Header 2 -->
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                                            role="presentation">
-                                            <tr>
-                                                <td style="padding: 0px 0px 0px 0px;">
-                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                                                        role="presentation">
-                                                        <tr>
-                                                            <td valign="top"
-                                                                class="pc-w520-padding-30-30-30-30 pc-w620-padding-35-35-35-35"
-                                                                style="padding: 40px 40px 40px 40px;border-radius: 0px;background-color: #1B1B1B;"
-                                                                bgcolor="#1B1B1B">
-                                                                <table width="100%" border="0" cellpadding="0"
-                                                                    cellspacing="0" role="presentation">
-                                                                    <tr>
-                                                                        <td align="center" valign="top"
-                                                                            style="padding: 0px 0px 17px 0px;">
-                                                                            <table border="0" cellpadding="0"
-                                                                                cellspacing="0" role="presentation"
-                                                                                align="center"
-                                                                                style="margin-right: auto; margin-left: auto;">
-                                                                                <tr>
-                                                                                    <td valign="top"
-                                                                                        class="pc-font-alt"
-                                                                                        align="center"
-                                                                                        style="mso-line-height: exactly;line-height: 121%;font-family: Fira Sans, Arial, Helvetica, sans-serif;font-size: 22px;font-weight: normal;color: #13a4ec;text-align: center;text-align-last: center;font-variant-ligatures: normal;">
-
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                                <table width="100%" border="0" cellpadding="0"
-                                                                    cellspacing="0" role="presentation">
-                                                                    <tr>
-                                                                        <td align="center" valign="top"
-                                                                            style="padding: 0px 0px 30px 0px;">
-                                                                            <table border="0" cellpadding="0"
-                                                                                cellspacing="0" role="presentation"
-                                                                                align="center"
-                                                                                style="margin-right: auto; margin-left: auto;">
-                                                                                <tr>
-                                                                                    <td valign="top"
-                                                                                        class="pc-font-alt pc-w620-fontSize-30 pc-w620-lineHeight-40"
-                                                                                        align="center"
-                                                                                        style="mso-line-height: exactly;line-height: 128%;letter-spacing: -0.6px;font-family: Fira Sans, Arial, Helvetica, sans-serif;font-size: 36px;font-weight: 800;color: #ffffff;text-align: center;text-align-last: center;font-variant-ligatures: normal;">
-                                                                                        <div><span
-                                                                                                style="font-weight: 800;font-style: italic;">Contact
-                                                                                                US</span>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                                <table width="100%" border="0" cellpadding="0"
-                                                                    cellspacing="0" role="presentation">
-                                                                    <tr>
-                                                                        <td align="center" valign="top"
-                                                                            style="padding: 0px 0px 30px 0px;">
-                                                                            <img src="https://cloudfilesdm.com/postcards/header-2-image-1.jpg"
-                                                                                class="" width="285"
-                                                                                height="285" alt=""
-                                                                                style="display: block;border: 0;outline: 0;line-height: 100%;-ms-interpolation-mode: bicubic;width:285px;height: auto;max-width: 100%;" />
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                                <table width="100%" border="0" cellpadding="0"
-                                                                    cellspacing="0" role="presentation">
-                                                                    <tr>
-                                                                        <td align="center" valign="top"
-                                                                            style="padding: 0px 0px 29px 0px;">
-                                                                            <table border="0" cellpadding="0"
-                                                                                cellspacing="0" role="presentation"
-                                                                                align="center"
-                                                                                style="margin-right: auto; margin-left: auto;">
-                                                                                <tr>
-                                                                                    <td valign="top"
-                                                                                        class="pc-font-alt pc-w620-fontSize-16 pc-w620-lineHeight-26"
-                                                                                        align="center"
-                                                                                        style="mso-line-height: exactly;line-height: 156%;letter-spacing: -0.2px;font-family: Fira Sans, Arial, Helvetica, sans-serif;font-size: 18px;font-weight: 300;color: #ffffff;text-align: center;text-align-last: center;font-variant-ligatures: normal;">
-                                                                                        <div><span>Hello saya
-                                                                                                {{ $data['name'] }},
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div><span>&#xFEFF;</span>
-                                                                                        </div>
-                                                                                        <div>
-                                                                                            <span>{{ $data['message'] }}</span>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                                <table border="0" cellpadding="0" cellspacing="0"
-                                                                    role="presentation" width="100%" align="center"
-                                                                    style="margin-right: auto; margin-left: auto;">
-                                                                    <tr>
-                                                                        <td valign="top" class="pc-font-alt"
-                                                                            align="center"
-                                                                            style="mso-line-height: exactly;line-height: 21px;font-family: Fira Sans, Arial, Helvetica, sans-serif;font-size: 15px;font-weight: normal;color: #fbfbfb;text-align: center;text-align-last: center;font-variant-ligatures: normal;">
-                                                                            <div><span>Dari {{ $data['email'] }}</span>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <!-- END MODULE: Header 2 -->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" border="0" cellpadding="0" cellspacing="0"
-                                            role="presentation">
-                                            <tr>
-                                                <td align="center" valign="top"
-                                                    style="padding-top: 20px; padding-bottom: 20px; vertical-align: top;">
-                                                    <a href="https://designmodo.com/postcards?uid=MjM2Nzk0&type=footer"
-                                                        target="_blank"
-                                                        style="text-decoration: none; overflow: hidden; border-radius: 2px; display: inline-block;">
-                                                        <img src="https://cloudfilesdm.com/postcards/promo-footer-dark.jpg"
-                                                            width="198" height="46"
-                                                            alt="Made with (o -) postcards"
-                                                            style="width: 198px; height: auto; margin: 0 auto; border: 0; outline: 0; line-height: 100%; -ms-interpolation-mode: bicubic; vertical-align: top;">
-                                                    </a>
-                                                    <img src="https://api-postcards.designmodo.com/tracking/mail/promo?uid=MjM2Nzk0"
-                                                        width="1" height="1" alt=""
-                                                        style="display:none; width: 1px; height: 1px;">
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <!-- Fix for Gmail on iOS -->
-    <div class="pc-gmail-fix" style="white-space: nowrap; font: 15px courier; line-height: 0;">&nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<body
+    style="width:100%;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
+    <div dir="ltr" class="es-wrapper-color" lang="id" style="background-color:#F9F9F9">
+        <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0" role="none"
+            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;padding:0;Margin:0;width:100%;height:100%;background-repeat:repeat;background-position:center top;background-color:#F9F9F9">
+            <tr style="border-collapse:collapse">
+                <td valign="top" style="padding:0;Margin:0">
+                    <table class="es-header" cellspacing="0" cellpadding="0" align="center" role="none"
+                        style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%;background-color:transparent;background-repeat:repeat;background-position:center top">
+                        <tr style="border-collapse:collapse">
+                            <td align="center" style="padding:0;Margin:0">
+                                <table class="es-header-body" cellspacing="0" cellpadding="0" align="center"
+                                    style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:transparent;width:600px"
+                                    role="none">
+                                    <tr style="border-collapse:collapse">
+                                        <td align="left"
+                                            background="https://ajrylk.stripocdn.email/content/guids/CABINET_915787324468f93bb4c0e3dd8b6275c6/images/group_151_2.png"
+                                            style="Margin:0;padding-left:10px;padding-right:10px;padding-bottom:20px;padding-top:40px;background-image:url(https://ajrylk.stripocdn.email/content/guids/CABINET_915787324468f93bb4c0e3dd8b6275c6/images/group_151_2.png);background-repeat:no-repeat;background-position:center center">
+                                            <table cellpadding="0" cellspacing="0" width="100%" role="none"
+                                                style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                <tr style="border-collapse:collapse">
+                                                    <td align="center" valign="top"
+                                                        style="padding:0;Margin:0;width:580px">
+                                                        <table cellpadding="0" cellspacing="0" width="100%"
+                                                            role="presentation"
+                                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                            <tr style="border-collapse:collapse">
+                                                                <td align="center"
+                                                                    style="padding:0;Margin:0;font-size:0px"><a
+                                                                        target="_blank" href="https://sibanyu.com/"
+                                                                        style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#151D41;font-size:18px"><img
+                                                                            src="https://ajrylk.stripocdn.email/content/guids/cb2f3f4a-5a21-412e-8729-5bbd35ed7607/images/logo_fullnameremovebgpreview.png"
+                                                                            alt
+                                                                            style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"
+                                                                            width="180" height="56"></a> </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="es-content" cellspacing="0" cellpadding="0" align="center" role="none"
+                        style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
+                        <tr style="border-collapse:collapse">
+                            <td align="center" style="padding:0;Margin:0">
+                                <table class="es-content-body" cellspacing="0" cellpadding="0" align="center"
+                                    role="none"
+                                    style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:transparent;width:600px">
+                                    <tr style="border-collapse:collapse">
+                                        <td align="left"
+                                            style="Margin:0;padding-left:10px;padding-right:10px;padding-top:40px;padding-bottom:40px">
+                                            <table cellpadding="0" cellspacing="0" width="100%" role="none"
+                                                style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                <tr style="border-collapse:collapse">
+                                                    <td align="center"
+                                                        style="padding:0;Margin:0;border-radius:12px;overflow:hidden;width:580px">
+                                                        <table cellpadding="0" cellspacing="0" width="100%"
+                                                            bgcolor="#ffffff"
+                                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;border-left:1px solid #e1effc;border-right:1px solid #e1effc;border-top:1px solid #e1effc;border-bottom:1px solid #e1effc;background-color:#ffffff;border-radius:12px;box-shadow:0 20px 20px #cccccc"
+                                                            role="presentation">
+                                                            <tr style="border-collapse:collapse">
+                                                                <td align="left" class="es-m-txt-l"
+                                                                    style="padding:0;Margin:0;padding-top:30px;padding-left:30px;padding-right:30px">
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        Halo Admin <strong>SIBANYU</strong>,<br></p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr style="border-collapse:collapse">
+                                                                <td align="left"
+                                                                    style="padding:0;Margin:0;padding-top:15px;padding-left:30px;padding-right:30px">
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        Saya adalah
+                                                                        <strong>{{ $data['name'] }}</strong>, pengunjung
+                                                                        website <strong>SIBANYU</strong>. Saya ingin
+                                                                        menyampaikan :
+                                                                    </p>
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        <br>
+                                                                    </p>
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        {{ $data['message'] }}</p>
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        <br>
+                                                                    </p>
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        Terima kasih atas perhatiannya. Saya menantikan
+                                                                        balasan Anda.</p>
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        <br>
+                                                                    </p>
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        Salam,</p>
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        {{ $data['name'] }}<br></p>
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        {{ $data['email'] }}</p>
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#6C7083;font-size:16px">
+                                                                        <br>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 
