@@ -19,7 +19,7 @@ mount(function () {
                 <a href="{{ $item->link }}" target="_blank" rel="noopener noreferrer">
                     <img src="{{ Storage::url($item->image) }}" class="mb-3 w-100 object-fit-cover rounded"
                         alt="{{ $item->alt }}" loading="lazy">
-                </a>>
+                </a>
             @endforeach
         </div>
     @endif

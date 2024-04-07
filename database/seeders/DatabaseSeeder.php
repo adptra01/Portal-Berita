@@ -26,12 +26,12 @@ class DatabaseSeeder extends Seeder
             'role' => 'Penulis',
         ]);
 
-        // $this->call([
-        //     CategorySeeder::class,
-        //     PostSeeder::class,
-        //     AdvertSeeder::class,
-        //     SettingSeeder::class,
-        // ]);
+        $this->call([
+            CategorySeeder::class,
+            PostSeeder::class,
+            AdvertSeeder::class,
+            SettingSeeder::class,
+        ]);
 
         // \App\Models\Post::factory(30)->create();
 

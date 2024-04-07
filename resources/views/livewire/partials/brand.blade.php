@@ -38,7 +38,8 @@ state(['setting' => fn() => Setting::select('title', 'description', 'logo', 'con
                 </div>
                 <div class="col-12 col-lg-3 pt-1 small text-lg-end">
                     <p class="mb-1 fw-bold">Sibanyu</p>
-                    <p class="mb-1">Banyasin, Indonesia</p>
+                    <p class="mb-1">Jalintim Palembang Jambi Km 205, RT 08 Kel. Bayung Lencir, Kec. Bayung Lencir, Musi
+                        Banyuasin, Sumsel 30756</p>
                     <p class="mb-1">{{ $setting->contact ?? '' }}</p>
                     <p class="mb-0">
                         <a class="text-dark text-decoration-none" href="https://wa.me/{{ $setting->whatsapp ?? '#' }}">
@@ -53,9 +54,7 @@ state(['setting' => fn() => Setting::select('title', 'description', 'logo', 'con
             <div class="d-lg-flex justify-content-between py-3">
                 <div class="small">
                     <span class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-5">
-                        Copyright ©
-                        <a href="https://github.com/adptra01" target="_blank" rel="noopener noreferrer"
-                            class="text-primary">adptra01</a>
+                        Copyright © PT. Tama Media Desa (PT. TMD)
                     </span>
                     <span class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-5">Teams Developer A.K.A.R</span>
                 </div>

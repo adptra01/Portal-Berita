@@ -2,173 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://localhost/welcome</loc>
-        <lastmod>2024-03-24T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-05T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://localhost/news/about-us</loc>
-        <lastmod>2024-03-24T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-05T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/advert</loc>
-        <lastmod>2024-03-24T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-05T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/all-post</loc>
-        <lastmod>2024-03-24T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-05T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/categories</loc>
-        <lastmod>2024-03-24T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-05T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/contact</loc>
-        <lastmod>2024-03-24T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-05T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/samsung-tawarkan-paket-ramadan-galaxy-a05-untuk-semarakkan-puasa-74</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/deretan-ponsel-baru-di-bawah-rp5-jutaan-yang-bisa-dibeli-saat-thr-cair-Xb</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/kiat-manfaatkan-konten-digital-sebagai-sarana-kenalkan-budaya-lokal-8k</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/threads-tambahkan-skor-langsung-untuk-pertandingan-olahraga-J2</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/waspadai-metode-penipuan-melalui-pembajakan-sim-ponsel-Y3</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/xiaomi-buds-5-kantongi-banyak-sertifikasi-tandai-siap-dirilis-8q</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/bocoran-spesifikasi-iqoo-neo10-yang-sedang-dikembangkan-x7</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/apple-dilaporkan-menyerah-pada-impiannya-kembangkan-microled-1l</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/kejutan-pokemon-go-dalam-musim-baru-world-of-wonders-RU</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/perubahan-tampilan-utama-menu-whatsapp-di-bawah-tiba-di-indonesia-h5</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/buka-puasa-bersama-di-pizza-hut-tambah-seru-dengan-diskon-debit-bri-Wy</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/kemenkominfo-tangani-5731-konten-terkait-radikalisme-di-ruang-digital-BK</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pemerintah-berupaya-menjalin-kemitraan-untuk-mendorong-inovasi-digital-RZ</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/nezar-fokus-selesaikan-pembangunan-bts-dan-penyusunan-regulasi-RJ</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/kemenkominfo-ajak-perempuan-indonesia-giat-berkarya-di-era-digital-ou</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/wamenkominfo-ajak-masyarakat-pilih-12-karya-tik-dalam-wsis-prizes-2024-Qq</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/kenali-manfaat-dan-tantangan-yang-dihadirkan-kecerdasan-buatan-Cu</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/huawei-matebook-d14-masuk-pasar-indonesia-mulai-rp89-jutaan-sC</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/china-luncurkan-satelit-guna-pantau-lingkungan-atmosfer-luar-angkasa-Hn</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/huawei-matepad-115-papermatte-edition-rilis-dibanderol-rp64-jutaan-m4</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/category/politik</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/category/hukum</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/category/ekonomi</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/category/olahraga</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/category/lifestyle</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/category/hiburan</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/category/tekno</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
             </url>
 </urlset>

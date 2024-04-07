@@ -44,10 +44,10 @@ Route::get('/run-schedule', function () {
     return back()->with('success', 'Pekerjaan berhasil dilakukan');
 })->name('schedule');
 
-Route::get('/storage-link', function () {
-    Artisan::call('storage:link');
-    return back()->with('success', 'Penyimpanan Gambar berhasil dibuat');
-})->name('storage');
+// Route::get('/storage-link', function () {
+//     Artisan::call('storage:link');
+//     return back()->with('success', 'Penyimpanan Gambar berhasil dibuat');
+// })->name('storage');
 
 
 Auth::routes();

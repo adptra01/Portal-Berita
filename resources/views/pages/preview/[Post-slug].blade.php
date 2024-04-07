@@ -147,7 +147,7 @@ mount(function () {
 
                                 </div>
                                 <div class="col-lg-4">
-                                    <div class="blog_right_sidebar sticky-top" style="padding-top: 5.5rem; z-index: -1;">
+                                    <div class="blog_right_sidebar sticky-top" style="padding-top: 5.5rem; z-index: 1;">
                                         <livewire:partials.related-news>
                                             <!-- New Poster -->
                                             <div class="card">
