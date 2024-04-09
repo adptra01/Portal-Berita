@@ -47,7 +47,7 @@ mount(function () {
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-8 posts-list">
-                                    <div class="sticky-top" style="padding-top: 5.5rem; z-index: 1;">
+                                    <div class="sticky-top" style="z-index: 1;">
 
                                         <div class="section-tittle">
                                             <h2 class="fw-bold text-capitalize">{{ $post->title }}</h2>

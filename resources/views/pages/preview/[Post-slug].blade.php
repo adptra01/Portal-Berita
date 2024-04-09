@@ -58,9 +58,8 @@ mount(function () {
                                                         Informasi</h6>
                                                     <span>
                                                         Berita saat ini berstatus
-                                                        <strong> {{ $post->status == 1 ? 'Terbit' : 'Tidak Terbit' }}
-                                                            pada
-                                                            {{ $post->created_at->locale('id') }}
+                                                        <strong>
+                                                            {{ $post->status == 1 ? 'Terbit' : 'Tidak Terbit' }}</strong>
                                                     </span>
                                                 </div>
                                             </div>
@@ -94,6 +93,13 @@ mount(function () {
                                                 <div
                                                     class="d-sm-flex justify-content-between text-center align-items-center">
 
+                                                    <!-- User View -->
+                                                    {{-- <p class="like-info fw-bold">
+                                                <span class="align-middle">
+                                                    <i class='bx bx-heart '></i> </span>
+                                                123 Suka
+                                            </p> --}}
+
                                                     <p class="like-info fw-bold">
                                                         <span class="align-middle">
                                                             <i class="bx bx-happy-heart-eyes"></i>
@@ -101,6 +107,12 @@ mount(function () {
                                                         {{ $post->viewer }} Dilihat
                                                     </p>
 
+                                                    {{-- <p class="like-info fw-bold">
+                                                <span class="align-middle">
+                                                    <i class='bx bx-message-rounded-dots'></i>
+                                                </span>
+                                                {{ $this->comments->count() }} Komentar
+                                            </p> --}}
                                                     <div class="col-sm-4 text-center my-2 my-sm-0">
                                                         <ul class="social-icons">
                                                             <li>
