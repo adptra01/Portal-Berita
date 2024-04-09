@@ -9,13 +9,13 @@ name('news.about-us');
 
 state([
     'aboutUs' => fn() => Setting::select('about')->first()->about ?? null,
-    'teams' => fn () => User::where('role', 'Penulis')->get(),
+    'teams' => fn() => User::where('role', 'Penulis')->get(),
 ]);
 
 ?>
 
 <x-guest-layout>
-    <x-seo-tags :title="'Tentang Kami - Portal Berita Terkini Sibanyu'" :description="'Portal Berita Terkini Sibanyu - Memberikan informasi terbaru seputar berita terkini dari berbagai kategori.'" :keywords="'tentang kami, Sibanyu, berita, terkini, informasi'" />
+    <x-seo-tags :title="'Tentang Kami - sibanyu Portal Berita Terkini'" :description="'sibanyu Portal Berita Terkini - Memberikan informasi terbaru seputar berita terkini dari berbagai kategori.'" :keywords="'tentang kami, Sibanyu, berita, terkini, informasi'" />
 
     @include('layouts.style-post')
     @volt

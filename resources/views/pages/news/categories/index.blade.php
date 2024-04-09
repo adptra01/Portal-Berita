@@ -53,7 +53,7 @@ $posts = computed(function () {
 
     @volt
         <div>
-            <x-seo-tags :title="'Berita Utama - Portal Berita Terkini Sibanyu'" :description="'Temukan berita utama terbaru dari berbagai kategori di Portal Berita Terkini Sibanyu.'" :keywords="$categoriesName" />
+            <x-seo-tags :title="'Berita Utama - sibanyu Portal Berita Terkini'" :description="'Temukan berita utama terbaru dari berbagai kategori di sibanyu Portal Berita Terkini.'" :keywords="$categoriesName" />
 
             <div class="container">
                 <livewire:partials.trending-tittle>
@@ -128,7 +128,7 @@ $posts = computed(function () {
                                             </a>
 
                                             <p>{!! Str::limit($post->content, 250, '...') !!}</p>
-                                            
+
                                             <ul class="blog-info-link">
                                                 <li>
                                                     <a class="text-capitalize">

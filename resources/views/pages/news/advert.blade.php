@@ -13,7 +13,7 @@ state([
 ?>
 
 <x-guest-layout>
-    <x-seo-tags :title="'Info Iklan - Portal Berita Terkini Sibanyu'" :description="'Pasang iklan di Portal Berita Terkini Sibanyu dan jangkau pembaca lebih luas!'" :keywords="'pasang iklan, iklan online, iklan berita, Sibanyu, jangkau pelanggan, target audiens, peluang terbaik'" />
+    <x-seo-tags :title="'Info Iklan - sibanyu Portal Berita Terkini'" :description="'Pasang iklan di sibanyu Portal Berita Terkini dan jangkau pembaca lebih luas!'" :keywords="'pasang iklan, iklan online, iklan berita, Sibanyu, jangkau pelanggan, target audiens, peluang terbaik'" />
 
     @volt
         <div>

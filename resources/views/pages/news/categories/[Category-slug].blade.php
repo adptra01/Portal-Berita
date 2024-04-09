@@ -50,9 +50,9 @@ mount(function () {
 
     @volt
         <div>
-            <x-seo-tags :title="'Kategori ' . $category->name . ' - Portal Berita Terkini Sibanyu'" :description="'Temukan berita terkini yang paling relevan dan menarik dari kategori ' .
+            <x-seo-tags :title="'Kategori ' . $category->name . ' - sibanyu Portal Berita Terkini'" :description="'Temukan berita terkini yang paling relevan dan menarik dari kategori ' .
                 $category->name .
-                ' di Portal Berita Terkini Sibanyu.'" :keywords="$keywordsString" />
+                ' di sibanyu Portal Berita Terkini.'" :keywords="$keywordsString" />
 
             <div class="container">
                 <livewire:partials.trending-tittle>

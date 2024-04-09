@@ -43,8 +43,8 @@ $posts = computed(function () {
 ?>
 
 <x-guest-layout>
-    <x-seo-tags :title="'Cari Berita - Portal Berita Terkini Sibanyu'" :description="'Temukan berita terbaru dan terkini dari berbagai kategori di Portal Berita Terkini Sibanyu.'" :keywords="'cari berita, berita terbaru, berita terkini, Sibanyu, kategori, tanggal, informasi'" />
-    
+    <x-seo-tags :title="'Cari Berita - sibanyu Portal Berita Terkini'" :description="'Temukan berita terbaru dan terkini dari berbagai kategori di sibanyu Portal Berita Terkini.'" :keywords="'cari berita, berita terbaru, berita terkini, Sibanyu, kategori, tanggal, informasi'" />
+
     @livewire('adverts.top')
 
     @volt

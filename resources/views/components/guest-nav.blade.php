@@ -55,6 +55,8 @@
     </form>
 @else
     <div class="d-block px-lg-3">
-        <a class="genric-btn primary-border rounded small" href="/login">Login</a>
+        <a class="genric-btn primary-border rounded small" href="{{ route('redirect') }}">
+            Login
+        </a>
     </div>
 @endauth

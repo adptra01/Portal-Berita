@@ -3,7 +3,7 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+        <div id="formAuthentication" class="mb-3">
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
@@ -68,7 +68,7 @@
             </div>
             <button class="btn btn-primary d-grid w-100">Daftar Akun</button>
 
-        </form>
+        </div>
 
         <div class="divider">
             <div class="divider-text">Atau</div>

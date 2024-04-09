@@ -29,7 +29,7 @@ $categories = computed(function () {
 
 ?>
 <x-guest-layout>
-    <x-seo-tags :title="'Portal Berita Terkini Sibanyu'" :description="'Memberikan informasi terbaru seputar berita terkini dari berbagai kategori.'" :keywords="'berita, terkini, Sibanyu, informasi, kategori'" />
+    <x-seo-tags :title="'Portal Berita Terkini Sibanyu'" :description="'sibanyu adalah media yang lahir dari desa. Berfilosofi dari air yang terus mengalir, menyajikan informasi dari hulu menyebar hingga ke hilir. Dengan visi "dari desa untuk bangsa", mendorong pembangunan bangsa dari desa.'" :keywords="'berita, terkini, Sibanyu, informasi, kategori'" />
     @livewire('adverts.popup')
     @livewire('adverts.top')
 

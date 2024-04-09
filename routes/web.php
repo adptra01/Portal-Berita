@@ -3,8 +3,8 @@
 use App\Http\Controllers\Admin\AdvertController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\SocialiteController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +35,6 @@ Route::get('login/google/callback', [SocialiteController::class, 'callback'])
 
 Route::get('/optimize-clear', function () {
     Artisan::call('optimize:clear');
-    // Artisan::call('optimize');
     return back()->with('success', 'Optimize berhasil dilakukan');
 })->name('optimize');
 
@@ -44,13 +43,13 @@ Route::get('/run-schedule', function () {
     return back()->with('success', 'Pekerjaan berhasil dilakukan');
 })->name('schedule');
 
-// Route::get('/storage-link', function () {
-//     Artisan::call('storage:link');
-//     return back()->with('success', 'Penyimpanan Gambar berhasil dibuat');
-// })->name('storage');
-
-
-Auth::routes();
+Route::prefix('cms')->group(function () {
+    Auth::routes([
+        'register' => false,
+        'verify' => true,
+        'reset' => false
+    ]);
+});
 
 Route::middleware(['auth', 'role:Admin,Penulis'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');

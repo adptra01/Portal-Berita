@@ -9,7 +9,7 @@ name('news.contact');
 ?>
 
 <x-guest-layout>
-    <x-seo-tags :title="'Kontak - Portal Berita Terkini Sibanyu'" :description="'Hubungi tim Portal Berita Terkini Sibanyu untuk pertanyaan, saran, kerjasama bisnis, dan lainnya.'" :keywords="'kontak, hubungi kami, pertanyaan, saran, kerjasama, Sibanyu'" />
+    <x-seo-tags :title="'Kontak - sibanyu Portal Berita Terkini'" :description="'Hubungi tim sibanyu Portal Berita Terkini untuk pertanyaan, saran, kerjasama bisnis, dan lainnya.'" :keywords="'kontak, hubungi kami, pertanyaan, saran, kerjasama, Sibanyu'" />
     @volt
         <div>
             <section class="py-5">

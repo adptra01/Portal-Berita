@@ -3,7 +3,7 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <form id="formAuthentication" class="mb-3" action="/" method="POST">
+        <div id="formAuthentication" class="mb-3">
             <div class="mb-3">
                 <label for="email" class="form-label">Email </label>
                 <input type="text" class="form-control @error('email') is-invalid @enderror" id="email"
@@ -45,24 +45,7 @@
             <div class="mb-3">
                 <button class="btn btn-primary d-grid w-100" type="submit">Masuk Akun</button>
             </div>
-        </form>
-
-        <div class="divider">
-            <div class="divider-text">Atau</div>
         </div>
-
-        <a href="{{ route('redirect') }}" class="btn btn-danger w-100 mb-3">
-            <span class="tf-icons bx bxl-google"></span>
-            Masuk dengan Google
-        </a>
-
-
-        <p class="text-center">
-            <span>Belum Punya Akun?</span>
-            <a href="/register">
-                <span> Daftar sekarang!</span>
-            </a>
-        </p>
     </form>
 
 

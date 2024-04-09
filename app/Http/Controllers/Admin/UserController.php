@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
+use Carbon\Carbon;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -13,6 +15,9 @@ class UserController extends Controller
     {
         $validate = $request->validated();
         $validate['password'] = bcrypt($request->name);
+        $validate['email_verified_at'] = Carbon::now();
+        $validate['remember_token'] = Str::random(10);
+
 
         User::create($validate);
 

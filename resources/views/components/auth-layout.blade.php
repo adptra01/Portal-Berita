@@ -9,6 +9,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @yield('seo')
 
     <link rel="icon" type="image/x-icon" href="{{ asset('/admin/img/favicon/favicon.ico') }}" />
 
@@ -32,8 +33,6 @@
     </script>
 
     <script src="{{ asset('/admin/js/config.js') }}" defer></script>
-
-    @vite([])
 
 </head>
 
@@ -85,7 +84,7 @@
                             @else
                                 <span class="fw-bold text-primary fs-2">{{ $setting->title ?? '' }}</span>
                             @endif
-                           
+
                             <span class="app-brand-text demo text-body fw-bold"><em>sibanyu</em></span>
                         </a>
                     </div>
