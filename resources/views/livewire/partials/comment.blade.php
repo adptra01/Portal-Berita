@@ -48,7 +48,7 @@ $saveComment = function () {
             $this->reset('user_id', 'post_id', 'body', 'commentId');
         }
     } else {
-        return redirect()->route('login');
+        return redirect()->route('redirect');
     }
 };
 ?>

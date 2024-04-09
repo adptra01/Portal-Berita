@@ -53,7 +53,7 @@ $posts = computed(function () {
 
     @volt
         <div>
-            <x-seo-tags :title="'Berita Utama - sibanyu Portal Berita Terkini'" :description="'Temukan berita utama terbaru dari berbagai kategori di sibanyu Portal Berita Terkini.'" :keywords="$categoriesName" />
+            <x-seo-tags :title="'Berita Utama - Portal Berita Terkini Sibanyu'" :description="'Temukan berita utama terbaru dari berbagai kategori di Portal Berita Terkini Sibanyu.'" :keywords="$categoriesName" />
 
             <div class="container">
                 <livewire:partials.trending-tittle>
@@ -156,7 +156,7 @@ $posts = computed(function () {
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="blog_right_sidebar">
+                            <div class="blog_right_sidebar sticky-top" style="z-index: 1;">
 
                                 <aside class="single_sidebar_widget post_category_widget bg-body pt-0">
                                     <h4 class="widget_title mb-2 fw-bold">Kategori Berita</h4>
@@ -179,8 +179,7 @@ $posts = computed(function () {
                                     <!-- Related News -->
                                     <livewire:partials.related-news>
                                         <!-- New Poster -->
-                                        @livewire('adverts.side', ['countAdverts' => Post::count()])
-
+                                        @livewire('adverts.side')
                                 </aside>
 
                             </div>

@@ -29,7 +29,8 @@ $categories = computed(function () {
 
 ?>
 <x-guest-layout>
-    <x-seo-tags :title="'Portal Berita Terkini Sibanyu'" :description="'sibanyu adalah media yang lahir dari desa. Berfilosofi dari air yang terus mengalir, menyajikan informasi dari hulu menyebar hingga ke hilir. Dengan visi "dari desa untuk bangsa", mendorong pembangunan bangsa dari desa.'" :keywords="'berita, terkini, Sibanyu, informasi, kategori'" />
+    <x-seo-tags :title="'Portal Berita Terkini Sibanyu'" :description="'sibanyu adalah media yang lahir dari desa. Berfilosofi dari air yang terus mengalir, menyajikan informasi dari hulu menyebar hingga ke hilir. Dengan visi  ?>'"dari desa untuk bangsa", mendorong pembangunan bangsa dari desa.'"
+        :keywords="'berita, terkini, Sibanyu, informasi, kategori'" />
     @livewire('adverts.popup')
     @livewire('adverts.top')
 
@@ -198,71 +199,74 @@ $categories = computed(function () {
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8">
-                            <div class="row d-flex justify-content-between">
-                                <ul class="nav nav-pills mb-3 justify-content-center bg-body-tertiary py-3 px-2 rounded"
-                                    id="pills-tab" role="tablist">
-                                    @foreach ($this->categories as $category)
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link text-capitalize {{ $loop->first ? 'active' : '' }}"
-                                                id="pills-{{ $category->slug }}-tab" data-bs-toggle="pill"
-                                                data-bs-target="#pills-{{ $category->slug }}" type="button" role="tab"
-                                                aria-controls="pills-{{ $category->slug }}"
-                                                aria-selected="true">{{ $category->name }}</button>
-                                        </li>
-                                    @endforeach
-                                </ul>
-
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <!-- Nav Card -->
-                                    <div class="tab-content" id="pills-tabContent">
-
+                            <div class="sticky-top" style="z-index: 1;">
+                                <div class="row d-flex justify-content-between">
+                                    <ul class="nav nav-pills mb-3 justify-content-center bg-body-tertiary py-3 px-2 rounded"
+                                        id="pills-tab" role="tablist">
                                         @foreach ($this->categories as $category)
-                                            <div class="tab-pane fade show {{ $loop->first ? 'show active' : '' }}"
-                                                id="pills-{{ $category->slug }}" role="tabpanel"
-                                                aria-labelledby="pills-{{ $category->slug }}-tab" tabindex="0">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link text-capitalize {{ $loop->first ? 'active' : '' }}"
+                                                    id="pills-{{ $category->slug }}-tab" data-bs-toggle="pill"
+                                                    data-bs-target="#pills-{{ $category->slug }}" type="button"
+                                                    role="tab" aria-controls="pills-{{ $category->slug }}"
+                                                    aria-selected="true">{{ $category->name }}</button>
+                                            </li>
+                                        @endforeach
+                                    </ul>
 
-                                                <div class="whats-news-caption">
-                                                    <div class="row">
-                                                        @foreach ($category->posts->take(8) as $item)
-                                                            <div class="col-lg-6 col-md-6 mb-3">
-                                                                <div class="single-what-news mb-100">
-                                                                    <div class="what-img">
-                                                                        <img src="{{ Storage::url($item->thumbnail) }}"
-                                                                            alt="{{ $item->title }}" loading="lazy"
-                                                                            class="object-fit-cover"
-                                                                            style="height: 250px;">
-                                                                    </div>
-                                                                    <div class="what-cap">
-                                                                        <span
-                                                                            class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                                                        <h4 class="text-break">
-                                                                            <a
-                                                                                href="{{ route('news.read', ['post' => $item->slug]) }}">{{ Str::limit($item->title, 70, ' ...') }}</a>
-                                                                        </h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <!-- Nav Card -->
+                                        <div class="tab-content" id="pills-tabContent">
+
+                                            @foreach ($this->categories as $category)
+                                                <div class="tab-pane fade show {{ $loop->first ? 'show active' : '' }}"
+                                                    id="pills-{{ $category->slug }}" role="tabpanel"
+                                                    aria-labelledby="pills-{{ $category->slug }}-tab" tabindex="0">
+
+                                                    <div class="whats-news-caption">
+                                                        <div class="row">
+                                                            @foreach ($category->posts->take(8) as $item)
+                                                                <div class="col-lg-6 col-md-6 mb-3">
+                                                                    <div class="single-what-news mb-100">
+                                                                        <div class="what-img">
+                                                                            <img src="{{ Storage::url($item->thumbnail) }}"
+                                                                                alt="{{ $item->title }}" loading="lazy"
+                                                                                class="object-fit-cover"
+                                                                                style="height: 250px;">
+                                                                        </div>
+                                                                        <div class="what-cap">
+                                                                            <span
+                                                                                class="bg-primary text-white rounded">{{ $item->category->name }}</span>
+                                                                            <h4 class="text-break">
+                                                                                <a
+                                                                                    href="{{ route('news.read', ['post' => $item->slug]) }}">{{ Str::limit($item->title, 70, ' ...') }}</a>
+                                                                            </h4>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        @endforeach
+                                                            @endforeach
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
+                                            @endforeach
+                                        </div>
+                                        <!-- End Nav Card -->
+                                        <a href="{{ route('news.all-post') }}" class="mb-3">
+                                            <span
+                                                class="d-flex justify-content-center text-primary fw-bold fs-6 my-auto">Lihat
+                                                Kategori
+                                                Lainnya...</span>
+                                        </a>
                                     </div>
-                                    <!-- End Nav Card -->
-                                    <a href="{{ route('news.all-post') }}" class="mb-3">
-                                        <span class="d-flex justify-content-center text-primary fw-bold fs-6 my-auto">Lihat
-                                            Kategori
-                                            Lainnya...</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="blog_right_sidebar sticky-top" style="padding-top: 5.5rem; z-index: 1;">
+                            <div class="blog_right_sidebar">
                                 <!-- New Poster -->
-                                @livewire('adverts.side', ['countAdverts' => 4])
+                                @livewire('adverts.side')
                             </div>
 
                         </div>

@@ -51,6 +51,7 @@ Route::prefix('cms')->group(function () {
     ]);
 });
 
+
 Route::middleware(['auth', 'role:Admin,Penulis'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 

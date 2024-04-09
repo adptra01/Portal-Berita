@@ -27,10 +27,7 @@ class FolioServiceProvider extends ServiceProvider
                     'role:Admin'
 
                 ],
-                '/news/*' => [
-                    'auth',
-                    'role:Pengunjung'
-                ],
+                
             ]);
     }
 }

@@ -50,9 +50,9 @@ mount(function () {
 
     @volt
         <div>
-            <x-seo-tags :title="'Kategori ' . $category->name . ' - sibanyu Portal Berita Terkini'" :description="'Temukan berita terkini yang paling relevan dan menarik dari kategori ' .
+            <x-seo-tags :title="'Kategori ' . $category->name . ' - Portal Berita Terkini Sibanyu'" :description="'Temukan berita terkini yang paling relevan dan menarik dari kategori ' .
                 $category->name .
-                ' di sibanyu Portal Berita Terkini.'" :keywords="$keywordsString" />
+                ' di Portal Berita Terkini Sibanyu.'" :keywords="$keywordsString" />
 
             <div class="container">
                 <livewire:partials.trending-tittle>
@@ -100,7 +100,7 @@ mount(function () {
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5">
+                    <div class="row">
                         <h4 class="widget_title mb-2 fw-bold text-capitalize">Berita {{ $category->name }}</h4>
 
                         <div class="col-lg-8 mb-5 mb-lg-0">
@@ -134,9 +134,7 @@ mount(function () {
                                     <!-- Related News -->
                                     <livewire:partials.related-news>
                                         <!-- New Poster -->
-                                        @livewire('adverts.side', [
-                                            'countAdverts' => Post::count(),
-                                        ])
+                                        @livewire('adverts.side')
                                 </aside>
 
                             </div>
