@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->job(new CleanupOrphanImages)->mo();
+        $schedule->job(new CleanupOrphanImages)->everyMinute();
         $schedule->command('sitemap:generate')->everyMinute();
 
     }

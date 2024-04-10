@@ -25,6 +25,32 @@ class Post extends Model
         'viewer',
     ];
 
+    public function scopeFilterBySearch($query, $search)
+    {
+        if ($search) {
+            return $query->where('title', 'like', '%' . $search . '%');
+        }
+    }
+
+    public function scopeFilterByCategory($query, $categoryName)
+    {
+        if ($categoryName) {
+            return $query->whereHas('category', function ($query) use ($categoryName) {
+                $query->where('name', $categoryName);
+            });
+        }
+    }
+
+    public function scopeFilterByDateRange($query, $startDate, $endDate)
+    {
+        if ($startDate) {
+            $query->whereDate('created_at', '>=', $startDate);
+        }
+        if ($endDate) {
+            $query->whereDate('created_at', '<=', $endDate);
+        }
+        return $query;
+    }
     /**
      * Get the category that owns the Article
      *

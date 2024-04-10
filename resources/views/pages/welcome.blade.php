@@ -3,28 +3,40 @@ use function Livewire\Volt\{state, computed};
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Category;
+use Illuminate\Support\Facades\Cache;
+
+$now = Carbon::now();
+$twoWeeksAgo = $now->subWeek(2);
 
 state([
-    'trending' => fn() => Post::with('category')->orderByDesc('viewer')->where('status', true)->select('slug', 'title', 'thumbnail', 'category_id')->get(),
+    'trending' => fn() => Cache::remember('trending_posts', 30, function () {
+        return Post::with('category')->orderByDesc('viewer')->where('status', true)->select('slug', 'title', 'thumbnail', 'category_id')->get();
+    }),
 ]);
 
-$weeklyTopNews = computed(function () {
-    return Post::with('category')->where('created_at', '>=', Carbon::now()->subWeek(2))->where('status', true)->orderByDesc('viewer')->limit(6)->get();
+$weeklyTopNews = computed(function () use ($twoWeeksAgo) {
+    return Cache::remember('weekly_top_news', 40, function () use ($twoWeeksAgo) {
+        return Post::with('category')->where('created_at', '>=', $twoWeeksAgo)->where('status', true)->orderByDesc('viewer')->limit(6)->get();
+    });
 });
 
 $latestNews = computed(function () {
-    return Post::with('category')->where('status', true)->latest()->limit(6)->get();
+    return Cache::remember('latest_news', 50, function () {
+        return Post::with('category')->where('status', true)->latest()->limit(6)->get();
+    });
 });
 
 $categories = computed(function () {
-    return Category::with([
-        'posts' => function ($query) {
-            $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');
-        },
-    ])
-        ->limit(5)
-        ->select('id', 'name', 'slug')
-        ->get();
+    return Cache::remember('categories', 60, function () {
+        return Category::with([
+            'posts' => function ($query) {
+                $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');
+            },
+        ])
+            ->limit(5)
+            ->select('id', 'name', 'slug')
+            ->get();
+    });
 });
 
 ?>
@@ -253,7 +265,7 @@ $categories = computed(function () {
                                             @endforeach
                                         </div>
                                         <!-- End Nav Card -->
-                                        <a href="{{ route('news.all-post') }}" class="mb-3">
+                                        <a href="{{ route('news.search-post') }}" class="mb-3">
                                             <span
                                                 class="d-flex justify-content-center text-primary fw-bold fs-6 my-auto">Lihat
                                                 Kategori

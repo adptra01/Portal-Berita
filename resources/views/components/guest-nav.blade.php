@@ -43,7 +43,7 @@
 </ul>
 
 <span class="navbar-text">
-    <a href="{{ route('news.all-post') }}">
+    <a href="{{ route('news.search-post') }}">
         <i class='bx bx-search bx-sm mt-lg-2'></i>
     </a>
 </span>
