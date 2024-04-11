@@ -188,14 +188,10 @@
                                 class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                                 <div class="mb-2 mb-md-0">
                                     Butuh bantuan ?
-                                    <a href="https://api.whatsapp.com/send/?phone=628978301766&text&type=phone_number&app_absent=0"
+                                    <a href="https://api.whatsapp.com/send/?phone={{ $brand->whatsapp }}&text&type=phone_number&app_absent=0"
                                         target="_blank" class="footer-link fw-bolder text-primary">Whatsapp <i
                                             class="menu-icon tf-icons bx bx-support"></i>
                                     </a>
-                                </div>
-                                <div>
-                                    <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                                        target="_blank" class="footer-link me-4">Documentation</a>
                                 </div>
                             </div>
                         </footer>

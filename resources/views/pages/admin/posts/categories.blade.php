@@ -38,7 +38,7 @@ $edit = function (Category $category) {
     $this->name = $category->name;
 };
 
-$deleted = function (Category $category) {
+$destroy = function (Category $category) {
     $category->delete();
     $this->reset('name', 'slug', 'categoryId');
 };
@@ -118,7 +118,7 @@ $resetAll = function () {
                                                     Ubah
                                                 </button>
                                                 <button type="button" class="btn btn-danger btn-sm"
-                                                    wire:click='deleted({{ $category->id }})'
+                                                    wire:click='destroy({{ $category->id }})'
                                                     wire:confirm.prompt="Yakin ingin menghapus kategori {{ $category->name }}, hal ini akan berakibat pada penghapusan semua berita dengan kategori {{ $category->name }} ?\n\nTulis 'hapus' untuk konfirmasi!|hapus">
                                                     Hapus
                                                 </button>

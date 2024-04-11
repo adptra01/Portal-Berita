@@ -1,22 +1,24 @@
 <div class="section mb-4">
     <!-- Account -->
     <div class="section">
-        <div class="d-flex justify-content-between gap-4">
+        <div class="row justify-content-between gap-4">
             @if ($setting)
-                <figure>
-                    <img src="{{ Storage::url($setting->logo) }}" alt="user-avatar"
-                        class="d-block rounded border {{ !$setting->logo ? 'placeholder' : '' }}" height="200"
-                        width="auto" style="object-fit: cover" id="uploadedLogo">
-                    <figcaption class="text-center">Logo Website</figcaption>
-                </figure>
-
-                <span wire:loading>loading</span>
-                <figure>
-                    <img src="{{ Storage::url($setting->icon) }}" alt="user-avatar"
-                        class="d-block rounded border {{ !$setting->icon ? 'placeholder' : '' }}" height="200"
-                        width="200" style="object-fit: cover" id="uploadedIcon">
-                    <figcaption class="text-center">Icon Website</figcaption>
-                </figure>
+                <div class="col-auto">
+                    <figure>
+                        <img src="{{ Storage::url($setting->logo) }}" alt="user-avatar"
+                            class="d-block rounded border {{ !$setting->logo ? 'placeholder' : '' }}" height="200"
+                            width="auto" style="object-fit: cover" id="uploadedLogo">
+                        <figcaption class="text-center">Logo Website</figcaption>
+                    </figure>
+                </div>
+                <div class="col-auto">
+                    <figure>
+                        <img src="{{ Storage::url($setting->icon) }}" alt="user-avatar"
+                            class="d-block rounded border {{ !$setting->icon ? 'placeholder' : '' }}" height="200"
+                            width="200" style="object-fit: cover" id="uploadedIcon">
+                        <figcaption class="text-center">Icon Website</figcaption>
+                    </figure>
+                </div>
             @endif
         </div>
     </div>

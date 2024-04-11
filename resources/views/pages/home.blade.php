@@ -163,26 +163,28 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md mb-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    {!! $chartAdvertsByPosition->container() !!}
+    @if (auth()->user()->role === 'Admin')
+        <div class="row">
+            <div class="col-md mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        {!! $chartAdvertsByPosition->container() !!}
 
-                    {{ $chartAdvertsByPosition->script() }}
+                        {{ $chartAdvertsByPosition->script() }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="card mb-3 h-100">
+                    <div class="card-body">
+                        {!! $chartTotalUser->container() !!}
+
+                        {{ $chartTotalUser->script() }}
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-md">
-            <div class="card mb-3 h-100">
-                <div class="card-body">
-                    {!! $chartTotalUser->container() !!}
-
-                    {{ $chartTotalUser->script() }}
-                </div>
-            </div>
-        </div>
-    </div>
+    @endif
 
 </x-admin-layout>

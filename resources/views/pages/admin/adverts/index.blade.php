@@ -1,14 +1,14 @@
 <?php
-use function Livewire\Volt\{state, computed};
+use function Livewire\Volt\{computed};
 use function Laravel\Folio\name;
 use App\Models\Advert;
 
 name('adverts.index');
 
-state([]);
-
 $adverts = computed(function () {
-    return Advert::latest()->select('id', 'name', 'position', 'start_date', 'end_date')->get();
+    return Cache::remember('adverts', today()->addDay(1), function () {
+        return Advert::latest()->select('id', 'name', 'position', 'start_date', 'end_date')->get();
+    });
 });
 
 ?>

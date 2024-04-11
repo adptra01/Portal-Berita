@@ -8,7 +8,9 @@ name('settings.index');
 usesFileUploads();
 
 state([
-    'setting' => fn() => Setting::first(),
+    'setting' => fn() => Cache::remember('settings_admin_panel', today()->addDay(1), function () {
+        return Setting::first();
+    }),
 ]);
 
 ?>

@@ -9,7 +9,9 @@ use App\Models\Post;
 name('posts.index');
 
 $posts = computed(function () {
-    return Post::with('category')->select('id', 'title', 'category_id', 'status', 'user_id', 'viewer')->latest()->get();
+    return Cache::remember('posts', today()->addDay(1), function () {
+        return Post::with('category')->select('id', 'title', 'category_id', 'status', 'user_id', 'viewer')->latest()->get();
+    });
 });
 
 ?>

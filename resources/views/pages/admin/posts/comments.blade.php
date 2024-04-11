@@ -90,6 +90,7 @@ $deleted = function (comment $comment) {
                                     <th>Status</th>
                                     <th>Pilihan</th>
                                     <th>#</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
@@ -106,9 +107,6 @@ $deleted = function (comment $comment) {
                                             <span class="badge bg-{{ $comment->status == true ? 'success' : 'warning' }}">
                                                 {{ $comment->status == true ? 'Aktif' : 'Tidak Aktif' }}
                                             </span>
-
-                                            <i wire:loading class="bx bx-loader bx-spin text-primary"></i>
-
                                         </td>
                                         <td>
                                             <div class="btn-group" role="group"
@@ -144,18 +142,16 @@ $deleted = function (comment $comment) {
                                                 </div>
                                             </div>
                                         </td>
+                                        <td>
+                                            <i wire:loading class="bx bx-loader bx-spin text-primary"></i>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                     <div class="my-4 row align-items-center">
-                        <div class="col-md">
-                            {{ $this->comments->links() }}
-                        </div>
-                        <div class="col-md text-end">
-                            <p>Menampilkan {{ $this->comments->count() }} hasil</p>
-                        </div>
+                        {{ $this->comments->links() }}
                     </div>
                 </div>
             </div>

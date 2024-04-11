@@ -88,8 +88,9 @@
                         </a>
                     </div>
                     <!-- /Logo -->
-                    <p class="mb-4">Dapatkan akses eksklusif ke konten berita terkini, analisis mendalam, dan cerita
-                        inspiratif yang disajikan khusus untuk kamu.</p>
+                    <p class="mb-4">
+                        Silakan gunakan email dan password yang telah terdaftar untuk mengakses panel admin/penulis
+                    </p>
 
                     {{ $slot }}
 
