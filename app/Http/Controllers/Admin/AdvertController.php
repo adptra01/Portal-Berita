@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdvertRequest;
 use App\Models\Advert;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class AdvertController extends Controller

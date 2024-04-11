@@ -24,11 +24,9 @@ class PostController extends Controller
 
         $validatedData['user_id'] = auth()->id();
 
-        if (is_array($request->keyword) && count($request->keyword) > 0) {
-            $validatedData['keyword'] = implode(', ', $request->keyword);
-        } else {
-            $validatedData['keyword'] = '';
-        }
+        $validatedData['keyword'] = is_array($request->keyword) && count($request->keyword) > 0
+            ? implode(', ', $request->keyword)
+            : '';
 
 
         $post = Post::create($validatedData);
@@ -59,11 +57,9 @@ class PostController extends Controller
 
         $validatedData['user_id'] = auth()->user()->id;
 
-        if (is_array($request->keyword) && count($request->keyword) > 0) {
-            $validatedData['keyword'] = implode(', ', $request->keyword);
-        } else {
-            $validatedData['keyword'] = '';
-        }
+        $validatedData['keyword'] = is_array($request->keyword) && count($request->keyword) > 0
+            ? implode(', ', $request->keyword)
+            : '';
 
         $post->update($validatedData);
 

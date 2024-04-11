@@ -10,18 +10,18 @@ name('news.read');
 state(['post', 'description']);
 
 mount(function () {
-    // Ambil data post dari database
-    $post = Post::find($this->post->id);
+    $post = Post::with(['user'])
+        ->active()
+        ->select('id', 'title', 'slug', 'content', 'thumbnail', 'created_at', 'viewer', 'user_id', 'keyword')
+        ->find($this->post->id);
+
     $this->description = Str::limit($post->content, 100, '...');
 
-    // Periksa apakah status post aktif
-    if ($post && $post->status == 1) {
-        // Tambahkan 1 pada jumlah viewer setiap kali halaman dimuat
-        $post->increment('viewer');
-        // Update state post dengan data terbaru
+    if ($post) {
+        Post::where('id', $this->post->id)->increment('viewer');
+
         $this->post = $post;
     } else {
-        // Jika status post tidak aktif, kembalikan pengguna ke halaman sebelumnya
         return redirect('/');
     }
 });
@@ -35,7 +35,6 @@ mount(function () {
     @volt
         <div>
             <x-seo-tags :title="$post->title" :description="$description" :keywords="$post->keyword" />
-
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">
@@ -78,13 +77,6 @@ mount(function () {
                                         <div class="navigation-top border-0">
                                             <div class="d-sm-flex justify-content-between text-center align-items-center">
 
-                                                <!-- User View -->
-                                                {{-- <p class="like-info fw-bold">
-                                                <span class="align-middle">
-                                                    <i class='bx bx-heart '></i> </span>
-                                                123 Suka
-                                            </p> --}}
-
                                                 <p class="like-info fw-bold">
                                                     <span class="align-middle">
                                                         <i class="bx bx-happy-heart-eyes"></i>
@@ -92,12 +84,7 @@ mount(function () {
                                                     {{ $post->viewer }} Dilihat
                                                 </p>
 
-                                                {{-- <p class="like-info fw-bold">
-                                                <span class="align-middle">
-                                                    <i class='bx bx-message-rounded-dots'></i>
-                                                </span>
-                                                {{ $this->comments->count() }} Komentar
-                                            </p> --}}
+
                                                 <div class="col-sm-4 text-center my-2 my-sm-0">
                                                     <ul class="social-icons">
                                                         <li>

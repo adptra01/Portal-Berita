@@ -51,6 +51,11 @@ class Post extends Model
         }
         return $query;
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
     /**
      * Get the category that owns the Article
      *

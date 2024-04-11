@@ -8,39 +8,23 @@ use App\Models\Category;
 name('categories.slug');
 
 State([
-    'topFivePosts' => fn() => Post::with('category')
+    'top_five_posts' => fn() => Post::with('category')
         ->where('category_id', $this->category->id)
         ->where('status', true)
         ->orderBy('viewer')
         ->select('title', 'slug', 'category_id', 'created_at', 'thumbnail', 'content')
         ->limit(5)
         ->get(),
-    'categories' => fn() => Category::with('posts')->get(),
+    'categories' => fn() => Cache::remember('categories_' . rand(), 30, fn() => Category::withCount('posts')->get(['name', 'posts_count'])),
     'category',
-    'keywordsString ',
+    'keywords_string ',
 ]);
 
 mount(function () {
-    $keywords = [
-        'berita terkini',
-        'informasi terbaru',
-        'highlight',
-        'topik hangat',
-        'pencerahan',
-        'diskusi',
-        'fakta menarik',
-        'inspiratif',
-        'pemikiran baru',
-        'kejutan',
-        'pembaruan',
-        $this->category->name, // Menambahkan nama kategori sebagai keyword tambahan
-    ];
-
-    foreach ($this->categories as $category) {
-        $keywords[] = $category->name;
-    }
-
-    $this->keywordsString = implode(', ', $keywords);
+    $base_keyword = ['berita terkini', 'informasi terbaru', 'highlight', 'topik hangat', 'pencerahan', 'diskusi', 'fakta menarik', 'inspiratif', 'pemikiran baru', 'kejutan', 'pembaruan'];
+    $name_category = Category::pluck('name')->toArray();
+    $keywords = array_merge($base_keyword, $name_category, [$this->category->name]);
+    $this->keywords_string = implode(', ', $keywords);
 });
 
 ?>
@@ -52,7 +36,7 @@ mount(function () {
         <div>
             <x-seo-tags :title="'Kategori ' . $category->name . ' - Portal Berita Terkini Sibanyu'" :description="'Temukan berita terkini yang paling relevan dan menarik dari kategori ' .
                 $category->name .
-                ' di Portal Berita Terkini Sibanyu.'" :keywords="$keywordsString" />
+                ' di Portal Berita Terkini Sibanyu.'" :keywords="$keywords_string" />
 
             <div class="container">
                 <livewire:partials.trending-tittle>
@@ -66,20 +50,20 @@ mount(function () {
                         <div class="col-md-6">
                             <div class="card border-0">
                                 <a href="">
-                                    <img alt="{{ $topFivePosts->first()->title }}" class="img-fluid rounded"
-                                        src="{{ Storage::url($topFivePosts->first()->thumbnail) }}" loading="lazy"></a>
+                                    <img alt="{{ $top_five_posts->first()->title }}" class="img-fluid rounded"
+                                        src="{{ Storage::url($top_five_posts->first()->thumbnail) }}" loading="lazy"></a>
                                 <div class="card-body px-0">
                                     <h3 class="fw-semibold my-2">
                                         <a class="text-decoration-none text-dark"
-                                            href="{{ route('news.read', ['post' => $topFivePosts->first()->slug]) }}">{{ $topFivePosts->first()->title }}</a>
+                                            href="{{ route('news.read', ['post' => $top_five_posts->first()->slug]) }}">{{ $top_five_posts->first()->title }}</a>
                                     </h3>
-                                    <p>{!! Str::limit($topFivePosts->first()->content, 250, '...') !!}</p>
+                                    <p>{!! Str::limit($top_five_posts->first()->content, 250, '...') !!}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 trending-main border-0">
                             <div class="row trending-bottom">
-                                @foreach ($topFivePosts->skip(1) as $post)
+                                @foreach ($top_five_posts->skip(1) as $post)
                                     <div class="col-6">
                                         <div class="single-bottom mb-35">
                                             <div class="trend-bottom-img mb-30">
@@ -100,20 +84,22 @@ mount(function () {
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <h4 class="widget_title mb-2 fw-bold text-capitalize">Berita {{ $category->name }}</h4>
 
                         <div class="col-lg-8 mb-5 mb-lg-0">
-                            <div class="blog_left_sidebar">
+                            <div class="blog_left_sidebar ">
 
                                 @livewire('partials.loadMore', ['category' => $category])
 
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="blog_right_sidebar">
+                            <div class="blog_left_sidebar">
 
                                 <aside class="single_sidebar_widget post_category_widget bg-body pt-0">
+
                                     <h4 class="widget_title mb-2 fw-bold">Kategori Berita</h4>
 
                                     <ul class="list cat-list border-0">
@@ -122,7 +108,7 @@ mount(function () {
                                                 <a href="{{ route('categories.slug', ['category' => $category->slug]) }}"
                                                     class="d-flex justify-content-between">
                                                     <p class="text-capitalize">{{ $category->name }} </p>
-                                                    <p>( {{ $category->posts->count() }} )</p>
+                                                    <p>( {{ $category->posts_count }} )</p>
                                                 </a>
                                             </li>
                                         @endforeach

@@ -63,11 +63,11 @@ $posts = computed(function () {
                                     <p class="text-center">
                                         <i wire:loading class='bx bx-loader bx-spin bx-sm'></i>
                                     </p>
+                                    <div class="d-none d-lg-block">
+                                        @livewire('adverts.side')
+                                    </div>
                                 </div>
-                                <aside class="single_sidebar_widget popular_post_widget rounded bg-body">
-                                    <!-- New Poster -->
-                                    @livewire('adverts.side')
-                                </aside>
+
 
                             </div>
                         </div>
@@ -77,7 +77,8 @@ $posts = computed(function () {
                                 <div class="list-group">
 
                                     @foreach ($this->posts as $item)
-                                        <a href="#" class="list-group-item list-group-item-action border-0 mb-3">
+                                        <a href="{{ route('news.read', ['post' => $item->slug]) }}"
+                                            class="list-group-item list-group-item-action border-0 mb-3">
                                             <div class="d-flex w-100 justify-content-between">
                                                 <h5 class="mb-1">{{ $item->title }}</h5>
                                             </div>
@@ -89,13 +90,16 @@ $posts = computed(function () {
 
                                 </div>
                             </div>
+                            <div class="d-block d-lg-none">
+                                @livewire('adverts.side')
+                            </div>
                         </div>
 
                     </div>
                 </div>
             </section>
 
-            @livewire('adverts.bottom')
+            {{-- @livewire('adverts.bottom') --}}
 
         </div>
     @endvolt
