@@ -51,7 +51,7 @@ $unPublishComment = function (comment $comment) {
     ]);
 };
 
-$destroy = function (comment $comment) {
+$deleted = function (comment $comment) {
     $comment->delete();
 };
 
@@ -137,7 +137,7 @@ $destroy = function (comment $comment) {
                                                     <a class="dropdown-item" data-bs-toggle="modal"
                                                         data-bs-target="#modal{{ $comment->id }}"><i
                                                             class="bx bx-file me-2"></i>Lihat</a>
-                                                    <a class="dropdown-item" wire:click='destroy({{ $comment->id }})'
+                                                    <a class="dropdown-item" wire:click='deleted({{ $comment->id }})'
                                                         wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus"
                                                         wire:loading.attr="disabled"><i
                                                             class="bx bx-trash me-2"></i>Hapus</a>

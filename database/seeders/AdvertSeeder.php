@@ -39,7 +39,22 @@ class AdvertSeeder extends Seeder
                     'alt' => $postData['description'],
                     'image' => 'image/' . $imageName,
                 ];
-                $advert = Advert::create($createAdvert);
+
+                // Check if the position is 'popup'
+                if ($createAdvert['position'] == 'popup') {
+                    // Check if there is already a data with position = 'popup'
+                    $existingAdvert = Advert::where('position', 'popup')->first();
+                    if ($existingAdvert) {
+                        // Update the existing data
+                        $existingAdvert->update($createAdvert);
+                    } else {
+                        // Create a new data
+                        $advert = Advert::create($createAdvert);
+                    }
+                } else {
+                    // For other positions, just create a new data
+                    $advert = Advert::create($createAdvert);
+                }
 
                 // Save image to storage
                 $imageUrl = $postData['thumbnail'];
@@ -57,6 +72,6 @@ class AdvertSeeder extends Seeder
 
     private function getRandomPosition()
     {
-        return ['side', 'top'][rand(0, 1)];
+        return ['side', 'top', 'bottom', 'popup'][rand(0, 3)];
     }
 }

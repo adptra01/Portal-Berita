@@ -4,6 +4,15 @@ use function Laravel\Folio\name;
 
 name('adverts.create');
 
+state([
+    'advertTypes' => [
+        'top' => 'Atas',
+        'side' => 'Samping',
+        'popup' => 'Popup (Muncul Tiba-tiba)',
+        'bottom' => 'Bawah',
+    ],
+]);
+
 ?>
 <x-admin-layout>
     <x-seo-tags :title="'Buat Iklan Baru - Admin Panel'" />
@@ -21,8 +30,20 @@ name('adverts.create');
                 </ol>
             </nav>
             <div class="card">
+                <div class="card-header">
+                    <div class="alert alert-primary d-flex" role="alert">
+                        <span class="badge badge-center rounded-pill bg-primary border-label-primary p-3 me-2"><i
+                                class="bx bx-command fs-6"></i></span>
+                        <div class="d-flex flex-column ps-1">
+                            <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Informasi Penting!</h6>
+                            <p class="m-0">- Jika iklan tidak memiliki tautan atau Link, gunakan tanda pagar (#) untuk mengisinya.</p>
+                            <p class="m-0">- Hindari mengunggah gambar iklan yang sama kecuali ada perubahan yang diperlukan.</p>
+                            <p class="m-0">- Hanya
+                                iklan dengan tanggal berakhir yang masih berlaku yang akan ditampilkan.</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body">
-
                     <form action="{{ route('adverts.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -101,39 +122,31 @@ name('adverts.create');
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
-
-                            <div class="col-md">
-                                <div class="mb-3">
-                                    <label for="position" class="form-label">position Iklan <strong
-                                            class="text-danger">*</strong></label>
-                                    <select class="form-select @error('position') is-invalid @enderror" name="position"
-                                        id="position">
-                                        <option selected disabled>Select one</option>
-                                        <option value="top" {{ old('position') == 'top' ? 'selected' : '' }}>Atas
+                            <div class="mb-3">
+                                <label for="position" class="form-label">position Iklan <strong
+                                        class="text-danger">*</strong></label>
+                                <select class="form-select @error('position') is-invalid @enderror" name="position"
+                                    id="position">
+                                    <option selected disabled>Select one</option>
+                                    @foreach ($advertTypes as $key => $value)
+                                        <option value="{{ $key }}"
+                                            {{ old('position') == $key ? 'selected' : '' }}>
+                                            {{ $value }}
                                         </option>
-                                        <option value="side" {{ old('position') == 'side' ? 'selected' : '' }}>Samping
-                                        </option>
-                                        <option value="popup" {{ old('position') == 'popup' ? 'selected' : '' }}>Popup
-                                            (Muncul
-                                            Tiba-tiba)</option>
-                                    </select>
-                                </div>
+                                    @endforeach
+                                </select>
                                 @error('position')
                                     <small id="position" class="form-text text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                         </div>
-
                         <div class="col text-md-end text-center">
                             <button type="submit" class="btn btn-primary">
                                 Submit
                             </button>
                         </div>
-
                     </form>
-
                 </div>
             </div>
         </div>

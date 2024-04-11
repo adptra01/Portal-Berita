@@ -65,7 +65,7 @@
                                 <small class="text-muted d-block mb-1">Pengunjung</small>
                                 <h6 class="mb-0">Minggu Ini</h6>
                             </div>
-                            <h1 class="mb-0">{{ $visitorCounts['today'] }}</h1>
+                            <h1 class="mb-0">{{ $visitorCounts['thisWeek'] }}</h1>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                                 <small class="text-muted d-block mb-1">Pengunjung</small>
                                 <h6 class="mb-0">Bulan Ini</h6>
                             </div>
-                            <h1 class="mb-0">{{ $visitorCounts['today'] }}</h1>
+                            <h1 class="mb-0">{{ $visitorCounts['thisMonth'] }}</h1>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                                 <small class="text-muted d-block mb-1">Pengunjung</small>
                                 <h6 class="mb-0">Tahun Ini</h6>
                             </div>
-                            <h1 class="mb-0">{{ $visitorCounts['today'] }}</h1>
+                            <h1 class="mb-0">{{ $visitorCounts['thisYear'] }}</h1>
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                                 <small class="text-muted d-block mb-1">Pengunjung</small>
                                 <h6 class="mb-0">semua</h6>
                             </div>
-                            <h1 class="mb-0">{{ $visitorCounts['today'] }}</h1>
+                            <h1 class="mb-0">{{ $visitorCounts['all'] }}</h1>
                         </div>
                     </div>
                 </div>

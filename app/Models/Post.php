@@ -28,7 +28,7 @@ class Post extends Model
     public function scopeFilterBySearch($query, $search)
     {
         if ($search) {
-            return $query->where('title', 'like', '%' . $search . '%');
+            return $query->where('status', 1)->where('title', 'like', '%' . $search . '%');
         }
     }
 
@@ -36,7 +36,7 @@ class Post extends Model
     {
         if ($categoryName) {
             return $query->whereHas('category', function ($query) use ($categoryName) {
-                $query->where('name', $categoryName);
+                $query->where('status', 1)->where('name', $categoryName);
             });
         }
     }
@@ -44,10 +44,10 @@ class Post extends Model
     public function scopeFilterByDateRange($query, $startDate, $endDate)
     {
         if ($startDate) {
-            $query->whereDate('created_at', '>=', $startDate);
+            $query->where('status', 1)->whereDate('created_at', '>=', $startDate);
         }
         if ($endDate) {
-            $query->whereDate('created_at', '<=', $endDate);
+            $query->where('status', 1)->whereDate('created_at', '<=', $endDate);
         }
         return $query;
     }

@@ -6,11 +6,12 @@ use App\Models\Setting;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Cache;
 
 class SeoTags extends Component
 {
     /**
-     * Create a new component instance.
+     * Membuat instance komponen baru.
      */
     public function __construct()
     {
@@ -18,11 +19,13 @@ class SeoTags extends Component
     }
 
     /**
-     * Get the view / contents that represent the component.
+     * Mendapatkan tampilan / konten yang mewakili komponen.
      */
     public function render(): View|Closure|string
     {
-        $settings = Setting::select('title', 'icon', 'logo', 'description')->first();
+        $settings = Cache::remember('settings', now()->addMinutes(10), function () {
+            return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
+        });
 
         return view(
             'components.seo-tags',

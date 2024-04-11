@@ -7,11 +7,9 @@ use App\Models\Advert;
 state(['sideAdverts']);
 
 mount(function () {
-    $this->sideAdverts = Advert::wherePosition('side')
-        ->where('end_date', '>=', today())
-        ->select('link', 'image', 'alt')
-        ->orderBy('updated_at')
-        ->get();
+    $this->sideAdverts = Cache::remember('sideAdverts', now()->addMinutes(10), function () {
+        return Advert::wherePosition('side')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->get();
+    });
 });
 ?>
 

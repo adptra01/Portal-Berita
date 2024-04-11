@@ -35,6 +35,7 @@ Route::get('login/google/callback', [SocialiteController::class, 'callback'])
 
 Route::get('/optimize-clear', function () {
     Artisan::call('optimize:clear');
+    Artisan::call('optimize');
     return back()->with('success', 'Optimize berhasil dilakukan');
 })->name('optimize');
 

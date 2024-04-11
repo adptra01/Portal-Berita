@@ -6,13 +6,21 @@ use App\Models\Advert;
 
 name('adverts.edit');
 
-$destroy = function (advert $advert) {
+$deleted = function (advert $advert) {
     Storage::delete($advert->image);
     $advert->delete();
     return redirect()->route('adverts.index')->with('success', 'Proses Berhasil Dilakukan 😁!');
 };
 
-state(['advert']);
+state([
+    'advert',
+    'advertTypes' => [
+        'top' => 'Atas',
+        'side' => 'Samping',
+        'popup' => 'Popup (Muncul Tiba-tiba)',
+        'bottom' => 'Bawah',
+    ],
+]);
 
 ?>
 
@@ -50,7 +58,7 @@ state(['advert']);
                     </li>
                     <li class="nav-item col-md">
                         <button class="nav-link" role="tab" data-bs-toggle="tab"
-                            wire:click='destroy({{ $advert->id }})'
+                            wire:click='deleted({{ $advert->id }})'
                             wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus"
                             wire:loading.attr="disabled">
                             <i class='bx bx-trash'></i>
@@ -101,13 +109,23 @@ state(['advert']);
                             <div class="col-md-9">
                                 <p class="text-capitalize">: {{ $advert->position }}
 
-                                    @if ($advert->position == 'top')
-                                        (Atas)
-                                    @elseif($advert->position == 'side')
-                                        (Samping)
-                                    @elseif($advert->position == 'popup')
-                                        (Muncul Tiba-tiba)
-                                    @endif
+                                    @switch($advert->position)
+                                        @case('top')
+                                            (Atas)
+                                        @break
+
+                                        @case('side')
+                                            (Samping)
+                                        @break
+
+                                        @case('popup')
+                                            (Muncul Tiba-tiba)
+                                        @break
+
+                                        @case('bottom')
+                                            (Bawah)
+                                        @break
+                                    @endswitch
                                 </p>
                             </div>
                         </div>
@@ -130,28 +148,18 @@ state(['advert']);
 
                     </div>
                     <div class="tab-pane fade" id="navs-pills-top-edit" role="tabpanel">
-                        <div class="alert alert-primary" role="alert">
-                            <h6 class="alert-heading text-center fw-bold mb-1">
-                                Informasi!
-                            </h6>
-
-                            <ul>
-                                <li>
-                                    Jika iklan tidak dilengkapi dengan tautan atau Link, gunakan tanda pagar
-                                    (#)
-                                    untuk
-                                    mengisi
-                                    kolom tautan iklan.
-                                </li>
-                                <li>
-                                    Jangan mengunggah gambar iklan yang sama kecuali ada perubahan yang ingin
-                                    dilakukan pada gambar iklan tersebut.
-                                </li>
-                                <li>
-                                    Hanya iklan yang memiliki tanggal berakhir yang belum melewati hari ini yang akan
-                                    ditampilkan.
-                                </li>
-                            </ul>
+                        <div class="alert alert-primary d-flex" role="alert">
+                            <span class="badge badge-center rounded-pill bg-primary border-label-primary p-3 me-2"><i
+                                    class="bx bx-command fs-6"></i></span>
+                            <div class="d-flex flex-column ps-1">
+                                <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Informasi Penting!</h6>
+                                <p class="m-0">- Jika iklan tidak memiliki tautan atau Link, gunakan tanda pagar (#)
+                                    untuk mengisinya.</p>
+                                <p class="m-0">- Hindari mengunggah gambar iklan yang sama kecuali ada perubahan yang
+                                    diperlukan.</p>
+                                <p class="m-0">- Hanya
+                                    iklan dengan tanggal berakhir yang masih berlaku yang akan ditampilkan.</p>
+                            </div>
                         </div>
 
                         @include('pages.admin.adverts.edit')

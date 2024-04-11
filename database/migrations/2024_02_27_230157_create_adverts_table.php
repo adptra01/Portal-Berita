@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('link')->nullable();
-            $table->enum('position', ['top', 'side', 'popup']);
+            $table->enum('position', ['top', 'side', 'popup', 'bottom']);
             $table->date('start_date');
             $table->date('end_date');
             $table->text('alt')->nullable();

@@ -7,7 +7,7 @@ use App\Models\Post;
 
 name('posts.edit');
 
-$destroy = function (post $post) {
+$deleted = function (post $post) {
     Storage::delete($post->thumbnail);
     $post->delete();
 
@@ -55,7 +55,7 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                     </li>
                     <li class="nav-item col-md">
                         <button class="nav-link" role="tab" data-bs-toggle="tab"
-                            wire:click='destroy({{ $post->id }})'
+                            wire:click='deleted({{ $post->id }})'
                             wire:confirm.prompt="Yakin Ingin Menghapus?\n\nTulis 'hapus' untuk konfirmasi!|hapus"
                             wire:loading.attr="disabled">
                             <i class='bx bx-trash'></i>

@@ -54,13 +54,10 @@
                         @if ($brand && $brand->logo)
                             <img src="{{ Storage::url($brand->logo) }}" alt="Logo" width="auto" height="50"
                                 class="app-brand-logo demo">
-                        @else
-                            <span
-                                class="app-brand-text demo menu-text fw-bolder ms-2">{{ $brand && $brand->title }}</span>
+                        @elseif ($brand && $brand->title)
+                            <span class="app-brand-text demo menu-text fw-bolder ms-2">{{ $brand->title }}</span>
                         @endif
-
                     </a>
-
                     <a href="javascript:void(0);"
                         class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>

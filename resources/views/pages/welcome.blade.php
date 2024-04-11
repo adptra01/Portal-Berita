@@ -41,13 +41,14 @@ $categories = computed(function () {
 
 ?>
 <x-guest-layout>
-    <x-seo-tags :title="'Portal Berita Terkini Sibanyu'" :description="'sibanyu adalah media yang lahir dari desa. Berfilosofi dari air yang terus mengalir, menyajikan informasi dari hulu menyebar hingga ke hilir. Dengan visi  ?>'"dari desa untuk bangsa", mendorong pembangunan bangsa dari desa.'"
-        :keywords="'berita, terkini, Sibanyu, informasi, kategori'" />
+
     @livewire('adverts.popup')
     @livewire('adverts.top')
 
     @volt
         <div>
+            <x-seo-tags :title="'Sibanyu Situs Berita Terkini ' . now()->year" :description="'Dapatkan informasi terbaru seputar berita terkini, analisis mendalam, dan cerita inspiratif di Sibanyu. Jelajahi konten eksklusif yang disajikan khusus untuk Anda.'" :keywords="'beranda, sibanyu, berita terkini, analisis, cerita inspiratif, konten eksklusif'" />
+
             <div class="trending-area fix">
                 <div class="container">
                     <div class="trending-main">
@@ -271,6 +272,8 @@ $categories = computed(function () {
                                                 Kategori
                                                 Lainnya...</span>
                                         </a>
+
+                                        @livewire('adverts.bottom')
                                     </div>
                                 </div>
                             </div>

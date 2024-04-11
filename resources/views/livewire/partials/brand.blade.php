@@ -3,7 +3,11 @@
 use function Livewire\Volt\{state, mount};
 use App\Models\Setting;
 
-state(['setting' => fn() => Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first()]);
+state([
+    'setting' => fn() => Cache::remember('settings', now()->addDays(1), function () {
+            return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
+    }),
+]);
 ?>
 
 <div>

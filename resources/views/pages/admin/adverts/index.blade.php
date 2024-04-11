@@ -45,27 +45,21 @@ $adverts = computed(function () {
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-                                @foreach ($this->adverts as $no => $advert)
+                                @foreach ($this->adverts as $advert)
                                     <tr>
-                                        <td>
-                                            {{ ++$no }}.
-                                        </td>
+                                        <td>{{ $loop->iteration }}</td>
+
                                         <td>
                                             {{ $advert->name }}
                                         </td>
                                         <td>
                                             <span class="text-capitalize">
-                                                {{ $advert->position }}
-                                            </span>
+                                                {{ ucfirst($advert->position) }}
 
-                                            @if ($advert->position == 'top')
-                                                (Atas)
-                                            @elseif($advert->position == 'side')
-                                                (Samping)
-                                            @elseif($advert->position == 'popup')
-                                                (Muncul Tiba-tiba)
-                                            @endif
+                                                ({{ $advert->position === 'top' ? 'Atas' : ($advert->position === 'side' ? 'Samping' : 'Muncul Tiba-tiba') }})
+                                            </span>
                                         </td>
+
                                         <td>
                                             {{ Carbon\Carbon::parse($advert->start_date)->format('d M Y') }} </p>
                                         </td>

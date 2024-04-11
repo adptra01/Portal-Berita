@@ -6,6 +6,7 @@ use App\Models\Setting;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Cache;
 
 class AuthLayout extends Component
 {
@@ -22,7 +23,9 @@ class AuthLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        $setting = Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
+        $setting = Cache::remember('settings', now()->addMinutes(10), function () {
+            return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
+        });
         return view('components.auth-layout', compact('setting'));
     }
 }

@@ -8,7 +8,7 @@ name('users.edit');
 
 state(['user']);
 
-$destroy = function (user $user) {
+$deleted = function (user $user) {
     $user->delete();
 
     return redirect()->route('users.index')->with('success', 'Akun pengguna telah dihapus secara permanen dan tidak dapat dipulihkan.!');
@@ -51,7 +51,7 @@ $destroy = function (user $user) {
                     </li>
                     <li class="nav-item col-md">
                         <button class="nav-link" role="tab" data-bs-toggle="tab"
-                            wire:click='destroy({{ $user->id }})'
+                            wire:click='deleted({{ $user->id }})'
                             wire:confirm.prompt="Yakin ingin menghapus akun {{ $user->name }}?\n\nTulis 'hapus' untuk konfirmasi!|hapus"
                             wire:loading.attr="disabled">
                             <i class='bx bx-trash'></i>

@@ -5,8 +5,8 @@ namespace App\View\Components;
 use App\Models\Setting;
 use Closure;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Cache;
 
 class AdminLayout extends Component
 {
@@ -23,7 +23,9 @@ class AdminLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        $brand = Setting::select('logo', 'icon', 'title')->first();
+        $brand = Cache::remember('settings', now()->addMinutes(10), function () {
+            return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
+        });
 
         return view('components.admin-layout', compact('brand'));
     }

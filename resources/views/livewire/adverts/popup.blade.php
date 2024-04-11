@@ -7,7 +7,9 @@ use App\Models\Advert;
 state(['popAdverts']);
 
 mount(function () {
-    $this->popAdverts = Advert::wherePosition('popup')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->first();
+    $this->popAdverts = Cache::remember('popAdverts', now()->addMinutes(10), function () {
+        return Advert::wherePosition('popup')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->first();
+    });
 });
 
 ?>
@@ -26,7 +28,7 @@ mount(function () {
                     <div class="modal-body">
                         <a href="{{ $popAdverts->link }}" target="_blank" rel="noopener noreferrer">
                             <img src="{{ Storage::url($popAdverts->image) }}" class="img-fluid rounded w-100"
-                                alt="{{ $popAdverts->name }}" loading="eager" />
+                                alt="{{ $popAdverts->alt ?? $popAdverts->name }}" loading="eager" />
                         </a>
                     </div>
                 </div>
