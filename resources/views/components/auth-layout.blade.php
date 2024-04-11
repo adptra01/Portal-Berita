@@ -79,13 +79,12 @@
                     <div class="app-brand mb-3">
                         <a href="/" class="app-brand-link gap-2">
                             @if ($setting && $setting->logo)
-                                <img src="{{ Storage::url($setting->logo) }}" alt="Logo" width="100"
+                                <img src="{{ Storage::url($setting->logo) }}" alt="Logo" width="200"
                                     height="100%" class="d-inline-block align-text-top">
                             @else
                                 <span class="fw-bold text-primary fs-2">{{ $setting->title ?? '' }}</span>
                             @endif
 
-                            <span class="app-brand-text demo text-body fw-bold"><em>sibanyu</em></span>
                         </a>
                     </div>
                     <!-- /Logo -->
