@@ -54,11 +54,11 @@ mount(function () {
                                                 {{ $post->created_at->locale('id')->diffForHumans() }}
                                             </p>
                                             <div class="row justify-content-start mb-4">
-                                                <div class="col-auto p-0 ml-3">
+                                                {{-- <div class="col-auto p-0 ml-3">
                                                     <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $post->user->name ?? 'Penulis' }}"
                                                         class="rounded border-0" style="width: 55px"
                                                         alt="{{ $post->user->name }}" loading="lazy">
-                                                </div>
+                                                </div> --}}
                                                 <div class="col-auto">
                                                     <p class="m-0 fw-bold">{{ $post->user->name ?? 'Admin' }}</p>
                                                     <small class="m-0 text-secondary">Penulis</small>
@@ -66,9 +66,10 @@ mount(function () {
                                             </div>
                                         </div>
                                         <div class="single-post">
-                                            <div class="feature-img">
+                                            <div class="feature-img mb-3">
                                                 <img class="img-fluid w-100" src="{{ Storage::url($post->thumbnail) }}"
-                                                    alt="{{ $post->title }}" loading="lazy">
+                                                    alt="{{ $post->alt ?? $post->title }}" loading="lazy">
+                                                <small class="fw-bold">{{ $post->alt ?? '' }}</small>
                                             </div>
                                             <div class="ck-content">
                                                 {!! $post->content !!}

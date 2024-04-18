@@ -5,7 +5,7 @@ use App\Models\Setting;
 
 state([
     'setting' => fn() => Cache::remember('settings', now()->addDays(1), function () {
-            return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
+        return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
     }),
 ]);
 ?>
@@ -36,8 +36,23 @@ state([
                             <p class="fw-bold text-primary fs-2">{{ $setting->title ?? '' }}</p>
                         @endif
                         <p class="mb-3">{{ $setting->description ?? '' }}</p>
-
                     </div>
+
+                    <div class="col-12 col-lg-2 small text-lg-end mb-4 md-lg-0 pt-1">
+                        <a href="{{ route('news.about-us') }}">
+                            <p class="mb-1">Tentang Kami</p>
+                        </a>
+                        <a href="{{ route('news.advert') }}">
+                            <p class="mb-1">Info Iklan</p>
+                        </a>
+                        <a href="{{ route('news.contact') }}">
+                            <p class="mb-1">Kontak</p>
+                        </a>
+                        <a href="{{ route('news.instruction') }}">
+                            <p class="mb-1">Pedoman Media Siber</p>
+                        </a>
+                    </div>
+
 
                     <div class="col-12 col-lg-3 pt-1 small text-lg-end">
                         <p class="mb-1">Jalintim Palembang Jambi Km 205, RT 08 Kel. Bayung Lencir, Kec. Bayung Lencir,

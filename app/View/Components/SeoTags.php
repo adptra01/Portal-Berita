@@ -23,9 +23,7 @@ class SeoTags extends Component
      */
     public function render(): View|Closure|string
     {
-        $settings = Cache::remember('settings', now()->addMinutes(10), function () {
-            return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp')->first();
-        });
+        $settings = Setting::select('title', 'description', 'logo', 'icon')->first();
 
         return view(
             'components.seo-tags',

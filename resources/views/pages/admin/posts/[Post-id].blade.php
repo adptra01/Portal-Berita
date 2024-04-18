@@ -67,7 +67,7 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
 
                         <div class="mb-3">
                             <p class="col-md-3 fw-bold">Gambar / thumbnail</p>
-                            <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}"
+                            <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->alt ?? $post->title }}"
                                 class="w-100 border border-5 border-secondary rounded">
                         </div>
 
@@ -88,7 +88,8 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                         <div class="mb-3 row">
                             <p class="col-md-2 fw-bold">Judul Berita</p>
                             <div class="col-md-10">
-                                <p>: <a href="{{ route('preview.read', ['post' => $post->slug]) }}">{{ $post->title }}</a></p>
+                                <p>: <a href="{{ route('preview.read', ['post' => $post->slug]) }}">{{ $post->title }}</a>
+                                </p>
                             </div>
                         </div>
 

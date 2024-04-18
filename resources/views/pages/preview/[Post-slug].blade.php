@@ -85,7 +85,7 @@ mount(function () {
                                                     <div class="feature-img">
                                                         <img class="img-fluid w-100"
                                                             src="{{ Storage::url($post->thumbnail) }}"
-                                                            alt="{{ $post->title }}" loading="lazy">
+                                                            alt="{{ $post->alt ?? $post->title }}" loading="lazy">
                                                     </div>
                                                     <div class="ck-content">
                                                         {!! $post->content !!}

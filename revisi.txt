@@ -1,0 +1,15 @@
+1. Penulis = tak pakai gambar atau tulisan "penulis" cukup dengan nama penulis saja yang tampil di artikel berita ✅
+
+2. Tampilan baik nama penulis maupun gambarnya di website halaman tentang kami tak usah ditampilkan ✅
+
+3. Menu posting berita tambahkan tab keterangan foto/tumbnail kemudian tampilan berita ada keterangan foto tersebut, dengan catatan tulisan lebih kecil daripada tulisan /artikel/beritanya ✅
+
+4. Tab pencarian pada tampilan web berita/artikel cukup search menggunakan kata kunci saja
+
+5. Logo yang tampil di google masih menggunakan logo awal. Tolong d ganti menggunakan logo yang sudah disediakan ✅
+
+6. Komentar di artikel atau berita di web, cukup langsung koment menggunakan akun google pembaca, tak perlu login ke sibanyu. ✅
+
+7. Tambahkan tombol yg mengarah ke akun FB(https://www.facebook.com/profile.php?id=61558696855733&mibextid=kFxxJD), IG (https://youtube.com/@sibanyu?si=DbiUHV97A0Pk_1dR), YOUTUBE (https://youtube.com/@sibanyu?si=DbiUHV97A0Pk_1dR), TIKTOK(https://www.tiktok.com/@sibanyu0?_t=8lcaxI92HWG&_r=1), X (https://x.com/sibanyucom?t=wdrZLB1HkXrBynuItDEahw&s=08) dengan tampilan dibawah keterangan foto/thumbnail pada artikel, dan d footer website
+
+8. Tampilan d bawah Website dibawah copyright, munculkan tombol yang mengarah ke halaman "Tentang Kami, Info Iklan, Kontak, dan Pedoman Media Siber"

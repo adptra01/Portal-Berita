@@ -53,7 +53,7 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
 
                         <div class="mb-3">
                             <p class="col-md-3 fw-bold">Gambar / thumbnail</p>
-                            <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}"
+                            <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->alt ?? $post->title }}"
                                 class="w-100 border border-5 border-secondary rounded">
                         </div>
 

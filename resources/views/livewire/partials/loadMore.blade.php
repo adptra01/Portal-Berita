@@ -38,7 +38,7 @@ $categoryPost = computed(function () {
                     <article class="blog_item rounded">
                         <div class="blog_item_img">
                             <img class="card-img rounded-0" src="{{ Storage::url($post->thumbnail) }}"
-                                alt="{{ $post->title }}" loading="lazy">
+                                alt="{{ $post->alt ?? $post->title }}" loading="lazy">
                             <a href="#" class="blog_item_date">
                                 <h3>{{ $post->created_at->format('d') }}</h3>
                                 <p>{{ $post->created_at->format('M') }}</p>

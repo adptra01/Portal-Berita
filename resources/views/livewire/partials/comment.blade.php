@@ -56,7 +56,7 @@ $saveComment = function () {
     <div class="comments-area p-0 border-0">
         <h4>{{ $this->comments->count() }} Komentar</h4>
         @foreach ($this->comments as $comment)
-            <div class="comment-list mb-3 p-0">
+            <div class="comment-list mb-3 p-0 ">
                 <div class="single-comment justify-content-between d-flex">
                     <div class="user justify-content-between d-flex">
                         <div class="thumb">
@@ -98,7 +98,7 @@ $saveComment = function () {
             </div>
         @endforeach
     </div>
-    <div class="comment mt-5 pt-5">
+    <div class="comment ">
         <form class="form-contact comment_form" wire:submit.prevent="saveComment" id="commentForm">
             <div class="row">
                 <div class="col-12">

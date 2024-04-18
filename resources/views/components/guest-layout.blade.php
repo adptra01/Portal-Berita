@@ -54,12 +54,10 @@
             }
         }
     </style>
-
-
     @stack('css')
-
     @livewireStyles
 
+    @vite([])
 </head>
 
 <body>

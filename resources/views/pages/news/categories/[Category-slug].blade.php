@@ -67,8 +67,9 @@ mount(function () {
                                     <div class="col-6">
                                         <div class="single-bottom mb-35">
                                             <div class="trend-bottom-img mb-30">
-                                                <img src="{{ Storage::url($post->thumbnail) }}" alt="{{ $post->title }}"
-                                                    loading="lazy" class="object-fit-cover" height="170px">
+                                                <img src="{{ Storage::url($post->thumbnail) }}"
+                                                    alt="{{ $post->alt ?? $post->title }}" loading="lazy"
+                                                    class="object-fit-cover" height="170px">
                                             </div>
                                             <div class="trend-bottom-cap">
                                                 <h4 class="text-break">

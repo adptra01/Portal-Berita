@@ -15,32 +15,36 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'politik',
-                'slug' => 'politik',
-            ],
-            [
-                'name' => 'hukum',
+                'name' => 'Hukum',
                 'slug' => 'hukum',
             ],
             [
-                'name' => 'ekonomi',
-                'slug' => 'ekonomi',
-            ],
-            [
-                'name' => 'olahraga',
+                'name' => 'Olahraga',
                 'slug' => 'olahraga',
             ],
             [
-                'name' => 'lifestyle',
-                'slug' => 'lifestyle',
+                'name' => 'Daerah',
+                'slug' => 'Daerah',
             ],
             [
-                'name' => 'hiburan',
-                'slug' => 'hiburan',
+                'name' => 'Advertorial',
+                'slug' => 'Advertorial',
             ],
             [
-                'name' => 'tekno',
-                'slug' => 'tekno',
+                'name' => 'Politik',
+                'slug' => 'Politik',
+            ],
+            [
+                'name' => 'Ekonomi',
+                'slug' => 'Ekonomi',
+            ],
+            [
+                'name' => 'Gaya Hidup',
+                'slug' => 'Gaya-hidup',
+            ],
+            [
+                'name' => 'Pemerintahan',
+                'slug' => 'Pemerintahan',
             ],
         ];
 

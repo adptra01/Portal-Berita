@@ -21,15 +21,15 @@ state([
     @volt
         <div>
             <div class="container py-5">
-                <div class="text-base text-center">
-                    <h2 class="fw-bold">Tentang Kami</h2>
+                <div class="text-base">
+                    <h2 class="fw-bold text-center">Tentang Kami</h2>
                     <div class="ck-content">
                         {!! $aboutUs !!}
                     </div>
                 </div>
             </div>
 
-            <section class="py-5">
+            {{-- <section class="py-5">
                 <div class="container">
                     <div class="row justify-content-center text-center mb-2 mb-lg-4">
                         <div class="col-12 col-lg-8 col-xxl-7 text-center mx-auto">
@@ -41,11 +41,7 @@ state([
                             <div class="col-md-6 col-lg-3">
                                 <div class="card text-center border-0 mb-3">
                                     <div class="card-body p-3">
-                                        {{-- <div class="mb-4 mx-lg-3 mx-xxl-5">
-                                            <img class="img-fluid rounded-circle w-50"
-                                                src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $team->name }}"
-                                                alt="{{ $team->name }}" loading="eager">
-                                        </div> --}}
+
                                         <h5 class="fw-bold">{{ $team->name }}</h5>
                                         <div class="text-muted">
                                             {{ $team->role }}
@@ -57,7 +53,7 @@ state([
 
                     </div>
                 </div>
-            </section>
+            </section> --}}
 
         </div>
     @endvolt
