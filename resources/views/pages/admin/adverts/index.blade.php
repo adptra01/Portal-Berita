@@ -54,9 +54,25 @@ $adverts = computed(function () {
                                         </td>
                                         <td>
                                             <span class="text-capitalize">
-                                                {{ ucfirst($advert->position) }}
+                                                {{ $advert->position }}
+                                                
+                                                @switch($advert->position)
+                                                    @case('top')
+                                                        (Atas)
+                                                    @break
 
-                                                ({{ $advert->position === 'top' ? 'Atas' : ($advert->position === 'side' ? 'Samping' : 'Muncul Tiba-tiba') }})
+                                                    @case('side')
+                                                        (Samping)
+                                                    @break
+
+                                                    @case('popup')
+                                                        (Muncul Tiba-tiba)
+                                                    @break
+
+                                                    @case('bottom')
+                                                        (Bawah)
+                                                    @break
+                                                @endswitch
                                             </span>
                                         </td>
 

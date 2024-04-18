@@ -41,11 +41,11 @@ state([
                             <div class="col-md-6 col-lg-3">
                                 <div class="card text-center border-0 mb-3">
                                     <div class="card-body p-3">
-                                        <div class="mb-4 mx-lg-3 mx-xxl-5">
+                                        {{-- <div class="mb-4 mx-lg-3 mx-xxl-5">
                                             <img class="img-fluid rounded-circle w-50"
                                                 src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $team->name }}"
                                                 alt="{{ $team->name }}" loading="eager">
-                                        </div>
+                                        </div> --}}
                                         <h5 class="fw-bold">{{ $team->name }}</h5>
                                         <div class="text-muted">
                                             {{ $team->role }}

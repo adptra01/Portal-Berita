@@ -107,8 +107,9 @@ state([
                         <div class="mb-3 row">
                             <p class="col-md-3 fw-bold">Posisi/Letak</p>
                             <div class="col-md-9">
-                                <p class="text-capitalize">: {{ $advert->position }}
-
+                                <p class="text-capitalize">
+                                    :
+                                    {{ $advert->position }}
                                     @switch($advert->position)
                                         @case('top')
                                             (Atas)

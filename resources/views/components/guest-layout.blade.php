@@ -60,8 +60,6 @@
 
     @livewireStyles
 
-    @vite([])
-
 </head>
 
 <body>
