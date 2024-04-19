@@ -11,19 +11,20 @@ class SettingObserver
     {
         Cache::forget('settings');
         Cache::forget('settings_admin_panel');
+        Cache::forget('brand_partial');
     }
 
     public function updated(Setting $setting)
     {
         Cache::forget('settings');
         Cache::forget('settings_admin_panel');
-
+        Cache::forget('brand_partial');
     }
 
     public function deleted(Setting $setting)
     {
         Cache::forget('settings');
         Cache::forget('settings_admin_panel');
-
+        Cache::forget('brand_partial');
     }
 }

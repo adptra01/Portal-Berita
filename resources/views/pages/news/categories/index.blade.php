@@ -114,7 +114,7 @@ $posts = computed(function () {
                                     <article class="blog_item rounded">
                                         <div class="blog_item_img">
                                             <img class="card-img rounded-0" src="{{ Storage::url($post->thumbnail) }}"
-                                                alt="{{ $post->alt ?? $post->title }}" loading="lazy">
+                                                alt="{{ $post->title }}" loading="lazy">
                                             <a href="#" class="blog_item_date">
                                                 <h3>{{ $post->created_at->format('d') }}</h3>
                                                 <p>{{ $post->created_at->format('M') }}</p>
@@ -146,13 +146,16 @@ $posts = computed(function () {
                                 @endforeach
                                 <div class="container text-center">
                                     <button
-                                        class="{{ $this->posts->count() >= $totalPostCount ? 'd-none' : 'genric-btn primary rounded' }}"
+                                        class="{{ $this->posts->count() >= $totalPostCount ? 'd-none' : 'genric-btn primary rounded mb-5' }}"
                                         wire:click="increment" wire:loading.attr="disabled">
                                         Tampilkan Lagi
                                     </button>
                                     <i wire:loading class='bx bx-loader bx-spin'></i>
-                                </div>
 
+                                    <div class="d-none d-lg-block py-5">
+                                        @livewire('adverts.bottom')
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -171,8 +174,8 @@ $posts = computed(function () {
                                                 </a>
                                             </li>
                                         @endforeach
-
                                     </ul>
+
                                 </aside>
 
                                 <aside class="single_sidebar_widget popular_post_widget rounded bg-body">
@@ -180,10 +183,14 @@ $posts = computed(function () {
                                     <livewire:partials.related-news>
                                         <!-- New Poster -->
                                         @livewire('adverts.side')
+                                        <div class="d-block d-lg-none">
+                                            @livewire('adverts.bottom')
+                                        </div>
                                 </aside>
 
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>

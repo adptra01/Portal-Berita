@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -19,8 +20,14 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
+        $randomCategories = ['politik', 'hukum', 'ekonomi', 'bola', 'olahraga', 'humaniora', 'lifestyle', 'hiburan', 'dunia', 'tekno', 'otomotif'];
+
+        // Pilih kategori acak dari array
+        $category = Arr::random($randomCategories);
+
         // Fetch data from the API
-        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/humaniora/'); // category : politik, hukum, ekonomi, bola, olahraga, humaniora, lifestyle, hiburan, dunia, tekno, otomotif
+        $response = Http::get('https://api-berita-indonesia.vercel.app/antara/' . $category);
+
         // $response = Http::get('https://api-berita-indonesia.vercel.app/kumparan/terbaru');
 
 

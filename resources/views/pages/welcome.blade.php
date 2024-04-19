@@ -266,24 +266,31 @@ $categories = computed(function () {
                                             @endforeach
                                         </div>
                                         <!-- End Nav Card -->
-                                        <a href="{{ route('news.search-post') }}" class="mb-3">
+                                        <a href="{{ route('news.search-post') }}" class="mb-5">
                                             <span
                                                 class="d-flex justify-content-center text-primary fw-bold fs-6 my-auto">Lihat
                                                 Kategori
                                                 Lainnya...</span>
                                         </a>
 
-                                        @livewire('adverts.bottom')
+                                        <div class="d-none d-lg-block p-5">
+                                            @livewire('adverts.bottom')
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 pt-sm-5">
                             <div class="blog_right_sidebar">
                                 <!-- New Poster -->
                                 @livewire('adverts.side')
-                            </div>
 
+                                <div class="d-block d-lg-none">
+                                    @livewire('adverts.bottom')
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>

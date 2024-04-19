@@ -2,142 +2,137 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://localhost/welcome</loc>
-        <lastmod>2024-04-10T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://localhost/news/about-us</loc>
-        <lastmod>2024-04-10T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/advert</loc>
-        <lastmod>2024-04-10T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/all-post</loc>
-        <lastmod>2024-04-10T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/categories</loc>
-        <lastmod>2024-04-10T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/contact</loc>
-        <lastmod>2024-04-10T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/sebanyak-2432-wisatawan-kunjungi-thp-kenjeran-di-hari-kedua-lebaran-pz</loc>
+        <loc>http://localhost/news/post/pertamina-tak-ada-ketergantungan-bbm-dari-timur-tengah-h2</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/ketua-kadin-bahas-tantangan-ekonomi-saat-halalbihalal-dengan-menko-Ab</loc>
+        <loc>http://localhost/news/post/hingga-pertengahan-april-stok-beras-capai-126-juta-ton-cX</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/kemenhub-siapkan-pelabuhan-panjang-ciwandan-antisipasi-arus-balik-qU</loc>
+        <loc>http://localhost/news/post/kemenhub-tak-temukan-tiket-pesawat-di-atas-tba-saat-angkutan-lebaran-rK</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/kai-23682-penumpang-tiba-di-daop-6-yogyakarta-pada-hari-ke-2-lebaran-uF</loc>
+        <loc>http://localhost/news/post/mengingatkan-sejarah-padang-kembali-gelar-festival-muaro-OP</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/arus-pemudik-dari-jawa-menuju-sumatera-masih-ramai-m3</loc>
+        <loc>http://localhost/news/post/pengelola-geyser-cisolok-sukabumi-lakukan-digitalisasi-layanan-Qk</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/twa-bantimurung-ramai-dikunjungi-pada-libur-lebaran-ye</loc>
+        <loc>http://localhost/news/post/bni-salurkan-paket-sembako-untuk-korban-erupsi-gunung-ruang-pB</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/pastika-perlu-terus-didukung-umkm-di-bali-pelestari-warisan-leluhur-u3</loc>
+        <loc>http://localhost/news/post/kemendag-sebut-pembelian-produk-lokal-di-e-commerce-naik-J8</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/menhan-prabowo-hadiri-halalbihalal-di-rumah-dinas-menko-airlangga-ip</loc>
+        <loc>http://localhost/news/post/barantin-usul-twin-quarantine-port-pada-dialog-tingkat-tinggi-ri-china-B9</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/pln-seluruh-sistem-kelistrikan-aman-pada-hari-pertama-idul-fitri-dG</loc>
+        <loc>http://localhost/news/post/sandiaga-ip-branding-project-bali-tingkatkan-ekspor-produk-umkm-PS</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/rekayasa-lawan-arah-di-tol-japek-dihentikan-atas-diskresi-kepolisian-cW</loc>
+        <loc>http://localhost/news/post/kemenperin-gandeng-dekranas-guna-pacu-kerajinan-tenun-di-ambon-sk</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/pln-hadirkan-listrik-24-jam-di-dua-desa-pesisir-sultra-saat-lebaran-uA</loc>
+        <loc>http://localhost/news/post/djka-kemenhub-angkut-12733-motor-mudik-gratis-saat-angkutan-lebaran-tF</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/bandung-zoo-bolehkan-warga-bawa-makanan-terkait-tradisi-makan-bersama-LX</loc>
+        <loc>http://localhost/news/post/kemendag-sebut-evaluasi-het-minyakita-selesai-sebelum-oktober-2024-EH</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/dishub-bantul-berlakukan-searah-jalur-imogiri-mangunan-cegah-kemacetan-H1</loc>
+        <loc>http://localhost/news/post/erupsi-gunung-ruang-14-penerbangan-di-bandara-hasanuddin-dibatalkan-Hw</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/astra-infra-28-juta-kendaraan-melintas-di-tiga-tol-saat-arus-mudik-8k</loc>
+        <loc>http://localhost/news/post/kementan-dorong-penyuluh-di-kebumen-purworejo-perluas-areal-tanam-So</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/ap-ii-jumlah-penumpang-pada-arus-mudik-capai-186-juta-orang-ws</loc>
+        <loc>http://localhost/news/post/spklu-tetap-layani-pengguna-mobil-listrik-di-lampung-h8</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/pengunjung-di-seluruh-rest-area-jalan-tol-melonjak-pada-musim-mudik-9K</loc>
+        <loc>http://localhost/news/post/bph-migas-penyaluran-bbm-dan-lpg-aman-selama-lebaran-2024-jK</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/jasa-marga-kembali-diskon-20-persen-tol-trans-jawa-semarang-jakarta-wq</loc>
+        <loc>http://localhost/news/post/pangdam-brawijaya-akan-dampingi-petani-maksimalkan-sawah-tadah-hujan-Nb</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/dtw-ulun-danu-beratan-siap-pentaskan-kebudayaan-tari-kecak-4k</loc>
+        <loc>http://localhost/news/post/pln-amankan-jaringan-listrik-pascaletusan-gunung-ruang-49</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/diskop-ukm-sumut-sebut-digitalisasi-umkm-libatkan-swasta-cF</loc>
+        <loc>http://localhost/news/post/wali-kota-semarang-respons-keluhan-kelangkaan-elpiji-melon-di-pasaran-B7</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/pt-jtt-optimalkan-layanan-jalan-tol-perlancar-akses-wisata-di-jatim-rY</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/category/politik</loc>
+        <loc>http://localhost/news/post/gac-aion-ingin-menjadikan-indonesia-sebagai-tempat-produksi-xG</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
@@ -147,27 +142,37 @@
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/category/ekonomi</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
         <loc>http://localhost/news/category/olahraga</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/category/lifestyle</loc>
+        <loc>http://localhost/news/category/Daerah</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/category/hiburan</loc>
+        <loc>http://localhost/news/category/Advertorial</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/category/tekno</loc>
+        <loc>http://localhost/news/category/Politik</loc>
+            <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+            </url>
+    <url>
+        <loc>http://localhost/news/category/Ekonomi</loc>
+            <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+            </url>
+    <url>
+        <loc>http://localhost/news/category/Gaya-hidup</loc>
+            <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+            </url>
+    <url>
+        <loc>http://localhost/news/category/Pemerintahan</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
