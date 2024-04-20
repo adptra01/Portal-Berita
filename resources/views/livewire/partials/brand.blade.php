@@ -5,7 +5,7 @@ use App\Models\Setting;
 
 state([
     'setting' => fn() => Cache::remember('brand_partial', now()->addDays(1), function () {
-        return Setting::select('title', 'description', 'logo', 'contact', 'whatsapp', 'facebook', 'instagram', 'twitter', 'youtube', 'tiktok')->first();
+        return Setting::select('title', 'description', 'logo', 'copyright', 'facebook', 'instagram', 'twitter', 'youtube', 'tiktok')->first();
     }),
 ]);
 ?>

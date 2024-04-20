@@ -1,5 +1,4 @@
 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
     <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="/">Beranda</a>
     </li>
@@ -42,21 +41,19 @@
     </li>
 </ul>
 
-<span class="navbar-text">
-    <a href="{{ route('news.search-post') }}">
-        <i class='bx bx-search bx-sm mt-lg-2'></i>
-    </a>
-</span>
+<div class="d-flex gap-3">
 
-@auth
-    <form class="d-block px-lg-3" action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button type="submit" class="genric-btn danger-border rounded small">Logout</button>
-    </form>
-@else
-    <div class="d-block px-lg-3">
-        <a class="genric-btn primary-border rounded small" href="{{ route('redirect') }}">
-            Login
-        </a>
-    </div>
-@endauth
+    @auth
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="genric-btn danger-border rounded">Logout</button>
+        </form>
+    @else
+        <div>
+            <a class="genric-btn primary-border rounded small" href="{{ route('redirect') }}">
+                Login
+            </a>
+        </div>
+    @endauth
+
+</div>

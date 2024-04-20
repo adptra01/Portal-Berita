@@ -64,19 +64,31 @@
     @livewire('partials.brand')
     <header>
         <!-- Header Start -->
-        <div class="header-area">
+        <div class="header-area shadow-none">
             <div class="main-header">
-                <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <nav class="navbar bg-body">
                     <div class="container">
                         <a class="navbar-brand" href="/">
                             @yield('header')
                         </a>
-                        <button class="navbar-toggler border-0 text-primary" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        <form class="d-flex gap-2" role="search" action="/search">
+                            <input class="form-control form-control-sm" type="search" placeholder="Search"
+                                aria-label="Search" name="keywords">
+
+                            <button type="submit" class="genric-btn primary rounded small">Cari</button>
+                        </form>
+                    </div>
+                </nav>
+                <nav class="navbar navbar-expand-lg bg-body">
+                    <div class="container">
+                        <button class="navbar-toggler bg-primary border-0 focus-ring focus-ring-light"
+                            style="color: transparent" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
                             aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                            <span class="bx bx-menu-alt-left fs-3 text-white"></span>
                         </button>
-                        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                             <x-guest-nav></x-guest-nav>
                         </div>
                     </div>
@@ -87,7 +99,7 @@
     </header>
 
     <!-- Banner / Iklan -->
-    <div class="container mt-5">
+    <div class="container mt-2">
         @yield('top-adverts')
     </div>
 

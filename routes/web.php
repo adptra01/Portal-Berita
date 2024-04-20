@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,7 @@ Route::prefix('cms')->group(function () {
     ]);
 });
 
+Route::get('/search', SearchController::class);
 
 Route::middleware(['auth', 'role:Admin,Penulis'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');

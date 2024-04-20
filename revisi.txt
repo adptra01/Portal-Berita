@@ -10,7 +10,7 @@
 
 6. Komentar di artikel atau berita di web, cukup langsung koment menggunakan akun google pembaca, tak perlu login ke sibanyu. ✅
 
-7. Tambahkan tombol yg mengarah ke akun
+7. Tambahkan tombol yg mengarah ke akun ✅
  - FB(https://www.facebook.com/profile.php?id=61558696855733&mibextid=kFxxJD),
 
  - IG (https://youtube.com/@sibanyu?si=DbiUHV97A0Pk_1dR),
@@ -23,4 +23,4 @@
 
  dengan tampilan dibawah keterangan foto/thumbnail pada artikel, dan d footer website
 
-8. Tampilan d bawah Website dibawah copyright, munculkan tombol yang mengarah ke halaman "Tentang Kami, Info Iklan, Kontak, dan Pedoman Media Siber"
+8. Tampilan d bawah Website dibawah copyright, munculkan tombol yang mengarah ke halaman "Tentang Kami, Info Iklan, Kontak, dan Pedoman Media Siber" ✅
