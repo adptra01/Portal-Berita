@@ -4,7 +4,7 @@ use function Livewire\Volt\{state, rules, computed, usesFileUploads};
 use function Laravel\Folio\name;
 use App\Models\Setting;
 
-name('settings.about-us');
+name('settings.mediaGuidelines');
 usesFileUploads();
 
 state([
@@ -29,12 +29,12 @@ state([
                     <li class="breadcrumb-item">
                         <a href="#">Pengaturan</a>
                     </li>
-                    <li class="breadcrumb-item active">Tentang Kami</li>
+                    <li class="breadcrumb-item active">Pedoman Keamanan Iklan</li>
                 </ol>
             </nav>
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('settings.updateAboutUs') }}" method="post">
+                    <form action="{{ route('settings.mediaGuidelines') }}" method="post">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -68,13 +68,13 @@ state([
 
                                 </div>
                             </div>
-                            <label for="about" class="form-label">Tentang Kami
+                            <label for="mediaGuidelines" class="form-label">Tentang Kami
                                 <span class="text-danger">*</span>
                             </label>
-                            <textarea id="editor" class="form-control" name="about" id="about" rows="3">
-                        {{ $setting->about ?? null }}
+                            <textarea id="editor" class="form-control" name="mediaGuidelines" id="mediaGuidelines" rows="3">
+                        {{ $setting->mediaGuidelines ?? null }}
                     </textarea>
-                            @error('about')
+                            @error('mediaGuidelines')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>

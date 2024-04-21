@@ -29,12 +29,22 @@
 
             <div class="row">
 
-                <div class="mb-3">
-                    <label for="title" class="form-label">Nama / Judul Website</label>
+                <div class="mb-3 col-md-6">
+                    <label for="title" class="form-label">Nama Website</label>
                     <input type="text" class="form-control" name="title" value="{{ $setting->title ?? null }}"
                         id="title" aria-describedby="title" placeholder="Enter your title website" />
                     @error('title')
                         <small id="title" class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="copyright" class="form-label">copyright</label>
+                    <input type="text" class="form-control" name="copyright"
+                        value="{{ $setting->copyright ?? null }}" id="copyright" aria-describedby="copyright"
+                        placeholder="Enter your copyright website" />
+                    @error('copyright')
+                        <small id="copyright" class="form-text text-danger">{{ $message }}</small>
                     @enderror
                 </div>
 
@@ -69,6 +79,46 @@
                         id="whatsapp" aria-describedby="whatsapp" placeholder="Enter your whatsapp website" />
                     @error('whatsapp')
                         <small id="whatsapp" class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="facebook" class="form-label">facebook</label>
+                    <input type="text" class="form-control" name="facebook"
+                        value="{{ $setting->facebook ?? null }}" id="facebook" aria-describedby="facebook"
+                        placeholder="Enter your facebook website" />
+                    @error('facebook')
+                        <small id="facebook" class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="twitter" class="form-label">twitter</label>
+                    <input type="text" class="form-control" name="twitter"
+                        value="{{ $setting->twitter ?? null }}" id="twitter" aria-describedby="twitter"
+                        placeholder="Enter your twitter website" />
+                    @error('twitter')
+                        <small id="twitter" class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="instagram" class="form-label">instagram</label>
+                    <input type="text" class="form-control" name="instagram"
+                        value="{{ $setting->instagram ?? null }}" id="instagram" aria-describedby="instagram"
+                        placeholder="Enter your instagram website" />
+                    @error('instagram')
+                        <small id="instagram" class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="youtube" class="form-label">youtube</label>
+                    <input type="text" class="form-control" name="youtube"
+                        value="{{ $setting->youtube ?? null }}" id="youtube" aria-describedby="youtube"
+                        placeholder="Enter your youtube website" />
+                    @error('youtube')
+                        <small id="youtube" class="form-text text-danger">{{ $message }}</small>
                     @enderror
                 </div>
 

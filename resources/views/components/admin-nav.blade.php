@@ -9,14 +9,14 @@
         <li class="menu-item {{ request()->is('writer/posts') ? 'active' : '' }}">
             <a href="{{ route('writer-posts.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="categories">Berita</div>
+                <div data-i18n="post">Berita</div>
             </a>
         </li>
     @elseif (auth()->user()->role == 'Admin')
         <li class="menu-item {{ request()->is('admin/posts') ? 'active' : '' }}">
             <a href="{{ route('posts.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="categories">Berita</div>
+                <div data-i18n="post">Berita</div>
             </a>
         </li>
 
@@ -30,7 +30,7 @@
         <li class="menu-item {{ request()->is('admin/comments') ? 'active' : '' }}">
             <a href="{{ route('comments.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-comment"></i>
-                <div data-i18n="categories">Komentar</div>
+                <div data-i18n="comment">Komentar</div>
             </a>
         </li>
 
@@ -45,15 +45,37 @@
         <li class="menu-item {{ request()->is(['admin/adverts', 'admin/adverts/*']) ? 'active' : '' }}">
             <a href="{{ route('adverts.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-award"></i>
-                <div data-i18n="categories">Iklan</div>
+                <div data-i18n="advert">Iklan</div>
             </a>
         </li>
 
         <li class="menu-item {{ request()->is(['admin/settings', 'admin/settings/*']) ? 'active' : '' }}">
-            <a href="{{ route('settings.index') }}" class="menu-link">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="categories">Pengaturan</div>
+                <div>Pengaturan</div>
             </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('settings.index') }}" class="menu-link">
+                        <div>Profile</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('settings.about-us') }}" class="menu-link">
+                        <div>Tentang Kami</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('settings.advertisement') }}" class="menu-link">
+                        <div>Info Iklan</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('settings.mediaGuidelines') }}" class="menu-link">
+                        <div>Keamanan siber</div>
+                    </a>
+                </li>
+            </ul>
         </li>
 
         <li class="menu-item {{ request()->is('admin/reports/*') ? 'active' : '' }}">

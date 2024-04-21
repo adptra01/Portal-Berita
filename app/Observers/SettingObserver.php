@@ -12,6 +12,7 @@ class SettingObserver
         Cache::forget('settings');
         Cache::forget('settings_admin_panel');
         Cache::forget('brand_partial');
+        Cache::forget('settingPages');
     }
 
     public function updated(Setting $setting)
@@ -19,6 +20,7 @@ class SettingObserver
         Cache::forget('settings');
         Cache::forget('settings_admin_panel');
         Cache::forget('brand_partial');
+        Cache::forget('settingPages');
     }
 
     public function deleted(Setting $setting)
@@ -26,5 +28,6 @@ class SettingObserver
         Cache::forget('settings');
         Cache::forget('settings_admin_panel');
         Cache::forget('brand_partial');
+        Cache::forget('settingPages');
     }
 }

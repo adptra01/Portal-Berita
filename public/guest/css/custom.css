@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*,
+body {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+a,
+.dropdown-menu a {
+    text-decoration: none;
+}
+
+.dropdown-menu a .d-flex {
+    transition: all 0.5s;
+}
+
+@media only screen and (min-width: 992px) {
+    .dropdown-menu {
+        width: 55vw;
+    }
+
+    .dropdown:hover .dropdown-menu,
+    .dropdown-menu.show {
+        display: flex;
+    }
+}
+
+        /* Extra Small */
+.container-xs {
+    width: 100%;
+    max-width: 540px;
+}
+
+/* Small */
+@media (min-width: 576px) {
+    .container-sm {
+        width: 100%;
+        max-width: 720px;
+    }
+}
+
+/* Medium */
+@media (min-width: 768px) {
+    .container-md {
+        width: 100%;
+        max-width: 960px;
+    }
+}
+
+/* Large */
+@media (min-width: 992px) {
+    .container-lg {
+        width: 100%;
+        max-width: 1140px;
+    }
+}
+
+/* Extra Large */
+@media (min-width: 1200px) {
+    .container-xl {
+        width: 100%;
+        max-width: 1140px; /* 1140px for Extra Large */
+    }
+}
+

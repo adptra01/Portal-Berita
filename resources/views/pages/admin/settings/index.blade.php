@@ -17,8 +17,6 @@ state([
 
 <x-admin-layout>
     <x-seo-tags :title="'Pengaturan Website - Admin Panel'" />
-    @include('layouts.editor')
-    @include('layouts.report')
 
     @volt
         <div>
@@ -39,11 +37,6 @@ state([
                     </li>
                     <li class="nav-item">
                         <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                            data-bs-target="#navs-pills-top-about-us" aria-controls="navs-pills-top-about-us"
-                            aria-selected="false">Tentang Kami</button>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                             data-bs-target="#navs-pills-top-config" aria-controls="navs-pills-top-config"
                             aria-selected="false">Konfigurasi</button>
                     </li>
@@ -53,9 +46,7 @@ state([
                     <div class="tab-pane fade show active" id="navs-pills-top-profile" role="tabpanel">
                         @include('pages.admin.settings.profile')
                     </div>
-                    <div class="tab-pane fade" id="navs-pills-top-about-us" role="tabpanel">
-                        @include('pages.admin.settings.about-us')
-                    </div>
+
                     <div class="tab-pane fade" id="navs-pills-top-config" role="tabpanel">
                         <div class="row text-center">
                             <div class="col-md">

@@ -13,8 +13,7 @@ state([
 <div>
     @section('header')
         @if ($setting->logo)
-            <img src="{{ Storage::url($setting->logo) }}" alt="Logo" width="100" height="100%"
-                class="d-inline-block align-text-top">
+            <img src="{{ Storage::url($setting->logo) }}" alt="Logo" width="150" class="d-inline-block align-text-top">
         @else
             <span class="fw-bold text-primary fs-2">{{ $setting->title ?? '' }}</span>
         @endif
@@ -61,7 +60,7 @@ state([
                 </div>
                 <div class="small">
 
-                    @foreach (['Beranda' => '/', 'Tentang Kami' => route('news.about-us'), 'Info Iklan' => route('news.advert'), 'Kontak' => route('news.contact'), 'Pedoman Media Siber' => route('news.instruction')] as $label => $route)
+                    @foreach (['Beranda' => '/', 'Tentang Kami' => route('news.about-us'), 'Info Iklan' => route('news.advertisement'), 'Kontak' => route('news.contact'), 'Pedoman Media Siber' => route('news.mediaGuidelines')] as $label => $route)
                         <a class="d-block d-lg-inline text-muted mb-2 mb-lg-0 me-lg-3" href="{{ $route }}">
                             {{ $label }}
                         </a>

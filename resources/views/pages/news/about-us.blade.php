@@ -9,7 +9,7 @@ name('news.about-us');
 
 state([
     'aboutUs' => fn() => Setting::select('about')->first()->about ?? null,
-    'teams' => fn() => User::where('role', 'Penulis')->select('name', 'role')->get(),
+    // 'teams' => fn() => User::where('role', 'Penulis')->select('name', 'role')->get(),
 ]);
 
 ?>

@@ -33,7 +33,8 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{ route('news.advert') }}">Info Iklan</a>
+        <a class="nav-link active" aria-current="page" href="{{ route('news.advertisement') }}">Info
+            Iklan</a>
     </li>
 
     <li class="nav-item">
@@ -46,7 +47,7 @@
     @auth
         <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <button type="submit" class="genric-btn danger-border rounded">Logout</button>
+            <button type="submit" class="genric-btn danger-border rounded small">Logout</button>
         </form>
     @else
         <div>

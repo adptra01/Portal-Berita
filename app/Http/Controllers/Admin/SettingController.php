@@ -16,8 +16,14 @@ class SettingController extends Controller
             'description' => 'required|min:3|string',
             'contact' => 'required|numeric',
             'whatsapp' => 'required|numeric',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Add validation for logo
-            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Add validation for icon
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Add validation for logo
+            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Add validation for icon
+            'facebook' => 'nullable|url',
+            'twitter' => 'nullable|url',
+            'instagram' => 'nullable|url',
+            'youtube' => 'nullable|url',
+            'tiktok' => 'nullable|url',
+            'copyright' => 'required|min:3|string',
         ]);
 
         $setting = Setting::first();
@@ -56,5 +62,23 @@ class SettingController extends Controller
 
         Setting::first()->update($validateData);
         return back()->with('success', 'Tentang Kami telah diperbaharui! Profil website Anda kini mengandung informasi terbaru.');
+    }
+    public function mediaGuidelines(Request $request)
+    {
+        $validateData = $request->validate([
+            'mediaGuidelines' => 'required|min:3|string',
+        ]);
+
+        Setting::first()->update($validateData);
+        return back()->with('success', 'Tentang Kami telah diperbaharui! Pedoman Media Siber website Anda kini mengandung informasi terbaru.');
+    }
+    public function advertisement(Request $request)
+    {
+        $validateData = $request->validate([
+            'advertisement' => 'required|min:3|string',
+        ]);
+
+        Setting::first()->update($validateData);
+        return back()->with('success', 'Tentang Kami telah diperbaharui! Info Iklan website Anda kini mengandung informasi terbaru.');
     }
 }

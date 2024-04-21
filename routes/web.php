@@ -82,6 +82,16 @@ Route::middleware(['auth', 'role:Admin,Penulis'])->group(function () {
             Route::put('/{id}', 'update')->name('update');
         });
 
-    Route::put('/admin/settings/profile', [SettingController::class, 'update'])->name('settings.updateProfile');
-    Route::put('/admin/settings/about-us', [SettingController::class, 'updateAboutUs'])->name('settings.updateAboutUs');
+    Route::controller(SettingController::class)
+        ->prefix('admin/settings')
+        ->as('settings.')
+        ->group(function () {
+            Route::put('/profile', 'update')->name('updateProfile');
+            Route::put('/about-us', 'updateAboutUs')->name('updateAboutUs');
+            Route::put('/advertisement', 'advertisement')->name('advertisement');
+            Route::put('/mediaGuidelines', 'mediaGuidelines')->name('mediaGuidelines');
+        });
+
+    // Route::put('/admin/settings/profile', [SettingController::class, 'update'])->name('settings.updateProfile');
+    // Route::put('/admin/settings/about-us', [SettingController::class, 'updateAboutUs'])->name('settings.updateAboutUs');
 });

@@ -1,35 +1,35 @@
 @section('seo')
     @props([
-        'title' => $settings->title,
-        'favicon' => Storage::url($settings->icon),
-        'canonical' => url()->current(),
+        'title' => $settings->title ?? '',
+        'favicon' => Storage::url($settings->icon) ?? '',
+        'canonical' => url()->current() ?? '',
         'description' =>
             $settings->description ??
             'sibanyu adalah media yang lahir dari desa. Berfilosofi dari air yang terus mengalir, menyajikan informasi dari hulu menyebar hingga ke hilir. Dengan visi "dari desa untuk bangsa", mendorong pembangunan bangsa dari desa.',
         'robots' => 'index,follow',
         'language' => 'id',
         'revisitAfter' => '7 days',
-        'author' => $settings->title,
+        'author' => $settings->title ?? '',
         'keywords' =>
             'berita terkini, informasi terbaru, highlight, topik hangat, pencerahan, diskusi, fakta menarik, inspiratif, pemikiran baru, kejutan, pembaruan',
 
         'ogUrl' => url()->current(),
-        'ogTitle' => $settings->title,
+        'ogTitle' => $settings->title ?? '',
         'ogDescription' =>
             $settings->description ??
             'sibanyu adalah media yang lahir dari desa. Berfilosofi dari air yang terus mengalir, menyajikan informasi dari hulu menyebar hingga ke hilir. Dengan visi "dari desa untuk bangsa", mendorong pembangunan bangsa dari desa.',
-        'ogSiteName' => $settings->title,
+        'ogSiteName' => $settings->title ?? '',
         'ogType' => 'article',
-        'ogImage' => Storage::url($settings->logo),
+        'ogImage' => Storage::url($settings->logo) ?? '',
 
         'twitterCard' => 'summary_large_image',
-        'twitterDomain' => url()->current(),
-        'twitterUrl' => url()->current(),
-        'twitterTitle' => $settings->title,
+        'twitterDomain' => url()->current() ?? '',
+        'twitterUrl' => url()->current() ?? '',
+        'twitterTitle' => $settings->title ?? '',
         'twitterDescription' =>
             $settings->description ??
             'sibanyu adalah media yang lahir dari desa. Berfilosofi dari air yang terus mengalir, menyajikan informasi dari hulu menyebar hingga ke hilir. Dengan visi "dari desa untuk bangsa", mendorong pembangunan bangsa dari desa.',
-        'twitterImage' => Storage::url($settings->logo),
+        'twitterImage' => Storage::url($settings->logo) ?? '',
     ])
 
     <title>{{ $title }}</title>

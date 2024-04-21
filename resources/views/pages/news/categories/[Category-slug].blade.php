@@ -15,7 +15,7 @@ State([
         ->select('title', 'slug', 'category_id', 'created_at', 'thumbnail', 'content')
         ->limit(5)
         ->get(),
-    'categories' => fn() => Cache::remember('categories_' . rand(), 30, fn() => Category::withCount('posts')->get(['name', 'posts_count'])),
+    'categories' => fn() => Cache::remember('categoriesCount', 30, fn() => Category::withCount('posts')->get(['name', 'posts_count'])),
     'category',
     'keywords_string ',
 ]);

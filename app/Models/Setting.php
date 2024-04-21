@@ -10,6 +10,20 @@ class Setting extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'logo', 'icon', 'contact', 'whatsapp', 'about'
+        'title',
+        'description',
+        'logo',
+        'icon',
+        'contact',
+        'whatsapp',
+        'about',
+        'facebook',
+        'twitter',
+        'instagram',
+        'youtube',
+        'tiktok',
+        'copyright',
+        'advertisement',
+        'mediaGuidelines',
     ];
 }

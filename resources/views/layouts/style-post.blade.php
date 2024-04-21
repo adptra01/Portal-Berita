@@ -460,51 +460,6 @@
         margin-left: var(--ck-inline-image-style-spacing);
     }
 
-    /* @ckeditor/ckeditor5-list/theme/list.css */
-    .ck-content ol {
-        list-style-type: decimal;
-    }
-
-    /* @ckeditor/ckeditor5-list/theme/list.css */
-    .ck-content ol ol {
-        list-style-type: lower-latin;
-    }
-
-    /* @ckeditor/ckeditor5-list/theme/list.css */
-    .ck-content ol ol ol {
-        list-style-type: lower-roman;
-    }
-
-    /* @ckeditor/ckeditor5-list/theme/list.css */
-    .ck-content ol ol ol ol {
-        list-style-type: upper-latin;
-    }
-
-    /* @ckeditor/ckeditor5-list/theme/list.css */
-    .ck-content ol ol ol ol ol {
-        list-style-type: upper-roman;
-    }
-
-    /* @ckeditor/ckeditor5-list/theme/list.css */
-    .ck-content ul {
-        list-style-type: disc;
-    }
-
-    /* @ckeditor/ckeditor5-list/theme/list.css */
-    .ck-content ul ul {
-        list-style-type: circle;
-    }
-
-    /* @ckeditor/ckeditor5-list/theme/list.css */
-    .ck-content ul ul ul {
-        list-style-type: square;
-    }
-
-    /* @ckeditor/ckeditor5-list/theme/list.css */
-    .ck-content ul ul ul ul {
-        list-style-type: square;
-    }
-
     /* @ckeditor/ckeditor5-highlight/theme/highlight.css */
     .ck-content .marker-yellow {
         background-color: var(--ck-highlight-marker-yellow);
@@ -628,5 +583,44 @@
         .ck-content .page-break::after {
             display: none;
         }
+    }
+
+    .ck-content ol {
+        list-style-type: decimal;
+        padding-left: 35px;
+        /* Menambahkan padding-left */
+    }
+
+    .ck-content ol li {
+        margin-bottom: 10px;
+    }
+
+    .ck-content ul {
+        list-style-type: disc;
+        padding-left: 35px;
+        /* Menambahkan padding-left */
+    }
+
+    .ck-content ul li {
+        margin-bottom: 10px;
+    }
+
+    .ck-content ul li::before {
+        content: "\25CF";
+        /* bullet bulat */
+        color: hsl(0, 0%, 0%);
+        margin-right: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: -20px;
+    }
+
+    .ck-content ol li::before {
+        content: counter(list-item) ". ";
+        color: hsl(0, 0%, 0%);
+        margin-right: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: -20px;
     }
 </style>

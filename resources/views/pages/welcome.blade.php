@@ -266,7 +266,7 @@ $categories = computed(function () {
                                             @endforeach
                                         </div>
                                         <!-- End Nav Card -->
-                                        <a href="{{ route('news.search-post') }}" class="mb-5">
+                                        <a href="{{ route('categories.index') }}" class="mb-5">
                                             <span
                                                 class="d-flex justify-content-center text-primary fw-bold fs-6 my-auto">Lihat
                                                 Kategori

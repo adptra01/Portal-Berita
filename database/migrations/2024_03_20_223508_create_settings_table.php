@@ -18,16 +18,16 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->string('icon')->nullable();
             $table->string('contact')->nullable();
-            $table->longText('about')->nullable();
             $table->string('whatsapp')->nullable();
+            $table->longText('about')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('youtube')->nullable();
             $table->string('tiktok')->nullable();
             $table->string('twitter')->nullable();
             $table->string('copyright')->nullable();
-            $table->longText('advert')->nullable();
-            $table->longText('instruction')->nullable();
+            $table->longText('advertisement')->nullable();
+            $table->longText('mediaGuidelines')->nullable();
             $table->timestamps();
         });
     }
