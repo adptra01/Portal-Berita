@@ -23,8 +23,6 @@ class SocialiteController extends Controller
             // Ambil user dari database berdasarkan google user id
             $userFromDatabase = User::where('google_id', $userFromGoogle->getId())->first();
 
-            // dd($userFromDatabase);
-
             // Jika tidak ada user, maka buat user baru
             if (!$userFromDatabase) {
                 $newUser = new User([

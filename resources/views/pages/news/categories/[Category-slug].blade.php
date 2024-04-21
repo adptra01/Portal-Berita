@@ -15,16 +15,22 @@ State([
         ->select('title', 'slug', 'category_id', 'created_at', 'thumbnail', 'content')
         ->limit(5)
         ->get(),
-    'categories' => fn() => Cache::remember('categoriesCount', 30, fn() => Category::withCount('posts')->get(['name', 'posts_count'])),
+    'categories',
     'category',
     'keywords_string ',
 ]);
 
 mount(function () {
     $base_keyword = ['berita terkini', 'informasi terbaru', 'highlight', 'topik hangat', 'pencerahan', 'diskusi', 'fakta menarik', 'inspiratif', 'pemikiran baru', 'kejutan', 'pembaruan'];
+
     $name_category = Category::pluck('name')->toArray();
+
     $keywords = array_merge($base_keyword, $name_category, [$this->category->name]);
     $this->keywords_string = implode(', ', $keywords);
+
+    $this->categories = Cache::remember('categoriesCount', now()->addMinutes(60), function () {
+        return Category::withCount('posts')->get(['name', 'posts_count']);
+    });
 });
 
 ?>

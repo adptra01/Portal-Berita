@@ -8,7 +8,9 @@ use App\Models\Setting;
 name('news.about-us');
 
 state([
-    'aboutUs' => fn() => Setting::select('about')->first()->about ?? null,
+    'settingPages' => fn() => Cache::remember('settingPages', now()->addWeeks(), function () {
+        return Setting::select('advertisement', 'mediaGuidelines', 'about')->first() ?? null;
+    }),
     // 'teams' => fn() => User::where('role', 'Penulis')->select('name', 'role')->get(),
 ]);
 
@@ -24,7 +26,7 @@ state([
                 <div class="text-base">
                     <h2 class="fw-bold text-center">Tentang Kami</h2>
                     <div class="ck-content">
-                        {!! $aboutUs !!}
+                        {!! $settingPages->about !!}
                     </div>
                 </div>
             </div>

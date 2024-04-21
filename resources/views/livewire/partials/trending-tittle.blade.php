@@ -12,7 +12,6 @@ $trendingTitles = computed(function () {
 <div>
     <div class="trending-tittle">
         <strong class="bg-primary text-white px-3">Trending</strong>
-        <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
         <div class="trending-animated">
             <ul id="js-news" class="js-hidden">
                 @foreach ($this->trendingTitles as $item)

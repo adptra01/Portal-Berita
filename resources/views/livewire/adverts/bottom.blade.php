@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 state(['bottomAdverts']);
 
 mount(function () {
-    $this->bottomAdverts = Cache::remember('bottomAdverts', now()->addMinutes(10), function () {
+    $this->bottomAdverts = Cache::remember('bottomAdverts', today()->addDay(), function () {
         return Advert::wherePosition('bottom')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->get();
     });
 });

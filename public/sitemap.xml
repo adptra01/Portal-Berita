@@ -2,337 +2,137 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://localhost/welcome</loc>
-        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-21T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://localhost/news/about-us</loc>
-        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-21T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/advert</loc>
-        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-21T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/all-post</loc>
-        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-21T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/categories</loc>
-        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-21T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/contact</loc>
-        <lastmod>2024-04-19T00:00:00+07:00</lastmod>
+        <lastmod>2024-04-21T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/pertamina-tak-ada-ketergantungan-bbm-dari-timur-tengah-h2</loc>
+        <loc>http://localhost/news/post/banyaknya-pelanggaran-jadi-penyebab-kekalahan-satya-wacana-FS</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/hingga-pertengahan-april-stok-beras-capai-126-juta-ton-cX</loc>
+        <loc>http://localhost/news/post/pelatih-apresiasi-mentalitas-pemain-ksb-yang-curi-kemenangan-dari-sm-ku</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/kemenhub-tak-temukan-tiket-pesawat-di-atas-tba-saat-angkutan-lebaran-rK</loc>
+        <loc>http://localhost/news/post/lester-prosper-tak-puas-dengan-42-poin-dan-10-kemenangan-dewa-united-ja</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/mengingatkan-sejarah-padang-kembali-gelar-festival-muaro-OP</loc>
+        <loc>http://localhost/news/post/kemenangan-hangtuah-atas-satya-wacana-jadi-modal-menuju-playoff-LO</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/pengelola-geyser-cisolok-sukabumi-lakukan-digitalisasi-layanan-Qk</loc>
+        <loc>http://localhost/news/post/dewa-united-raih-10-kemenangan-beruntun-kalahkan-bali-united-113-81-R1</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/bni-salurkan-paket-sembako-untuk-korban-erupsi-gunung-ruang-pB</loc>
+        <loc>http://localhost/news/post/tiga-poin-kevin-poetiray-bawa-ksb-permalukan-sm-69-66-rk</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/kemendag-sebut-pembelian-produk-lokal-di-e-commerce-naik-J8</loc>
+        <loc>http://localhost/news/post/hangtuah-petik-kemenangan-kandang-90-81-dari-satya-wacana-qi</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/barantin-usul-twin-quarantine-port-pada-dialog-tingkat-tinggi-ri-china-B9</loc>
+        <loc>http://localhost/news/post/megawati-siap-bidik-gelar-juara-proliga-perdana-v8</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/sandiaga-ip-branding-project-bali-tingkatkan-ekspor-produk-umkm-PS</loc>
+        <loc>http://localhost/news/post/sasirangan-terpanjang-jadi-suguhan-istimewa-porwanas-2024-GN</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/kemenperin-gandeng-dekranas-guna-pacu-kerajinan-tenun-di-ambon-sk</loc>
+        <loc>http://localhost/news/post/sirkuit-mandalika-siap-selenggarakan-jdm-funday-2024-kx</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/djka-kemenhub-angkut-12733-motor-mudik-gratis-saat-angkutan-lebaran-tF</loc>
+        <loc>http://localhost/news/post/wolff-akui-performa-mercedes-tidak-cukup-baik-dalam-gp-china-J2</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/kemendag-sebut-evaluasi-het-minyakita-selesai-sebelum-oktober-2024-EH</loc>
+        <loc>http://localhost/news/post/kemenpora-sebut-laga-lawan-red-sparks-bangkitkan-olahraga-voli-IS</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/erupsi-gunung-ruang-14-penerbangan-di-bandara-hasanuddin-dibatalkan-Hw</loc>
+        <loc>http://localhost/news/post/sigit-siap-bantu-gembleng-mental-palembang-bank-sumsel-babel-bE</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/kementan-dorong-penyuluh-di-kebumen-purworejo-perluas-areal-tanam-So</loc>
+        <loc>http://localhost/news/post/palembang-bank-sumsel-babel-resmi-dapatkan-armin-afshin-eF</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/spklu-tetap-layani-pengguna-mobil-listrik-di-lampung-h8</loc>
+        <loc>http://localhost/news/post/pelita-jaya-masih-tak-terbendung-kalahkan-borneo-98-80-YL</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/bph-migas-penyaluran-bbm-dan-lpg-aman-selama-lebaran-2024-jK</loc>
+        <loc>http://localhost/news/post/palembang-sumsel-babel-bidik-final-four-proliga-2024-Z7</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/pangdam-brawijaya-akan-dampingi-petani-maksimalkan-sawah-tadah-hujan-Nb</loc>
+        <loc>http://localhost/news/post/koi-harap-memo-pacu-semangat-atlet-lain-lolos-ikuti-olimpiade-paris-kW</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/pln-amankan-jaringan-listrik-pascaletusan-gunung-ruang-49</loc>
+        <loc>http://localhost/news/post/race-2-arrc-sirkuit-zhuhai-dibatalkan-karena-cuaca-buruk-EH</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/wali-kota-semarang-respons-keluhan-kelangkaan-elpiji-melon-di-pasaran-B7</loc>
+        <loc>http://localhost/news/post/verstappen-kunci-kemenangan-gp-china-untuk-kali-pertama-z8</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/news/post/gac-aion-ingin-menjadikan-indonesia-sebagai-tempat-produksi-xG</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/china-komentari-berlanjutnya-pelepasan-air-olahan-pltn-fukushima-FU</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pm-inggris-eskalasi-di-timur-tengah-tidak-menguntungkan-siapa-pun-PF</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/china-protes-ancaman-kenaikan-tarif-baja-dan-aluminium-oleh-as-IJ</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/beijing-veto-as-di-dk-pbb-hancurkan-impian-rakyat-palestina-xf</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/china-harap-semua-pihak-redakan-situasi-pasca-laporan-serangan-ke-iran-6N</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/uni-eropa-ada-tanda-deeskalasi-setelah-serangan-israel-ke-iran-tF</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/selandia-baru-kucurkan-rp403-miliar-untuk-transisi-hijau-asia-tenggara-rl</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/kemlu-sebut-veto-as-atas-palestina-di-pbb-khianati-aspirasi-global-bP</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pembelajar-bahasa-indonesia-meningkat-kbri-canberra-kirim-guru-bantu-y5</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pbb-peringatkan-perang-di-rakhine-kembali-ancam-rohingya-aG</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/israel-serang-iran-sekjen-pbb-kutuk-siklus-tindakan-pembalasan-Q7</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/g7-serukan-semua-negara-agar-kurangi-impor-energi-dari-rusia-Nf</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/batik-air-tangguhkan-rute-ke-istanbul-buntut-situasi-timur-tengah-6h</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/kremlin-berbagai-pihak-dalam-konflik-iran-israel-perlu-tahan-diri-9G</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/musisi-indonesia-gelar-aksi-damai-tuntut-hentikan-genosida-gaza-FS</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/laporan-media-sebut-israel-tembakkan-rudal-ke-aset-au-iran-BS</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/lima-wn-jepang-selamat-dari-serangan-bom-bunuh-diri-di-pakistan-AB</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/hujan-deras-berakhir-mesir-lanjutkan-penerbangan-ke-dubai-AS</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/australia-desak-warganya-segera-tinggalkan-israel-34</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/gempa-bermagnitudo-56-guncang-provinsi-tokat-turki-utara-wc</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pasar-tradisional-masomba-kota-palu-terbakar-be</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/bkkbn-ri-tunjuk-kecamatan-mandastana-gulirkan-bangga-kencana-p7</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/inspeksi-puskesmas-pemkot-lhokseumawe-stok-obat-aman-Od</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/bkkbn-ri-jadikan-banjar-sebagai-percontohan-kampung-kb-2024-f1</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/kementerian-pppa-remaja-korban-pemerkosaan-dan-tppo-masih-trauma-2h</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pemkab-sukabumi-paparkan-kejadian-sebelum-calon-paskibra-meninggal-4p</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/bali-jadi-lokasi-dialog-forum-keharmonisan-peradaban-dunia-a6</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pemkab-lumajang-data-jembatan-rusak-akibat-banjir-lahar-semeru-a3</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/tiga-bocah-hanyut-terseret-ombak-di-trenggalek-satu-meninggal-vl</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pemkab-lumajang-tetapkan-status-tanggap-darurat-bencana-14-hari-27</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/menteri-bintang-dengar-kisah-mitra-inklusi-dampingi-perempuan-marjinal-9m</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pakar-ugm-anemia-aplastik-akibat-obat-sakit-kepala-jarang-terjadi-eN</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/calon-anggota-paskibra-meninggal-saat-melaksanakan-uji-kesamaptaan-g7</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/warga-tambun-utara-bekasi-mulai-bersihkan-sisa-banjir-kiriman-Vf</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/komnas-sebut-urgensi-penguatan-pelayanan-perempuan-dan-anak-di-polri-5u</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/seorang-pelajar-sman-1-cisaat-meninggal-saat-ikut-seleksi-paskibra-2O</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pemkot-bogor-terbitkan-perwali-pedoman-pelaksanaan-ppdb-F1</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pemko-lhokseumawe-bentuk-perwal-untuk-transparansi-zakat-bm</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/bantuan-untuk-korban-banjir-di-lebong-bengkulu-terus-berdatangan-Dt</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pertamina-salurkan-bantuan-untuk-warga-terdampak-letusan-gunung-ruang-9m</loc>
+        <loc>http://localhost/news/post/kepala-bin-optimistis-jakarta-stin-bin-juarai-proliga-2024-fZ</loc>
             <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>

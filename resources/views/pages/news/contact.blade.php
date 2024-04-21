@@ -37,6 +37,7 @@ $submit = function () {
                     @volt
                         <div>
                             <form wire:submit.prevent="submit">
+                                @csrf
                                 <div class="justify-content-center">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Nama Lengkap</label>

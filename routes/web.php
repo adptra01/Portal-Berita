@@ -34,16 +34,6 @@ Route::get('login/google/callback', [SocialiteController::class, 'callback'])
     ->middleware(['guest'])
     ->name('callback');
 
-Route::get('/optimize-clear', function () {
-    Artisan::call('optimize:clear');
-    Artisan::call('optimize');
-    return back()->with('success', 'Optimize berhasil dilakukan');
-})->name('optimize');
-
-Route::get('/run-schedule', function () {
-    Artisan::call('schedule:run');
-    return back()->with('success', 'Pekerjaan berhasil dilakukan');
-})->name('schedule');
 
 Route::prefix('cms')->group(function () {
     Auth::routes([
@@ -92,6 +82,14 @@ Route::middleware(['auth', 'role:Admin,Penulis'])->group(function () {
             Route::put('/mediaGuidelines', 'mediaGuidelines')->name('mediaGuidelines');
         });
 
-    // Route::put('/admin/settings/profile', [SettingController::class, 'update'])->name('settings.updateProfile');
-    // Route::put('/admin/settings/about-us', [SettingController::class, 'updateAboutUs'])->name('settings.updateAboutUs');
+    Route::get('/optimize-clear', function () {
+        Artisan::call('optimize:clear');
+        Artisan::call('optimize');
+        return back()->with('success', 'Optimize berhasil dilakukan');
+    })->name('optimize');
+
+    Route::get('/run-schedule', function () {
+        Artisan::call('schedule:run');
+        return back()->with('success', 'Pekerjaan berhasil dilakukan');
+    })->name('schedule');
 });

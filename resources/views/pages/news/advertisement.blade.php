@@ -7,7 +7,7 @@ use App\Models\Setting;
 name('news.advertisement');
 
 state([
-    'settingPages' => fn() => Cache::remember('settingPages', 30, function () {
+    'settingPages' => fn() => Cache::remember('settingPages', now()->addWeeks(), function () {
         return Setting::select('advertisement', 'mediaGuidelines', 'about')->first() ?? null;
     }),
 ]);

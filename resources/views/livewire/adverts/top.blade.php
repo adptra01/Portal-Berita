@@ -7,7 +7,7 @@ use App\Models\Advert;
 state(['topAdverts']);
 
 mount(function () {
-    $this->topAdverts = Cache::remember('topAdverts', now()->addMinutes(10), function () {
+    $this->topAdverts = Cache::remember('topAdverts', today()->addDay(), function () {
         return Advert::wherePosition('top')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->get();
     });
 });

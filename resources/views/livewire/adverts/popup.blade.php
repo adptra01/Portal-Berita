@@ -7,7 +7,7 @@ use App\Models\Advert;
 state(['popAdverts']);
 
 mount(function () {
-    $this->popAdverts = Cache::remember('popAdverts', now()->addMinutes(10), function () {
+    $this->popAdverts = Cache::remember('popAdverts', today()->addDay(), function () {
         return Advert::wherePosition('popup')->where('end_date', '>=', today())->select('link', 'image', 'alt')->orderBy('updated_at')->first();
     });
 });

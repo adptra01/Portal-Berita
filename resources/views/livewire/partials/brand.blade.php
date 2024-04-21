@@ -4,7 +4,7 @@ use function Livewire\Volt\{state, mount};
 use App\Models\Setting;
 
 state([
-    'setting' => fn() => Cache::remember('brand_partial', now()->addDays(1), function () {
+    'setting' => fn() => Cache::remember('brand_partial', now()->addWeeks(), function () {
         return Setting::select('title', 'description', 'logo', 'copyright', 'facebook', 'instagram', 'twitter', 'youtube', 'tiktok')->first();
     }),
 ]);

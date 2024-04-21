@@ -8,7 +8,6 @@ use App\Models\Category;
 state(['relatedNews']);
 
 mount(function () {
-
     $this->relatedNews = Post::with('category')->where('status', true)->inRandomOrder()->select('slug', 'title', 'thumbnail', 'category_id')->take(5)->get();
 });
 

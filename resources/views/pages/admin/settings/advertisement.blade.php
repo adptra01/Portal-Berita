@@ -43,7 +43,7 @@ state([
                                         class="bx bx-command fs-6"></i></span>
                                 <div class="d-flex flex-column ps-1">
                                     <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Tips!</h6>
-                                    <p>Sebelum Anda mengisi "Tentang Kami", kami ingin memberikan beberapa panduan
+                                    <p>Sebelum Anda mengisi "Info Iklan", kami ingin memberikan beberapa panduan
                                         yang
                                         penting:</p>
                                     <ul>
@@ -56,7 +56,7 @@ state([
                                             atau kata
                                             sandi.</li>
                                         <li>Pastikan untuk memeriksa kembali setiap detail sebelum menyimpannya.</li>
-                                        <li>Informasi yang Anda masukkan akan ditampilkan di halaman "Tentang Kami" dan
+                                        <li>Informasi yang Anda masukkan akan ditampilkan di halaman "Info Iklan" dan
                                             dapat
                                             diakses oleh
                                             pengunjung website.</li>
