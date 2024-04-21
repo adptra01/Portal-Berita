@@ -119,7 +119,13 @@ mount(function () {
                                         </div>
 
                                         <!-- User Comment -->
-                                        <livewire:partials.comment :post="$post" />
+                                        <div class="mb-5 pb-5 pb-lg-0">
+                                            <livewire:partials.comment :post="$post" />
+                                        </div>
+
+                                        <div class="d-none d-lg-block py-3">
+                                            @livewire('adverts.bottom')
+                                        </div>
                                     </div>
 
                                 </div>
@@ -128,6 +134,9 @@ mount(function () {
                                         <livewire:partials.related-news>
                                             <!-- New Poster -->
                                             @livewire('adverts.side')
+                                            <div class="d-block d-lg-none">
+                                                @livewire('adverts.bottom')
+                                            </div>
                                     </div>
                                 </div>
                             </div>
