@@ -15,7 +15,7 @@ rules(['name' => 'required|min:6', 'email' => 'required|email', 'message' => 're
 $submit = function () {
     $data = $this->validate();
 
-    Mail::to('sibanyu68@gmail.com')->send(new ContactUs($data));
+    Mail::to('hasratama@sibanyu.com')->send(new ContactUs($data));
 
     $this->reset(['name', 'email', 'message']);
 };
