@@ -44,37 +44,23 @@ mount(function () {
                             <div class="row">
                                 <div class="col-lg-8 posts-list">
                                     <div class="sticky-top" style="z-index: 1;">
-                                        <a href="{{ auth()->user()->role === 'admin'
+                                        <a href="{{ auth()->user()->role === 'Admin'
                                             ? route('posts.edit', ['post' => $post->id])
                                             : route('writer-posts.edit', ['post' => $post->id]) }}"
                                             class="fw-bold text-primary">
                                             < Kembali </a>
 
-                                                <div class="alert alert-primary d-flex" role="alert">
-                                                    <span
-                                                        class="badge badge-center rounded-pill bg-primary border-label-primary p-3 me-2"><i
-                                                            class="bx bx-command fs-6"></i></span>
-                                                    <div class="d-flex flex-column ps-1">
-                                                        <h6 class="alert-heading d-flex align-items-center mb-1 fw-bold">
-                                                            Informasi</h6>
-                                                        <span>
-                                                            Berita saat ini berstatus
-                                                            <strong>
-                                                                {{ $post->status == 1 ? 'Terbit' : 'Tidak Terbit' }}</strong>
-                                                        </span>
-                                                    </div>
-                                                </div>
                                                 <div class="section-tittle">
                                                     <h2 class="fw-bold text-capitalize">{{ $post->title }}</h2>
-                                                    <p class="fw-normal">SIBANYU -
-                                                        {{ $post->created_at->locale('id')->diffForHumans() }}
+                                                    <p class="fw-normal">sibanyu,
+                                                        {{ $post->created_at->format('d-m-Y') }}
                                                     </p>
                                                     <div class="row justify-content-start mb-4">
-                                                        <div class="col-auto p-0 ml-3">
-                                                            <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $post->user->name ?? 'Penulis' }}"
-                                                                class="rounded border-0" style="width: 55px"
-                                                                alt="{{ $post->user->name }}" loading="lazy">
-                                                        </div>
+                                                        {{-- <div class="col-auto p-0 ml-3">
+                                                    <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $post->user->name ?? 'Penulis' }}"
+                                                        class="rounded border-0" style="width: 55px"
+                                                        alt="{{ $post->user->name }}" loading="lazy">
+                                                </div> --}}
                                                         <div class="col-auto">
                                                             <p class="m-0 fw-bold">{{ $post->user->name ?? 'Admin' }}</p>
                                                             <small class="m-0 text-secondary">Penulis</small>
@@ -82,10 +68,11 @@ mount(function () {
                                                     </div>
                                                 </div>
                                                 <div class="single-post">
-                                                    <div class="feature-img">
+                                                    <div class="feature-img mb-3">
                                                         <img class="img-fluid w-100"
                                                             src="{{ Storage::url($post->thumbnail) }}"
                                                             alt="{{ $post->alt ?? $post->title }}" loading="lazy">
+                                                        <small>{{ $post->alt ?? '' }}</small>
                                                     </div>
                                                     <div class="ck-content">
                                                         {!! $post->content !!}
@@ -95,13 +82,6 @@ mount(function () {
                                                     <div
                                                         class="d-sm-flex justify-content-between text-center align-items-center">
 
-                                                        <!-- User View -->
-                                                        {{-- <p class="like-info fw-bold">
-                                                <span class="align-middle">
-                                                    <i class='bx bx-heart '></i> </span>
-                                                123 Suka
-                                            </p> --}}
-
                                                         <p class="like-info fw-bold">
                                                             <span class="align-middle">
                                                                 <i class="bx bx-happy-heart-eyes"></i>
@@ -109,12 +89,7 @@ mount(function () {
                                                             {{ $post->viewer }} Dilihat
                                                         </p>
 
-                                                        {{-- <p class="like-info fw-bold">
-                                                <span class="align-middle">
-                                                    <i class='bx bx-message-rounded-dots'></i>
-                                                </span>
-                                                {{ $this->comments->count() }} Komentar
-                                            </p> --}}
+
                                                         <div class="col-sm-4 text-center my-2 my-sm-0">
                                                             <ul class="social-icons">
                                                                 <li>
@@ -146,7 +121,17 @@ mount(function () {
 
                                                     </div>
                                                 </div>
+
+                                                <div class="d-none d-lg-block py-3">
+                                                    <div class="card">
+                                                        <div class="card-body align-content-center text-center bg-secondary rounded"
+                                                            style="height: 500px; width: 100%">
+                                                            <h3 class="fw-bold text-white">Contoh Iklan</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                     </div>
+
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="blog_right_sidebar sticky-top" style="padding-top: 5.5rem; z-index: 1;">

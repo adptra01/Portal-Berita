@@ -44,21 +44,44 @@ state([
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="thumbnail" class="form-label">Gambar
-                                / Thumbnail
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input type="file"
-                                class="form-control @error('thumbnail')
-                        is-invalid
-                        @enderror"
-                                name="thumbnail" id="thumbnail" placeholder="Masukkan Gambar Thumbnail Berita"
-                                accept="image/*" required />
-                            @error('thumbnail')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
+
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="mb-3">
+                                    <label for="thumbnail" class="form-label">Gambar
+                                        / Thumbnail
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file"
+                                        class="form-control @error('thumbnail')
+                                is-invalid
+                                @enderror"
+                                        name="thumbnail" id="thumbnail" placeholder="Masukkan Gambar Thumbnail Berita"
+                                        accept="image/*" required />
+                                    @error('thumbnail')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="mb-3">
+                                    <label for="alt" class="form-label">Deskripi Gambar
+                                        / alt
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                        class="form-control @error('alt')
+                                is-invalid
+                                @enderror"
+                                        name="alt" id="alt" placeholder="Masukkan deskripsi / alt Berita"
+                                        required />
+                                    @error('alt')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
+
 
                         <div class="mb-3">
                             <label for="keyword" class="form-label">Keyword

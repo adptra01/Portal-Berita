@@ -10,9 +10,9 @@ name('news.read');
 state(['post', 'description']);
 
 mount(function () {
-    $post = Post::with(['user'])
+    $post = Post::with('user')
         ->active()
-        ->select('id', 'title', 'slug', 'content', 'thumbnail', 'created_at', 'viewer', 'user_id', 'keyword')
+        ->select('id', 'title', 'slug', 'content', 'thumbnail', 'created_at', 'viewer', 'user_id', 'keyword', 'alt')
         ->find($this->post->id);
 
     $this->description = Str::limit($post->content, 100, '...');
@@ -50,8 +50,8 @@ mount(function () {
 
                                         <div class="section-tittle">
                                             <h2 class="fw-bold text-capitalize">{{ $post->title }}</h2>
-                                            <p class="fw-normal">SIBANYU -
-                                                {{ $post->created_at->locale('id')->diffForHumans() }}
+                                            <p class="fw-normal">sibanyu,
+                                                {{ $post->created_at->format('d-m-Y') }}
                                             </p>
                                             <div class="row justify-content-start mb-4">
                                                 {{-- <div class="col-auto p-0 ml-3">
@@ -69,7 +69,7 @@ mount(function () {
                                             <div class="feature-img mb-3">
                                                 <img class="img-fluid w-100" src="{{ Storage::url($post->thumbnail) }}"
                                                     alt="{{ $post->alt ?? $post->title }}" loading="lazy">
-                                                <small class="fw-bold">{{ $post->alt ?? '' }}</small>
+                                                <small>{{ $post->alt ?? '' }}</small>
                                             </div>
                                             <div class="ck-content">
                                                 {!! $post->content !!}

@@ -23,7 +23,8 @@ class PostRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5|string',
-            'content' => 'required|min:10',
+            'alt' => 'nullable|string',
+            'content' => 'required|min:10|string',
             'category_id' => 'required|exists:categories,id',
             'status' => 'required|boolean',
         ];

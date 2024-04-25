@@ -72,6 +72,13 @@ state(['post', 'categories' => fn() => Category::select('id', 'name')->get()]);
                         </div>
 
                         <div class="mb-3 row">
+                            <p class="col-md-2 fw-bold">Deksripsi Gambar</p>
+                            <div class="col-md-10">
+                                <p>: {{ $post->alt ?? '' }}</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
                             <p class="col-md-2 fw-bold">ID</p>
                             <div class="col-md-10">
                                 <p>: {{ $post->id }}</p>

@@ -23,6 +23,7 @@ class Post extends Model
         'status',
         'user_id',
         'viewer',
+        'alt'
     ];
 
     public function scopeFilterBySearch($query, $search)
