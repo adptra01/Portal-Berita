@@ -42,37 +42,27 @@ mount(function () {
                     <section class="blog_area single-post-area">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-8 posts-list">
-                                    <div class="sticky-top" style="z-index: 1;">
-                                        <a href="{{ auth()->user()->role === 'Admin'
-                                            ? route('posts.edit', ['post' => $post->id])
-                                            : route('writer-posts.edit', ['post' => $post->id]) }}"
-                                            class="fw-bold text-primary">
-                                            < Kembali </a>
+                                <a href="{{ auth()->user()->role === 'Admin'
+                                    ? route('posts.edit', ['post' => $post->id])
+                                    : route('writer-posts.edit', ['post' => $post->id]) }}"
+                                    class="fw-bold text-primary">
+                                    < Kembali </a>
+                                        <div class="col-lg-8 posts-list">
+                                            <div class="sticky-top" style="z-index: 1;">
 
                                                 <div class="section-tittle">
                                                     <h2 class="fw-bold text-capitalize">{{ $post->title }}</h2>
-                                                    <p class="fw-normal">sibanyu,
-                                                        {{ $post->created_at->format('d-m-Y') }}
+                                                    <p class="fw-semibold mb-0 fs-6">sibanyu,
+                                                        {{ $post->created_at->format('d M Y') }}
                                                     </p>
-                                                    <div class="row justify-content-start mb-4">
-                                                        {{-- <div class="col-auto p-0 ml-3">
-                                                    <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $post->user->name ?? 'Penulis' }}"
-                                                        class="rounded border-0" style="width: 55px"
-                                                        alt="{{ $post->user->name }}" loading="lazy">
-                                                </div> --}}
-                                                        <div class="col-auto">
-                                                            <p class="m-0 fw-bold">{{ $post->user->name ?? 'Admin' }}</p>
-                                                            <small class="m-0 text-secondary">Penulis</small>
-                                                        </div>
-                                                    </div>
+                                                    <p class="fs-6">{{ $post->user->name ?? 'Admin' }}</p>
                                                 </div>
                                                 <div class="single-post">
                                                     <div class="feature-img mb-3">
                                                         <img class="img-fluid w-100"
                                                             src="{{ Storage::url($post->thumbnail) }}"
                                                             alt="{{ $post->alt ?? $post->title }}" loading="lazy">
-                                                        <small>{{ $post->alt ?? '' }}</small>
+                                                        <p style="font-size: 10px">{{ $post->alt ?? '' }}</p>
                                                     </div>
                                                     <div class="ck-content">
                                                         {!! $post->content !!}
@@ -118,45 +108,40 @@ mount(function () {
                                                                 </li>
                                                             </ul>
                                                         </div>
-
                                                     </div>
                                                 </div>
 
                                                 <div class="d-none d-lg-block py-3">
+                                                    @livewire('adverts.bottom')
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="blog_right_sidebar sticky-top"
+                                                style="padding-top: 5.5rem; z-index: 1;">
+                                                <livewire:partials.related-news>
+                                                    <!-- New Poster -->
                                                     <div class="card">
                                                         <div class="card-body align-content-center text-center bg-secondary rounded"
-                                                            style="height: 500px; width: 100%">
+                                                            style="height: 200px; width: 100%">
                                                             <h3 class="fw-bold text-white">Contoh Iklan</h3>
                                                         </div>
                                                     </div>
-                                                </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="blog_right_sidebar sticky-top" style="padding-top: 5.5rem; z-index: 1;">
-                                        <livewire:partials.related-news>
-                                            <!-- New Poster -->
-                                            <div class="card">
-                                                <div class="card-body align-content-center text-center bg-secondary rounded"
-                                                    style="height: 200px; width: 100%">
-                                                    <h3 class="fw-bold text-white">Contoh Iklan</h3>
-                                                </div>
+                                                    <div class="card">
+                                                        <div class="card-body align-content-center text-center bg-secondary rounded"
+                                                            style="height: 200px; width: 100%">
+                                                            <h3 class="fw-bold text-white">Contoh Iklan</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-body align-content-center text-center bg-secondary rounded"
+                                                            style="height: 200px; width: 100%">
+                                                            <h3 class="fw-bold text-white">Contoh Iklan</h3>
+                                                        </div>
+                                                    </div>
                                             </div>
-                                            <div class="card">
-                                                <div class="card-body align-content-center text-center bg-secondary rounded"
-                                                    style="height: 200px; width: 100%">
-                                                    <h3 class="fw-bold text-white">Contoh Iklan</h3>
-                                                </div>
-                                            </div>
-                                            <div class="card">
-                                                <div class="card-body align-content-center text-center bg-secondary rounded"
-                                                    style="height: 200px; width: 100%">
-                                                    <h3 class="fw-bold text-white">Contoh Iklan</h3>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </div>
+                                        </div>
                             </div>
                         </div>
                     </section>

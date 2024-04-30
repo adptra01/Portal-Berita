@@ -50,26 +50,16 @@ mount(function () {
 
                                         <div class="section-tittle">
                                             <h2 class="fw-bold text-capitalize">{{ $post->title }}</h2>
-                                            <p class="fw-normal">sibanyu,
-                                                {{ $post->created_at->format('d-m-Y') }}
+                                            <p class="fw-semibold mb-0 fs-6">sibanyu,
+                                                {{ $post->created_at->format('d M Y') }}
                                             </p>
-                                            <div class="row justify-content-start mb-4">
-                                                {{-- <div class="col-auto p-0 ml-3">
-                                                    <img src="https://api.dicebear.com/7.x/lorelei/svg?seed={{ $post->user->name ?? 'Penulis' }}"
-                                                        class="rounded border-0" style="width: 55px"
-                                                        alt="{{ $post->user->name }}" loading="lazy">
-                                                </div> --}}
-                                                <div class="col-auto">
-                                                    <p class="m-0 fw-bold">{{ $post->user->name ?? 'Admin' }}</p>
-                                                    <small class="m-0 text-secondary">Penulis</small>
-                                                </div>
-                                            </div>
+                                            <p class="fs-6">{{ $post->user->name ?? 'Admin' }}</p>
                                         </div>
                                         <div class="single-post">
                                             <div class="feature-img mb-3">
                                                 <img class="img-fluid w-100" src="{{ Storage::url($post->thumbnail) }}"
                                                     alt="{{ $post->alt ?? $post->title }}" loading="lazy">
-                                                <small>{{ $post->alt ?? '' }}</small>
+                                                <p style="font-size: 10px">{{ $post->alt ?? '' }}</p>
                                             </div>
                                             <div class="ck-content">
                                                 {!! $post->content !!}

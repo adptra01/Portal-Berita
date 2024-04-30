@@ -1,6 +1,20 @@
 <form action="{{ route('posts.update', $post->id) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method('PUT')
+
+    <div class="alert alert-warning d-flex" role="alert">
+        <span class="badge badge-center rounded-pill bg-warning border-label-warning p-3 me-2"><i
+                class="bx bx-error bx-flashing-hover fs-6"></i>
+        </span>
+        <div class="d-flex flex-column ps-1">
+            <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Peringatan!
+            </h6>
+            <span>Jangan mengunggah gambar yang sama kecuali ada perubahan yang ingin
+                dilakukan pada
+                gambar tersebut.</span>
+        </div>
+    </div>
+    
     <div class="mb-3">
         <label for="" class="form-label">Judul Berita
             <span class="text-danger">*</span>
@@ -12,30 +26,41 @@
         @enderror
     </div>
 
-    <div class="mb-3">
-        <div class="alert alert-warning d-flex" role="alert">
-            <span class="badge badge-center rounded-pill bg-warning border-label-warning p-3 me-2"><i
-                    class="bx bx-error bx-flashing-hover fs-6"></i>
-            </span>
-            <div class="d-flex flex-column ps-1">
-                <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Peringatan!
-                </h6>
-                <span>Jangan mengunggah gambar yang sama kecuali ada perubahan yang ingin
-                    dilakukan pada
-                    gambar tersebut.</span>
+
+    <div class="row">
+        <div class="col-md">
+            <div class="mb-3">
+                <label for="thumbnail" class="form-label">Gambar
+                    / Thumbnail
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="file"
+                    class="form-control @error('thumbnail')
+                                is-invalid
+                                @enderror"
+                    name="thumbnail" id="thumbnail" placeholder="Masukkan Gambar Thumbnail Berita" accept="image/*" />
+                @error('thumbnail')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
         </div>
-        <label for="thumbnail" class="form-label">Gambar
-            / Thumbnail
-            <span class="text-danger">*</span>
-        </label>
-        <input type="file" class="form-control @error('thumbnail')
-    is-invalid
-    @enderror" name="thumbnail"
-            id="thumbnail" placeholder="Masukkan Gambar Thumbnail Berita" accept="image/*" />
-        @error('thumbnail')
-            <small class="text-danger">{{ $message }}</small>
-        @enderror
+        <div class="col-md">
+            <div class="mb-3">
+                <label for="alt" class="form-label">Deskripi Gambar
+                    / alt
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text"
+                    class="form-control @error('alt')
+                                is-invalid
+                                @enderror"
+                    name="alt" id="alt" value="{{ $post->alt }}"
+                    placeholder="Masukkan deskripsi / alt Berita" required />
+                @error('alt')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+        </div>
     </div>
 
     <div class="mb-3">

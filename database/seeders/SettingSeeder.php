@@ -18,7 +18,7 @@ class SettingSeeder extends Seeder
             'contact' => '6285384075252',
             'whatsapp' => '6285384075252',
             'facebook' => 'https://www.facebook.com/profile.php?id=61558696855733&mibextid=kFxxJD',
-            'instagram' => 'https://youtube.com/@sibanyu?si=DbiUHV97A0Pk_1dR',
+            'instagram' => 'https://www.instagram.com/sibanyucom?igsh=azhrNTdrdXprN2N0',
             'youtube' => 'https://youtube.com/@sibanyu?si=DbiUHV97A0Pk_1dR',
             'tiktok' => 'https://www.tiktok.com/@sibanyu0?_t=8lcaxI92HWG&_r=1',
             'twitter' => 'https://x.com/sibanyucom?t=wdrZLB1HkXrBynuItDEahw&s=08',
