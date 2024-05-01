@@ -167,15 +167,15 @@ $updateProfileInformation = function (user $user) {
                                         </div>
                                 @endif
                             </div>
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+
+                            </form>
                     </div>
 
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary">
-                            Submit
-                        </button>
-                    </div>
-
-                    </form>
                 </div>
             </div>
         </div>
