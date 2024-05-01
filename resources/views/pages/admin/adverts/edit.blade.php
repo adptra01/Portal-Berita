@@ -80,7 +80,7 @@
 
         <div class="col-md">
             <div class="mb-3">
-                <label for="position" class="form-label">position Iklan <strong class="text-danger">*</strong>
+                <label for="position" class="form-label">Letak Iklan <strong class="text-danger">*</strong>
                 </label>
                 <select class="form-select @error('position') is-invalid @enderror" name="position" id="position">
                     @foreach ($advertTypes as $key => $value)

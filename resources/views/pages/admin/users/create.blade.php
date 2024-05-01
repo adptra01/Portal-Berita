@@ -73,7 +73,7 @@ name('users.create');
                                 <label for="role" class="form-label">Role</label>
                                 <select class="form-select @error('role') is-invalid @enderror" name="role"
                                     id="role">
-                                    <option selected disabled>Select one</option>
+                                    <option selected disabled>Pilih satu</option>
                                     <option value="Pengunjung">Pengunjung</option>
                                     <option value="Penulis">Penulis</option>
                                     <option value="Admin">Admin</option>

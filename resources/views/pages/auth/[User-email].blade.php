@@ -153,7 +153,7 @@ $updateProfileInformation = function (user $user) {
                                             <label for="role" class="form-label">Role</label>
                                             <select class="form-select @error('role') is-invalid @enderror"
                                                 wire:model="role" id="role">
-                                                <option disabled>Select one</option>
+                                                <option disabled>Pilih satu</option>
                                                 <option value="Pengunjung">Pengunjung</option>
                                                 <option value="Penulis">
                                                     Penulis</option>

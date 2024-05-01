@@ -164,7 +164,7 @@ $deleted = function (user $user) {
                                         <label for="role" class="form-label">Role</label>
                                         <select class="form-select @error('role') is-invalid @enderror" name="role"
                                             id="role">
-                                            <option disabled>Select one</option>
+                                            <option disabled>Pilih satu</option>
                                             <option {{ $user->role == 'Pengunjung' ? 'selected' : '' }}
                                                 value="Pengunjung">Pengunjung</option>
                                             <option {{ $user->role == 'Penulis' ? 'selected' : '' }} value="Penulis">

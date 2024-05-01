@@ -36,8 +36,10 @@ state([
                                 class="bx bx-command fs-6"></i></span>
                         <div class="d-flex flex-column ps-1">
                             <h6 class="alert-heading d-flex align-items-center fw-bold mb-1">Informasi Penting!</h6>
-                            <p class="m-0">- Jika iklan tidak memiliki tautan atau Link, gunakan tanda pagar (#) untuk mengisinya.</p>
-                            <p class="m-0">- Hindari mengunggah gambar iklan yang sama kecuali ada perubahan yang diperlukan.</p>
+                            <p class="m-0">- Jika iklan tidak memiliki tautan atau Link, gunakan tanda pagar (#) untuk
+                                mengisinya.</p>
+                            <p class="m-0">- Hindari mengunggah gambar iklan yang sama kecuali ada perubahan yang
+                                diperlukan.</p>
                             <p class="m-0">- Hanya
                                 iklan dengan tanggal berakhir yang masih berlaku yang akan ditampilkan.</p>
                         </div>
@@ -124,11 +126,11 @@ state([
                         </div>
                         <div class="row">
                             <div class="mb-3">
-                                <label for="position" class="form-label">position Iklan <strong
+                                <label for="position" class="form-label">Letak Iklan <strong
                                         class="text-danger">*</strong></label>
                                 <select class="form-select @error('position') is-invalid @enderror" name="position"
                                     id="position">
-                                    <option selected disabled>Select one</option>
+                                    <option selected disabled>Pilih satu</option>
                                     @foreach ($advertTypes as $key => $value)
                                         <option value="{{ $key }}"
                                             {{ old('position') == $key ? 'selected' : '' }}>

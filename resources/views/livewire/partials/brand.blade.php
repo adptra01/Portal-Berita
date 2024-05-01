@@ -62,7 +62,7 @@ state([
 
             <div class="d-lg-flex justify-content-between py-3">
                 <div class="small">
-                    <span class="text-muted">
+                    <span class="text-muted mb-3">
                         {{ $setting->copyright ?? '' }}
                     </span>
                 </div>

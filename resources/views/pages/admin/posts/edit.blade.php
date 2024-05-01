@@ -14,7 +14,7 @@
                 gambar tersebut.</span>
         </div>
     </div>
-    
+
     <div class="mb-3">
         <label for="" class="form-label">Judul Berita
             <span class="text-danger">*</span>
@@ -64,7 +64,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="keyword" class="form-label">Keyword
+        <label for="keyword" class="form-label">kata kunci
             <span class="text-danger">*</span>
         </label>
         <input id="input-tags" name="keyword[]" value="{{ $post->keyword }}" autocomplete="off"
@@ -84,7 +84,7 @@
         is-invalid
         @enderror" name="category_id"
                 id="category_id">
-                <option selected disabled>Select one</option>
+                <option selected disabled>Pilih satu</option>
                 @foreach ($categories as $category)
                     <option {{ $post->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">
                         {{ $category->name }}</option>
@@ -101,7 +101,7 @@
             <select class="@error('status')
         is-invalid
         @enderror" name="status" id="status">
-                <option selected disabled>Select one</option>
+                <option selected disabled>Pilih satu</option>
                 <option value="1" {{ $post->status == true ? 'selected' : '' }}>Terbit
                 </option>
                 <option value="0" {{ $post->status == false ? 'selected' : '' }}>Tidak

@@ -104,7 +104,7 @@ state([
                             is-invalid
                             @enderror"
                                     name="category_id" id="category_id">
-                                    <option selected disabled>Select one</option>
+                                    <option selected disabled>Pilih satu</option>
                                     @foreach ($categories as $category)
                                         <option {{ old('category_id') == $category->id ? 'selected' : '' }}
                                             value="{{ $category->id }}">{{ $category->name }}</option>
@@ -124,7 +124,7 @@ state([
                             is-invalid
                             @enderror"
                                     name="status" id="status">
-                                    <option selected disabled>Select one</option>
+                                    <option selected disabled>Pilih satu</option>
                                     <option value="1">Terbit</option>
                                     <option value="0">Tidak Terbit</option>
                                 </select>
