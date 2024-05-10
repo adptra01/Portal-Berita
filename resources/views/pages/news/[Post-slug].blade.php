@@ -19,7 +19,7 @@ mount(function () {
 
         $this->post = $post;
         $this->ogTitle = $post->title;
-        $this->ogDescription = Str::limit(strip_tags($post->content), 115, '...');
+        $this->ogDescription = Str::limit(strip_tags($post->content), 160, '...');
         $this->ogThumbnail = Storage::url($post->thumbnail);
     } else {
         return redirect('/');
@@ -36,9 +36,8 @@ mount(function () {
         <div>
             <x-seo-tags :title="$post->title" : description="$ogDescription" :keywords="$post->keyword" :ogTitle="$ogTitle"
                 :ogDescription="$ogDescription" :ogImage="$ogThumbnail" :ogimageAlt="$post->title" :twitterTitle="$post->title" :twitterDescription="$ogDescription" :twitterImage="$ogThumbnail"
-                :author="$post->user->name" :twitterCard="$ogDescription" :ogImageSecure="$ogThumbnail" :imageUrl="$ogThumbnail" :published_time="$post->created_at"
-                :modified_time="$post->updated_at" :twitterCreator="$post->user->name" :articleSection="$post->category->name" />
-
+                :author="$post->user->name" :twitterCard="$ogDescription" :ogImageSecure="$ogThumbnail" :published_time="$post->created_at" :modified_time="$post->updated_at"
+                :twitterCreator="$post->user->name" :articleSection="$post->category->name" :imageUrl="$ogThumbnail" />
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">

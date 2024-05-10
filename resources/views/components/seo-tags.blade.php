@@ -8,8 +8,7 @@
         'language' => 'id',
         'revisitAfter' => '7 days',
         'author' => $settings->title,
-        'keywords' =>
-            'berita terkini, informasi terbaru, highlight, topik hangat, pencerahan, diskusi, fakta menarik, inspiratif, pemikiran baru, kejutan, pembaruan',
+        'keywords',
         'ogUrl' => url()->current(),
         'ogType' => 'article, news, video, category, etc.',
         'articleSection' => 'article, news, video, category, etc.',
@@ -22,7 +21,6 @@
         'published_time' => now(),
         'modified_time' => now(),
         'imageUrl',
-
         'twitterCreator' => $settings->title,
         'twitterCard' => $settings->description,
         'twitterDomain' => url()->current(),
@@ -53,7 +51,8 @@
 
     <!-- Opengraph Here -->
     <meta property="og:url" content="{{ $ogUrl }}">
-    <meta name="keywords" content="{{ $keywords }}" />
+    <meta name="keywords"
+        content="berita terkini, informasi terbaru, golongan, topik hangat, muba, ogan, fakta menarik, ilir, pemikiran baru, palembang, pembaruan, banyuasin, lahat, lubuklinggat, muara muba, putra putri, sibanyu, banyu, sumatera, sumsel, jambi, indonesia, heboh, viral {{ $keywords }}" />
     <meta name="author" content="{{ $author }}" />
     <meta property="og:title" content="{{ $ogTitle }}" />
     <meta property="og:description" content="{{ $ogDescription }}" />
