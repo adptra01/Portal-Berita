@@ -40,9 +40,19 @@ mount(function () {
 
     @volt
         <div>
-            <x-seo-tags :title="'Kategori ' . $category->name . ' - Portal Berita Terkini Sibanyu'" :description="'Temukan berita terkini yang paling relevan dan menarik dari kategori ' .
-                $category->name .
-                ' di Portal Berita Terkini Sibanyu.'" :keywords="$keywords_string" />
+            <x-seo-tags :title="'Kategori ' . $category->name . ' - Portal Berita Terkini Sibanyu'"
+                :description="'Temukan berita terkini yang paling relevan dan menarik dari kategori ' .
+                              $category->name .
+                              ' di Portal Berita Terkini Sibanyu.'"
+                :keywords="$keywords_string"
+                :ogTitle="'Kategori ' . $category->name . ' - Portal Berita Terkini Sibanyu'"
+                :ogDescription="'Temukan berita terkini yang paling relevan dan menarik dari kategori ' .
+                                $category->name .
+                                ' di Portal Berita Terkini Sibanyu.'"
+                                :articleSection="$category->name" />
+                                :
+
+                                 />
 
             <div class="container">
                 <livewire:partials.trending-tittle>
@@ -51,45 +61,47 @@ mount(function () {
             <div class="container ">
                 <h4 class="widget_title mb-2 fw-bold text-capitalize">Trending {{ $category->name }}
                 </h4>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card border-0">
-                            <a href="">
-                                <img alt="{{ $top_five_posts->first()->title }}" class="img-fluid rounded"
-                                    src="{{ Storage::url($top_five_posts->first()->thumbnail) }}" loading="lazy"></a>
-                            <div class="card-body px-0">
-                                <h3 class="fw-semibold my-2">
-                                    <a class="text-decoration-none text-dark"
-                                        href="{{ route('news.read', ['post' => $top_five_posts->first()->slug]) }}">{{ $top_five_posts->first()->title }}</a>
-                                </h3>
-                                <p>{!! Str::limit($top_five_posts->first()->content, 250, '...') !!}</p>
+                @if ($top_five_posts->count() > 0)
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-0">
+                                <a href="{{ route('news.read', ['post' => $top_five_posts->first()->slug]) }}">{{ $top_five_posts->first()->title }}">
+                                    <img alt="{{ $top_five_posts->first()->title }}" class="img-fluid rounded"
+                                        src="{{ Storage::url($top_five_posts->first()->thumbnail) }}" loading="lazy"></a>
+                                <div class="card-body px-0">
+                                    <h3 class="fw-semibold my-2">
+                                        <a class="text-decoration-none text-dark"
+                                            href="{{ route('news.read', ['post' => $top_five_posts->first()->slug]) }}">{{ $top_five_posts->first()->title }}</a>
+                                    </h3>
+                                    <p>{!! Str::limit($top_five_posts->first()->content, 250, '...') !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 trending-main border-0">
+                            <div class="row trending-bottom">
+                                @foreach ($top_five_posts->skip(1) as $post)
+                                    <div class="col-6">
+                                        <div class="single-bottom mb-35">
+                                            <div class="trend-bottom-img mb-30">
+                                                <img src="{{ Storage::url($post->thumbnail) }}"
+                                                    alt="{{ $post->alt ?? $post->title }}" loading="lazy"
+                                                    class="object-fit-cover" height="170px">
+                                            </div>
+                                            <div class="trend-bottom-cap">
+                                                <h4 class="text-break">
+                                                    <a href="{{ route('news.read', ['post' => $post->slug]) }}"
+                                                        class="fw-semibold">{{ $post->title }}</a>
+                                                </h4>
+                                                <p>{{ $post->created_at->format('d M Y') }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 trending-main border-0">
-                        <div class="row trending-bottom">
-                            @foreach ($top_five_posts->skip(1) as $post)
-                                <div class="col-6">
-                                    <div class="single-bottom mb-35">
-                                        <div class="trend-bottom-img mb-30">
-                                            <img src="{{ Storage::url($post->thumbnail) }}"
-                                                alt="{{ $post->alt ?? $post->title }}" loading="lazy"
-                                                class="object-fit-cover" height="170px">
-                                        </div>
-                                        <div class="trend-bottom-cap">
-                                            <h4 class="text-break">
-                                                <a href="{{ route('news.read', ['post' => $post->slug]) }}"
-                                                    class="fw-semibold">{{ $post->title }}</a>
-                                            </h4>
-                                            <p>{{ $post->created_at->format('d M Y') }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                </div>
+                @endif
             </div>
 
 

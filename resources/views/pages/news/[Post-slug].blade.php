@@ -7,20 +7,20 @@ use App\Models\Post;
 
 name('news.read');
 
-state(['post', 'description']);
+state(['post', 'ogTitle', 'ogDescription', 'ogThumbnail']);
 
 mount(function () {
     $post = Post::with('user')
         ->active()
-        ->select('id', 'title', 'slug', 'content', 'thumbnail', 'created_at', 'viewer', 'user_id', 'keyword', 'alt')
         ->find($this->post->id);
-
-    $this->description = Str::limit($post->content, 100, '...');
 
     if ($post) {
         Post::where('id', $this->post->id)->increment('viewer');
 
         $this->post = $post;
+        $this->ogTitle = $post->title;
+        $this->ogDescription = Str::limit(strip_tags($post->content), 115, '...');
+        $this->ogThumbnail = Storage::url($post->thumbnail);
     } else {
         return redirect('/');
     }
@@ -34,10 +34,15 @@ mount(function () {
 
     @volt
         <div>
-            <x-seo-tags :title="$post->title" :description="$description" :keywords="$post->keyword" />
+            <x-seo-tags :title="$post->title" : description="$ogDescription" :keywords="$post->keyword" :ogTitle="$ogTitle"
+                :ogDescription="$ogDescription" :ogImage="$ogThumbnail" :ogimageAlt="$post->title" :twitterTitle="$post->title" :twitterDescription="$ogDescription" :twitterImage="$ogThumbnail"
+                :author="$post->user->name" :twitterCard="$ogDescription" :ogImageSecure="$ogThumbnail" :published_time="$post->created_at" :modified_time="$post->updated_at"
+                :twitterCreator="$post->user->name" :articleSection="$post->category->name" />
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">
+                    {{-- {{ $ogTitle }}
+                    {{ $ogDescription }} --}}
                     <!-- Hot Aimated News Tittle-->
                     <div class="container">
                         <livewire:partials.trending-tittle>
@@ -59,7 +64,7 @@ mount(function () {
                                             <div class="feature-img mb-3">
                                                 <img class="img-fluid w-100" src="{{ Storage::url($post->thumbnail) }}"
                                                     alt="{{ $post->alt ?? $post->title }}" loading="lazy">
-                                                <p style="font-size: 10px">{{ $post->alt ?? '' }}</p>
+                                                <p style="font-size: 10px;line-height: normal;">{{ $post->alt ?? '' }}</p>
                                             </div>
                                             <div class="ck-content">
                                                 {!! $post->content !!}
