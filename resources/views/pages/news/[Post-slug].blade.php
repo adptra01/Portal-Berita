@@ -36,13 +36,12 @@ mount(function () {
         <div>
             <x-seo-tags :title="$post->title" : description="$ogDescription" :keywords="$post->keyword" :ogTitle="$ogTitle"
                 :ogDescription="$ogDescription" :ogImage="$ogThumbnail" :ogimageAlt="$post->title" :twitterTitle="$post->title" :twitterDescription="$ogDescription" :twitterImage="$ogThumbnail"
-                :author="$post->user->name" :twitterCard="$ogDescription" :ogImageSecure="$ogThumbnail" :published_time="$post->created_at" :modified_time="$post->updated_at"
-                :twitterCreator="$post->user->name" :articleSection="$post->category->name" />
+                :author="$post->user->name" :twitterCard="$ogDescription" :ogImageSecure="$ogThumbnail" :imageUrl="$ogThumbnail" :published_time="$post->created_at"
+                :modified_time="$post->updated_at" :twitterCreator="$post->user->name" :articleSection="$post->category->name" />
+
             <!-- About US Start -->
             <div class="about-area">
                 <div class="container-fluid">
-                    {{-- {{ $ogTitle }}
-                    {{ $ogDescription }} --}}
                     <!-- Hot Aimated News Tittle-->
                     <div class="container">
                         <livewire:partials.trending-tittle>

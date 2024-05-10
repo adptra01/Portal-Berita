@@ -1,7 +1,7 @@
 @section('seo')
     @props([
         'title' => $settings->title,
-        'favicon' => Storage::url($settings->logo),
+        'favicon' => Storage::url($settings->icon),
         'canonical' => url()->current(),
         'description' => $settings->description,
         'robots' => 'index,follow',
@@ -11,18 +11,19 @@
         'keywords' =>
             'berita terkini, informasi terbaru, highlight, topik hangat, pencerahan, diskusi, fakta menarik, inspiratif, pemikiran baru, kejutan, pembaruan',
         'ogUrl' => url()->current(),
+        'ogType' => 'article, news, video, category, etc.',
+        'articleSection' => 'article, news, video, category, etc.',
         'ogTitle' => $settings->title,
         'ogDescription' => $settings->description,
         'ogSiteName' => $settings->title,
-        'ogType' => 'article',
         'ogImage' => Storage::url($settings->logo),
         'ogimageAlt' => $settings->title,
         'ogImageSecure' => Storage::url($settings->logo),
         'published_time' => now(),
         'modified_time' => now(),
-        'twitterCreator' => $settings->title,
-        'articleSection' => 'article',
+        'imageUrl',
 
+        'twitterCreator' => $settings->title,
         'twitterCard' => $settings->description,
         'twitterDomain' => url()->current(),
         'twitterUrl' => url()->current(),
@@ -60,6 +61,7 @@
     <meta property="og:type" content="{{ $ogType }}">
 
     <meta property="og:image" content="{{ asset($ogImage) }}">
+    <meta property="og:image:url" content="{{ asset($ogImage) }}">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:alt" content="{{ $ogimageAlt }}">
     <meta property=”og:image:width” content=”180″ />
