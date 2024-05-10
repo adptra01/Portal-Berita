@@ -15,3 +15,6 @@ jobs:
         username: u484476812.sibanyu_secret
         password: 2UfS2kgKU$XDqgQ
         server-dir: /home/u484476812/domains/sibanyu.com/sibanyu/
+        port: 21
+        ip: ftp://156.67.75.59
+        host: ftp.sibanyu.com
