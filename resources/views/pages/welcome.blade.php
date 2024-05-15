@@ -8,16 +8,13 @@ use Illuminate\Support\Facades\Cache;
 state(['trending', 'categories', 'weeklyTopNews', 'latestNews']);
 
 mount(function () {
-    $this->categories = Cache::remember('categories', now()->addMinutes(60), function () {
-        return Category::with([
-            'posts' => function ($query) {
-                $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');
-            },
-        ])
-            ->limit(5)
-            ->select('id', 'name', 'slug')
-            ->get();
-    });
+    $this->categories = Category::with([
+        'posts' => function ($query) {
+            $query->latest()->select('slug', 'title', 'thumbnail', 'category_id');
+        },
+    ])
+        ->select('id', 'name', 'slug')
+        ->get();
 
     $this->weeklyTopNews = Cache::remember('weekly_top_news', now()->addMinutes(60), function () {
         return Post::with('category')
@@ -28,9 +25,11 @@ mount(function () {
             ->get();
     });
 
-    $this->latestNews = Cache::remember('latest_news', now()->addMinutes(60), function () {
-        return Post::with('category')->where('status', true)->latest()->limit(6)->get();
-    });
+    $this->latestNews = Post::with('category')->where('status', true)->latest()->limit(6)->get();
+
+    // $this->latestNews = Cache::remember('latest_news', now()->addMinutes(60), function () {
+    //     return Post::with('category')->where('status', true)->latest()->limit(6)->get();
+    // });
 
     $this->trending = Cache::remember('trending_posts', now()->addMinutes(60), function () {
         return Post::with('category')->orderByDesc('viewer')->where('status', true)->select('slug', 'title', 'thumbnail', 'category_id')->get();
@@ -78,48 +77,11 @@ mount(function () {
                                 @endif
 
                                 <!-- Trending Bottom -->
-                                <div class="trending-bottom">
-                                    <div class="row">
-                                        @foreach ($this->trending->skip(1)->take(3) as $item)
-                                            <div class="col-lg-4">
-                                                <div class="single-bottom mb-35">
-                                                    <div class="trend-bottom-img mb-30">
-                                                        <img src="{{ Storage::url($item->thumbnail) }}" loading="lazy"
-                                                            alt="{{ $item->title }}" class="object-fit-cover"
-                                                            style="min-height: 160px;">
-                                                    </div>
-                                                    <div class="trend-bottom-cap">
-                                                        <span
-                                                            class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                                        <h4 class="text-break">
-                                                            <a
-                                                                href="{{ route('news.read', ['post' => $item->slug]) }}">{{ Str::limit($item->title, 70, ' ...') }}</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
+                                @include('layouts.welcome.bottom')
                             </div>
-                            <!-- Riht content -->
+                            <!-- Trending Right -->
                             <div class="col-lg-4">
-                                @foreach ($this->trending->skip(4)->take(4) as $item)
-                                    <div class="trand-right-single d-flex">
-                                        <div class="trand-right-img">
-                                            <img src="{{ Storage::url($item->thumbnail) }}" class="object-fit-cover"
-                                                style="min-height: 95px; width: 150px" loading="lazy"
-                                                alt="{{ $item->title }}">
-                                        </div>
-                                        <div class="trand-right-cap">
-                                            <span class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                            <h4 class="text-break">
-                                                <a
-                                                    href="{{ route('news.read', ['post' => $item->slug]) }}">{{ Str::limit($item->title, 70, ' ...') }}</a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                @endforeach
+                                @include('layouts.welcome.right')
                             </div>
                         </div>
                     </div>
@@ -180,23 +142,8 @@ mount(function () {
                         <div class="row">
                             <div class="col-12">
                                 <div class="weekly2-news-active dot-style d-flex dot-style">
-                                    @foreach ($this->latestNews as $item)
-                                        <div class="weekly2-single">
-                                            <div class="weekly2-img">
-                                                <img src="{{ Storage::url($item->thumbnail) }}" alt="{{ $item->title }}"
-                                                    loading="lazy" class="object-fit-cover" style="height: 200px;">
-                                            </div>
-                                            <div class="weekly2-caption">
-                                                <span
-                                                    class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                                <p>{{ $item->created_at->format('d M Y') }}</p>
-                                                <h4 class="text-break">
-                                                    <a
-                                                        href="{{ route('news.read', ['post' => $item->slug]) }}">{{ Str::limit($item->title, 70, ' ...') }}</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    @endforeach
+                                    <!-- latestNews -->
+                                    @include('layouts.welcome.latestNews')
                                 </div>
                             </div>
                         </div>
@@ -238,7 +185,7 @@ mount(function () {
 
                                                     <div class="whats-news-caption">
                                                         <div class="row">
-                                                            @foreach ($category->posts->take(8) as $item)
+                                                            @foreach ($category->posts->take(4) as $item)
                                                                 <div class="col-lg-6 col-md-6 mb-3">
                                                                     <div class="single-what-news mb-100">
                                                                         <div class="what-img">
@@ -264,12 +211,11 @@ mount(function () {
                                             @endforeach
                                         </div>
                                         <!-- End Nav Card -->
-                                        <a href="{{ route('categories.index') }}" class="mb-5">
-                                            <span
-                                                class="d-flex justify-content-center text-primary fw-bold fs-6 my-auto">Lihat
-                                                Kategori
-                                                Lainnya...</span>
-                                        </a>
+                                        <div class="text-center">
+                                            <a href="{{ route('categories.index') }}" class="mb-5 btn btn-primary">
+                                                Lihat Kategori Lainnya...
+                                            </a>
+                                        </div>
 
                                         <div class="d-none d-lg-block p-5">
                                             @livewire('adverts.bottom')

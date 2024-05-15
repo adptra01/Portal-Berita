@@ -2,144 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://localhost/welcome</loc>
-        <lastmod>2024-04-29T00:00:00+07:00</lastmod>
+        <lastmod>2024-05-14T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://localhost/news/about-us</loc>
-        <lastmod>2024-04-29T00:00:00+07:00</lastmod>
+        <lastmod>2024-05-14T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/advert</loc>
-        <lastmod>2024-04-29T00:00:00+07:00</lastmod>
+        <lastmod>2024-05-14T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/all-post</loc>
-        <lastmod>2024-04-29T00:00:00+07:00</lastmod>
+        <lastmod>2024-05-14T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/categories</loc>
-        <lastmod>2024-04-29T00:00:00+07:00</lastmod>
+        <lastmod>2024-05-14T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/news/contact</loc>
-        <lastmod>2024-04-29T00:00:00+07:00</lastmod>
+        <lastmod>2024-05-14T00:00:00+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/erick-sebut-pssi-perpanjang-kontrak-sty-sesuai-peta-jalan-timnas-Xk</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/erick-thohir-lanjutkan-kerja-sama-dengan-sty-untuk-timnas-hingga-2027-Ow</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/klasemen-liga-inggris-liverpool-gagal-kejar-arsenal-mu-jauhi-newcastle-Sy</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/peluang-juara-liverpool-makin-kecil-usai-kalah-0-2-oleh-everton-h6</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/dua-gol-di-pengujung-laga-menangkan-mu-atas-sheffield-4-2-pb</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/kemenangan-dramatis-atas-fiorentina-antar-atalanta-ke-final-8P</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/rangnick-konfirmasi-lakukan-pembicaraan-dengan-bayern-muenchen-C7</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/xavi-dikabarkan-berubah-pikiran-dan-akan-bertahan-di-barcelona-Ws</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/yokohama-taklukkan-ulsan-untuk-mencapai-final-liga-champions-asia-93</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/persik-ditahan-imbang-pss-sleman-4-4-9a</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/hadapi-korsel-di-perempat-final-indonesia-bidik-olimpiade-paris-2024-zk</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/suporter-ricuh-saat-pertandingan-persik-kediri-lawan-pss-sleman-JL</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/munster-siap-lakukan-perubahan-untuk-laga-terakhir-hadapi-persebaya-z1</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/persik-kediri-ditahan-imbang-pss-sleman-4S</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/wapres-berharap-garuda-muda-tampil-penuh-percaya-diri-hadapi-korsel-mj</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/psm-waspadai-kebangkitan-arema-L2</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/rizky-ridho-senang-dengan-kembalinya-nathan-ke-timnas-u-23-Tr</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/pelatih-bali-united-sebut-sudah-pahami-karakter-permainan-persebaya-IH</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/iker-muniain-akan-tinggalkan-bilbao-setelah-15-tahun-bela-klub-qm</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/munster-akui-persebaya-kalah-mental-saat-dibungkam-bali-united-dZ</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-            </url>
-    <url>
-        <loc>http://localhost/news/post/omnis-cupiditate-eni-OL</loc>
-            <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
             </url>
     <url>
         <loc>http://localhost/news/category/hukum</loc>
