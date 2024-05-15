@@ -25,11 +25,9 @@ mount(function () {
             ->get();
     });
 
-    $this->latestNews = Post::with('category')->where('status', true)->latest()->limit(6)->get();
-
-    // $this->latestNews = Cache::remember('latest_news', now()->addMinutes(60), function () {
-    //     return Post::with('category')->where('status', true)->latest()->limit(6)->get();
-    // });
+    $this->latestNews = Cache::remember('latest_news', now()->addMinutes(60), function () {
+        return Post::with('category')->where('status', true)->latest()->limit(6)->get();
+    });
 
     $this->trending = Cache::remember('trending_posts', now()->addMinutes(60), function () {
         return Post::with('category')->orderByDesc('viewer')->where('status', true)->select('slug', 'title', 'thumbnail', 'category_id')->get();
@@ -103,22 +101,7 @@ mount(function () {
                         <div class="row">
                             <div class="col-12">
                                 <div class="weekly-news-active dot-style d-flex dot-style">
-                                    @foreach ($this->weeklyTopNews as $no => $item)
-                                        <div class="weekly-single">
-                                            <div class="weekly-img">
-                                                <img src="{{ Storage::url($item->thumbnail) }}" alt="{{ $item->title }}"
-                                                    loading="lazy" class="object-fit-cover" style="height: 250px;">
-                                            </div>
-                                            <div class="weekly-caption">
-                                                <span
-                                                    class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                                <h4 class="text-break">
-                                                    <a
-                                                        href="{{ route('news.read', ['post' => $item->slug]) }}">{{ Str::limit($item->title, 70, ' ...') }}</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    @endforeach
+                                    @include('layouts.welcome.weeklyTopNews')
                                 </div>
                             </div>
                         </div>
@@ -140,12 +123,14 @@ mount(function () {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <div class="weekly2-news-active dot-style d-flex dot-style">
-                                    <!-- latestNews -->
-                                    @include('layouts.welcome.latestNews')
+                            @if ($this->latestNews)
+                                <div class="col-12">
+                                    <div class="weekly2-news-active dot-style d-flex dot-style">
+                                        <!-- latestNews -->
+                                        @include('layouts.welcome.latestNews')
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -178,37 +163,8 @@ mount(function () {
                                         <!-- Nav Card -->
                                         <div class="tab-content" id="pills-tabContent">
 
-                                            @foreach ($this->categories as $category)
-                                                <div class="tab-pane fade show {{ $loop->first ? 'show active' : '' }}"
-                                                    id="pills-{{ $category->slug }}" role="tabpanel"
-                                                    aria-labelledby="pills-{{ $category->slug }}-tab" tabindex="0">
+                                            @include('layouts.welcome.categories')
 
-                                                    <div class="whats-news-caption">
-                                                        <div class="row">
-                                                            @foreach ($category->posts->take(4) as $item)
-                                                                <div class="col-lg-6 col-md-6 mb-3">
-                                                                    <div class="single-what-news mb-100">
-                                                                        <div class="what-img">
-                                                                            <img src="{{ Storage::url($item->thumbnail) }}"
-                                                                                alt="{{ $item->title }}" loading="lazy"
-                                                                                class="object-fit-cover"
-                                                                                style="height: 250px;">
-                                                                        </div>
-                                                                        <div class="what-cap">
-                                                                            <span
-                                                                                class="bg-primary text-white rounded">{{ $item->category->name }}</span>
-                                                                            <h4 class="text-break">
-                                                                                <a
-                                                                                    href="{{ route('news.read', ['post' => $item->slug]) }}">{{ Str::limit($item->title, 70, ' ...') }}</a>
-                                                                            </h4>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endforeach
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
                                         </div>
                                         <!-- End Nav Card -->
                                         <div class="text-center">
