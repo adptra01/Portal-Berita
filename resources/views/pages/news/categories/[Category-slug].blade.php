@@ -50,9 +50,7 @@ mount(function () {
                                 $category->name .
                                 ' di Portal Berita Terkini Sibanyu.'"
                                 :articleSection="$category->name" />
-                                :
-
-                                 />
+                                
 
             <div class="container">
                 <livewire:partials.trending-tittle>
