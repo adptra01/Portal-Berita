@@ -50,7 +50,7 @@ mount(function () {
                                 $category->name .
                                 ' di Portal Berita Terkini Sibanyu.'"
                                 :articleSection="$category->name" />
-                                
+
 
             <div class="container">
                 <livewire:partials.trending-tittle>
@@ -65,7 +65,7 @@ mount(function () {
                             <div class="card border-0">
                                 <a href="{{ route('news.read', ['post' => $top_five_posts->first()->slug]) }}">{{ $top_five_posts->first()->title }}">
                                     <img alt="{{ $top_five_posts->first()->title }}" class="img-fluid rounded"
-                                        src="{{ Storage::url($top_five_posts->first()->thumbnail) }}" loading="lazy"></a>
+                                        src="{{ Storage::url($top_five_posts->first()->thumbnail) }}" loading="lazy" style="object-fit: cover; width: 100%;height: 450px"></a>
                                 <div class="card-body px-0">
                                     <h3 class="fw-semibold my-2">
                                         <a class="text-decoration-none text-dark"
